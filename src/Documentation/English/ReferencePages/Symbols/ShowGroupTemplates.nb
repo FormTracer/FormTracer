@@ -1,0 +1,488 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15473,        478]
+NotebookOptionsPosition[     12712,        398]
+NotebookOutlinePosition[     14811,        454]
+CellTagsIndexPosition[     14726,        449]
+WindowTitle->ShowGroupTemplates
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"DefineGroupTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineGroupTensors"], "\<\"ShowGroupConstants\"\
+\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/ShowGroupConstants"], \
+"\<\"ClearGroupTensors\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/ClearGroupTensors"], "\<\"GenericGroup\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GenericGroup"], "\<\"SUNfund\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/SUNfund"], "\<\"SONfund\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/SONfund"], "\<\"SPNfund\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/SPNfund"], "\<\"SU2fundexplicit\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/SU2fundexplicit"], "\<\"SU3fundexplicit\"\>":>
+       Documentation`HelpLookup["paclet:FormTracer/ref/SU3fundexplicit"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"FormTracer/ref/ShowGroupTemplates\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/ShowGroupTemplates"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+ShowGroupTemplates.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$34832], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/ShowGroupTemplates", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["ShowGroupTemplates", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"ShowGroupTemplates", "[", "]"}]], "InlineFormula"],
+     "\[LineSeparator]shows group templates that can be used in ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["DefineGroupTensors"]],
+        "paclet:FormTracer/ref/DefineGroupTensors"},
+       "RefLink",
+       BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+     "."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->182767860],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->196857296],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowGroupTemplates", "[", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1242455213],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["NR",
+       HoldForm], 
+      TagBox["cR",
+       HoldForm], 
+      TagBox["NA",
+       HoldForm], 
+      TagBox["cA",
+       HoldForm], 
+      TagBox["I2R",
+       HoldForm], 
+      TagBox["\<\"algorithm(header)\"\>",
+       HoldForm]},
+     {
+      TagBox["GenericGroup",
+       HoldForm], "NR", "cR", "NA", "cA", "I2R", "\<\"color(color.h)\"\>"},
+     {
+      TagBox["SUNfund",
+       HoldForm], "NR", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["NR", "2"]}], 
+       RowBox[{"2", " ", "NR"}]], 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["NR", "2"]}], "NR", 
+      FractionBox["1", "2"], "\<\"SUNfund(special_color.h)\"\>"},
+     {
+      TagBox["SONfund",
+       HoldForm], "NR", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "NR"}], ")"}]}], 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "NR"}], ")"}], " ", "NR"}], 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", "NR"}], 
+      "1", "\<\"SONfund(special_color.h)\"\>"},
+     {
+      TagBox["SPNfund",
+       HoldForm], "NR", 
+      FractionBox[
+       RowBox[{"1", "+", "NR"}], "4"], 
+      RowBox[{
+       FractionBox["1", "2"], " ", "NR", " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", "NR"}], ")"}]}], 
+      FractionBox[
+       RowBox[{"2", "+", "NR"}], "2"], 
+      FractionBox["1", "2"], "\<\"SPNfund(special_color.h)\"\>"},
+     {
+      TagBox["SU2fundexplicit",
+       HoldForm], "2", 
+      FractionBox["3", "4"], "3", "2", 
+      FractionBox["1", "2"], "\<\"SU2fundexplicit(special_color.h)\"\>"},
+     {
+      TagBox["SU3fundexplicit",
+       HoldForm], "3", 
+      FractionBox["4", "3"], "8", "3", 
+      FractionBox["1", "2"], "\<\"SU3fundexplicit(special_color.h)\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[1.2]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{
+      FormTracer`GenericGroup, FormTracer`SUNfund, FormTracer`SONfund, 
+       FormTracer`SPNfund, FormTracer`SU2fundexplicit, 
+       FormTracer`SU3fundexplicit}, {$CellContext`NR, $CellContext`cR, \
+$CellContext`NA, $CellContext`cA, $CellContext`I2R, "algorithm(header)"}}, 
+    TableSpacing -> {3, 3}]]]], "Output",
+ ImageSize->{803, 249},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]//TableForm=",
+ CellID->964339978]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineGroupTensors"]],
+    "paclet:FormTracer/ref/DefineGroupTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ShowGroupConstants"]],
+    "paclet:FormTracer/ref/ShowGroupConstants"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ClearGroupTensors"]],"paclet:FormTracer/ref/ClearGroupTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GenericGroup"]],"paclet:FormTracer/ref/GenericGroup"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SUNfund"]],"paclet:FormTracer/ref/SUNfund"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SONfund"]],"paclet:FormTracer/ref/SONfund"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SPNfund"]],"paclet:FormTracer/ref/SPNfund"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SU2fundexplicit"]],"paclet:FormTracer/ref/SU2fundexplicit"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["SU3fundexplicit"]],"paclet:FormTracer/ref/SU3fundexplicit"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"ShowGroupTemplates",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 42, 39.346006}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
+    "FormTracer Package", "status" -> "None", "summary" -> 
+    "ShowGroupTemplates[] shows group templates that can be used in \
+DefineGroupTensors.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "ShowGroupTemplates", "titlemodifier" -> "", "windowtitle" -> 
+    "ShowGroupTemplates", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/ShowGroupTemplates"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[5418, 147, 387, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->182767860]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 14583, 442}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[590, 21, 3906, 90, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4499, 113, 295, 11, 43, "ObjectNameGrid"],
+Cell[4797, 126, 596, 17, 87, "Usage"],
+Cell[CellGroupData[{
+Cell[5418, 147, 387, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->182767860],
+Cell[CellGroupData[{
+Cell[5830, 166, 195, 6, 25, "ExampleSection",
+ CellID->196857296],
+Cell[CellGroupData[{
+Cell[6050, 176, 110, 3, 28, "Input",
+ CellID->1242455213],
+Cell[6163, 181, 3195, 99, 283, "Output",
+ CellID->964339978]
+}, Open  ]]
+}, Open  ]],
+Cell[9385, 284, 31, 0, 29, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9453, 289, 270, 12, 29, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[9726, 303, 2944, 90, 79, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[12685, 396, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

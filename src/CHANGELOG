@@ -1,0 +1,61 @@
+(**************************************************)
+(************* FormTracer Changelog ***************)
+(**************************************************)
+
+
+(***********) FormTracer Version 1.9.6 (***********)
+- Removed unnecessary summation over diagrams (D=+D1;) in case of just one diagram (increases performance).
+
+
+(***********) FormTracer Version 1.9.5 (***********)
+- Bugfix for installer under MacOS in combination with Mathematica 10.
+- Some minor updates to documentation
+
+
+(***********) FormTracer Version 1.9.4 (***********)
+- Minor improvements to update functions.
+- Commented out Cygwin[] because it's not used (but might be in the future).
+
+
+(***********) FormTracer Version 1.9.3 (***********)
+- Simple download of cygwin1.ddl from http://www.thphys.uni-heidelberg.de/~cyrol/downloads/cygwin1.dll
+- Bugfix in InstallCygwin[].
+
+
+(***********) FormTracer Version 1.9.2 (***********)
+- Added - sign after #include of group algorithms to avoid them being re-printed.
+- Support for Windows systems in installer.
+- InstallCygwin[] introduced for Windows systems.
+
+
+(***********) FormTracer Version 1.9.1 (***********)
+- Bugfix in ShowFormTracerChangeLog (if online version not found, i.e. local version was to be shown).
+- Fixed declaration issue with SU3fundexplicit in case no color group was defined.
+- Fixed Mathematica replacements for sqrt_ and pow.
+
+
+(***********) FormTracer Version 1.9.0 (***********)
+- Solved DisableDynamicUpdating issue by using RunProcess (instead of Import["!form..."]) to call FORM. This way the shell is circumvented and everything works smoothly. The FormTracer might even be faster now.
+- FormTracer version number is now read off form PacletInfo.m (no duplicate storage any longer)
+- Resolution of finite T numerical factors in momenta now only takes place if T>0 and combined Lorentz tensors are present, otherwise it is not necessary.
+- Warning note for Windows users.
+- Incombatibility warning for Mathematica version < 10 users.
+- Bugfix: DefineExtraVars[] did not clear extra variables (but DefineExtraVars[{}] did).
+
+
+(***********) FormTracer Version 1.8.5 (***********)
+- Proper documentation of the FormTracer in Mathematica's Documentation Center.
+- Removed C specific export code from "flow" file if output format is not C.
+- Bugfix: removed _String from filename argument in FormTrace to allow passing of lists for more detailed export options.
+
+
+(***********) FormTracer Version 1.8.1 (***********)
+- Bugfix: formTracerDirectory was not set correctly if the FormTracer was installed in the system-wide applications directory.
+- Removed outdated argument genuineLorIndices from convertPartiallyTracedOutput.
+- Minor changes to documentation in FormTracer.nb.
+
+
+(***********) FormTracer Version 1.8.0 (***********)
+- First version that has the full functionality for first publication with no known bugs.
+- Documentation not yet integrated into Mathematica's Documentation Center.
+

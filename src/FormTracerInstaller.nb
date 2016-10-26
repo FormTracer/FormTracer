@@ -1,0 +1,441 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17493,        433]
+NotebookOptionsPosition[     16555,        396]
+NotebookOutlinePosition[     16920,        412]
+CellTagsIndexPosition[     16877,        409]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["FormTracer Installer", "Title",
+ CellChangeTimes->{{3.6788616483003273`*^9, 3.67886165240134*^9}}],
+
+Cell["\<\
+Simply evaluate Import[path to FormTracerInstaller.m] to install the \
+FormTracer.\
+\>", "Text",
+ CellChangeTimes->{{3.678866493571577*^9, 3.6788666332260723`*^9}, {
+  3.6788708857200613`*^9, 3.678870898831318*^9}, {3.685772387203434*^9, 
+  3.685772429442734*^9}, {3.6860355406802807`*^9, 3.686035542405549*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["License", "Section"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  "\"\<\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. \
+Pawlowski and Nils Strodthoff.\nThis program is free software: you can \
+redistribute it and/or modify\nit under the terms of the GNU General Public \
+License as published by\nthe Free Software Foundation, either version 3 of \
+the License, or\n(at your option) any later version.\n\nThis program is \
+distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; \
+without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A \
+PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\n\
+You should have received a copy of the GNU General Public License\nalong with \
+this program.  If not, see <http://www.gnu.org/licenses/>.\n\>\"", 
+  "*)"}]], "Input",
+ InitializationCell->True]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Installer", "Section",
+ CellChangeTimes->{{3.678870905905816*^9, 3.678870907337331*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"formTracerInstaller", "::", "allowinternetuse"}], "=", 
+   "\"\<You have forbidden Mathematica to access the internet. Either allow \
+Mathematica to access the internet or download the FormTracer from \
+https://github.com/FormTracer/FormTracer manually.\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"Not", "[", 
+     RowBox[{"\"\<AllowInternetUse\>\"", " ", "/.", " ", 
+      RowBox[{"SystemInformation", "[", "\"\<Network\>\"", "]"}]}], "]"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Message", "[", 
+      RowBox[{"formTracerInstaller", "::", "allowinternetuse"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Abort", "[", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6857862308070498`*^9, 3.685786249072494*^9}, {
+  3.6857863230690413`*^9, 3.685786486171*^9}, {3.686028571598321*^9, 
+  3.6860285870993147`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"just", " ", "for", " ", "backwards", " ", "compatibility"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{"Context", "[", "URLDownload", "]"}], "]"}], "=!=", 
+      "\"\<System`\>\""}], ",", 
+     RowBox[{"URLDownload", "=", "URLSave"}]}], "]"}], ";"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.683625513918757*^9, 3.683625551125905*^9}, 
+   3.683628618374597*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "formTracerRepositoryAddress", "=", 
+   "\"\<https://raw.githubusercontent.com/FormTracer/FormTracer/master/\>\""}]\
+, ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.682160164120816*^9, 3.682160192064221*^9}, 
+   3.682165239944824*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Head", "[", "formTracerZipLocation", "]"}], "=!=", "String"}], 
+    ",", 
+    RowBox[{"formTracerZipLocation", "=", 
+     RowBox[{
+     "formTracerRepositoryAddress", "<>", "\"\<FormTracer.zip\>\""}]}]}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerInstallDir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$UserBaseDirectory", ",", "\"\<Applications\>\""}], "}"}], 
+    "]"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.67886181121563*^9, 3.678861811438501*^9}, {
+   3.6788619832011633`*^9, 3.678861983831929*^9}, {3.67886290624669*^9, 
+   3.678862908240137*^9}, {3.678864005758239*^9, 3.678864008668912*^9}, {
+   3.6788647926021013`*^9, 3.678864792817832*^9}, {3.678865052532317*^9, 
+   3.6788650680727587`*^9}, {3.678866254978908*^9, 3.678866255245467*^9}, {
+   3.678866320419773*^9, 3.678866320600637*^9}, {3.678866385382807*^9, 
+   3.678866432121202*^9}, {3.678891338232027*^9, 3.678891353457758*^9}, 
+   3.678891882736649*^9, {3.681118524165884*^9, 3.681118535054017*^9}, 
+   3.68112064794024*^9, {3.68112103642728*^9, 3.681121038476582*^9}, {
+   3.681121069878681*^9, 3.68112109295817*^9}, {3.682160074367277*^9, 
+   3.682160091730196*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"formTracerInstaller", "::", "zipdownloadfailed"}], "=", 
+   RowBox[{
+   "\"\<Download from \>\"", "<>", "formTracerZipLocation", "<>", 
+    "\"\< failed.\>\""}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"formTracerInstaller", "::", "installationfailed"}], "=", 
+    "\"\<\\nInstallation failed. Please read the error messages for more \
+information!\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerArchive", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"$TemporaryDirectory", ",", "\"\<FormTracer.zip\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"URLDownload", "[", 
+   RowBox[{"formTracerZipLocation", ",", "formTracerArchive"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmpFormTracerImport", "=", 
+   RowBox[{"Import", "[", "formTracerArchive", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "tmpFormTracerImport", "===", 
+       "\"\<{\\\"error\\\":\\\"Not Found\\\"}\>\""}], "||", 
+      RowBox[{"tmpFormTracerImport", "===", "\"\<404: Not Found\>\""}]}], ",", 
+     RowBox[{
+      RowBox[{"Message", "[", 
+       RowBox[{"formTracerInstaller", "::", "zipdownloadfailed"}], "]"}], ";", 
+      RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"newVersionString", "=", 
+   RowBox[{"Version", "/.", 
+    RowBox[{"List", "@@", 
+     RowBox[{"Import", "[", 
+      RowBox[{"formTracerArchive", ",", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<FormTracer\>\"", ",", "\"\<PacletInfo.m\>\""}], "}"}], 
+        "]"}]}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerFiles", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{"formTracerInstallDir", ",", "#"}], "}"}], "]"}], "&"}], "/@", 
+    
+    RowBox[{"Import", "[", "formTracerArchive", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerFilesExist", "=", 
+   RowBox[{"FileExistsQ", "/@", "formTracerFiles"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerExistingInstallation", "=", 
+   RowBox[{"And", "@@", "formTracerFilesExist"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerExistingPacletInfo", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "formTracerInstallDir", ",", "\"\<FormTracer\>\"", ",", 
+      "\"\<PacletInfo.m\>\""}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formTracerExistingVersionString", "=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"FileExistsQ", "[", "formTracerExistingPacletInfo", "]"}], ",", 
+     RowBox[{"Version", "/.", 
+      RowBox[{"List", "@@", 
+       RowBox[{"Import", "[", "formTracerExistingPacletInfo", "]"}]}]}], ",", 
+     "\"\<unknown\>\""}], "]"}]}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.678862980474058*^9, 3.678863029028764*^9}, {
+   3.678863892038443*^9, 3.67886391012508*^9}, {3.6788648632531757`*^9, 
+   3.6788649602546997`*^9}, {3.678865012054377*^9, 3.678865037246643*^9}, {
+   3.6788651438373947`*^9, 3.678865151389922*^9}, 3.681118782910424*^9, {
+   3.681118820305333*^9, 3.68111882770621*^9}, {3.681119180876588*^9, 
+   3.681119183725478*^9}, {3.6811193021695137`*^9, 3.681119326632484*^9}, {
+   3.681119694994898*^9, 3.6811197757672586`*^9}, {3.6811198365769453`*^9, 
+   3.681119875572956*^9}, {3.681119931262557*^9, 3.681119931458658*^9}, {
+   3.681120064050139*^9, 3.681120064207323*^9}, 3.681120132326236*^9, {
+   3.681120357922078*^9, 3.6811203595563707`*^9}, 3.681120631992466*^9, {
+   3.682160194834564*^9, 3.682160279615014*^9}, 3.6836255711137342`*^9, {
+   3.6838858314927807`*^9, 3.68388584819982*^9}, {3.6857702258009872`*^9, 
+   3.6857702293907547`*^9}, 3.6857720800768347`*^9, {3.6857723390178013`*^9, 
+   3.6857723546720047`*^9}, {3.6860279027822313`*^9, 3.686027953991603*^9}, {
+   3.6860280184356728`*^9, 3.686028025909357*^9}, {3.686028100070198*^9, 
+   3.686028100342278*^9}, {3.686028151820121*^9, 3.686028152063704*^9}, {
+   3.686028329586063*^9, 3.686028386758148*^9}, 3.686028541021409*^9, {
+   3.6860285819434223`*^9, 3.6860286102229156`*^9}, {3.686028727356236*^9, 
+   3.686028730099649*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"deleteExisting", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"deleteExisting", "=", 
+    RowBox[{"If", "[", 
+     RowBox[{"formTracerExistingInstallation", ",", "\[IndentingNewLine]", 
+      RowBox[{"ChoiceDialog", "[", 
+       RowBox[{
+        RowBox[{
+        "\"\<The installer has found an existing FormTracer installation.\nDo \
+you want to overwrite the existing installation version \>\"", "<>", 
+         "formTracerExistingVersionString", "<>", "\"\< with version \>\"", "<>",
+          "newVersionString", "<>", 
+         "\"\<?\nOtherwise the installation will be aborted.\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"WindowTitle", "\[Rule]", "\"\<FormTracer Installation\>\""}],
+         ",", 
+        RowBox[{"WindowSize", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"Medium", ",", "All"}], "}"}]}]}], "]"}], ",", "False"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{"deleteExisting", ",", 
+     RowBox[{"DeleteFile", "[", 
+      RowBox[{"Pick", "[", 
+       RowBox[{"formTracerFiles", ",", "formTracerFilesExist"}], "]"}], 
+      "]"}]}], "]"}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"formTracerExistingInstallation", "&&", 
+     RowBox[{"deleteExisting", "===", "False"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"abort", " ", "installation"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", "\"\<FormTracer installation aborted.\>\"", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"Quiet", "[", 
+      RowBox[{"DeleteFile", "[", "formTracerArchive", "]"}], "]"}], ";"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"install", " ", "FormTracer"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"installationSuccess", "=", 
+      RowBox[{"Check", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ExtractArchive", "[", 
+          RowBox[{"formTracerArchive", ",", "formTracerInstallDir"}], "]"}], 
+         ";", "\[IndentingNewLine]", 
+         RowBox[{"DeleteFile", "[", "formTracerArchive", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"<<", "\"\<FormTracer`\>\""}], ";"}], "\[IndentingNewLine]", 
+        ",", "$Failed"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"installationSuccess", "===", "$Failed"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"installation", " ", "failed"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Message", "[", 
+         RowBox[{"formTracerInstaller", "::", "installationfailed"}], "]"}], 
+        ";"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"installation", " ", "successful"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+        "Print", "[", 
+         "\"\<\nInstallation was successful. Happy tracing!\nAfter you have \
+re-started Mathematica, you can simply search\nfor FormTracer in the \
+documentation center to get started!\n\>\"", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "check", " ", "whether", " ", "FORM", " ", "was", " ", "found"}], 
+         "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"Not", "[", "FormTracer`Private`formChecked", "]"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"ChoiceDialog", "[", 
+              RowBox[{
+              "\"\<FORM was not found on your computer. Do you want to \
+install it?\n\nIf you choose not do to so, you can either install FORM \
+manually or install it later with InstallFORM[].\>\"", ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"WindowTitle", "\[Rule]", "\"\<Install FORM\>\""}], 
+               ",", 
+               RowBox[{"WindowSize", "\[Rule]", 
+                RowBox[{"{", 
+                 RowBox[{"Medium", ",", "All"}], "}"}]}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"formInstallationSuccessfull", "=", "True"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Check", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"FormTracer`InstallFORM", "[", "]"}], ";"}], ",", 
+                RowBox[{
+                 RowBox[{"formInstallationSuccessfull", "=", "False"}], 
+                 ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{"formInstallationSuccessfull", ",", 
+                RowBox[{
+                 RowBox[{
+                 "Print", "[", 
+                  "\"\<FORM was successfully installed, you can now start \
+tracing.\>\"", "]"}], ";"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+           ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.678863202996467*^9, 3.678863211820141*^9}, {
+   3.678863244712619*^9, 3.678863334920802*^9}, {3.678863393836873*^9, 
+   3.67886342714554*^9}, {3.67886346013559*^9, 3.678863563867498*^9}, 
+   3.678863931173709*^9, {3.67886402169884*^9, 3.678864029897161*^9}, {
+   3.678864063016089*^9, 3.678864078073002*^9}, {3.6788641147162123`*^9, 
+   3.6788641266129227`*^9}, {3.678864165753457*^9, 3.6788641659723673`*^9}, {
+   3.678864255757669*^9, 3.678864360248529*^9}, {3.678864390676456*^9, 
+   3.678864441063339*^9}, {3.678864515944942*^9, 3.6788647542209167`*^9}, {
+   3.678864998970468*^9, 3.678865000097994*^9}, {3.678865041837072*^9, 
+   3.6788650428973923`*^9}, {3.6788651800048*^9, 3.67886525593686*^9}, {
+   3.678865302350998*^9, 3.678865328092073*^9}, 3.678865376589304*^9, {
+   3.67886576632985*^9, 3.678865826875999*^9}, {3.6788659934606733`*^9, 
+   3.67886599805851*^9}, {3.6788660936580276`*^9, 3.678866125260832*^9}, {
+   3.678891521982626*^9, 3.678891528541296*^9}, {3.6811200143890963`*^9, 
+   3.681120049075094*^9}, {3.681120093286084*^9, 3.6811201623382893`*^9}, {
+   3.682160277049014*^9, 3.682160289497614*^9}, {3.683627451806954*^9, 
+   3.68362746212396*^9}, {3.6836286461920967`*^9, 3.683628718871019*^9}, {
+   3.68362880770674*^9, 3.6836288760554123`*^9}, {3.683628933885972*^9, 
+   3.683628970659234*^9}, {3.6838814145690117`*^9, 3.683881432781478*^9}, {
+   3.683888721122006*^9, 3.683888735833242*^9}, 3.6838887721621532`*^9, {
+   3.683889020401266*^9, 3.683889024602931*^9}, {3.686035472080258*^9, 
+   3.686035532045334*^9}}]
+}, Closed]]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1680, 1000},
+WindowMargins->{{0, Automatic}, {0, 20}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 104, 1, 93, "Title"],
+Cell[687, 25, 322, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[1034, 35, 26, 0, 65, "Section"],
+Cell[1063, 37, 829, 13, 362, "Input",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1929, 55, 94, 1, 51, "Section"],
+Cell[2026, 58, 1017, 24, 164, "Input",
+ InitializationCell->True],
+Cell[3046, 84, 546, 15, 72, "Input",
+ InitializationCell->True],
+Cell[3595, 101, 291, 8, 50, "Input",
+ InitializationCell->True],
+Cell[3889, 111, 1314, 28, 73, "Input",
+ InitializationCell->True],
+Cell[5206, 141, 4498, 105, 369, "Input",
+ InitializationCell->True],
+Cell[9707, 248, 6820, 144, 955, "Input",
+ InitializationCell->True]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

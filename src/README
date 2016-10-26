@@ -1,0 +1,85 @@
+(**************************************************)
+(********* Table of Contents **********************)
+(**************************************************)
+
+	1.: Installation Instructions
+	2.: Usage Instructions
+	3.: List of Files
+
+
+(**************************************************)
+(***** 1.: Installation Instructions **************)
+(**************************************************)
+
+(******) Part 1: Install FormTracer Package (******)
+
+Option 1: Automatic Installation (recommended)
+	Open a Mathematica notebook and evaluate
+	Import["https://raw.githubusercontent.com/FormTracer/FormTracer/master/files/FormTracerInstaller.m"]
+
+	What it does: The installer downloads the compressed folder FormTracer.zip from Github and extracts it
+	into Mathematica's Applications folder in the user directory. The installer then loads the FormTracer
+	package. If FORM is not found on your computer, you are asked whether you want to install FORM. If
+	you choose to do so, the binary for your operating system is downloaded from http://www.nikhef.nl/~form/
+	and copied into the FormTracer directory in the Applications folder where the FormTracer finds it.
+
+Option 2: Manual Installation
+	Open https://github.com/FormTracer/FormTracer in a browser and download FormTracer.zip.
+	Alternatively you may download the zip file directly from 
+	https://raw.githubusercontent.com/FormTracer/FormTracer/master/FormTracer.zip
+	Then extract FormTracer.zip into Mathematica's applications folder.
+
+
+(******) Part 2: Install FORM (********************)
+
+This step is not necessary if FORM is already installed on your system or you chose to install FORM automatically during part 1.
+
+To install FORM, you can obtain it from
+1.) http://www.nikhef.nl/~form/ (recommended)
+or
+2.) https://github.com/vermaseren/form (in this case, follow the instructions provided at github).
+
+If you download the binary from http://www.nikhef.nl/~form/, copy it either into one of your paths
+for binaries (e.g. /opt/bin/ or /usr/bin/) or into the FormTracer folder, which you find at 
+~/.Mathematica/Applications/FormTracer (for Unix systems).
+
+By default, the FormTracer tries to call FORM with the following commands:
+~/.Mathematica/Applications/FormTracer/form
+form
+/usr/bin/form
+/opt/bin/form
+~/.Mathematica/Applications/FormLink/bin/<operating system>/form
+If the FORM binary lies in any of the paths above, the FormTracer will find it.
+If you have installed FORM somewhere else or you want to use a different FORM version
+temporarily, you can use DefineFormExecutable[path to executable] to set a different path.
+
+
+(**************************************************)
+(***** 2.: Usage Instructions *********************)
+(**************************************************)
+
+To get started, type FormTracer into a Mathematica input cell and press F1.
+Then Mathematica searches for FormTracer in the Documentation Center. You'll be led
+to the FormTrace help page which provides detailed usage instructions.
+
+Alternatively, you may also open the examples
+	FormTracerMinimalExample.nb or
+	FormTracerShowCase
+Both can be found in the Examples folder in the FormTracer directory which lies
+in Mathematica's Applications folder.
+
+
+(**************************************************)
+(***** 3.: List of Files **************************)
+(**************************************************)
+- CHANGELOG: the log file containing all relevant changes
+- Documentation: the folder containing the Help pages (to be opened via the help center only)
+- Example: folder with neat examples
+- FormTracerInstaller: installation script
+- FormTracer: the actual package
+- Header: FORM header containing group tracing algorithms
+- Kernel: folder containing init.m file for Mathematica
+- LICENSE: GPLv3 license
+- PacletInfo.m: file containing the paclet information for Mathematica
+- README: this file
+

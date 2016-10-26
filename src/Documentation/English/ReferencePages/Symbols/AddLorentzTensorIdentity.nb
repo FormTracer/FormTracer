@@ -1,0 +1,475 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15377,        465]
+NotebookOptionsPosition[     11532,        362]
+NotebookOutlinePosition[     14277,        427]
+CellTagsIndexPosition[     14192,        422]
+WindowTitle->AddLorentzTensorIdentity
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"DefineLorentzTensors\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzTensors"], \
+"\<\"DefineLorentzTensorIdentities\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzTensorIdentities"], \
+"\<\"ClearLorentzTensorIdentities\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/ClearLorentzTensorIdentities"], \
+"\<\"DefineCombinedLorentzTensors\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineCombinedLorentzTensors"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->
+         False], {"\<\"FormTracer/ref/AddLorentzTensorIdentity\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/AddLorentzTensorIdentity"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+AddLorentzTensorIdentity.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$4856], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/AddLorentzTensorIdentity", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["AddLorentzTensorIdentity", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"AddLorentzTensorIdentity", "[", 
+       StyleBox["identity", "TI"], "]"}]], "InlineFormula"],
+     "\[LineSeparator]can be given a Lorentz tensor identities for speedup. \
+Brief syntax format: identity = { left hand side, right hand side } Example \
+call (requires example call from DefineCombinedLorentzTensors): \n\t",
+     Cell[BoxData[
+      RowBox[{"AddLorentzTensorIdentity", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           StyleBox["transProj", "TI"], "[", 
+           RowBox[{
+            StyleBox["p", "TI"], ",", 
+            StyleBox["mu", "TI"], ",", 
+            StyleBox["rho", "TI"]}], "]"}], 
+          RowBox[{
+           StyleBox["transProj", "TI"], "[", 
+           RowBox[{
+            StyleBox["p", "TI"], ",", 
+            StyleBox["rho", "TI"], ",", 
+            StyleBox["nu", "TI"]}], "]"}]}], ",", 
+         RowBox[{
+          StyleBox["transProj", "TI"], "[", 
+          RowBox[{
+           StyleBox["p", "TI"], ",", 
+           StyleBox["mu", "TI"], ",", 
+           StyleBox["nu", "TI"]}], "]"}]}], "}"}], "]"}]], "InlineFormula"],
+     " \n\tAll (combined) Lorentz tensors appearing in the identity must be \
+known to the FormTracer before the identity is specified. Otherwise you may \
+use the long syntax format: identity = { list of momenta, list of Lorentz \
+indices, left hand side, right hand side } Basic syntax must be specified \
+using ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["DefineLorentzTensors"]],
+        "paclet:FormTracer/ref/DefineLorentzTensors"},
+       "RefLink",
+       BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+     " before Lorentz tensor identities can be added."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->387851431],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1786424287],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1742384902],
+
+Cell["Add combined Lorentz tensors:", "ExampleText",
+ CellID->1746636942],
+
+Cell[BoxData[
+ RowBox[{"DefineCombinedLorentzTensors", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"transProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"deltaLorentz", "[", 
+        RowBox[{"mu", ",", "nu"}], "]"}], "-", 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "mu"}], "]"}], 
+        RowBox[{
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}], "/", 
+         RowBox[{"sp", "[", 
+          RowBox[{"p", ",", "p"}], "]"}]}]}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"longProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"vec", "[", 
+        RowBox[{"p", ",", "mu"}], "]"}], 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "nu"}], "]"}], "/", 
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]}]}]}], "}"}]}], "\[IndentingNewLine]",
+    "}"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->645507991],
+
+Cell["\<\
+Add a tensor identity that might increase the performance in case of large \
+expressions: \
+\>", "ExampleText",
+ CellID->1212437806],
+
+Cell[BoxData[
+ RowBox[{"AddLorentzTensorIdentity", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"transProj", "[", 
+      RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+     RowBox[{"longProj", "[", 
+      RowBox[{"p", ",", "rho", ",", "nu"}], "]"}]}], ",", "0"}], "}"}], 
+  "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1359340701],
+
+Cell["Trace as usual:", "ExampleText",
+ CellID->1972009720],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+   RowBox[{"longProj", "[", 
+    RowBox[{"p", ",", "rho", ",", "mu"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->2142976665],
+
+Cell[BoxData["0"], "Output",
+ ImageSize->{12, 14},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->427652175]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineLorentzTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzTensorIdentities"]],
+    "paclet:FormTracer/ref/DefineLorentzTensorIdentities"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ClearLorentzTensorIdentities"]],
+    "paclet:FormTracer/ref/ClearLorentzTensorIdentities"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineCombinedLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"AddLorentzTensorIdentity",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 40, 55.097792}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
+    "FormTracer Package", "status" -> "None", "summary" -> 
+    "AddLorentzTensorIdentity[identity] can be given a Lorentz tensor \
+identities for speedup. Brief syntax format: identity = { left hand side, \
+right hand side } Example call (requires example call from \
+DefineCombinedLorentzTensors): AddLorentzTensorIdentity[{transProj[p, mu, \
+rho] transProj[p, rho, nu], transProj[p, mu, nu]}] All (combined) Lorentz \
+tensors appearing in the identity must be known to the FormTracer before the \
+identity is specified. Otherwise you may use the long syntax format: identity \
+= { list of momenta, list of Lorentz indices, left hand side, right hand side \
+} Basic syntax must be specified using DefineLorentzTensors before Lorentz \
+tensor identities can be added.", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "AddLorentzTensorIdentity", "titlemodifier" -> "", 
+    "windowtitle" -> "AddLorentzTensorIdentity", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/AddLorentzTensorIdentity"}, "SearchTextTranslated" -> 
+  ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[6410, 171, 387, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->387851431]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 14049, 415}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[596, 21, 3533, 83, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4132, 106, 301, 11, 43, "ObjectNameGrid"],
+Cell[4436, 119, 1949, 48, 220, "Usage"],
+Cell[CellGroupData[{
+Cell[6410, 171, 387, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->387851431],
+Cell[CellGroupData[{
+Cell[6822, 190, 196, 6, 25, "ExampleSection",
+ CellID->1786424287],
+Cell[7021, 198, 88, 1, 34, "ExampleText",
+ CellID->1222388521],
+Cell[7112, 201, 408, 11, 45, "Input",
+ CellID->1742384902],
+Cell[7523, 214, 73, 1, 34, "ExampleText",
+ CellID->1746636942],
+Cell[7599, 217, 1114, 34, 96, "Input",
+ CellID->645507991],
+Cell[8716, 253, 142, 4, 49, "ExampleText",
+ CellID->1212437806],
+Cell[8861, 259, 348, 11, 28, "Input",
+ CellID->1359340701],
+Cell[9212, 272, 59, 1, 70, "ExampleText",
+ CellID->1972009720],
+Cell[CellGroupData[{
+Cell[9296, 277, 273, 8, 70, "Input",
+ CellID->2142976665],
+Cell[9572, 287, 158, 5, 35, "Output",
+ CellID->427652175]
+}, Open  ]]
+}, Open  ]],
+Cell[9757, 296, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9825, 301, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[10098, 315, 1392, 42, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[11505, 360, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

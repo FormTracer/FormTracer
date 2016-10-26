@@ -1,0 +1,415 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13710,        405]
+NotebookOptionsPosition[      9790,        303]
+NotebookOutlinePosition[     12735,        371]
+CellTagsIndexPosition[     12650,        366]
+WindowTitle->DefineFormAutoDeclareFunctions
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"AddExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/AddExtraVars"], "\<\"DefineExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineExtraVars"], "\<\"GetExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GetExtraVars"], "\<\"ClearExtraVars\"\>":>
+       Documentation`HelpLookup["paclet:FormTracer/ref/ClearExtraVars"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->
+         False], {"\<\"FormTracer/ref/DefineFormAutoDeclareFunctions\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/DefineFormAutoDeclareFunctions"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+DefineFormAutoDeclareFunctions.html"], StandardForm]], "Input", 
+              TextClipboardType -> "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$13720], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/DefineFormAutoDeclareFunctions", ".html"]], 
+           None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["DefineFormAutoDeclareFunctions", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     "DefineAutoDeclareFunctions[cfuntions] can be used to define CFunctions \
+that are autodeclared in FORM (more information can also be found in the FORM \
+",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["reference"]],
+        "http://www.nikhef.nl/~form/maindir/documentation/reference/online/\
+online.html#SECTION00370000000000000000"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ").\n\t  DefineAutoDeclareFunctions clears all previously defined \
+auto-declare functions. Note that cfuntions must not contain substrings of \
+standard Mathematica symbols that have to be translated into FORM code (e.g. \
+(complex) I, Pi, Sqrt). \n\t  Example call:\n\t  \
+DefineFormAutoDeclareFunctions[myFunctionPrefix,myOtherPrefix]\n\t  lets you \
+use any symbol or function that starts with myFunctionPrefix or \
+myOtherPrefix.\n\n\t  You must not use special characters in this function. \
+It is recommended to use DefineExtraVars/AddExtraVars unless you have many \
+function/symbols starting with that prefix.\n\t  You cannot auto-declare the \
+symbols (f, T, cA, cR, NA, NR, and I2R) that are used by the FORM color \
+package internally."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1588085686],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->2096103709],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1742384902],
+
+Cell["Define auto-declare functions:", "ExampleText",
+ CellID->1746636942],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DefineFormAutoDeclareFunctions", "[", 
+   RowBox[{"{", 
+    RowBox[{"myFunctionPrefix", ",", "Z", ",", "myArg"}], "}"}], "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->645507991],
+
+Cell["Start tracing:", "ExampleText",
+ CellID->1212437806],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"ZquarkGluonVertex", "[", 
+    RowBox[{"p", ",", "myArgQuarkGluonVertex"}], "]"}], 
+   RowBox[{"ZquarkProp", "[", "myArgQuark", "]"}], " ", 
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", "q"}], ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"r", ",", "mu"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->2142976665],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sp", "[", 
+   RowBox[{"r", ",", 
+    RowBox[{"p", "+", "q"}]}], "]"}], " ", 
+  RowBox[{"ZquarkGluonVertex", "[", 
+   RowBox[{"p", ",", "myArgQuarkGluonVertex"}], "]"}], " ", 
+  RowBox[{"ZquarkProp", "[", "myArgQuark", "]"}]}]], "Output",
+ ImageSize->{436, 33},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->1074981086]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineExtraVars"]],"paclet:FormTracer/ref/DefineExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetExtraVars"]],"paclet:FormTracer/ref/GetExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ClearExtraVars"]],"paclet:FormTracer/ref/ClearExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"DefineFormAutoDeclareFunctions",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 41, 26.773944}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
+    "FormTracer Package", "status" -> "None", "summary" -> 
+    "DefineAutoDeclareFunctions[cfuntions] can be used to define CFunctions \
+that are autodeclared in FORM (more information can also be found in the FORM \
+reference). DefineAutoDeclareFunctions clears all previously defined \
+auto-declare functions. Note that cfuntions must not contain substrings of \
+standard Mathematica symbols that have to be translated into FORM code (e.g. \
+(complex) I, Pi, Sqrt). Example call: \
+DefineFormAutoDeclareFunctions[myFunctionPrefix,myOtherPrefix] lets you use \
+any symbol or function that starts with myFunctionPrefix or myOtherPrefix. \
+You must not use special characters in this function. It is recommended to \
+use DefineExtraVars/AddExtraVars unless you have many function/symbols \
+starting with that prefix. You cannot auto-declare the symbols (f, T, cA, cR, \
+NA, NR, and I2R) that are used by the FORM color package internally.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "DefineFormAutoDeclareFunctions", "titlemodifier" -> "", "windowtitle" -> 
+    "DefineFormAutoDeclareFunctions", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/DefineFormAutoDeclareFunctions"}, "SearchTextTranslated" -> 
+  ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[5787, 151, 388, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1588085686]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 12506, 359}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[602, 21, 3476, 83, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4081, 106, 307, 11, 43, "ObjectNameGrid"],
+Cell[4391, 119, 1371, 28, 318, "Usage"],
+Cell[CellGroupData[{
+Cell[5787, 151, 388, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1588085686],
+Cell[CellGroupData[{
+Cell[6200, 170, 196, 6, 25, "ExampleSection",
+ CellID->2096103709],
+Cell[6399, 178, 88, 1, 34, "ExampleText",
+ CellID->1222388521],
+Cell[6490, 181, 408, 11, 45, "Input",
+ CellID->1742384902],
+Cell[6901, 194, 74, 1, 34, "ExampleText",
+ CellID->1746636942],
+Cell[6978, 197, 225, 7, 28, "Input",
+ CellID->645507991],
+Cell[7206, 206, 58, 1, 34, "ExampleText",
+ CellID->1212437806],
+Cell[CellGroupData[{
+Cell[7289, 211, 416, 12, 45, "Input",
+ CellID->2142976665],
+Cell[7708, 225, 404, 12, 54, "Output",
+ CellID->1074981086]
+}, Open  ]]
+}, Open  ]],
+Cell[8139, 241, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8207, 246, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[8480, 260, 1268, 38, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[9763, 301, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

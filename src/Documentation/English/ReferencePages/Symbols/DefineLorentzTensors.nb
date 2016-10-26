@@ -1,0 +1,934 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     28726,        924]
+NotebookOptionsPosition[     22637,        747]
+NotebookOutlinePosition[     25594,        814]
+CellTagsIndexPosition[     25509,        809]
+WindowTitle->DefineLorentzTensors
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"DefineLorentzDimensions\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzDimensions"], \
+"\<\"DefineGroupTensors\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineGroupTensors"], "\<\"FormTrace\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/FormTrace"], "\<\"AddExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/AddExtraVars"], \
+"\<\"DefineCombinedLorentzTensors\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineCombinedLorentzTensors"], \
+"\<\"DefineLorentzTensorIdentities\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzTensorIdentities"], \
+"\<\"DisentangleLorentzStructures\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DisentangleLorentzStructures"], \
+"\<\"PartialTrace\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/PartialTrace"], "\<\"FiniteT\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/FiniteT"], "\<\"LorentzFormRule\"\>":>
+       Documentation`HelpLookup["paclet:FormTracer/ref/LorentzFormRule"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"FormTracer/ref/DefineLorentzTensors\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/DefineLorentzTensors"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+DefineLorentzTensors.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16520], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/DefineLorentzTensors", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["DefineLorentzTensors", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DefineLorentzTensors", "[", 
+       RowBox[{
+        StyleBox["lorentzDelta", "TI"], ",", 
+        StyleBox["vector", "TI"], ",", 
+        StyleBox["scalarProduct", "TI"], ",", 
+        StyleBox["epsilon", "TI"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]defines Lorentz tensors.\n"
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DefineLorentzTensors", "[", 
+       RowBox[{
+        StyleBox["lorentzDelta", "TI"], ",", 
+        StyleBox["vector", "TI"], ",", 
+        StyleBox["scalarProduct", "TI"], ",", 
+        StyleBox["epsilon", "TI"], ",", "\[IndentingNewLine]", 
+        StyleBox["diracDelta", "TI"], ",", 
+        StyleBox["gamma", "TI"], ",", 
+        SubscriptBox[
+         StyleBox["gamma", "TI"], 
+         StyleBox["5", "TI"]]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]defines Lorentz and Dirac tensors.\n"
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DefineLorentzTensors", "[", 
+       RowBox[{
+        StyleBox["lorentzDelta", "TI"], ",", 
+        StyleBox["vector", "TI"], ",", 
+        StyleBox["scalarProduct", "TI"], ",", 
+        StyleBox["epsilon", "TI"], ",", "\[IndentingNewLine]", 
+        StyleBox["diracDelta", "TI"], ",", 
+        StyleBox["gamma", "TI"], ",", 
+        SubscriptBox[
+         StyleBox["gamma", "TI"], 
+         StyleBox["5", "TI"]], ",", 
+        StyleBox["vectorspatial", "TI"], ",", 
+        StyleBox["scalarProductspatial", "TI"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]defines Lorentz, Dirac tensors and finite temperature \
+tensors.\n\n\t  For each of the entries one can either pass a symbol (e.g. \
+gamma[mu,i,j]) or a list with a symbol and the corresponding indices (e.g. \
+{gamma[i,mu,j,anotherArg],mu,i,j}) if they do not follow the default order \
+used in the documentation.\n\t  \n\t  DefineLorentzTensors clears all Lorentz \
+tensor identities and all combined Lorentz tensors. They have to be declared \
+after the syntax is specified.\n\t  \n\t  Information on how to handle the ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["metric tensor"]],
+        "http://www.nikhef.nl/~form/maindir/documentation/reference/online/\
+online.html#SECTION001600000000000000000"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     " in Minkowski spacetime can be obtained from the ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM reference"]],
+        "http://www.nikhef.nl/~form/maindir/documentation/reference/"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ". "
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, {None}}, "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->651265737],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1302022726],
+
+Cell["Load the FormTracer:", "ExampleText",
+ CellID->909170328],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->570847720],
+
+Cell["Define your Lorentz tensor notation:", "ExampleText",
+ CellID->2067899530],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->679554793],
+
+Cell["This already suffices to take traces:", "ExampleText",
+ CellID->1935512541],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"s", ",", "mu"}], "]"}], 
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], 
+   RowBox[{
+    RowBox[{"vec", "[", 
+     RowBox[{"u", ",", "nu"}], "]"}], "/", 
+    RowBox[{"sp", "[", 
+     RowBox[{"p", ",", "q"}], "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1133918473],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"sp", "[", 
+   RowBox[{"s", ",", "u"}], "]"}], 
+  RowBox[{"sp", "[", 
+   RowBox[{"p", ",", "q"}], "]"}]]], "Output",
+ ImageSize->{70, 44},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->938600031]
+}, Open  ]],
+
+Cell["Sums of momenta are also supported:", "ExampleText",
+ CellID->221724086],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", 
+      RowBox[{"2", "s"}]}], ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1285863941],
+
+Cell[BoxData[
+ RowBox[{"sp", "[", 
+  RowBox[{"q", ",", 
+   RowBox[{"p", "+", 
+    RowBox[{"2", " ", "s"}]}]}], "]"}]], "Output",
+ ImageSize->{100, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->2002716646]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1644573715],
+
+Cell["Note that you can use many different notations:", "ExampleText",
+ CellID->445528067],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"g", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"myVector", "[", 
+      RowBox[{"mu", ",", "p", ",", "test"}], "]"}], ",", "p", ",", "mu"}], 
+    "}"}], ",", 
+   RowBox[{"scalarProduct", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->84640862],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"myVector", "[", 
+    RowBox[{"mu", ",", "s", ",", "test"}], "]"}], 
+   RowBox[{"g", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], 
+   RowBox[{
+    RowBox[{"myVector", "[", 
+     RowBox[{"nu", ",", "u", ",", "test"}], "]"}], "/", 
+    RowBox[{"scalarProduct", "[", 
+     RowBox[{"p", ",", "q"}], "]"}]}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2141320661],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"scalarProduct", "[", 
+   RowBox[{"s", ",", "u"}], "]"}], 
+  RowBox[{"scalarProduct", "[", 
+   RowBox[{"p", ",", "q"}], "]"}]]], "Output",
+ ImageSize->{158, 46},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->1553654381]
+}, Open  ]],
+
+Cell["\<\
+where {myVector[mu,p,test], p, mu} explains the FormTracer that the first \
+argument of myVector is the index and the second argument is the momentum. In \
+the first example, we could have written {vec[p,mu], p, mu} instead of \
+vec[p,mu] which is the short form. The analogues holds for all arguments. \
+\>", "ExampleText",
+ CellID->1281382675]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1548018133],
+
+Cell["\<\
+Dirac tensors can also be specified with DefineLorentzTensors\
+\>", "ExampleText",
+ CellID->1453283609],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->631169828],
+
+Cell["and then be traced:", "ExampleText",
+ CellID->1142338547],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], 
+   RowBox[{"gamma", "[", 
+    RowBox[{"nu", ",", "j", ",", "k"}], "]"}], 
+   RowBox[{"gamma", "[", 
+    RowBox[{"rho", ",", "k", ",", "l"}], "]"}], 
+   RowBox[{"gamma", "[", 
+    RowBox[{"sigma", ",", "l", ",", "i"}], "]"}], 
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"rho", ",", "sigma"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"q", ",", "nu"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1793338229],
+
+Cell[BoxData[
+ RowBox[{"16", " ", 
+  RowBox[{"sp", "[", 
+   RowBox[{"p", ",", "q"}], "]"}]}]], "Output",
+ ImageSize->{85, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->1423359598]
+}, Open  ]],
+
+Cell["\<\
+The default dimension of the Lorentz and the Dirac space is 4:\
+\>", "ExampleText",
+ CellID->1052149787],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaLorentz", "[", 
+   RowBox[{"mu", ",", "mu"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaDirac", "[", 
+   RowBox[{"i", ",", "i"}], "]"}], "]"}]}], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1682174120],
+
+Cell[BoxData["4"], "Output",
+ ImageSize->{12, 14},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->1264998491],
+
+Cell[BoxData["4"], "Output",
+ ImageSize->{12, 14},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->1637162988]
+}, Open  ]],
+
+Cell[TextData[{
+ "However, the can be changed with ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzDimensions"]],
+    "paclet:FormTracer/ref/DefineLorentzDimensions"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+ "."
+}], "ExampleText",
+ CellID->107267210]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->186099452],
+
+Cell["\<\
+If you want to compute finite temperature traces that break O(dimension) \
+Lorentz symmetry, you can do so by defining spatial vectors and scalar \
+products. The zeroth component of the spatial vector is then always 0 by \
+definition. This works as follows:\
+\>", "ExampleText",
+ CellID->545236213],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"vecs", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sps", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1983830724],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vecs", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vecs", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vecs", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "0"}], "]"}], " ", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "0"}], "]"}], " ", 
+   RowBox[{"vecs", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->393841162],
+
+Cell[BoxData[
+ RowBox[{"sp", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ ImageSize->{65, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->2040109977],
+
+Cell[BoxData[
+ RowBox[{"sps", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ ImageSize->{73, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->1952818319],
+
+Cell[BoxData[
+ RowBox[{"sps", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ ImageSize->{73, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->957399691],
+
+Cell[BoxData[
+ RowBox[{"vec", "[", 
+  RowBox[{"p", ",", "0"}], "]"}]], "Output",
+ ImageSize->{73, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->2070155327],
+
+Cell[BoxData["0"], "Output",
+ ImageSize->{12, 14},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->857484458]
+}, Open  ]],
+
+Cell[TextData[{
+ "For the definition of projectors, see ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineCombinedLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+ "."
+}], "ExampleText",
+ CellID->1580765709]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzDimensions"]],
+    "paclet:FormTracer/ref/DefineLorentzDimensions"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineGroupTensors"]],
+    "paclet:FormTracer/ref/DefineGroupTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["FormTrace"]],"paclet:FormTracer/ref/FormTrace"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineCombinedLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzTensorIdentities"]],
+    "paclet:FormTracer/ref/DefineLorentzTensorIdentities"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DisentangleLorentzStructures"]],
+    "paclet:FormTracer/ref/DisentangleLorentzStructures"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["PartialTrace"]],"paclet:FormTracer/ref/PartialTrace"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["FiniteT"]],"paclet:FormTracer/ref/FiniteT"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["LorentzFormRule"]],"paclet:FormTracer/ref/LorentzFormRule"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"DefineLorentzTensors",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 41, 38.989953}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
+    "FormTracer Package", "status" -> "None", "summary" -> 
+    "DefineLorentzTensors[lorentzDelta, vector, scalarProduct, epsilon] \
+defines Lorentz tensors. DefineLorentzTensors[lorentzDelta, vector, \
+scalarProduct, epsilon, diracDelta, gamma, gamma5] defines Lorentz and Dirac \
+tensors. DefineLorentzTensors[lorentzDelta, vector, scalarProduct, epsilon, \
+diracDelta, gamma, gamma5, vectorspatial, scalarProductspatial] defines \
+Lorentz, Dirac tensors and finite temperature tensors. For each of the \
+entries one can either pass a symbol (e.g. gamma[mu,i,j]) or a list with a \
+symbol and the corresponding indices (e.g. {gamma[i,mu,j,anotherArg],mu,i,j}) \
+if they do not follow the default order used in the documentation. \
+DefineLorentzTensors clears all Lorentz tensor identities and all combined \
+Lorentz tensors. They have to be declared after the syntax is specified. \
+Information on how to handle the metric tensor in Minkowski spacetime can be \
+obtained from the FORM reference. ", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "DefineLorentzTensors", "titlemodifier" -> "", "windowtitle" -> 
+    "DefineLorentzTensors", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/DefineLorentzTensors"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[7820, 200, 387, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->651265737]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 25366, 802}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[592, 21, 4106, 92, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4701, 115, 297, 11, 43, "ObjectNameGrid"],
+Cell[5001, 128, 2794, 68, 500, "Usage"],
+Cell[CellGroupData[{
+Cell[7820, 200, 387, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->651265737],
+Cell[CellGroupData[{
+Cell[8232, 219, 196, 6, 25, "ExampleSection",
+ CellID->1302022726],
+Cell[8431, 227, 63, 1, 70, "ExampleText",
+ CellID->909170328],
+Cell[8497, 230, 119, 3, 70, "Input",
+ CellID->570847720],
+Cell[8619, 235, 80, 1, 70, "ExampleText",
+ CellID->2067899530],
+Cell[8702, 238, 328, 10, 70, "Input",
+ CellID->679554793],
+Cell[9033, 250, 81, 1, 70, "ExampleText",
+ CellID->1935512541],
+Cell[CellGroupData[{
+Cell[9139, 255, 393, 13, 70, "Input",
+ CellID->1133918473],
+Cell[9535, 270, 284, 10, 65, "Output",
+ CellID->938600031]
+}, Open  ]],
+Cell[9834, 283, 78, 1, 70, "ExampleText",
+ CellID->221724086],
+Cell[CellGroupData[{
+Cell[9937, 288, 286, 10, 70, "Input",
+ CellID->1285863941],
+Cell[10226, 300, 260, 9, 37, "Output",
+ CellID->2002716646]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10523, 314, 126, 3, 70, "ExampleDelimiter",
+ CellID->1644573715],
+Cell[10652, 319, 90, 1, 70, "ExampleText",
+ CellID->445528067],
+Cell[10745, 322, 414, 13, 70, "Input",
+ CellID->84640862],
+Cell[CellGroupData[{
+Cell[11184, 339, 429, 13, 70, "Input",
+ CellID->2141320661],
+Cell[11616, 354, 308, 10, 67, "Output",
+ CellID->1553654381]
+}, Open  ]],
+Cell[11939, 367, 355, 6, 70, "ExampleText",
+ CellID->1281382675]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12331, 378, 126, 3, 70, "ExampleDelimiter",
+ CellID->1548018133],
+Cell[12460, 383, 113, 3, 70, "ExampleText",
+ CellID->1453283609],
+Cell[12576, 388, 585, 17, 70, "Input",
+ CellID->631169828],
+Cell[13164, 407, 63, 1, 70, "ExampleText",
+ CellID->1142338547],
+Cell[CellGroupData[{
+Cell[13252, 412, 614, 18, 70, "Input",
+ CellID->1793338229],
+Cell[13869, 432, 235, 8, 37, "Output",
+ CellID->1423359598]
+}, Open  ]],
+Cell[14119, 443, 114, 3, 70, "ExampleText",
+ CellID->1052149787],
+Cell[CellGroupData[{
+Cell[14258, 450, 297, 8, 70, "Input",
+ CellID->1682174120],
+Cell[14558, 460, 159, 5, 35, "Output",
+ CellID->1264998491],
+Cell[14720, 467, 159, 5, 35, "Output",
+ CellID->1637162988]
+}, Open  ]],
+Cell[14894, 475, 309, 10, 70, "ExampleText",
+ CellID->107267210]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15240, 490, 125, 3, 70, "ExampleDelimiter",
+ CellID->186099452],
+Cell[15368, 495, 308, 6, 70, "ExampleText",
+ CellID->545236213],
+Cell[15679, 503, 720, 21, 70, "Input",
+ CellID->1983830724],
+Cell[CellGroupData[{
+Cell[16424, 528, 1051, 32, 70, "Input",
+ CellID->393841162],
+Cell[17478, 562, 210, 7, 37, "Output",
+ CellID->2040109977],
+Cell[17691, 571, 211, 7, 37, "Output",
+ CellID->1952818319],
+Cell[17905, 580, 210, 7, 37, "Output",
+ CellID->957399691],
+Cell[18118, 589, 211, 7, 37, "Output",
+ CellID->2070155327],
+Cell[18332, 598, 158, 5, 35, "Output",
+ CellID->857484458]
+}, Open  ]],
+Cell[18505, 606, 325, 10, 70, "ExampleText",
+ CellID->1580765709]
+}, Open  ]]
+}, Open  ]],
+Cell[18857, 620, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18925, 625, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[19198, 639, 3397, 103, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[22610, 745, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

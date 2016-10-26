@@ -1,0 +1,404 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     12350,        394]
+NotebookOptionsPosition[      9200,        302]
+NotebookOutlinePosition[     11356,        359]
+CellTagsIndexPosition[     11271,        354]
+WindowTitle->DefineExtraVars
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"AddExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/AddExtraVars"], "\<\"GetExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GetExtraVars"], "\<\"ClearExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/ClearExtraVars"], \
+"\<\"DefineFormAutoDeclareFunctions\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineFormAutoDeclareFunctions"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"FormTracer/ref/DefineExtraVars\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/DefineExtraVars"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+DefineExtraVars.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$13184], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/DefineExtraVars", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["DefineExtraVars", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DefineExtraVars", "[", 
+       StyleBox["vars", "TI"], "]"}]], "InlineFormula"],
+     " \n\tdefines extra variables that might appear in your expressions. In \
+contrast to ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
+       "RefLink",
+       BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+     ", it clears all previously defined extra variables."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1560112797],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1821290222],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1742384902],
+
+Cell["Add extra variables:", "ExampleText",
+ CellID->1746636942],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DefineExtraVars", "[", 
+   RowBox[{"alpha", ",", "\[CapitalLambda]", ",", "\[Epsilon]"}], "]"}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->645507991],
+
+Cell["Start tracing:", "ExampleText",
+ CellID->1212437806],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"alpha", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "+", " ", 
+      RowBox[{
+       RowBox[{"sp", "[", 
+        RowBox[{"k", ",", "k"}], "]"}], "/", "\[CapitalLambda]"}]}], ")"}], 
+    "^", 
+    RowBox[{"(", 
+     RowBox[{"2", "-", "\[Epsilon]"}], ")"}]}], 
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", "q"}], ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"r", ",", "mu"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->2142976665],
+
+Cell[BoxData[
+ RowBox[{"alpha", " ", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"1", "+", 
+     FractionBox[
+      RowBox[{"sp", "[", 
+       RowBox[{"k", ",", "k"}], "]"}], "\[CapitalLambda]"]}], ")"}], 
+   RowBox[{"2", "-", "\[Epsilon]"}]], " ", 
+  RowBox[{"sp", "[", 
+   RowBox[{"r", ",", 
+    RowBox[{"p", "+", "q"}]}], "]"}]}]], "Output",
+ ImageSize->{259, 44},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->1751139164]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetExtraVars"]],"paclet:FormTracer/ref/GetExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["ClearExtraVars"]],"paclet:FormTracer/ref/ClearExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineFormAutoDeclareFunctions"]],
+    "paclet:FormTracer/ref/DefineFormAutoDeclareFunctions"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"DefineExtraVars",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 41, 24.820596}", 
+    "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Symbol", "language" -> "en", "paclet" -> "FormTracer", 
+    "status" -> "None", "summary" -> 
+    "DefineExtraVars[vars] defines extra variables that might appear in your \
+expressions. In contrast to AddExtraVars, it clears all previously defined \
+extra variables.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "DefineExtraVars", "titlemodifier" -> "", "windowtitle" -> 
+    "DefineExtraVars", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/DefineExtraVars"}, "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[5015, 140, 388, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1560112797]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 11127, 347}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[587, 21, 3404, 81, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[3994, 104, 292, 11, 43, "ObjectNameGrid"],
+Cell[4289, 117, 701, 19, 109, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[5015, 140, 388, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1560112797],
+Cell[CellGroupData[{
+Cell[5428, 159, 196, 6, 25, "ExampleSection",
+ CellID->1821290222],
+Cell[5627, 167, 88, 1, 34, "ExampleText",
+ CellID->1222388521],
+Cell[5718, 170, 408, 11, 45, "Input",
+ CellID->1742384902],
+Cell[6129, 183, 64, 1, 34, "ExampleText",
+ CellID->1746636942],
+Cell[6196, 186, 194, 6, 28, "Input",
+ CellID->645507991],
+Cell[6393, 194, 58, 1, 34, "ExampleText",
+ CellID->1212437806],
+Cell[CellGroupData[{
+Cell[6476, 199, 528, 18, 31, "Input",
+ CellID->2142976665],
+Cell[7007, 219, 480, 16, 65, "Output",
+ CellID->1751139164]
+}, Open  ]]
+}, Open  ]],
+Cell[7514, 239, 31, 0, 29, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7582, 244, 270, 12, 29, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[7855, 258, 1303, 39, 60, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[9173, 300, 23, 0, 42, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

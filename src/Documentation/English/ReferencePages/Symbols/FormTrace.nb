@@ -1,0 +1,1239 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     40664,       1229]
+NotebookOptionsPosition[     32494,       1015]
+NotebookOutlinePosition[     37216,       1106]
+CellTagsIndexPosition[     37130,       1101]
+WindowTitle->FormTrace
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"DefineFormExecutable\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineFormExecutable"], \
+"\<\"DefineLorentzTensors\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzTensors"], "\<\"DefineGroupTensors\
+\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineGroupTensors"], "\<\"DefineExtraVars\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineExtraVars"], "\<\"DebuggingMode\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DebuggingMode"], "\<\"GetIndices\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GetIndices"], "\<\"PartialTrace\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/PartialTrace"], \
+"\<\"CheckForFormTracerUpdates\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckForFormTracerUpdates"], "\<\"InstallFORM\"\
+\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/InstallFORM"], "\<\"DebuggingMode\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DebuggingMode"], \
+"\<\"MeasureEvaluationTime\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/MeasureEvaluationTime"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"FormTracer/ref/FormTrace\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/FormTrace"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+FormTrace.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]},
+             Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$19356], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/FormTrace", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["FormTrace", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"FormTrace", "[", 
+       StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+     "\n\ttakes the traces of the expression and returns it to Mathematica \
+(or exports it as optimized code, see below). ",
+     StyleBox["expr ",
+      FontSlant->"Italic"],
+     "an be either a single expression or a list of expressions that are \
+added up after all traces have been taken.\n\tInternally, the FormTracer \
+generates a ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM"]],"http://inspirehep.net/record/541001"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     " script, runs ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM"]],"http://inspirehep.net/record/541001"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ", imports the result to Mathematica and then deletes the FORM script. \
+More information on ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM"]],"http://inspirehep.net/record/541001"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     " can be found at ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["http://www.nikhef.nl/~form/maindir/"]],
+        "http://www.nikhef.nl/~form/maindir/"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ". However, the normal user should not require any ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM"]],"http://inspirehep.net/record/541001"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     " knowledge.\n\tThe full form of FormTrace is given by:\n\t\
+FormTrace[expr, prerepl, postrepl, filename, bracket, exportRes, exportTmp, \
+exportType]\n\tand is explained in more detail below. \n\texpr can also be a \
+list of expression. In the case they are all traced and summed.\n"
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"FormTrace", "[", 
+       StyleBox[
+        RowBox[{"expr", ",", "prerepl", ",", "postrepl"}], "TI"], "]"}]], 
+      "InlineFormula"],
+     "\[LineSeparator]can be given a list of pre- and post-replacement rules \
+that are applied before and after the tracing process. To use these \
+functions, one has to be familiar with form as well as the internal \
+FormTracer notation. An example is provided below.\n\t  The default value of ",
+     StyleBox["prerepl",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["postrepl",
+      FontSlant->"Italic"],
+     " are empty lists, {}. (Use multiply replace_ where possible and \
+argument blocks for id inside subexpressions.)\n\t  The replacement lists \
+also accept list entries of the form {group, repl} and {LorentzFormRule, \
+repl} where repl is only applied to the particular group/Lorentz objects.\n\t \
+ {PreambleFormFule, repl} allows to insert user-specific FORM code (like \
+functions and declarations) in the preamble of the FORM file.\n\t  "
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"FormTrace", "[", 
+       StyleBox[
+        RowBox[{
+        "expr", ",", "prerepl", ",", "postrepl", ",", " ", "filename"}], "TI"],
+        "]"}]], "InlineFormula"],
+     "\[LineSeparator]exports the traced result to the given file name \
+(default is result is import back into Mathematica, i.e. filename=\"\"). \n\t \
+ If ",
+     StyleBox["filename",
+      FontSlant->"Italic"],
+     " is a string, the result will be exported to the file as optimized c \
+code with ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["FORM's optimization algorithm"]],
+        "http://inspirehep.net/record/1262133"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ". Filename can also be a list \n\t  filename={filename[, optimization[, \
+format]]}\n\t  where optimization has to be \"O0\", \"O1\", \"O2\" (default) \
+or \"O3\"}. The format can be any format supported by FORM, see the FORM \
+reference for ",
+     Cell[BoxData[
+      TemplateBox[{Cell[
+         TextData["more information"]],
+        "http://www.nikhef.nl/~form/maindir/documentation/reference/online/\
+online.html#SECTION008520000000000000000"},
+       "WebLink",
+       BaseStyle->{"Usage"}]]],
+     ".\n\t  "
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"FormTrace", "[", 
+       StyleBox[
+        RowBox[{
+        "expr", ",", "prerepl", ",", "postrepl", ",", " ", "filename", ",", 
+         " ", "bracketing"}], "TI"], "]"}]], "InlineFormula"],
+     "\[LineSeparator]If the expression is exported, the result can be \
+bracketed according to the bracketing list, see the example below. The \
+default value is {} which means no bracketing.\n"
+    }]]},
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"FormTrace", "[", 
+       StyleBox[
+        RowBox[{
+        "expr", ",", "prerepl", ",", "postrepl", ",", " ", "filename", ",", 
+         " ", "bracketing", ",", " ", "exportRes", ",", " ", "exportTmp", ",",
+          "exportType"}], "TI"], "]"}]], "InlineFormula"],
+     "\[LineSeparator]\[FilledSmallCircle] exportRes (default=\"expr\") \
+allows you to specify the name of the variable which contains the result\
+\[LineSeparator]\[FilledSmallCircle] exportTmp (default=\"w\"): is the name \
+of the temporary variable which is used for the evaluation\[LineSeparator]\
+\[FilledSmallCircle] exportType (default=\"double\"): is the type of \
+exportResVar and exportTmpVar"
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
+   "Rows" -> {None, None, None, None, {None}}, "RowsIndexed" -> {}}},
+ CellID->982511436],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(5)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->594920217],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(5)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->1835067646],
+
+Cell["Loading the FormTracer:", "ExampleText",
+ CellID->1150517070],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1674036739],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"\\nFormTracer 1.9.4 loaded.\\n\\nCopyright (C) 2013-2016, \
+Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.\\nThe \
+FormTracer is released under the GNU General Public License version three or \
+later.\\n\\nIf used in scientific publications, please acknowledge our work \
+by citing:\\nA. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.xxxxx \
+[hep-th]\\n\"\>"], "Print",
+ CellLabel->"During evaluation of In[8]:=",
+ CellID->2125747942],
+
+Cell[BoxData["\<\"Using FORM 4.1 (Jan 13 2014) 64-bits.\"\>"], "Print",
+ CellLabel->"During evaluation of In[8]:=",
+ CellID->799582594]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+A minimal working example (more details in the examples below):\
+\>", "ExampleText",
+ CellID->2013493621],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"\[Delta]", "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "\[Mu]"}], "]"}], ",", 
+   RowBox[{"p", ".", "q"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", 
+      RowBox[{"2", "r"}]}], ",", "\[Mu]"}], "]"}], 
+   RowBox[{"\[Delta]", "[", 
+    RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"s", ",", "\[Nu]"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->416872943],
+
+Cell[BoxData[
+ RowBox[{"s", ".", 
+  RowBox[{"(", 
+   RowBox[{"p", "+", 
+    RowBox[{"2", " ", "r"}]}], ")"}]}]], "Output",
+ ImageSize->{79, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->2094457139]
+}, Open  ]],
+
+Cell["\<\
+To use the FormTracer, one  has to define the notation first. Now we use a \
+different notation from the one in the minimal example (for more information \
+on the individual functions see the respective help pages):\
+\>", "ExampleText",
+ CellID->892019535],
+
+Cell[BoxData[{
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineGroupTensors", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"SUNfund", ",", 
+      RowBox[{"{", 
+       RowBox[{"color", ",", "Nc"}], "}"}], ",", 
+      RowBox[{"deltaAdj", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], ",", 
+      RowBox[{"f", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}], ",", 
+      RowBox[{"deltaFund", "[", 
+       RowBox[{"i", ",", "j"}], "]"}], ",", 
+      RowBox[{"T", "[", 
+       RowBox[{"a", ",", "i", ",", "j"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"SUNfund", ",", 
+      RowBox[{"{", 
+       RowBox[{"flavor", ",", "Nf"}], "}"}], ",", 
+      RowBox[{"deltaAdjFlav", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], ",", 
+      RowBox[{"fFlav", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}], ",", 
+      RowBox[{"deltaFundFlav", "[", 
+       RowBox[{"i", ",", "j"}], "]"}], ",", 
+      RowBox[{"TFlav", "[", 
+       RowBox[{"a", ",", "i", ",", "j"}], "]"}]}], "}"}]}], 
+   "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"DefineExtraVars", "[", 
+   RowBox[{"alpha", ",", "Mpsi", ",", "Zpsi", ",", "xi", ",", "g"}], "]"}], 
+  ";"}]}], "Input",
+ CellLabel->"In[3]:=",
+ CellID->679968584],
+
+Cell["Now one can start tracing. A rather trivial example:", "ExampleText",
+ CellID->479826094],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "nu"}], "]"}], 
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}], 
+   RowBox[{"deltaFund", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], 
+   RowBox[{"deltaFund", "[", 
+    RowBox[{"j", ",", "i"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->490632353],
+
+Cell[BoxData[
+ RowBox[{"Nc", " ", 
+  RowBox[{"sp", "[", 
+   RowBox[{"p", ",", "q"}], "]"}]}]], "Output",
+ ImageSize->{85, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[4]=",
+ CellID->265838200]
+}, Open  ]],
+
+Cell["Or trace a list of expressions:", "ExampleText",
+ CellID->1800592761],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"vec", "[", 
+      RowBox[{"p", ",", "nu"}], "]"}], 
+     RowBox[{"deltaLorentz", "[", 
+      RowBox[{"mu", ",", "nu"}], "]"}], 
+     RowBox[{"vec", "[", 
+      RowBox[{"p", ",", "mu"}], "]"}], 
+     RowBox[{"deltaFund", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], 
+     RowBox[{"deltaFund", "[", 
+      RowBox[{"j", ",", "i"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"xi", " ", 
+     RowBox[{"vec", "[", 
+      RowBox[{"r", ",", "nu"}], "]"}], 
+     RowBox[{"deltaLorentz", "[", 
+      RowBox[{"mu", ",", "nu"}], "]"}], 
+     RowBox[{"vec", "[", 
+      RowBox[{"p", ",", "mu"}], "]"}], 
+     RowBox[{"deltaFund", "[", 
+      RowBox[{"i", ",", "j"}], "]"}], 
+     RowBox[{"deltaFund", "[", 
+      RowBox[{"j", ",", "i"}], "]"}]}]}], "}"}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->1459046647],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Nc", " ", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "p"}], "]"}]}], "+", 
+  RowBox[{"Nc", " ", "xi", " ", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "r"}], "]"}]}]}]], "Output",
+ ImageSize->{200, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[5]=",
+ CellID->1211430036]
+}, Open  ]],
+
+Cell["\<\
+A more complex QCD example (a quark contribution to the gluon propagator):\
+\>", "ExampleText",
+ CellID->1466032346],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"testExpr", "=", 
+   RowBox[{
+    RowBox[{"deltaAdj", "[", 
+     RowBox[{"colAdja", ",", "colAdjb"}], "]"}], "*", "\[IndentingNewLine]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"deltaLorentz", "[", 
+       RowBox[{"\[Mu]", ",", "\[Nu]"}], "]"}], "+", 
+      RowBox[{"xi", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "\[Mu]"}], "]"}], " ", 
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "\[Nu]"}], "]"}]}], 
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]]}]}], ")"}], "*", 
+    "\[IndentingNewLine]", "g", "*", 
+    RowBox[{"gamma", "[", 
+     RowBox[{"\[Mu]", ",", "i1", ",", "i4"}], "]"}], " ", "*", 
+    RowBox[{"deltaFundFlav", "[", 
+     RowBox[{"flavFunda", ",", "flavFundd"}], "]"}], 
+    RowBox[{"T", "[", 
+     RowBox[{"colAdja", ",", "colFunda", ",", "colFundd"}], "]"}], "*", 
+    "\[IndentingNewLine]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"deltaDirac", "[", 
+        RowBox[{"i2", ",", "i1"}], "]"}], " ", "Mpsi"}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"gamma", "[", 
+        RowBox[{"\[Rho]", ",", "i2", ",", "i1"}], "]"}], " ", 
+       RowBox[{"vec", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "p"}], "-", "q"}], ",", "\[Rho]"}], "]"}], " ", "Zpsi",
+        " "}]}], 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       RowBox[{"sp", "[", 
+        RowBox[{
+         RowBox[{"p", "+", "q"}], ",", 
+         RowBox[{"p", "+", "q"}]}], "]"}], " ", 
+       SuperscriptBox["Zpsi", "2"]}]}]], 
+    RowBox[{"deltaFundFlav", "[", 
+     RowBox[{"flavFundb", ",", "flavFunda"}], "]"}], 
+    RowBox[{"deltaFund", "[", 
+     RowBox[{"colFundb", ",", "colFunda"}], "]"}], "*", "\[IndentingNewLine]",
+     "g", "*", 
+    RowBox[{"gamma", "[", 
+     RowBox[{"\[Nu]", ",", "i3", ",", "i2"}], "]"}], 
+    RowBox[{"deltaFundFlav", "[", 
+     RowBox[{"flavFundc", ",", "flavFundb"}], "]"}], 
+    RowBox[{"T", "[", 
+     RowBox[{"colAdjb", ",", "colFundc", ",", "colFundb"}], "]"}], "*", 
+    "\[IndentingNewLine]", 
+    FractionBox[
+     RowBox[{
+      RowBox[{
+       RowBox[{"deltaDirac", "[", 
+        RowBox[{"i4", ",", "i3"}], "]"}], " ", "Mpsi"}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"gamma", "[", 
+        RowBox[{"\[Sigma]", ",", "i4", ",", "i3"}], "]"}], " ", 
+       RowBox[{"vec", "[", 
+        RowBox[{"q", ",", "\[Sigma]"}], "]"}], " ", "Zpsi"}]}], 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       RowBox[{"sp", "[", 
+        RowBox[{"q", ",", "q"}], "]"}], " ", 
+       SuperscriptBox["Zpsi", "2"]}]}]], 
+    RowBox[{"deltaFundFlav", "[", 
+     RowBox[{"flavFundd", ",", "flavFundc"}], "]"}], 
+    RowBox[{"deltaFund", "[", 
+     RowBox[{"colFundd", ",", "colFundc"}], "]"}]}]}], ";"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->399318827],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{"FormTrace", "[", "testExpr", "]"}], "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->1119330887],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      SuperscriptBox["Nc", "2"]}], ")"}], " ", "Nf", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", "xi", " ", 
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", "q"}], "]"}], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", 
+         RowBox[{"p", "+", "q"}]}], "]"}]}], "+", 
+      RowBox[{
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", "p"}], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["Mpsi", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{"4", "+", "xi"}], ")"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", "+", "xi"}], ")"}], " ", 
+          SuperscriptBox["Zpsi", "2"], " ", 
+          RowBox[{"sp", "[", 
+           RowBox[{"q", ",", 
+            RowBox[{"p", "+", "q"}]}], "]"}]}]}], ")"}]}]}], ")"}]}], ")"}], 
+  "/", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"sp", "[", 
+     RowBox[{"p", ",", "p"}], "]"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"q", ",", "q"}], "]"}]}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{
+         RowBox[{"p", "+", "q"}], ",", 
+         RowBox[{"p", "+", "q"}]}], "]"}]}]}], ")"}]}], ")"}]}]], "Output",
+ ImageSize->{492, 66},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[7]=",
+ CellID->721887106]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->508531],
+
+Cell["Export the traced result:", "ExampleText",
+ CellID->2080310663],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "$HomeDirectory", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->290214532],
+
+Cell[BoxData["\<\"/home/cyrol\"\>"], "Output",
+ ImageSize->{92, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[1]=",
+ CellID->1971611069]
+}, Open  ]],
+
+Cell["Standard export to c with optimization O2:", "ExampleText",
+ CellID->1935659874],
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"testExpr", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", "\"\<quark_loop_O2.c\>\""}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2116177079],
+
+Cell["Export to c with optimization O3:", "ExampleText",
+ CellID->180086368],
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"testExpr", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\"\<quark_loop_O3.c\>\"", ",", "\"\<O3\>\""}], "}"}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1436573273],
+
+Cell["Export to fortran90 with optimization O1:", "ExampleText",
+ CellID->1809174055],
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"testExpr", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<quark_loop_O1.f90\>\"", ",", "\"\<O1\>\"", ",", 
+     "\"\<fortran90\>\""}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->526180163]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1400699289],
+
+Cell["Bracketing the result with:", "ExampleText",
+ CellID->1759296650],
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"testExpr", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", "\"\<quark_loop_bracketing.c\>\"", ",", 
+   RowBox[{"{", "xi", "}"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1888558249]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1271541677],
+
+Cell["Export with custom variable names:", "ExampleText",
+ CellID->1912602105],
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"testExpr", ",", 
+   RowBox[{"{", "}"}], ",", 
+   RowBox[{"{", "}"}], ",", "\"\<quark_loop_O2_custom.c\>\"", ",", 
+   RowBox[{"{", "}"}], ",", "\"\<quarkContr\>\"", ",", 
+   "\"\<quarkContrBuffer\>\"", ",", "\"\<float\>\""}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1736638527]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->961152887],
+
+Cell["\<\
+Use FORM post replacement rules to expand momentum sums (expert's function):\
+\>", "ExampleText",
+ CellID->190590662],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "noMomSumRules", "=", 
+   "\"\<\n*** rewrite/expand scalar products\nid \
+FTxsp(mom1?,mom2?)^-1=pow(mom1.mom2,-1);\nid FTxsp(mom1?,mom2?)=mom1.mom2;\n\
+argument;\nid FTxsp(mom1?,mom2?)^-1=pow(mom1.mom2,-1);\nid \
+FTxsp(mom1?,mom2?)=mom1.mom2;\nendargument;\n.sort\n \n*** rewrite as \
+FormTracer scalar products again ***\nid mom1?.mom2?=FTxsp(mom1,mom2);\n\
+argument;\nid mom1?.mom2?=FTxsp(mom1,mom2);\nendargument;\n.sort\n\>\""}], 
+  ";"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1584120862],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", 
+  RowBox[{"FormTrace", "[", 
+   RowBox[{"testExpr", ",", 
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"{", "noMomSumRules", "}"}]}], "]"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->57295770],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{"2", " ", 
+    SuperscriptBox["g", "2"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", 
+      SuperscriptBox["Nc", "2"]}], ")"}], " ", "Nf", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"2", " ", "xi", " ", 
+       SuperscriptBox["Zpsi", "2"], " ", 
+       SuperscriptBox[
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "q"}], "]"}], "2"]}], "+", 
+      RowBox[{
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", "p"}], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox["Mpsi", "2"], " ", 
+          RowBox[{"(", 
+           RowBox[{"4", "+", "xi"}], ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", "2"}], "+", "xi"}], ")"}], " ", 
+          SuperscriptBox["Zpsi", "2"], " ", 
+          RowBox[{"sp", "[", 
+           RowBox[{"p", ",", "q"}], "]"}]}], "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"2", "+", "xi"}], ")"}], " ", 
+          SuperscriptBox["Zpsi", "2"], " ", 
+          RowBox[{"sp", "[", 
+           RowBox[{"q", ",", "q"}], "]"}]}]}], ")"}]}]}], ")"}]}], ")"}], "/", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"sp", "[", 
+     RowBox[{"p", ",", "p"}], "]"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"q", ",", "q"}], "]"}]}]}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      SuperscriptBox["Mpsi", "2"], "+", 
+      RowBox[{
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", "p"}], "]"}]}], "+", 
+      RowBox[{"2", " ", 
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"p", ",", "q"}], "]"}]}], "+", 
+      RowBox[{
+       SuperscriptBox["Zpsi", "2"], " ", 
+       RowBox[{"sp", "[", 
+        RowBox[{"q", ",", "q"}], "]"}]}]}], ")"}]}], ")"}]}]], "Output",
+ ImageSize->{560, 88},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[2]=",
+ CellID->953358325]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineFormExecutable"]],
+    "paclet:FormTracer/ref/DefineFormExecutable"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineLorentzTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineGroupTensors"]],
+    "paclet:FormTracer/ref/DefineGroupTensors"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DefineExtraVars"]],"paclet:FormTracer/ref/DefineExtraVars"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DebuggingMode"]],"paclet:FormTracer/ref/DebuggingMode"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetIndices"]],"paclet:FormTracer/ref/GetIndices"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["PartialTrace"]],"paclet:FormTracer/ref/PartialTrace"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckForFormTracerUpdates"]],
+    "paclet:FormTracer/ref/CheckForFormTracerUpdates"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["InstallFORM"]],"paclet:FormTracer/ref/InstallFORM"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DebuggingMode"]],"paclet:FormTracer/ref/DebuggingMode"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["MeasureEvaluationTime"]],
+    "paclet:FormTracer/ref/MeasureEvaluationTime"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"FormTrace",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 41, 49.059369}", 
+    "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Symbol", "language" -> "en", "paclet" -> "FormTracer", 
+    "status" -> "None", "summary" -> 
+    "FormTrace[expr] takes the traces of the expression and returns it to \
+Mathematica (or exports it as optimized code, see below). expr an be either a \
+single expression or a list of expressions that are added up after all traces \
+have been taken. Internally, the FormTracer generates a FORM script, runs \
+FORM, imports the result to Mathematica and then deletes the FORM script. \
+More information on FORM can be found at http://www.nikhef.nl/~form/maindir/. \
+However, the normal user should not require any FORM knowledge. The full form \
+of FormTrace is given by: FormTrace[expr, prerepl, postrepl, filename, \
+bracket, exportRes, exportTmp, exportType] and is explained in more detail \
+below. expr can also be a list of expression. In the case they are all traced \
+and summed. FormTrace[expr, prerepl, postrepl] can be given a list of pre- \
+and post-replacement rules that are applied before and after the tracing \
+process. To use these functions, one has to be familiar with form as well as \
+the internal FormTracer notation. An example is provided below. The default \
+value of prerepl and postrepl are empty lists, {}. (Use multiply \
+replace_where possible and argument blocks for id inside subexpressions.) The \
+replacement lists also accept list entries of the form {group, repl} and \
+{LorentzFormRule, repl} where repl is only applied to the particular \
+group/Lorentz objects. {PreambleFormFule, repl} allows to insert \
+user-specific FORM code (like functions and declarations) in the preamble of \
+the FORM file. FormTrace[expr, prerepl, postrepl, filename] exports the \
+traced result to the given file name (default is result is import back into \
+Mathematica, i.e. filename=\"\"). If filename is a string, the result will be \
+exported to the file as optimized c code with FORM's optimization algorithm. \
+Filename can also be a list filename={filename[, optimization[, format]]} \
+where optimization has to be \"O0\", \"O1\", \"O2\" (default) or \"O3\"}. The \
+format can be any format supported by FORM, see the FORM reference for more \
+information. FormTrace[expr, prerepl, postrepl, filename, bracketing] If the \
+expression is exported, the result can be bracketed according to the \
+bracketing list, see the example below. The default value is {} which means \
+no bracketing. FormTrace[expr, prerepl, postrepl, filename, bracketing, \
+exportRes, \\ exportTmp, exportType] \\[FilledSmallCircle] exportRes \
+(default=\"expr\") allows you to specify the name of the variable which \
+contains the result \\[FilledSmallCircle] exportTmp (default=\"w\"): is the \
+name of the temporary variable which is used for the evaluation \
+\\[FilledSmallCircle] exportType (default=\"double\"): is the type of \
+exportResVar and exportTmpVar", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "FormTrace", "titlemodifier" -> "", "windowtitle" -> "FormTrace", "type" -> 
+    "Symbol", "uri" -> "FormTracer/ref/FormTrace"}, "SearchTextTranslated" -> 
+  ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[10598, 269, 387, 15, 70, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->594920217]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 36986, 1094}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[581, 21, 4134, 95, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4718, 118, 286, 11, 43, "ObjectNameGrid"],
+Cell[5007, 131, 5566, 134, 949, "Usage",
+ CellID->982511436],
+Cell[CellGroupData[{
+Cell[10598, 269, 387, 15, 70, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->594920217],
+Cell[CellGroupData[{
+Cell[11010, 288, 196, 6, 70, "ExampleSection",
+ CellID->1835067646],
+Cell[11209, 296, 67, 1, 70, "ExampleText",
+ CellID->1150517070],
+Cell[CellGroupData[{
+Cell[11301, 301, 120, 3, 70, "Input",
+ CellID->1674036739],
+Cell[CellGroupData[{
+Cell[11446, 308, 478, 7, 70, "Print",
+ CellID->2125747942],
+Cell[11927, 317, 135, 2, 70, "Print",
+ CellID->799582594]
+}, Open  ]]
+}, Open  ]],
+Cell[12089, 323, 115, 3, 70, "ExampleText",
+ CellID->2013493621],
+Cell[CellGroupData[{
+Cell[12229, 330, 627, 19, 70, "Input",
+ CellID->416872943],
+Cell[12859, 351, 253, 9, 37, "Output",
+ CellID->2094457139]
+}, Open  ]],
+Cell[13127, 363, 266, 5, 70, "ExampleText",
+ CellID->892019535],
+Cell[13396, 370, 1820, 50, 70, "Input",
+ CellID->679968584],
+Cell[15219, 422, 95, 1, 70, "ExampleText",
+ CellID->479826094],
+Cell[CellGroupData[{
+Cell[15339, 427, 443, 14, 70, "Input",
+ CellID->490632353],
+Cell[15785, 443, 234, 8, 37, "Output",
+ CellID->265838200]
+}, Open  ]],
+Cell[16034, 454, 75, 1, 70, "ExampleText",
+ CellID->1800592761],
+Cell[CellGroupData[{
+Cell[16134, 459, 907, 27, 70, "Input",
+ CellID->1459046647],
+Cell[17044, 488, 351, 12, 37, "Output",
+ CellID->1211430036]
+}, Open  ]],
+Cell[17410, 503, 126, 3, 70, "ExampleText",
+ CellID->1466032346],
+Cell[17539, 508, 2917, 81, 70, "Input",
+ CellID->399318827],
+Cell[CellGroupData[{
+Cell[20481, 593, 148, 4, 70, "Input",
+ CellID->1119330887],
+Cell[20632, 599, 1786, 59, 87, "Output",
+ CellID->721887106]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22455, 663, 122, 3, 70, "ExampleDelimiter",
+ CellID->508531],
+Cell[22580, 668, 69, 1, 70, "ExampleText",
+ CellID->2080310663],
+Cell[CellGroupData[{
+Cell[22674, 673, 121, 3, 70, "Input",
+ CellID->290214532],
+Cell[22798, 678, 177, 5, 37, "Output",
+ CellID->1971611069]
+}, Open  ]],
+Cell[22990, 686, 86, 1, 70, "ExampleText",
+ CellID->1935659874],
+Cell[23079, 689, 216, 6, 70, "Input",
+ CellID->2116177079],
+Cell[23298, 697, 76, 1, 70, "ExampleText",
+ CellID->180086368],
+Cell[23377, 700, 277, 9, 70, "Input",
+ CellID->1436573273],
+Cell[23657, 711, 85, 1, 70, "ExampleText",
+ CellID->1809174055],
+Cell[23745, 714, 312, 10, 70, "Input",
+ CellID->526180163]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24094, 729, 126, 3, 70, "ExampleDelimiter",
+ CellID->1400699289],
+Cell[24223, 734, 71, 1, 70, "ExampleText",
+ CellID->1759296650],
+Cell[24297, 737, 259, 7, 70, "Input",
+ CellID->1888558249]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24593, 749, 126, 3, 70, "ExampleDelimiter",
+ CellID->1271541677],
+Cell[24722, 754, 78, 1, 70, "ExampleText",
+ CellID->1912602105],
+Cell[24803, 757, 338, 8, 70, "Input",
+ CellID->1736638527]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25178, 770, 125, 3, 70, "ExampleDelimiter",
+ CellID->961152887],
+Cell[25306, 775, 127, 3, 70, "ExampleText",
+ CellID->190590662],
+Cell[25436, 780, 534, 12, 70, "Input",
+ CellID->1584120862],
+Cell[CellGroupData[{
+Cell[25995, 796, 237, 7, 70, "Input",
+ CellID->57295770],
+Cell[26235, 805, 2138, 68, 109, "Output",
+ CellID->953358325]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[28412, 878, 31, 0, 70, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28480, 883, 270, 12, 70, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[28753, 897, 3699, 113, 70, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[32467, 1013, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

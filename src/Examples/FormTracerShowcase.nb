@@ -1,0 +1,2621 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     90795,       2613]
+NotebookOptionsPosition[     70458,       1997]
+NotebookOutlinePosition[     78259,       2202]
+CellTagsIndexPosition[     76151,       2151]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["FormTracer Showcase", "Title",
+ CellChangeTimes->{{3.647079799556017*^9, 3.647079804758665*^9}, {
+  3.6489717214897337`*^9, 3.648971722953052*^9}, {3.682697455736576*^9, 
+  3.6826974560425673`*^9}}],
+
+Cell["\<\
+This notebook tries to provide helpful examples and to show how the \
+FormTracer works. Furthermore, it aims to demonstrate the capabilities of the \
+FormTracer. Note that the FormTracer is documented in Mathematica\
+\[CloseCurlyQuote]s Documentation Center. You can simply select a command and \
+press F1 to obtain help.\
+\>", "Text",
+ CellChangeTimes->{{3.682691234925161*^9, 3.6826913758782473`*^9}, {
+  3.6827024156243563`*^9, 3.682702418423835*^9}, {3.6838736508929777`*^9, 
+  3.6838736515475616`*^9}, {3.683875752198962*^9, 3.683875835194706*^9}, {
+  3.683881373066893*^9, 3.68388137343113*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Installing and Updating", "Section",
+ CellChangeTimes->{{3.682691474199072*^9, 3.682691493711441*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["FormTracer", "Subsection",
+ CellChangeTimes->{{3.6826915386946497`*^9, 3.682691540490349*^9}}],
+
+Cell["\<\
+Load or install FormTracer and FORM if they are not installed already:\
+\>", "Text",
+ CellChangeTimes->{{3.6826915065612383`*^9, 3.68269156393493*^9}, 
+   3.682702425763883*^9, 3.686030247991284*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"formTracerInstalled", "=", 
+    RowBox[{"Quiet", "[", 
+     RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"formTracerInstalled", "===", "$Failed"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "Import", "[", 
+    "\"\<https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/\
+FormTracerInstaller.m\>\"", "]"}]}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.682691497259618*^9, 3.6826915003661957`*^9}, {
+   3.682691619443667*^9, 3.682691639779735*^9}, 3.683875894853567*^9, {
+   3.683880942376967*^9, 3.683880942844668*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"\\nFormTracer 1.9.4 loaded.\\n\\nCopyright (C) 2013-2016, \
+Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.\\nThe \
+FormTracer is released under the GNU General Public License version three or \
+later.\\n\\nIf used in scientific publications, please acknowledge our work \
+by citing:\\nA. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.xxxxx \
+[hep-th]\\n\"\>"], "Print",
+ CellChangeTimes->{3.686029820222126*^9}],
+
+Cell[BoxData["\<\"Using FORM 4.1 (Jan 13 2014) 64-bits.\"\>"], "Print",
+ CellChangeTimes->{3.686029822202115*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+If you have already installed the FormTracer you can simply load the package \
+with:\
+\>", "Text",
+ CellChangeTimes->{{3.683872817942772*^9, 3.6838728516595697`*^9}, {
+  3.6860302577951593`*^9, 3.6860302589910583`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}]], "Input"],
+
+Cell["\<\
+If it is already installed, you check for updates, read the change log and \
+update the existing FormTracer installation with the following commands:\
+\>", "Text",
+ CellChangeTimes->{{3.682691650349382*^9, 3.682691729320153*^9}, 
+   3.682744526218646*^9}],
+
+Cell[BoxData[
+ RowBox[{"CheckForFormTracerUpdates", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6826923389467916`*^9, 3.682692342525523*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ShowFormTracerChangeLog", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6826917455984793`*^9, 3.682691748230723*^9}}],
+
+Cell[BoxData[
+ RowBox[{"UpdateFormTracer", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6826919052967367`*^9, 3.68269190826866*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FORM", "Subsection",
+ CellChangeTimes->{{3.682692368234386*^9, 3.682692368741353*^9}}],
+
+Cell[TextData[{
+ "When the FormTracer package is loaded, it tries to locate FORM. If a \
+message such as\n",
+ StyleBox["Using FORM 4.1 (Jul 28 2016, v4.1) 64-bits.\n",
+  FontSlant->"Italic"],
+ "is printed, the FormTracer has successfully located your FORM installation.\
+\n\nIf FORM is not installed on your computer you, can install it with"
+}], "Text",
+ CellChangeTimes->{{3.682692422031605*^9, 3.682692609639841*^9}, {
+  3.6826926481792793`*^9, 3.682692656546403*^9}, {3.683872434935665*^9, 
+  3.683872481281748*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InstallFORM", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.683872483369698*^9, 3.683872492053812*^9}}],
+
+Cell[TextData[{
+ "InstallFORM[] downloads the FORM executable from ",
+ ButtonBox["http://www.nikhef.nl/~form/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.nikhef.nl/~form/"], None},
+  ButtonNote->"http://www.nikhef.nl/~form/"],
+ " and copies it into your FormTracer directory."
+}], "Text",
+ CellChangeTimes->{{3.683872498529653*^9, 3.683872562687787*^9}, {
+  3.683872870940627*^9, 3.683872871183379*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["More Details", "Subsubsection",
+ CellChangeTimes->{{3.683872878378392*^9, 3.68387289562565*^9}, {
+  3.6838734192200727`*^9, 3.683873419826024*^9}}],
+
+Cell[TextData[{
+ "By default, the FormTracer tries to call FORM with the following commands:\n\
+\n- ~/.Mathematica/Applications/FormTracer/form\n- form\n- /usr/bin/form\n- \
+/opt/bin/form\n- ~/.Mathematica/Applications/FormLink/bin/<operating \
+system>/form\n\nIf the FORM binary lies in any of the paths above, the \
+FormTracer will find it.\nIf you have installed FORM somewhere else or you \
+want to use a different FORM version\ntemporarily, you can use \
+DefineFormExecutable[path to executable] to set a different path.\n\nIf you \
+have FORM not yet installed, you can install it automatically as shown above \
+or you can obtain it from\n1.) ",
+ ButtonBox["http://www.nikhef.nl/~form/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.nikhef.nl/~form/"], None},
+  ButtonNote->"http://www.nikhef.nl/~form/"],
+ " (recommended)\nor from\n2.) ",
+ ButtonBox["https://github.com/vermaseren/form",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/vermaseren/form"], None},
+  ButtonNote->"https://github.com/vermaseren/form"],
+ " (in this case, follow the instructions provided at github).\n\nIf you \
+download the binary from ",
+ ButtonBox["http://www.nikhef.nl/~form/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.nikhef.nl/~form/"], None},
+  ButtonNote->"http://www.nikhef.nl/~form/"],
+ " ,\ncopy it either into one of your paths for binaries (e.g. /opt/bin/ \nor \
+/usr/bin/) or into the FormTracer folder, which you find at\n\
+~/.Mathematica/Applications/FormTracer."
+}], "Text",
+ CellChangeTimes->{{3.682692395216416*^9, 3.682692398239992*^9}, {
+   3.682692624428652*^9, 3.68269264252071*^9}, {3.682692695482429*^9, 
+   3.682692732021461*^9}, {3.6827024992701073`*^9, 3.682702534268405*^9}, 
+   3.682744545610949*^9, {3.6838725981071672`*^9, 3.683872602216651*^9}, {
+   3.683872632567342*^9, 3.6838726530253963`*^9}, {3.683872908677808*^9, 
+   3.683872920282403*^9}, {3.6838734412514133`*^9, 3.68387348334509*^9}}],
+
+Cell["\<\
+If you want to use a FORM executable from a different location, or if you \
+want to use tfrom, you can do so with\
+\>", "Text",
+ CellChangeTimes->{
+  3.683872438509005*^9, {3.683872791814941*^9, 3.683872792891306*^9}, {
+   3.6838734885270452`*^9, 3.683873545194553*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DefineFormExecutable", "[", 
+  "\"\</home/user/path to my custom FORM location\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.682692657898494*^9, 3.6826926873800507`*^9}}]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Basic Usage and Notation", "Section",
+ CellChangeTimes->{{3.648971761368923*^9, 3.648971765086543*^9}, {
+  3.682691383454403*^9, 3.682691397729885*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Load package", "Subsection",
+ CellChangeTimes->{{3.682693899584852*^9, 3.682693902779792*^9}}],
+
+Cell["\<\
+Load the FormTracer (if you use any other packages like, e.g., DoFun, ensure \
+that you load them beforehand):\
+\>", "Text",
+ CellChangeTimes->{{3.682691408532509*^9, 3.682691417146331*^9}, {
+  3.6826927629099407`*^9, 3.6826928610682993`*^9}, {3.682702573084584*^9, 
+  3.682702583111998*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.682691419184885*^9, 3.6826914285039587`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\"\\nFormTracer 1.8.0 loaded.\\n\\nCopyright (C) 2013-2016, \
+Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.\\nThe \
+FormTracer is released under the GNU General Public License version three or \
+later.\\n\\nIf used in scientific publications, please acknowledge our work \
+by citing:\\nA. K. Cyrol, M. Mitter, J. M. Pawlowski and N. Strodthoff, \
+arXiv:1610.xxxxx [hep-th]\\n\"\>"], "Print",
+ CellChangeTimes->{3.682692804226029*^9, 3.682697228362287*^9, 
+  3.682744651633881*^9}],
+
+Cell[BoxData["\<\"Using FORM 4.1 (Jan 13 2014) 64-bits.\"\>"], "Print",
+ CellChangeTimes->{3.682692804226029*^9, 3.682697228362287*^9, 
+  3.682744653007855*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Lorentz and Dirac Tracing", "Subsection",
+ CellChangeTimes->{{3.6489717855209417`*^9, 3.648971787352997*^9}, {
+  3.682691145827072*^9, 3.6826911480586967`*^9}, {3.682693021758956*^9, 
+  3.682693030187955*^9}, {3.682693933457046*^9, 3.682693935885026*^9}}],
+
+Cell["Define your tensor notation with", "Text",
+ CellChangeTimes->{{3.682693047463028*^9, 3.6826930825371113`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineLorentzTensors"}]], "Input",
+ CellChangeTimes->{{3.647080367249667*^9, 3.647080378597301*^9}, {
+   3.647081077575618*^9, 3.647081077853264*^9}, {3.647147402434971*^9, 
+   3.64714740342117*^9}, 3.648971848626275*^9}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineLorentzTensors[lorentzDelta_,vector_,scalarProduct_,\
+epsilon_:Null,diracDelta_:Null,gamma_:Null,gamma5_:Null,vectorspatial_:Null,\
+scalarProductspatial_:Null] defines Lorentz and Dirac tensors. For each of \
+the entries one can either pass a symbol (e.g. gamma[mu,i,j]) or a list with \
+a symbol and the corresponding indices (e.g. \
+{gamma[i,mu,j,anotherArg],mu,i,j}) if they do not follow the default order \
+used in the documentation.\\n\\nExample \
+call:\\nDefineLorentzTensors[deltaLorentz[mu,nu],vec[p,mu],sp[p,q],eps[],\
+deltaDirac[i,j],gamma[mu,i,j],gamma5[i,j]]\\n\\nFinite temperature example \
+call:\\nDefineLorentzTensors[deltaLorentz[mu,nu],vec[p,mu],sp[p,q],eps[],\
+deltaDirac[i,j],gamma[mu,i,j],gamma5[i,j],vecs[p,mu],sps[p,q]]\\n\\\
+nDefineLorentzTensors clears all Lorentz tensor identities and all combined \
+Lorentz tensors. They have to be declared after the syntax is specified.\"\>",
+   "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827446537760983`*^9},
+ CellTags->"Info23682751853-8632465"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826931031846647`*^9, 3.682693143327914*^9}}],
+
+Cell["and set the dimensions with", "Text",
+ CellChangeTimes->{{3.682693153783634*^9, 3.682693164806541*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineLorentzDimensions"}]], "Input",
+ CellChangeTimes->{{3.682693168076324*^9, 3.682693172060688*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineLorentzDimensions[dim] sets the space dimension to \
+dim.\\nDefineLorentzDimensions[dim, dimDirac]: sets the space and Dirac \
+dimensions to dim and dimDirac, respectively.\\nThe default dimensions are 4 \
+for both dimensions.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744654397637*^9},
+ CellTags->"Info43682751854-8632465"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzDimensions", "[", 
+  RowBox[{"dim", ",", "4"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826931746228867`*^9, 3.682693183689739*^9}, {
+  3.682693308540296*^9, 3.682693308706745*^9}}],
+
+Cell["and start tracing:", "Text",
+ CellChangeTimes->{{3.6826931898356457`*^9, 3.682693194245041*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"vec", "[", 
+     RowBox[{
+      RowBox[{"2", " ", "p"}], ",", "mu"}], "]"}], 
+    RowBox[{"deltaLorentz", "[", 
+     RowBox[{"mu", ",", "nu"}], "]"}], 
+    RowBox[{"vec", "[", 
+     RowBox[{
+      RowBox[{"p", "+", "r"}], ",", "nu"}], "]"}]}], "+", 
+   RowBox[{
+    RowBox[{"sp", "[", 
+     RowBox[{"s", ",", "t"}], "]"}], 
+    RowBox[{"deltaLorentz", "[", 
+     RowBox[{"mu", ",", "nu"}], "]"}], 
+    RowBox[{"deltaLorentz", "[", 
+     RowBox[{"nu", ",", "mu"}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826931956067867`*^9, 3.682693301433898*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"2", " ", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", 
+     RowBox[{"p", "+", "r"}]}], "]"}]}], "+", 
+  RowBox[{"dim", " ", 
+   RowBox[{"sp", "[", 
+    RowBox[{"s", ",", "t"}], "]"}]}]}]], "Output",
+ CellChangeTimes->{{3.6826932784079723`*^9, 3.6826933111252537`*^9}, 
+   3.682697236054491*^9, 3.682744655363309*^9, 3.686030339693695*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Tracing Lie Groups", "Subsection",
+ CellChangeTimes->{{3.6826933524095697`*^9, 3.6826933672079573`*^9}}],
+
+Cell["You can view all the available groups from", "Text",
+ CellChangeTimes->{{3.6826934055593576`*^9, 3.682693430673334*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ShowGroupTemplates"}]], "Input",
+ CellChangeTimes->{{3.682693432103959*^9, 3.6826934398418827`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ShowGroupTemplates[] shows group templates that can be used in \
+DefineGroupTensors.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744655904489*^9},
+ CellTags->"Info73682751855-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowGroupTemplates", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.682693443291835*^9, 3.682693447453974*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["NR",
+       HoldForm], 
+      TagBox["cR",
+       HoldForm], 
+      TagBox["NA",
+       HoldForm], 
+      TagBox["cA",
+       HoldForm], 
+      TagBox["I2R",
+       HoldForm], 
+      TagBox["\<\"algorithm(header)\"\>",
+       HoldForm]},
+     {
+      TagBox["GenericGroup",
+       HoldForm], "NR", "cR", "NA", "cA", "I2R", "\<\"color(color.h)\"\>"},
+     {
+      TagBox["SUNfund",
+       HoldForm], "NR", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["NR", "2"]}], 
+       RowBox[{"2", " ", "NR"}]], 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["NR", "2"]}], "NR", 
+      FractionBox["1", "2"], "\<\"SUNfund(special_color.h)\"\>"},
+     {
+      TagBox["SONfund",
+       HoldForm], "NR", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "NR"}], ")"}]}], 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", "1"}], "+", "NR"}], ")"}], " ", "NR"}], 
+      RowBox[{
+       RowBox[{"-", "2"}], "+", "NR"}], 
+      "1", "\<\"SONfund(special_color.h)\"\>"},
+     {
+      TagBox["SPNfund",
+       HoldForm], "NR", 
+      FractionBox[
+       RowBox[{"1", "+", "NR"}], "4"], 
+      RowBox[{
+       FractionBox["1", "2"], " ", "NR", " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", "NR"}], ")"}]}], 
+      FractionBox[
+       RowBox[{"2", "+", "NR"}], "2"], 
+      FractionBox["1", "2"], "\<\"SPNfund(special_color.h)\"\>"},
+     {
+      TagBox["SU2fundexplicit",
+       HoldForm], "2", 
+      FractionBox["3", "4"], "3", "2", 
+      FractionBox["1", "2"], "\<\"SU2fundexplicit(special_color.h)\"\>"},
+     {
+      TagBox["SU3fundexplicit",
+       HoldForm], "3", 
+      FractionBox["4", "3"], "8", "3", 
+      FractionBox["1", "2"], "\<\"SU3fundexplicit(special_color.h)\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[1.2]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{
+      FormTracer`GenericGroup, FormTracer`SUNfund, FormTracer`SONfund, 
+       FormTracer`SPNfund, FormTracer`SU2fundexplicit, 
+       FormTracer`SU3fundexplicit}, {$CellContext`NR, $CellContext`cR, \
+$CellContext`NA, $CellContext`cA, $CellContext`I2R, "algorithm(header)"}}, 
+    TableSpacing -> {3, 3}]]]], "Output",
+ CellChangeTimes->{{3.682693447812705*^9, 3.682693461604743*^9}, 
+   3.6826972412921333`*^9, 3.682744656558441*^9}]
+}, Open  ]],
+
+Cell["Define the groups with", "Text",
+ CellChangeTimes->{{3.648971882000866*^9, 3.648971888216834*^9}, {
+  3.648972372039908*^9, 3.648972378440022*^9}, {3.6826933746732903`*^9, 
+  3.682693382401746*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineGroupTensors"}]], "Input",
+ CellChangeTimes->{{3.6826938759610157`*^9, 3.682693879100498*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineGroupTensors[listOfGroups_List] defines the groups. The \
+argument has to be of the \
+form\\nlistOfGroups={\\n{groupTemplate1,groupName1,deltaAdj1,structureF1,\
+deltaFund1,generatorT1,epsilonAdj1,epsilonFund1}},\\n{groupTemplate2,\
+groupName2,deltaAdj2,structureF2,deltaFund2,generatorT2,epsilonAdj1,\
+epsilonFund1},\\n... more groups ...\\n}\\n\\nIf you prefer your own names or \
+numerical values instead of the default names for group dimensions and \
+casimirs, you can also use \
+\\ngroup={groupTemplate,{groupName1,NR,cR,NA,cA,I2R},deltaAdj1,structureF1,\
+deltaFund1,generatorT1}.\\nIn case you specify something \
+like\\n{groupTemplate,{groupName1,myNR,mycR},deltaAdj1,structureF1,deltaFund1,\
+generatorT},\\n{NA,cA,I2R} will get the default names.\\n\\nExample \
+call:\\nDefineGroupTensors[{\\n{SUNfund,{color,3},deltaAdjCol[a,b],\
+structureConstantCol[a,b,c],deltaFundCol[i,j],generatorCol[a,i,j]},\\n{\
+SUNfund,{flavor,Nf},deltaAdj[a,b],structureConstant[a,b,c],deltaFund[i,j],\
+generator[a,i,j]},\\n{GenericGroup,testing,generalAdjDelta[a,b],\
+generalStructureConstant[a,b,c],generalDeltaFund[i,j],generalGenerator[a,i,j]}\
+\\n}]\\n\\nEvaluate ShowGroupTemplates[] to show available group \
+templates.\\nEvaluate ShowGroupConstants[] to check your settings.\\n\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827446569370537`*^9},
+ CellTags->"Info93682751856-8632465"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"DefineGroupTensors", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"SUNfund", ",", 
+      RowBox[{"{", 
+       RowBox[{"color", ",", "3"}], "}"}], ",", 
+      RowBox[{"deltaAdjCol", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], ",", 
+      RowBox[{"structureConstantCol", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}], ",", 
+      RowBox[{"deltaFundCol", "[", 
+       RowBox[{"i", ",", "j"}], "]"}], ",", 
+      RowBox[{"generatorCol", "[", 
+       RowBox[{"a", ",", "i", ",", "j"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"SUNfund", ",", 
+      RowBox[{"{", 
+       RowBox[{"flavor", ",", "Nf"}], "}"}], ",", 
+      RowBox[{"deltaAdj", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], ",", 
+      RowBox[{"structureConstant", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}], ",", 
+      RowBox[{"deltaFund", "[", 
+       RowBox[{"i", ",", "j"}], "]"}], ",", 
+      RowBox[{"generator", "[", 
+       RowBox[{"a", ",", "i", ",", "j"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"GenericGroup", ",", "testing", ",", 
+      RowBox[{"generalAdjDelta", "[", 
+       RowBox[{"a", ",", "b"}], "]"}], ",", 
+      RowBox[{"generalStructureConstant", "[", 
+       RowBox[{"a", ",", "b", ",", "c"}], "]"}], ",", 
+      RowBox[{"generalDeltaFund", "[", 
+       RowBox[{"i", ",", "j"}], "]"}], ",", 
+      RowBox[{"generalGenerator", "[", 
+       RowBox[{"a", ",", "i", ",", "j"}], "]"}]}], "}"}]}], 
+   "\[IndentingNewLine]", "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826935070126457`*^9, 3.6826935210455523`*^9}, {
+  3.682693715198654*^9, 3.6826937231264877`*^9}}],
+
+Cell["Check the definitions with:", "Text",
+ CellChangeTimes->{{3.682693581188649*^9, 3.682693596002445*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ShowGroupConstants"}]], "Input",
+ CellChangeTimes->{{3.682693606622766*^9, 3.682693609270919*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ShowGroupConstants[] shows currently defined group \
+constants.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744657400867*^9},
+ CellTags->"Info113682751857-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ShowGroupConstants", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.682693598635853*^9, 3.68269360123512*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"type\"\>",
+       HoldForm], 
+      TagBox["NR",
+       HoldForm], 
+      TagBox["cR",
+       HoldForm], 
+      TagBox["NA",
+       HoldForm], 
+      TagBox["cA",
+       HoldForm], 
+      TagBox["I2R",
+       HoldForm]},
+     {
+      TagBox["\<\"color(c)\"\>",
+       HoldForm], "SUNfund", "3", 
+      FractionBox["4", "3"], "8", "3", 
+      FractionBox["1", "2"]},
+     {
+      TagBox["\<\"flavor(f)\"\>",
+       HoldForm], "SUNfund", "Nf", 
+      FractionBox[
+       RowBox[{
+        RowBox[{"-", "1"}], "+", 
+        SuperscriptBox["Nf", "2"]}], 
+       RowBox[{"2", " ", "Nf"}]], 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["Nf", "2"]}], "Nf", 
+      FractionBox["1", "2"]},
+     {
+      TagBox["\<\"testing(t)\"\>",
+       HoldForm], "GenericGroup", "NRt", "cRt", "NAt", "cAt", "I2Rt"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[1.2]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, TableSpacing -> {3, 3}, 
+    TableHeadings -> {{"color(c)", "flavor(f)", "testing(t)"}, {
+      "type", $CellContext`NR, $CellContext`cR, $CellContext`NA, \
+$CellContext`cA, $CellContext`I2R}}]]]], "Output",
+ CellChangeTimes->{{3.682693601548818*^9, 3.682693610819723*^9}, 
+   3.682697241444359*^9, 3.682744657547452*^9}]
+}, Open  ]],
+
+Cell["and start tracing:", "Text",
+ CellChangeTimes->{{3.682693528892673*^9, 3.682693540185501*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"-", 
+    RowBox[{"deltaFundCol", "[", 
+     RowBox[{"i", ",", "k"}], "]"}]}], 
+   RowBox[{"generatorCol", "[", 
+    RowBox[{"a", ",", "i", ",", "j"}], "]"}], 
+   RowBox[{"deltaAdjCol", "[", 
+    RowBox[{"a", ",", "b"}], "]"}], 
+   RowBox[{"generatorCol", "[", 
+    RowBox[{"b", ",", "j", ",", "k"}], "]"}], "*", 
+   RowBox[{"generalStructureConstant", "[", 
+    RowBox[{"aa", ",", "bb", ",", "cc"}], "]"}], 
+   RowBox[{"generalStructureConstant", "[", 
+    RowBox[{"bb", ",", "aa", ",", "cc"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826935439392*^9, 3.682693568980116*^9}, 
+   3.6826936313406363`*^9, {3.6826937296792316`*^9, 3.682693844404373*^9}}],
+
+Cell[BoxData[
+ RowBox[{"4", " ", "cAt", " ", "NAt"}]], "Output",
+ CellChangeTimes->{{3.6826937586761913`*^9, 3.682693784292308*^9}, {
+   3.682693826634795*^9, 3.6826938451242447`*^9}, 3.682697241479616*^9, 
+   3.682744657695352*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["More Variables", "Subsection",
+ CellChangeTimes->{{3.682694781927423*^9, 3.682694785473645*^9}}],
+
+Cell["\<\
+Every variable needs to be defined in FORM. Therefore, you need to teach the \
+FormTracer which variables you use.\
+\>", "Text",
+ CellChangeTimes->{{3.682694810936137*^9, 3.682694851416956*^9}, {
+  3.6826949444451237`*^9, 3.682694976750106*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "AddExtraVars"}]], "Input",
+ CellChangeTimes->{{3.682694981413403*^9, 3.682694986080597*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"AddExtraVars[vars] adds an extra variable.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744658318434*^9},
+ CellTags->"Info143682751857-8632465"]
+}, Open  ]],
+
+Cell["and", "Text",
+ CellChangeTimes->{{3.682694990746345*^9, 3.682694993673216*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineExtraVars"}]], "Input",
+ CellChangeTimes->{{3.6489771339272213`*^9, 3.6489771371100616`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineExtraVars[vars] defines extra variables that might \
+appear in your expressions. Clears all previously defined extra \
+variables.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744658948865*^9},
+ CellTags->"Info153682751858-8632465"]
+}, Open  ]],
+
+Cell["let you define the variables: ", "Text",
+ CellChangeTimes->{{3.682695006153926*^9, 3.682695026197893*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DefineExtraVars", "[", 
+  RowBox[{"{", 
+   RowBox[{"alpha", ",", "\[CapitalLambda]", ",", "\[Epsilon]"}], "}"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6489771405989017`*^9, 3.6489771520077333`*^9}, {
+  3.648977198060858*^9, 3.648977198692801*^9}, {3.671525793291823*^9, 
+  3.671525803725214*^9}, {3.671526200246442*^9, 3.6715262018900127`*^9}, {
+  3.68269505049855*^9, 3.682695064626731*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"alpha", ",", "\[CapitalLambda]", ",", "\[Epsilon]"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.671525804085096*^9, 3.6715262022830667`*^9, 
+  3.6731728843935432`*^9, 3.682695067200728*^9, 3.68269724806421*^9, 
+  3.682744659114806*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"alpha", "/", "\[CapitalLambda]"}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{"2", "-", "\[Epsilon]"}], ")"}]}], 
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", "q"}], ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"r", ",", "mu"}], "]"}], 
+   RowBox[{"deltaFundCol", "[", 
+    RowBox[{"i", ",", "k"}], "]"}], 
+   RowBox[{"generatorCol", "[", 
+    RowBox[{"a", ",", "i", ",", "j"}], "]"}], 
+   RowBox[{"deltaAdjCol", "[", 
+    RowBox[{"a", ",", "b"}], "]"}], 
+   RowBox[{"generatorCol", "[", 
+    RowBox[{"b", ",", "j", ",", "k"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.682695072184182*^9, 3.6826951304728947`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"4", " ", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    FractionBox["alpha", "\[CapitalLambda]"], ")"}], 
+   RowBox[{"2", "-", "\[Epsilon]"}]], " ", 
+  RowBox[{"sp", "[", 
+   RowBox[{"r", ",", 
+    RowBox[{"p", "+", "q"}]}], "]"}]}]], "Output",
+ CellChangeTimes->{{3.682695120892412*^9, 3.682695131176631*^9}, 
+   3.682697248096327*^9, 3.682744659571788*^9}]
+}, Open  ]],
+
+Cell["\<\
+If you have accidentally defined a variable, you can clear the extra \
+variables with\
+\>", "Text",
+ CellChangeTimes->{{3.68269516184552*^9, 3.682695176022583*^9}, {
+  3.6826952267576523`*^9, 3.682695239219266*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ClearExtraVars"}]], "Input",
+ CellChangeTimes->{{3.682695147466475*^9, 3.682695153638834*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ClearExtraVars[] clears all extra variable.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827446599348392`*^9},
+ CellTags->"Info183682751859-8632465"]
+}, Open  ]],
+
+Cell["\<\
+If you have many extra variable starting with the same prefix, you might use\
+\>", "Text",
+ CellChangeTimes->{{3.6826952454234457`*^9, 3.682695298012074*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineFormAutoDeclareFunctions"}]], "Input",
+ CellChangeTimes->{{3.6826953014269037`*^9, 3.6826953103396378`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineAutoDeclareFunctions[cfuntions] can be used to define \
+CFunctions that are autodeclared in FORM.\\nDefineAutoDeclareFunctions clears \
+all previously defined autodeclare functions. Note that cfuntions must not \
+contain substrings of standard Mathematica symbols that have to be translated \
+into FORM code (e.g. (complex) I, Pi, Sqrt). \\n\\nExample \
+call:\\nDefineFormAutoDeclareFunctions[myFunctionPrefix,myOtherPrefix]\\nlets \
+you use any symbol or function that starts with myFunctionPrefix or \
+myOtherPrefix.\\n\\nYou must not use special characters in this function. It \
+is recommended to use DefineExtraVars/AddExtraVars unless you have many \
+function/symbols starting with that prefix.\\nYou cannot autodeclare the \
+symbols (f, T, cA, cR, NA, NR, and I2R) that are used by the FORM color \
+package internally.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744660721587*^9},
+ CellTags->"Info193682751860-8632465"]
+}, Open  ]],
+
+Cell["but it should be use with great care. Example:", "Text",
+ CellChangeTimes->{{3.682695315845636*^9, 3.682695335031229*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DefineFormAutoDeclareFunctions", "[", 
+   RowBox[{"{", 
+    RowBox[{"myFunctionPrefix", ",", "Z", ",", "myArg"}], "}"}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6826953274543324`*^9, 3.682695373748397*^9}, {
+  3.6826954237788973`*^9, 3.682695431546129*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"ZquarkGluonVertex", "[", 
+    RowBox[{"p", ",", "myArgQuarkGluonVertex"}], "]"}], 
+   RowBox[{"ZquarkProp", "[", "myArgQuark", "]"}], " ", 
+   RowBox[{"vec", "[", 
+    RowBox[{
+     RowBox[{"p", "+", "q"}], ",", "mu"}], "]"}], 
+   RowBox[{
+    RowBox[{"vec", "[", 
+     RowBox[{"r", ",", "mu"}], "]"}], " ", "/", "\[CapitalLambda]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.682695379129168*^9, 3.682695467559935*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   RowBox[{"sp", "[", 
+    RowBox[{"r", ",", 
+     RowBox[{"p", "+", "q"}]}], "]"}], " ", 
+   RowBox[{"ZquarkGluonVertex", "[", 
+    RowBox[{"p", ",", "myArgQuarkGluonVertex"}], "]"}], " ", 
+   RowBox[{"ZquarkProp", "[", "myArgQuark", "]"}]}], 
+  "\[CapitalLambda]"]], "Output",
+ CellChangeTimes->{{3.682695468242176*^9, 3.682695475682658*^9}, 
+   3.682697248252489*^9, 3.6827446619437857`*^9}]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Advanced Setup and Options", "Section",
+ CellChangeTimes->{{3.682692954962738*^9, 3.6826929698758097`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Combined Lorentz Tensors", "Subsection",
+ CellChangeTimes->{{3.682692988044241*^9, 3.682693002568681*^9}}],
+
+Cell["\<\
+You can optionally define abbreviations for Lorentz tensors with\
+\>", "Text",
+ CellChangeTimes->{{3.682693967711381*^9, 3.682693987921873*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "AddCombinedLorentzTensor"}]], "Input",
+ CellChangeTimes->{{3.682694030819989*^9, 3.6826940335438747`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"AddCombinedLorentzTensor[combinedTensor_List] can be used to \
+add a combined Lorentz tensor. The combined/explicit tensors must not contain \
+dummy indices. \\nCombined Lorentz tensors must be of the form combinedTensor \
+= { combined tensor, explicit tensor }.\\n\\nExample \
+call:\\nAddCombinedLorentzTensor[{transProj[p,mu,nu],deltaLorentz[mu,nu]-vec[\
+p,mu]vec[p,nu]/sp[p,p]}]\\n\\nBy default, the FormTacer considers all momenta \
+of the explicit tensor as part of the abbreviated combined tensor. If this is \
+not the case, i.e., if you have a momentum that does not appear as argument \
+in the combined tensor, you must use the long form:\\ncombinedTensor = { list \
+of momenta, list of Lorentz indices, combined tensor, explicit tensor \
+}\\n\\nExample call:\\nAddCombinedLorentzTensor[{ {p}, {mu}, myP[p, mu], \
+vec[p,mu]/sp[q,q] }]\\n\\nBasic syntax must be specified with \
+DefineLorentzTensors before combined Lorentz tensors can be added.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744679156344*^9},
+ CellTags->"Info223682751878-8632465"]
+}, Open  ]],
+
+Cell["or", "Text",
+ CellChangeTimes->{{3.682694037126506*^9, 3.6826940372938538`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineCombinedLorentzTensors"}]], "Input",
+ CellChangeTimes->{{3.6826939900915956`*^9, 3.682693992480297*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineCombinedLorentzTensors[combinedTensors_List] accepts a \
+list of combined Lorentz tensors, see AddCombinedLorentzTensor. Clears all \
+previously defined combined Lorentz tensors and Lorentz tensor identities.\\n\
+\\nExample \
+call:\\nDefineCombinedLorentzTensors[{\\n{transProj[p,mu,nu],deltaLorentz[mu,\
+nu]-vec[p,mu]vec[p,nu]/sp[p,p]},\\n{longProj[p,mu,nu],vec[p,mu]vec[p,nu]/sp[p,\
+p]}\\n}]\\n\\nBasic syntax must be specified with DefineLorentzTensors before \
+combined Lorentz tensors can be defined.\"\>", "MSG"]], "Print", "PrintUsage",
+ 
+ CellChangeTimes->{3.6827446801470413`*^9},
+ CellTags->"Info233682751879-8632465"]
+}, Open  ]],
+
+Cell["\<\
+For example, you can define transverse and longitudinal projectors (requires \
+the Lorentz tensor definitions from above):\
+\>", "Text",
+ CellChangeTimes->{{3.682694055504203*^9, 3.682694103794263*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DefineCombinedLorentzTensors", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"transProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"deltaLorentz", "[", 
+        RowBox[{"mu", ",", "nu"}], "]"}], "-", 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "mu"}], "]"}], 
+        RowBox[{
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}], "/", 
+         RowBox[{"sp", "[", 
+          RowBox[{"p", ",", "p"}], "]"}]}]}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"longProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"vec", "[", 
+        RowBox[{"p", ",", "mu"}], "]"}], 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "nu"}], "]"}], "/", 
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]}]}]}], "}"}]}], "\[IndentingNewLine]",
+    "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682694044662736*^9, 3.682694051689906*^9}}],
+
+Cell["and use them in your traces:", "Text",
+ CellChangeTimes->{{3.682694270846521*^9, 3.6826942904055147`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "nu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"longProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "nu"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682694125981318*^9, 3.68269419049335*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.6826941797288923`*^9, 3.682694190881002*^9}, 
+   3.682694713310835*^9, {3.682697254138208*^9, 3.682697263589223*^9}, 
+   3.6827446808016157`*^9}],
+
+Cell[BoxData[
+ RowBox[{"sp", "[", 
+  RowBox[{"p", ",", "p"}], "]"}]], "Output",
+ CellChangeTimes->{{3.6826941797288923`*^9, 3.682694190881002*^9}, 
+   3.682694713310835*^9, {3.682697254138208*^9, 3.682697263589223*^9}, 
+   3.682744680905212*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"longProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826942251632767`*^9, 3.6826942269752817`*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{
+  3.682694227565022*^9, 3.682694714517248*^9, {3.6826972541941032`*^9, 
+   3.6826972636391497`*^9}, 3.682744681191059*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], "^", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826942432937393`*^9, 3.682694259128908*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "1"}], "+", "dim"}]], "Output",
+ CellChangeTimes->{{3.6826942473983088`*^9, 3.6826942595559587`*^9}, 
+   3.682694715773301*^9, {3.6826972542283697`*^9, 3.682697263668466*^9}, 
+   3.682744681724029*^9}]
+}, Open  ]],
+
+Cell["In case of any problems you can delete them with:", "Text",
+ CellChangeTimes->{{3.6826943720798903`*^9, 3.68269442374314*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ClearCombinedLorentzTensors"}]], "Input",
+ CellChangeTimes->{{3.682694301675521*^9, 3.682694324363009*^9}, {
+  3.6826943660152063`*^9, 3.6826943676245947`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ClearCombinedLorentzTensors[] clears all combined Lorentz \
+tensors.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744683031631*^9},
+ CellTags->"Info293682751882-8632465"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Lorentz Tensor Identities", "Subsection",
+ CellChangeTimes->{{3.648976949440096*^9, 3.648976963561068*^9}}],
+
+Cell["\<\
+If you are dealing with really large expressions, you can define Lorentz \
+tensor identities, that can help to speed up the tracing process. This \
+functionality is available from\
+\>", "Text",
+ CellChangeTimes->{{3.682694476015209*^9, 3.6826945712273293`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "AddLorentzTensorIdentity"}]], "Input",
+ CellChangeTimes->{{3.682694572732429*^9, 3.682694575278473*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"AddLorentzTensorIdentity[identity_List] can be given a Lorentz \
+tensor identities for speedup.\\n\\nBrief syntax format:\\nidentity = { left \
+hand side, right hand side }\\n\\nExample call (requires example call from \
+DefineCombinedLorentzTensors):\\nAddLorentzTensorIdentity[{transProj[p,mu,rho]\
+transProj[p,rho,nu],transProj[p,mu,nu]}]\\n\\nAll (combined) Lorentz tensors \
+appearing in the identity must be known to the FormTracer before the identity \
+is specified.\\nOtherwise you may use the long syntax format:\\nidentity = { \
+list of momenta, list of Lorentz indices, left hand side, right hand side \
+}\\n\\nBasic syntax must be specified using DefineLorentzTensors before \
+Lorentz tensor identities can be added.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827446836458397`*^9},
+ CellTags->"Info303682751883-8632465"]
+}, Open  ]],
+
+Cell["or", "Text",
+ CellChangeTimes->{{3.682694579502993*^9, 3.6826945813484573`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DefineLorentzTensorIdentities"}]], "Input",
+ CellChangeTimes->{{3.6826945514769363`*^9, 3.682694555061058*^9}, 
+   3.682694590221374*^9}],
+
+Cell[BoxData[
+ StyleBox["\<\"DefineLorentzTensorIdentities[identities_List] can be given a \
+list of tensor identities for speedup, see AddLorentzTensorIdentity. Clears \
+all previously defined Lorentz tensor identities.\\n\\nExample call (requires \
+example call from \
+DefineCombinedLorentzTensors):\\nDefineLorentzTensorIdentities[{\\n{transProj[\
+p,mu,rho]transProj[p,rho,nu],transProj[p,mu,nu]},\\n{longProj[p,mu,rho]\
+longProj[p,rho,nu],longProj[p,mu,nu]},\\n{transProj[p,mu,rho]longProj[p,rho,\
+nu],0}\\n}]\\n\\nBasic syntax must be specified with DefineLorentzTensors \
+before Lorentz tensor identities can be defined.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.682744684314678*^9},
+ CellTags->"Info313682751883-8632465"]
+}, Open  ]],
+
+Cell["\<\
+For example, with the combined Lorentz tensors from the last section, you may \
+define\
+\>", "Text",
+ CellChangeTimes->{{3.682694602122116*^9, 3.682694631280264*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensorIdentities", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"transProj", "[", 
+        RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+       RowBox[{"transProj", "[", 
+        RowBox[{"p", ",", "rho", ",", "nu"}], "]"}]}], ",", 
+      RowBox[{"transProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"longProj", "[", 
+        RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+       RowBox[{"longProj", "[", 
+        RowBox[{"p", ",", "rho", ",", "nu"}], "]"}]}], ",", 
+      RowBox[{"longProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"transProj", "[", 
+        RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+       RowBox[{"longProj", "[", 
+        RowBox[{"p", ",", "rho", ",", "nu"}], "]"}]}], ",", "0"}], "}"}]}], 
+   "\[IndentingNewLine]", "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.647081204219706*^9, 3.647081211550091*^9}, 
+   3.6470813591555223`*^9, {3.64714732652857*^9, 3.647147331091064*^9}, 
+   3.647147369632766*^9, 3.647147499262829*^9, 3.647150177134153*^9, 
+   3.6471563242203627`*^9, {3.647156362043849*^9, 3.647156363664957*^9}, {
+   3.6489769076000443`*^9, 3.648976938103107*^9}, {3.6706134752454042`*^9, 
+   3.670613476984456*^9}, {3.682694664498818*^9, 3.682694673295969*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "rho"}], "]"}], 
+   RowBox[{"longProj", "[", 
+    RowBox[{"p", ",", "rho", ",", "mu"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.682694687613068*^9, 3.682694697547143*^9}}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.6826946981216927`*^9, 3.6826947213109617`*^9}, 
+   3.682697263876865*^9, 3.682744685094172*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Disentangle Lorentz Structures", "Subsection",
+ CellChangeTimes->{{3.682695524380862*^9, 3.682695533355739*^9}, {
+  3.682695594383892*^9, 3.6826956034271717`*^9}}],
+
+Cell["\<\
+You can enable/disable disentangling of Lorentz structures with\
+\>", "Text",
+ CellChangeTimes->{{3.682695609684111*^9, 3.6826956524982*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DisentangleLorentzStructures"}]], "Input",
+ CellChangeTimes->{{3.682695625675788*^9, 3.682695629689884*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DisentangleLorentzStructures[True/False] if set to true, the \
+Lorentz structures are disentangled.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744685807108*^9},
+ CellTags->"Info343682751885-8632465"]
+}, Open  ]],
+
+Cell["\<\
+which may or may not, depending on your traces, yields a speed-up. More \
+information can be found in the paper\
+\>", "Text",
+ CellChangeTimes->{{3.6826956584387417`*^9, 3.682695700515045*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DisentangleLorentzStructures", "[", "True", "]"}]], "Input",
+ CellChangeTimes->{{3.682695713061963*^9, 3.682695718885714*^9}}],
+
+Cell[BoxData["\<\"Lorentz structures are disentangled.\"\>"], "Print",
+ CellChangeTimes->{3.682695719270114*^9, 3.68269726395113*^9, 
+  3.682744686333219*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DisentangleLorentzStructures", "[", "False", "]"}]], "Input",
+ CellChangeTimes->{{3.682695720583288*^9, 3.682695726310668*^9}}],
+
+Cell[BoxData["\<\"Lorentz structures are not disentangled.\"\>"], "Print",
+ CellChangeTimes->{3.682695726927169*^9, 3.682697263965664*^9, 
+  3.682744686568297*^9}]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Other Features", "Section",
+ CellChangeTimes->{{3.682696558930459*^9, 3.682696569766119*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Partial Traces", "Subsection",
+ CellChangeTimes->{{3.682696607743876*^9, 3.682696611347104*^9}}],
+
+Cell["\<\
+By default, partial traces are forbidden and therefore yield an error message:\
+\>", "Text",
+ CellChangeTimes->{{3.68269665458856*^9, 3.682696685054286*^9}, {
+  3.6826967612434072`*^9, 3.68269677541051*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"myTestTrace", "=", 
+   RowBox[{
+    RowBox[{"vec", "[", 
+     RowBox[{"p", ",", "mu"}], "]"}], 
+    RowBox[{"deltaLorentz", "[", 
+     RowBox[{"mu", ",", "nu"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.682696726827135*^9, 3.682696737717119*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", "myTestTrace", "]"}]], "Input",
+ CellChangeTimes->{{3.682696649283424*^9, 3.682696650367137*^9}, {
+  3.6826966874916897`*^9, 3.682696700946581*^9}, {3.682696735868536*^9, 
+  3.682696744083085*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "FormTrace","openindices",
+   "\"There are open indices:  \
+\\!\\(\\*RowBox[{\\\"\\\\\\\"{nu}\\\\\\\"\\\"}]\\) \\nTracing was aborted. \
+Close all indices! If you do want to calculate partial traces, you can enable \
+this feature by evaluating PartialTrace[True].\"",2,38,1,30727538643705012238,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.682696752363986*^9, 3.6826967814765*^9}, 
+   3.6826972715116*^9, 3.6827446971811867`*^9}],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{
+  3.6826967015991592`*^9, {3.6826967443993387`*^9, 3.6826967814772177`*^9}, 
+   3.682697271512424*^9, 3.68274469756669*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "PartialTrace"}]], "Input",
+ CellChangeTimes->{{3.682703799337742*^9, 3.682703803018201*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"PartialTrace[True/False] enables/disables partial traces.\"\>",
+   "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.68274469854152*^9},
+ CellTags->"Info393682751897-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PartialTrace", "[", "True", "]"}]], "Input",
+ CellChangeTimes->{{3.682696716739092*^9, 3.682696749314171*^9}, {
+  3.682696787194717*^9, 3.682696787721963*^9}}],
+
+Cell[BoxData["\<\"Partial traces enabled. Keep in mind that this leads to \
+performance losses and does not allow for consistency checks.\"\>"], "Print",
+ CellChangeTimes->{{3.68269672259754*^9, 3.6826967497037907`*^9}, {
+   3.682696782346836*^9, 3.682696788166827*^9}, 3.6826972715272503`*^9, 
+   3.682744699977219*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", "myTestTrace", "]"}]], "Input",
+ CellChangeTimes->{{3.682696790599019*^9, 3.682696794205245*^9}, {
+  3.6826968345750504`*^9, 3.682696842082163*^9}}],
+
+Cell[BoxData[
+ RowBox[{"vec", "[", 
+  RowBox[{"p", ",", "nu"}], "]"}]], "Output",
+ CellChangeTimes->{3.6826967945510283`*^9, 3.682696842608922*^9, 
+  3.682697271558949*^9, 3.6827447006152353`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"longProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"transProj", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682696801620186*^9, 3.682696828713003*^9}}],
+
+Cell[BoxData[
+ RowBox[{"vec", "[", 
+  RowBox[{"p", ",", "nu"}], "]"}]], "Output",
+ CellChangeTimes->{{3.682696818516199*^9, 3.68269684371101*^9}, 
+   3.6826972715899887`*^9, 3.682744700962883*^9}],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.682696818516199*^9, 3.68269684371101*^9}, 
+   3.6826972715899887`*^9, 3.6827447009658737`*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Finite Temperature Tracing", "Subsection",
+ CellChangeTimes->{{3.6826929730788317`*^9, 3.68269297889673*^9}}],
+
+Cell["\<\
+You can define spatial vectors and scalar products that allow you to break \
+the vacuum O(dim) symmetry:\
+\>", "Text",
+ CellChangeTimes->{{3.6826958090703497`*^9, 3.6826958575996227`*^9}, {
+  3.682696445494104*^9, 3.6826964471209793`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"vecs", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sps", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6826958584483013`*^9, 3.682695858456543*^9}}],
+
+Cell["\<\
+Their zeroth component is always zero. Thus, they behave as follows\
+\>", "Text",
+ CellChangeTimes->{{3.682695872044321*^9, 3.6826959294082623`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vec", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vecs", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vecs", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], 
+   RowBox[{"vecs", "[", 
+    RowBox[{"q", ",", "mu"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682695868280655*^9, 3.682695868638505*^9}, {
+  3.6826959322584677`*^9, 3.6826959916304073`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"sp", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ CellChangeTimes->{{3.682695949804191*^9, 3.682695992071637*^9}, 
+   3.682696175770421*^9, 3.68269727739583*^9, 3.6827447015213737`*^9}],
+
+Cell[BoxData[
+ RowBox[{"sps", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ CellChangeTimes->{{3.682695949804191*^9, 3.682695992071637*^9}, 
+   3.682696175770421*^9, 3.68269727739583*^9, 3.682744701524301*^9}],
+
+Cell[BoxData[
+ RowBox[{"sps", "[", 
+  RowBox[{"p", ",", "q"}], "]"}]], "Output",
+ CellChangeTimes->{{3.682695949804191*^9, 3.682695992071637*^9}, 
+   3.682696175770421*^9, 3.68269727739583*^9, 3.6827447015332603`*^9}]
+}, Open  ]],
+
+Cell["You can also define combined Lorentz tensors with them", "Text",
+ CellChangeTimes->{{3.682696012934306*^9, 3.682696035674432*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DefineCombinedLorentzTensors", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"zero", " ", "temperature"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"transProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"deltaLorentz", "[", 
+        RowBox[{"mu", ",", "nu"}], "]"}], "-", 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "mu"}], "]"}], 
+        RowBox[{
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}], "/", 
+         RowBox[{"sp", "[", 
+          RowBox[{"p", ",", "p"}], "]"}]}]}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"longProj", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"vec", "[", 
+        RowBox[{"p", ",", "mu"}], "]"}], 
+       RowBox[{
+        RowBox[{"vec", "[", 
+         RowBox[{"p", ",", "nu"}], "]"}], "/", 
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{"finite", " ", "temperature"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"transProjFiniteT", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"deltaLorentz", "[", 
+        RowBox[{"mu", ",", "nu"}], "]"}], "-", 
+       RowBox[{
+        RowBox[{"vecs", "[", 
+         RowBox[{"p", ",", "mu"}], "]"}], 
+        RowBox[{
+         RowBox[{"vecs", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}], "/", 
+         RowBox[{"sps", "[", 
+          RowBox[{"p", ",", "p"}], "]"}]}]}], "-", 
+       RowBox[{
+        RowBox[{"deltaLorentz", "[", 
+         RowBox[{"mu", ",", "0"}], "]"}], "*", 
+        RowBox[{"deltaLorentz", "[", 
+         RowBox[{"nu", ",", "0"}], "]"}]}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"longProjFiniteT", "[", 
+       RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"deltaLorentz", "[", 
+         RowBox[{"mu", ",", "0"}], "]"}], " ", 
+        RowBox[{"deltaLorentz", "[", 
+         RowBox[{"nu", ",", "0"}], "]"}]}], "-", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "mu"}], "]"}], " ", 
+         RowBox[{"vec", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}]}], 
+        RowBox[{"sp", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]], "+", 
+       FractionBox[
+        RowBox[{
+         RowBox[{"vecs", "[", 
+          RowBox[{"p", ",", "mu"}], "]"}], " ", 
+         RowBox[{"vecs", "[", 
+          RowBox[{"p", ",", "nu"}], "]"}]}], 
+        RowBox[{"sps", "[", 
+         RowBox[{"p", ",", "p"}], "]"}]]}]}], "}"}]}], "\[IndentingNewLine]", 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682696061225415*^9, 3.682696162791403*^9}, {
+  3.6826962047344713`*^9, 3.682696223826021*^9}, {3.682696258778327*^9, 
+  3.68269631285977*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"transProjFiniteT", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}], 
+   RowBox[{"transProjFiniteT", "[", 
+    RowBox[{"p", ",", "mu", ",", "nu"}], "]"}]}], "//", 
+  "FormTrace"}]], "Input",
+ CellChangeTimes->{{3.682696232722734*^9, 3.682696237611279*^9}, {
+  3.682696340690917*^9, 3.6826963417512617`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"-", "2"}], "+", "dim"}]], "Output",
+ CellChangeTimes->{
+  3.682696237914646*^9, {3.682696332662889*^9, 3.682696342459222*^9}, 
+   3.6826963766830072`*^9, 3.682696413909183*^9, 3.6826972775559998`*^9, 
+   3.682744702713966*^9}]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Troubleshooting and Indices", "Section",
+ CellChangeTimes->{{3.682696573080339*^9, 3.6826965778532753`*^9}, {
+  3.6826968880155373`*^9, 3.682696914149002*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Debugging Functions", "Subsection",
+ CellChangeTimes->{{3.682696919386273*^9, 3.682696927463498*^9}}],
+
+Cell["\<\
+A number of functions allow to perform additional checks. These are\
+\>", "Text",
+ CellChangeTimes->{{3.682696930264127*^9, 3.682696977660372*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "DebuggingMode"}]], "Input",
+ CellChangeTimes->{{3.682696980175952*^9, 3.682696981622047*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"DebuggingMode[True/False] prints extra information if set to \
+true.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744720923718*^9},
+ CellTags->"Info503682751920-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "AlwaysCheckTensorSums"}]], "Input",
+ CellChangeTimes->{{3.682696984017334*^9, 3.6826969863151283`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"AlwaysCheckTensorSums[True/False] enables/disables consistency \
+checks.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744721850645*^9},
+ CellTags->"Info513682751921-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "CheckTensorSums"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "CheckLorentzTensorSums"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "CheckDiracTensorSums"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "CheckFundGroupTensorSums"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "CheckAdjGroupTensorSums"}]}], "Input",
+ CellChangeTimes->{{3.682696988264578*^9, 3.682697016567917*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"CheckTensorSums[expr] checks all tensor sums in expr for \
+consistency.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744722683301*^9},
+ CellTags->"Info523682751922-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"CheckLorentzTensorSums[expr] checks whether only Lorentz \
+tensors of the same rank are summed.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744722970497*^9},
+ CellTags->"Info533682751922-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"CheckDiracTensorSums[expr] checks whether only Dirac tensors \
+of the same rank are summed.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.68274472326786*^9},
+ CellTags->"Info543682751923-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"CheckFundGroupTensorSums[expr,group] checks whether only \
+fundamental group tensors of the same rank are summed.\\nThe group argument \
+can be omitted if only one group is specified.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.6827447235064487`*^9},
+ CellTags->"Info553682751923-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"CheckAdjGroupTensorSums[expr,group] checks whether only \
+adjoint group tensors of the same rank are summed.\\nThe group argument can \
+be omitted if only one group is specified.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.682744723892762*^9},
+ CellTags->"Info563682751923-8632465"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CheckTensorSums", "[", 
+   RowBox[{
+    RowBox[{"vec", "[", 
+     RowBox[{"p", ",", "mu"}], "]"}], "+", "1"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.682697026499284*^9, 3.6826970431774063`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{
+  "TensorSumCheck","invalidsum",
+   "\"Invalid sum of tensors encountered: \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+\\\"mu\\\", \\\"}\\\"}]}], \\\"}\\\"}]\\).\"",2,57,2,30727538643705012238,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.6826970390212383`*^9, 3.682697043677273*^9}, 
+   3.682697284036315*^9, 3.682744724259544*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Indices Functions", "Subsection",
+ CellChangeTimes->{{3.682697070775961*^9, 3.682697075808013*^9}}],
+
+Cell["\<\
+The indices function below enable you to inspect your expressions.\
+\>", "Text",
+ CellChangeTimes->{{3.682702797788151*^9, 3.6827028165667477`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Extracting all indices from an expression", "Subsubsection",
+ CellChangeTimes->{{3.6826971115179462`*^9, 3.682697124752487*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "GetIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetLorentzIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetDiracIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetFundGroupIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetAdjGroupIndices"}]}], "Input",
+ CellChangeTimes->{{3.682697078249816*^9, 3.682697104800762*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"GetIndices[expr] returns a list with all indices in expr.\"\>",
+   "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744724615205*^9},
+ CellTags->"Info583682751924-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetLorentzIndices[expr] returns a list with all Lorentz \
+indices in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744724776552*^9},
+ CellTags->"Info593682751924-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetDiracIndices[expr] returns a list with all Dirac indices in \
+expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744725034903*^9},
+ CellTags->"Info603682751924-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetFundGroupIndices[expr,group] returns a list with all \
+fundamental indices of group group in expr.\\nThe group argument can be \
+omitted if only one group is specified.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744725326289*^9},
+ CellTags->"Info613682751925-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetAdjGroupIndices[expr,group] returns a list with all adjoint \
+indices of group group in expr.\\nThe group argument can be omitted if only \
+one group is specified.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744725620743*^9},
+ CellTags->"Info623682751925-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Extracting all open indices from an expression", "Subsubsection",
+ CellChangeTimes->{{3.6826971115179462`*^9, 3.682697136572575*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "GetOpenIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetOpenLorentzIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetOpenDiracIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetOpenFundGroupIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetOpenAdjGroupIndices"}]}], "Input",
+ CellChangeTimes->{{3.682697078249816*^9, 3.682697104800762*^9}, {
+  3.6826971390754833`*^9, 3.682697145583404*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"GetOpenIndices[expr] returns a list with all open indices in \
+expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744726014596*^9},
+ CellTags->"Info633682751925-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetOpenLorentzIndices[expr] returns a list with all open \
+Lorentz indices in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447261419*^9},
+ CellTags->"Info643682751926-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetOpenDiracIndices[expr] returns a list with all open Dirac \
+indices in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447263969173`*^9},
+ CellTags->"Info653682751926-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetOpenFundGroupIndices[expr,group] returns a list with all \
+open fundamental indices of group group in expr.\\nThe group argument can be \
+omitted if only one group is specified.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744726647814*^9},
+ CellTags->"Info663682751926-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetOpenAdjGroupIndices[expr,group] returns a list with all \
+open adjoint indices of group group in expr.\\nThe group argument can be \
+omitted if only one group is specified.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447269000893`*^9},
+ CellTags->"Info673682751926-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Extracting all closed indices from an expression", "Subsubsection",
+ CellChangeTimes->{{3.6826971115179462`*^9, 3.682697157823488*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "GetClosedIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetClosedLorentzIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetClosedDiracIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetClosedFundGroupIndices"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetClosedAdjGroupIndices"}]}], "Input",
+ CellChangeTimes->{{3.682697078249816*^9, 3.682697104800762*^9}, {
+  3.6826971390754833`*^9, 3.682697175117827*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"GetClosedIndices[expr] returns a list with all closed indices \
+in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447272950478`*^9},
+ CellTags->"Info683682751927-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetClosedLorentzIndices[expr] returns a list with all closed \
+Lorentz indices in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447274221087`*^9},
+ CellTags->"Info693682751927-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetClosedDiracIndices[expr] returns a list with all closed \
+Dirac indices in expr.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744727675668*^9},
+ CellTags->"Info703682751927-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetClosedFundGroupIndices[expr,group] returns a list with all \
+closed fundamental indices of group group in expr.\\nThe group argument can \
+be omitted if only one group is specified.\"\>", "MSG"]], "Print", \
+"PrintUsage",
+ CellChangeTimes->{3.682744727931118*^9},
+ CellTags->"Info713682751927-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetClosedAdjGroupIndices[expr,group] returns a list with all \
+closed adjoint indices of group group in expr.\\nThe group argument can be \
+omitted if only one group is specified.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744728184956*^9},
+ CellTags->"Info723682751928-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Expert\[CloseCurlyQuote]s Functions", "Subsection",
+ CellChangeTimes->{{3.6827030841303673`*^9, 3.6827030933008137`*^9}}],
+
+Cell["\<\
+Some functions that are used by the FormTracer internally are accessible from \
+outside. These are not intended to be used by the normal user as they almost \
+certainly require FormTracer development knowledge. However, they are listed \
+below just in case someone finds them useful:\
+\>", "Text",
+ CellChangeTimes->{{3.682703097804721*^9, 3.6827032293821487`*^9}, {
+  3.682703277624495*^9, 3.682703282875681*^9}, {3.6827033290215054`*^9, 
+  3.6827033426801043`*^9}, {3.682703401545684*^9, 3.682703549725753*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "ConvertInput"}]], "Input",
+ CellChangeTimes->{{3.682703629522707*^9, 3.6827036335349503`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"ConvertInput[expr_] converts input into FormTracer \
+syntax.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744728578329*^9},
+ CellTags->"Info733682751928-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "ExpandTerms"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "ExpandLorentzStructures"}]}], "Input",
+ CellChangeTimes->{{3.6827035545739937`*^9, 3.6827035601715593`*^9}, {
+  3.682703597144622*^9, 3.682703601926219*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"ExpandTerms[expr_] dismantles an expression into the specified \
+tensor classes.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744728890711*^9},
+ CellTags->"Info743682751928-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"ExpandLorentzStructures[expr_] dismantles Lorentz and Dirac \
+tensors.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744729019516*^9},
+ CellTags->"Info753682751928-8632465"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "GenerateFormFile"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "ImportFormResult"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "GetExtraVarsSynonyms"}]}], "Input",
+ CellChangeTimes->{{3.682703551330946*^9, 3.682703552388204*^9}, {
+  3.6827036058514633`*^9, 3.682703622180162*^9}, {3.682703670650835*^9, 
+  3.682703674903092*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"GenerateFormFile[expr_,formFileName_String,resFileName_String,\
+optimization_String:\\\"\\\",format_String:\\\"mathematica\\\",prerepl_List:{}\
+,postrepl_List:{},bracket_List:{},exportResVar_String:\\\"expr\\\",\
+exportTmpVar_String:\\\"w\\\",exportVarType_String:\\\"double\\\"] generates \
+the form file and returns variable lists for Mathematica replacements.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744729333395*^9},
+ CellTags->"Info763682751929-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"ImportFormResult[filename_:String,deleteImportedFile_:False] \
+imports a FORM result.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744729467918*^9},
+ CellTags->"Info773682751929-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"GetExtraVarsSynonyms[] returns a list with all extra variables \
+and their respective FORM synonyms (that changes whenever new extra variables \
+are declared).\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.682744729773994*^9},
+ CellTags->"Info783682751929-8632465"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FiniteT"}]], "Input",
+ CellChangeTimes->{{3.6827036374837933`*^9, 3.682703641191634*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"FiniteT[True/False] if set to True, finite T is enabled.\"\>", 
+  "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447301678677`*^9},
+ CellTags->"Info793682751930-8632465"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"?", "LorentzFormRule"}], "\[IndentingNewLine]", 
+ RowBox[{"?", "PreambleFormRule"}]}], "Input",
+ CellChangeTimes->{{3.682703678029397*^9, 3.682703685142331*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox["\<\"LorentzFormRule specifies that a replacement rule is only \
+applied to Lorentz terms (passed as first list argument in FormTrace's \
+prereplrule or postreplrule).\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447304809637`*^9},
+ CellTags->"Info803682751930-8632465"],
+
+Cell[BoxData[
+ StyleBox["\<\"PreambleFormRules specifies user-specific FORM code that is \
+inserted in the preamble of the generated FORM file (passed as first list \
+argument in FormTrace's prereplrule).\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.6827447305767393`*^9},
+ CellTags->"Info813682751930-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1680, 1000},
+WindowMargins->{{0, Automatic}, {0, 20}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info23682751853-8632465"->{
+  Cell[10315, 276, 1058, 16, 201, "Print",
+   CellTags->"Info23682751853-8632465"]},
+ "Info43682751854-8632465"->{
+  Cell[12270, 322, 379, 6, 77, "Print",
+   CellTags->"Info43682751854-8632465"]},
+ "Info73682751855-8632465"->{
+  Cell[14471, 391, 231, 4, 42, "Print",
+   CellTags->"Info73682751855-8632465"]},
+ "Info93682751856-8632465"->{
+  Cell[18418, 514, 1428, 22, 434, "Print",
+   CellTags->"Info93682751856-8632465"]},
+ "Info113682751857-8632465"->{
+  Cell[21842, 592, 211, 4, 42, "Print",
+   CellTags->"Info113682751857-8632465"]},
+ "Info143682751857-8632465"->{
+  Cell[25856, 718, 193, 4, 42, "Print",
+   CellTags->"Info143682751857-8632465"]},
+ "Info153682751858-8632465"->{
+  Cell[26305, 734, 283, 5, 42, "Print",
+   CellTags->"Info153682751858-8632465"]},
+ "Info183682751859-8632465"->{
+  Cell[28990, 817, 196, 4, 42, "Print",
+   CellTags->"Info183682751859-8632465"]},
+ "Info193682751860-8632465"->{
+  Cell[29540, 835, 979, 14, 184, "Print",
+   CellTags->"Info193682751860-8632465"]},
+ "Info223682751878-8632465"->{
+  Cell[32545, 918, 1103, 16, 272, "Print",
+   CellTags->"Info223682751878-8632465"]},
+ "Info233682751879-8632465"->{
+  Cell[33916, 946, 663, 11, 184, "Print",
+   CellTags->"Info233682751879-8632465"]},
+ "Info293682751882-8632465"->{
+  Cell[38525, 1082, 216, 4, 42, "Print",
+   CellTags->"Info293682751882-8632465"]},
+ "Info303682751883-8632465"->{
+  Cell[39338, 1108, 878, 12, 254, "Print",
+   CellTags->"Info303682751883-8632465"]},
+ "Info313682751883-8632465"->{
+  Cell[40511, 1133, 747, 12, 202, "Print",
+   CellTags->"Info313682751883-8632465"]},
+ "Info343682751885-8632465"->{
+  Cell[44009, 1227, 247, 4, 42, "Print",
+   CellTags->"Info343682751885-8632465"]},
+ "Info393682751897-8632465"->{
+  Cell[47065, 1322, 207, 4, 42, "Print",
+   CellTags->"Info393682751897-8632465"]},
+ "Info503682751920-8632465"->{
+  Cell[56359, 1606, 216, 4, 42, "Print",
+   CellTags->"Info503682751920-8632465"]},
+ "Info513682751921-8632465"->{
+  Cell[56747, 1619, 220, 4, 42, "Print",
+   CellTags->"Info513682751921-8632465"]},
+ "Info523682751922-8632465"->{
+  Cell[57420, 1638, 219, 4, 42, "Print",
+   CellTags->"Info523682751922-8632465"]},
+ "Info533682751922-8632465"->{
+  Cell[57642, 1644, 243, 4, 42, "Print",
+   CellTags->"Info533682751922-8632465"]},
+ "Info543682751923-8632465"->{
+  Cell[57888, 1650, 238, 4, 42, "Print",
+   CellTags->"Info543682751923-8632465"]},
+ "Info553682751923-8632465"->{
+  Cell[58129, 1656, 335, 6, 60, "Print",
+   CellTags->"Info553682751923-8632465"]},
+ "Info563682751923-8632465"->{
+  Cell[58467, 1664, 328, 6, 60, "Print",
+   CellTags->"Info563682751923-8632465"]},
+ "Info583682751924-8632465"->{
+  Cell[60424, 1724, 208, 4, 42, "Print",
+   CellTags->"Info583682751924-8632465"]},
+ "Info593682751924-8632465"->{
+  Cell[60635, 1730, 222, 4, 42, "Print",
+   CellTags->"Info593682751924-8632465"]},
+ "Info603682751924-8632465"->{
+  Cell[60860, 1736, 218, 4, 42, "Print",
+   CellTags->"Info603682751924-8632465"]},
+ "Info613682751925-8632465"->{
+  Cell[61081, 1742, 319, 5, 60, "Print",
+   CellTags->"Info613682751925-8632465"]},
+ "Info623682751925-8632465"->{
+  Cell[61403, 1749, 314, 5, 60, "Print",
+   CellTags->"Info623682751925-8632465"]},
+ "Info633682751925-8632465"->{
+  Cell[62404, 1777, 216, 4, 42, "Print",
+   CellTags->"Info633682751925-8632465"]},
+ "Info643682751926-8632465"->{
+  Cell[62623, 1783, 229, 4, 42, "Print",
+   CellTags->"Info643682751926-8632465"]},
+ "Info653682751926-8632465"->{
+  Cell[62855, 1789, 229, 4, 42, "Print",
+   CellTags->"Info653682751926-8632465"]},
+ "Info663682751926-8632465"->{
+  Cell[63087, 1795, 328, 5, 60, "Print",
+   CellTags->"Info663682751926-8632465"]},
+ "Info673682751926-8632465"->{
+  Cell[63418, 1802, 325, 5, 60, "Print",
+   CellTags->"Info673682751926-8632465"]},
+ "Info683682751927-8632465"->{
+  Cell[64442, 1830, 222, 4, 42, "Print",
+   CellTags->"Info683682751927-8632465"]},
+ "Info693682751927-8632465"->{
+  Cell[64667, 1836, 237, 4, 42, "Print",
+   CellTags->"Info693682751927-8632465"]},
+ "Info703682751927-8632465"->{
+  Cell[64907, 1842, 231, 4, 42, "Print",
+   CellTags->"Info703682751927-8632465"]},
+ "Info713682751927-8632465"->{
+  Cell[65141, 1848, 334, 6, 60, "Print",
+   CellTags->"Info713682751927-8632465"]},
+ "Info723682751928-8632465"->{
+  Cell[65478, 1856, 327, 5, 60, "Print",
+   CellTags->"Info723682751928-8632465"]},
+ "Info733682751928-8632465"->{
+  Cell[66682, 1888, 208, 4, 42, "Print",
+   CellTags->"Info733682751928-8632465"]},
+ "Info743682751928-8632465"->{
+  Cell[67194, 1905, 228, 4, 42, "Print",
+   CellTags->"Info743682751928-8632465"]},
+ "Info753682751928-8632465"->{
+  Cell[67425, 1911, 218, 4, 42, "Print",
+   CellTags->"Info753682751928-8632465"]},
+ "Info763682751929-8632465"->{
+  Cell[68068, 1931, 513, 8, 60, "Print",
+   CellTags->"Info763682751929-8632465"]},
+ "Info773682751929-8632465"->{
+  Cell[68584, 1941, 233, 4, 42, "Print",
+   CellTags->"Info773682751929-8632465"]},
+ "Info783682751929-8632465"->{
+  Cell[68820, 1947, 307, 5, 42, "Print",
+   CellTags->"Info783682751929-8632465"]},
+ "Info793682751930-8632465"->{
+  Cell[69297, 1962, 209, 4, 42, "Print",
+   CellTags->"Info793682751930-8632465"]},
+ "Info803682751930-8632465"->{
+  Cell[69754, 1978, 312, 5, 42, "Print",
+   CellTags->"Info803682751930-8632465"]},
+ "Info813682751930-8632465"->{
+  Cell[70069, 1985, 325, 5, 42, "Print",
+   CellTags->"Info813682751930-8632465"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info23682751853-8632465", 70755, 2007},
+ {"Info43682751854-8632465", 70870, 2010},
+ {"Info73682751855-8632465", 70982, 2013},
+ {"Info93682751856-8632465", 71094, 2016},
+ {"Info113682751857-8632465", 71210, 2019},
+ {"Info143682751857-8632465", 71324, 2022},
+ {"Info153682751858-8632465", 71438, 2025},
+ {"Info183682751859-8632465", 71552, 2028},
+ {"Info193682751860-8632465", 71666, 2031},
+ {"Info223682751878-8632465", 71782, 2034},
+ {"Info233682751879-8632465", 71899, 2037},
+ {"Info293682751882-8632465", 72015, 2040},
+ {"Info303682751883-8632465", 72130, 2043},
+ {"Info313682751883-8632465", 72247, 2046},
+ {"Info343682751885-8632465", 72364, 2049},
+ {"Info393682751897-8632465", 72479, 2052},
+ {"Info503682751920-8632465", 72594, 2055},
+ {"Info513682751921-8632465", 72709, 2058},
+ {"Info523682751922-8632465", 72824, 2061},
+ {"Info533682751922-8632465", 72939, 2064},
+ {"Info543682751923-8632465", 73054, 2067},
+ {"Info553682751923-8632465", 73169, 2070},
+ {"Info563682751923-8632465", 73284, 2073},
+ {"Info583682751924-8632465", 73399, 2076},
+ {"Info593682751924-8632465", 73514, 2079},
+ {"Info603682751924-8632465", 73629, 2082},
+ {"Info613682751925-8632465", 73744, 2085},
+ {"Info623682751925-8632465", 73859, 2088},
+ {"Info633682751925-8632465", 73974, 2091},
+ {"Info643682751926-8632465", 74089, 2094},
+ {"Info653682751926-8632465", 74204, 2097},
+ {"Info663682751926-8632465", 74319, 2100},
+ {"Info673682751926-8632465", 74434, 2103},
+ {"Info683682751927-8632465", 74549, 2106},
+ {"Info693682751927-8632465", 74664, 2109},
+ {"Info703682751927-8632465", 74779, 2112},
+ {"Info713682751927-8632465", 74894, 2115},
+ {"Info723682751928-8632465", 75009, 2118},
+ {"Info733682751928-8632465", 75124, 2121},
+ {"Info743682751928-8632465", 75239, 2124},
+ {"Info753682751928-8632465", 75354, 2127},
+ {"Info763682751929-8632465", 75469, 2130},
+ {"Info773682751929-8632465", 75584, 2133},
+ {"Info783682751929-8632465", 75699, 2136},
+ {"Info793682751930-8632465", 75814, 2139},
+ {"Info803682751930-8632465", 75929, 2142},
+ {"Info813682751930-8632465", 76044, 2145}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 204, 3, 93, "Title"],
+Cell[787, 27, 611, 10, 51, "Text"],
+Cell[CellGroupData[{
+Cell[1423, 41, 108, 1, 65, "Section"],
+Cell[CellGroupData[{
+Cell[1556, 46, 100, 1, 44, "Subsection"],
+Cell[1659, 49, 209, 4, 31, "Text"],
+Cell[CellGroupData[{
+Cell[1893, 57, 723, 17, 123, "Input"],
+Cell[CellGroupData[{
+Cell[2641, 78, 455, 6, 185, "Print"],
+Cell[3099, 86, 113, 1, 24, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[3239, 91, 229, 5, 31, "Text"],
+Cell[3471, 98, 76, 1, 32, "Input"],
+Cell[3550, 101, 265, 5, 31, "Text"],
+Cell[3818, 108, 141, 2, 32, "Input"],
+Cell[3962, 112, 139, 2, 32, "Input"],
+Cell[4104, 116, 131, 2, 32, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4272, 123, 92, 1, 36, "Subsection"],
+Cell[4367, 126, 520, 10, 110, "Text"],
+Cell[4890, 138, 125, 2, 32, "Input"],
+Cell[5018, 142, 423, 10, 31, "Text"],
+Cell[CellGroupData[{
+Cell[5466, 156, 153, 2, 35, "Subsubsection"],
+Cell[5622, 160, 1971, 37, 424, "Text"],
+Cell[7596, 199, 280, 6, 31, "Text"],
+Cell[7879, 207, 193, 3, 32, "Input"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8133, 217, 158, 2, 51, "Section"],
+Cell[CellGroupData[{
+Cell[8316, 223, 100, 1, 45, "Subsection"],
+Cell[8419, 226, 302, 6, 31, "Text"],
+Cell[CellGroupData[{
+Cell[8746, 236, 144, 2, 32, "Input"],
+Cell[CellGroupData[{
+Cell[8915, 242, 518, 7, 185, "Print"],
+Cell[9436, 251, 160, 2, 24, "Print"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9657, 260, 261, 3, 37, "Subsection"],
+Cell[9921, 265, 116, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[10062, 270, 250, 4, 32, "Input"],
+Cell[10315, 276, 1058, 16, 201, "Print",
+ CellTags->"Info23682751853-8632465"]
+}, Open  ]],
+Cell[11388, 295, 610, 16, 34, "Input"],
+Cell[12001, 313, 109, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[12135, 318, 132, 2, 32, "Input"],
+Cell[12270, 322, 379, 6, 77, "Print",
+ CellTags->"Info43682751854-8632465"]
+}, Open  ]],
+Cell[12664, 331, 218, 4, 34, "Input"],
+Cell[12885, 337, 102, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[13012, 342, 637, 19, 34, "Input"],
+Cell[13652, 363, 374, 10, 34, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14075, 379, 110, 1, 37, "Subsection"],
+Cell[14188, 382, 126, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[14339, 387, 129, 2, 32, "Input"],
+Cell[14471, 391, 231, 4, 42, "Print",
+ CellTags->"Info73682751855-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14739, 400, 132, 2, 32, "Input"],
+Cell[14874, 404, 3168, 96, 285, "Output"]
+}, Open  ]],
+Cell[18057, 503, 204, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[18286, 510, 129, 2, 32, "Input"],
+Cell[18418, 514, 1428, 22, 434, "Print",
+ CellTags->"Info93682751856-8632465"]
+}, Open  ]],
+Cell[19861, 539, 1714, 42, 112, "Input"],
+Cell[21578, 583, 109, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[21712, 588, 127, 2, 32, "Input"],
+Cell[21842, 592, 211, 4, 42, "Print",
+ CellTags->"Info113682751857-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22090, 601, 131, 2, 32, "Input"],
+Cell[22224, 605, 1974, 60, 162, "Output"]
+}, Open  ]],
+Cell[24213, 668, 100, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[24338, 673, 725, 17, 32, "Input"],
+Cell[25066, 692, 232, 4, 30, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25347, 702, 102, 1, 36, "Subsection"],
+Cell[25452, 705, 255, 5, 31, "Text"],
+Cell[CellGroupData[{
+Cell[25732, 714, 121, 2, 30, "Input"],
+Cell[25856, 718, 193, 4, 42, "Print",
+ CellTags->"Info143682751857-8632465"]
+}, Open  ]],
+Cell[26064, 725, 85, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[26174, 730, 128, 2, 30, "Input"],
+Cell[26305, 734, 283, 5, 42, "Print",
+ CellTags->"Info153682751858-8632465"]
+}, Open  ]],
+Cell[26603, 742, 112, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[26740, 747, 420, 8, 32, "Input"],
+Cell[27163, 757, 275, 6, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27475, 768, 746, 21, 32, "Input"],
+Cell[28224, 791, 375, 10, 53, "Output"]
+}, Open  ]],
+Cell[28614, 804, 225, 5, 31, "Text"],
+Cell[CellGroupData[{
+Cell[28864, 813, 123, 2, 30, "Input"],
+Cell[28990, 817, 196, 4, 42, "Print",
+ CellTags->"Info183682751859-8632465"]
+}, Open  ]],
+Cell[29201, 824, 168, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[29394, 831, 143, 2, 30, "Input"],
+Cell[29540, 835, 979, 14, 184, "Print",
+ CellTags->"Info193682751860-8632465"]
+}, Open  ]],
+Cell[30534, 852, 128, 1, 31, "Text"],
+Cell[30665, 855, 301, 7, 32, "Input"],
+Cell[CellGroupData[{
+Cell[30991, 866, 487, 13, 32, "Input"],
+Cell[31481, 881, 433, 11, 52, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[31975, 899, 113, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[32113, 904, 112, 1, 44, "Subsection"],
+Cell[32228, 907, 154, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[32407, 914, 135, 2, 32, "Input"],
+Cell[32545, 918, 1103, 16, 272, "Print",
+ CellTags->"Info223682751878-8632465"]
+}, Open  ]],
+Cell[33663, 937, 86, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[33774, 942, 139, 2, 32, "Input"],
+Cell[33916, 946, 663, 11, 184, "Print",
+ CellTags->"Info233682751879-8632465"]
+}, Open  ]],
+Cell[34594, 960, 212, 4, 31, "Text"],
+Cell[34809, 966, 1137, 33, 101, "Input"],
+Cell[35949, 1001, 112, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[36086, 1006, 613, 17, 57, "Input"],
+Cell[36702, 1025, 196, 3, 32, "Output"],
+Cell[36901, 1030, 245, 5, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37183, 1040, 297, 7, 34, "Input"],
+Cell[37483, 1049, 171, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37691, 1057, 227, 5, 34, "Input"],
+Cell[37921, 1064, 240, 5, 32, "Output"]
+}, Open  ]],
+Cell[38176, 1072, 132, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[38333, 1077, 189, 3, 32, "Input"],
+Cell[38525, 1082, 216, 4, 42, "Print",
+ CellTags->"Info293682751882-8632465"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[38790, 1092, 113, 1, 36, "Subsection"],
+Cell[38906, 1095, 271, 5, 31, "Text"],
+Cell[CellGroupData[{
+Cell[39202, 1104, 133, 2, 32, "Input"],
+Cell[39338, 1108, 878, 12, 254, "Print",
+ CellTags->"Info303682751883-8632465"]
+}, Open  ]],
+Cell[40231, 1123, 86, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[40342, 1128, 166, 3, 30, "Input"],
+Cell[40511, 1133, 747, 12, 202, "Print",
+ CellTags->"Info313682751883-8632465"]
+}, Open  ]],
+Cell[41273, 1148, 176, 4, 31, "Text"],
+Cell[41452, 1154, 1551, 37, 112, "Input"],
+Cell[CellGroupData[{
+Cell[43028, 1195, 295, 7, 32, "Input"],
+Cell[43326, 1204, 146, 2, 30, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[43521, 1212, 169, 2, 37, "Subsection"],
+Cell[43693, 1216, 151, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[43869, 1223, 137, 2, 32, "Input"],
+Cell[44009, 1227, 247, 4, 42, "Print",
+ CellTags->"Info343682751885-8632465"]
+}, Open  ]],
+Cell[44271, 1234, 203, 4, 31, "Text"],
+Cell[CellGroupData[{
+Cell[44499, 1242, 150, 2, 32, "Input"],
+Cell[44652, 1246, 158, 2, 24, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44847, 1253, 151, 2, 32, "Input"],
+Cell[45001, 1257, 163, 2, 24, "Print"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[45225, 1266, 99, 1, 51, "Section"],
+Cell[CellGroupData[{
+Cell[45349, 1271, 102, 1, 44, "Subsection"],
+Cell[45454, 1274, 217, 4, 31, "Text"],
+Cell[45674, 1280, 290, 8, 34, "Input"],
+Cell[CellGroupData[{
+Cell[45989, 1292, 238, 4, 32, "Input"],
+Cell[46230, 1298, 492, 10, 41, "Message"],
+Cell[46725, 1310, 179, 3, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46941, 1318, 121, 2, 32, "Input"],
+Cell[47065, 1322, 207, 4, 42, "Print",
+ CellTags->"Info393682751897-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47309, 1331, 183, 3, 32, "Input"],
+Cell[47495, 1336, 320, 4, 24, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47852, 1345, 189, 3, 32, "Input"],
+Cell[48044, 1350, 196, 4, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48277, 1359, 490, 13, 57, "Input"],
+Cell[48770, 1374, 196, 4, 34, "Output"],
+Cell[48969, 1380, 145, 2, 32, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[49163, 1388, 115, 1, 37, "Subsection"],
+Cell[49281, 1391, 249, 5, 31, "Text"],
+Cell[49533, 1398, 744, 20, 32, "Input"],
+Cell[50280, 1420, 159, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[50464, 1427, 708, 20, 72, "Input"],
+Cell[51175, 1449, 216, 4, 32, "Output"],
+Cell[51394, 1455, 215, 4, 32, "Output"],
+Cell[51612, 1461, 217, 4, 32, "Output"]
+}, Open  ]],
+Cell[51844, 1468, 136, 1, 30, "Text"],
+Cell[51983, 1471, 3061, 87, 244, "Input"],
+Cell[CellGroupData[{
+Cell[55069, 1562, 358, 9, 32, "Input"],
+Cell[55430, 1573, 261, 6, 30, "Output"]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[55752, 1586, 165, 2, 51, "Section"],
+Cell[CellGroupData[{
+Cell[55942, 1592, 107, 1, 45, "Subsection"],
+Cell[56052, 1595, 157, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[56234, 1602, 122, 2, 32, "Input"],
+Cell[56359, 1606, 216, 4, 42, "Print",
+ CellTags->"Info503682751920-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56612, 1615, 132, 2, 32, "Input"],
+Cell[56747, 1619, 220, 4, 42, "Print",
+ CellTags->"Info513682751921-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57004, 1628, 391, 6, 121, "Input"],
+Cell[CellGroupData[{
+Cell[57420, 1638, 219, 4, 42, "Print",
+ CellTags->"Info523682751922-8632465"],
+Cell[57642, 1644, 243, 4, 42, "Print",
+ CellTags->"Info533682751922-8632465"],
+Cell[57888, 1650, 238, 4, 42, "Print",
+ CellTags->"Info543682751923-8632465"],
+Cell[58129, 1656, 335, 6, 60, "Print",
+ CellTags->"Info553682751923-8632465"],
+Cell[58467, 1664, 328, 6, 60, "Print",
+ CellTags->"Info563682751923-8632465"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58844, 1676, 237, 6, 34, "Input"],
+Cell[59084, 1684, 450, 9, 23, "Message"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[59583, 1699, 105, 1, 36, "Subsection"],
+Cell[59691, 1702, 158, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[59874, 1709, 134, 1, 35, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[60033, 1714, 366, 6, 109, "Input"],
+Cell[CellGroupData[{
+Cell[60424, 1724, 208, 4, 42, "Print",
+ CellTags->"Info583682751924-8632465"],
+Cell[60635, 1730, 222, 4, 42, "Print",
+ CellTags->"Info593682751924-8632465"],
+Cell[60860, 1736, 218, 4, 42, "Print",
+ CellTags->"Info603682751924-8632465"],
+Cell[61081, 1742, 319, 5, 60, "Print",
+ CellTags->"Info613682751925-8632465"],
+Cell[61403, 1749, 314, 5, 60, "Print",
+ CellTags->"Info623682751925-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[61778, 1761, 139, 1, 29, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[61942, 1766, 437, 7, 112, "Input"],
+Cell[CellGroupData[{
+Cell[62404, 1777, 216, 4, 42, "Print",
+ CellTags->"Info633682751925-8632465"],
+Cell[62623, 1783, 229, 4, 42, "Print",
+ CellTags->"Info643682751926-8632465"],
+Cell[62855, 1789, 229, 4, 42, "Print",
+ CellTags->"Info653682751926-8632465"],
+Cell[63087, 1795, 328, 5, 60, "Print",
+ CellTags->"Info663682751926-8632465"],
+Cell[63418, 1802, 325, 5, 60, "Print",
+ CellTags->"Info673682751926-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[63804, 1814, 141, 1, 29, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[63970, 1819, 447, 7, 109, "Input"],
+Cell[CellGroupData[{
+Cell[64442, 1830, 222, 4, 42, "Print",
+ CellTags->"Info683682751927-8632465"],
+Cell[64667, 1836, 237, 4, 42, "Print",
+ CellTags->"Info693682751927-8632465"],
+Cell[64907, 1842, 231, 4, 42, "Print",
+ CellTags->"Info703682751927-8632465"],
+Cell[65141, 1848, 334, 6, 60, "Print",
+ CellTags->"Info713682751927-8632465"],
+Cell[65478, 1856, 327, 5, 60, "Print",
+ CellTags->"Info723682751928-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[65878, 1869, 127, 1, 37, "Subsection"],
+Cell[66008, 1872, 523, 8, 51, "Text"],
+Cell[CellGroupData[{
+Cell[66556, 1884, 123, 2, 32, "Input"],
+Cell[66682, 1888, 208, 4, 42, "Print",
+ CellTags->"Info733682751928-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66927, 1897, 242, 4, 52, "Input"],
+Cell[CellGroupData[{
+Cell[67194, 1905, 228, 4, 42, "Print",
+ CellTags->"Info743682751928-8632465"],
+Cell[67425, 1911, 218, 4, 42, "Print",
+ CellTags->"Info753682751928-8632465"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67692, 1921, 351, 6, 71, "Input"],
+Cell[CellGroupData[{
+Cell[68068, 1931, 513, 8, 60, "Print",
+ CellTags->"Info763682751929-8632465"],
+Cell[68584, 1941, 233, 4, 42, "Print",
+ CellTags->"Info773682751929-8632465"],
+Cell[68820, 1947, 307, 5, 42, "Print",
+ CellTags->"Info783682751929-8632465"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69176, 1958, 118, 2, 30, "Input"],
+Cell[69297, 1962, 209, 4, 42, "Print",
+ CellTags->"Info793682751930-8632465"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69543, 1971, 186, 3, 50, "Input"],
+Cell[CellGroupData[{
+Cell[69754, 1978, 312, 5, 42, "Print",
+ CellTags->"Info803682751930-8632465"],
+Cell[70069, 1985, 325, 5, 42, "Print",
+ CellTags->"Info813682751930-8632465"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

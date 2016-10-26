@@ -1,0 +1,466 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14717,        456]
+NotebookOptionsPosition[     11495,        360]
+NotebookOutlinePosition[     13595,        416]
+CellTagsIndexPosition[     13510,        411]
+WindowTitle->AlwaysCheckTensorSums
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "See Also",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"See Also", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"DebuggingMode\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DebuggingMode"], "\<\"CheckTensorSums\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckTensorSums"], \
+"\<\"CheckLorentzTensorSums\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckLorentzTensorSums"], \
+"\<\"CheckDiracTensorSums\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckDiracTensorSums"], \
+"\<\"CheckFundGroupTensorSums\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckFundGroupTensorSums"], \
+"\<\"CheckAdjGroupTensorSums\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/CheckAdjGroupTensorSums"], "\<\"GetIndices\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GetIndices"], "\<\"GetOpenIndices\"\>":>
+       Documentation`HelpLookup[
+       "paclet:FormTracer/ref/GetOpenIndices"], "\<\"GetClosedIndices\"\>":>
+       Documentation`HelpLookup["paclet:FormTracer/ref/GetClosedIndices"]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"SeeAlso"]],
+      LineSpacing->{1.4, 0}],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      ActionMenuBox[
+       FrameBox[
+        InterpretationBox[Cell[TextData[{
+          "URL",
+          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
+           StripOnInput->False]
+         }]],
+         TextCell[
+          Row[{"URL", 
+            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
+        StripOnInput->False], {"\<\"FormTracer/ref/AlwaysCheckTensorSums\"\>":>
+       None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell["FormTracer/ref/AlwaysCheckTensorSums"]}, Visible -> 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+       Delimiter, "\<\"Copy web URL\"\>":>
+       Module[{DocumentationSearch`Private`nb$}, 
+        DocumentationSearch`Private`nb$ = NotebookPut[
+           Notebook[{
+             Cell[
+              BoxData[
+               MakeBoxes[
+                Hyperlink[
+                "http://reference.wolfram.com/language/FormTracer/ref/\
+AlwaysCheckTensorSums.html"], StandardForm]], "Input", TextClipboardType -> 
+              "PlainText"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+        FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+        NotebookClose[DocumentationSearch`Private`nb$]; 
+        Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+         NotebookLocate[{
+           URL[
+            StringJoin[
+             If[
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5402], 
+              "http://reference.wolfram.com/system-modeler/", 
+              "http://reference.wolfram.com/language/"], 
+             "FormTracer/ref/AlwaysCheckTensorSums", ".html"]], None}]}]},
+       Appearance->None,
+       MenuAppearance->Automatic,
+       MenuStyle->"URLMenu"]],
+      LineSpacing->{1.4, 0}]
+    }], "AnchorBar"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1],
+
+Cell[TextData[{
+ Cell["AlwaysCheckTensorSums", "ObjectName"],
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{8, 0}],
+    CacheGraphics->False],
+   Spacer[8]]]],
+ Cell[BoxData[""], "ObjectNameTranslation"]
+}], "ObjectNameGrid"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"AlwaysCheckTensorSums", "[", 
+       RowBox[{
+        TemplateBox[{Cell[
+           TextData["True"]],"paclet:ref/True"},
+         "RefLink",
+         BaseStyle->{"InlineFormula", "CodeFont"}], "/", 
+        TemplateBox[{Cell[
+           TextData["False"]],"paclet:ref/False"},
+         "RefLink",
+         BaseStyle->{"InlineFormula", "CodeFont"}]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]enables/disables consistency checks."
+    }]]}
+  }]], "Usage",
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}}],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CellTags->"PrimaryExamplesSection",
+ CellID->535990911],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CellID->63084391],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1742384902],
+
+Cell["Enable the tensor sum check:", "ExampleText",
+ CellID->1746636942],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AlwaysCheckTensorSums", "[", "True", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->645507991],
+
+Cell[BoxData["\<\"Tensors sums are checked for consistency.\\nKeep in mind \
+that this leads to performance losses.\"\>"], "Print",
+ CellLabel->"During evaluation of In[40]:=",
+ CellID->1435947899]
+}, Open  ]],
+
+Cell["\<\
+Now all expressions are checked for consistency with CheckTensorSums:\
+\>", "ExampleText",
+ CellID->1212437806],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormTrace", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], "+", "1"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->2142976665],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CheckTensorSums","invalidsum",
+   "\"Invalid sum of tensors encountered: \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+\\\"mu\\\", \\\"}\\\"}]}], \\\"}\\\"}]\\).\"",2,41,1,26081820717965860371,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->1029497541],
+
+Cell[BoxData["$Aborted"], "Output",
+ ImageSize->{68, 14},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}},
+ CellLabel->"Out[3]=",
+ CellID->289276600]
+}, Open  ]]
+}, Open  ]],
+
+Cell["", "SectionFooterSpacer"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  InterpretationBox[
+   StyleBox[
+    GraphicsBox[{},
+     BaselinePosition->Baseline,
+     ImageSize->{6, 0}],
+    CacheGraphics->False],
+   Spacer[6]]]],
+ "See Also"
+}], "SeeAlsoSection",
+ WholeCellGroupOpener->True,
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["DebuggingMode"]],"paclet:FormTracer/ref/DebuggingMode"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckTensorSums"]],"paclet:FormTracer/ref/CheckTensorSums"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckLorentzTensorSums"]],
+    "paclet:FormTracer/ref/CheckLorentzTensorSums"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckDiracTensorSums"]],
+    "paclet:FormTracer/ref/CheckDiracTensorSums"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckFundGroupTensorSums"]],
+    "paclet:FormTracer/ref/CheckFundGroupTensorSums"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["CheckAdjGroupTensorSums"]],
+    "paclet:FormTracer/ref/CheckAdjGroupTensorSums"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetIndices"]],"paclet:FormTracer/ref/GetIndices"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetOpenIndices"]],"paclet:FormTracer/ref/GetOpenIndices"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{Cell[
+     TextData["GetClosedIndices"]],"paclet:FormTracer/ref/GetClosedIndices"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
+  "InlineFormula"]
+}], "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+
+Cell[" ", "FooterCell"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{725, 750},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"AlwaysCheckTensorSums",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
+  GridBox[{{
+      RowBox[{
+        ButtonBox[
+        "Mathematica", ButtonData -> "paclet:FormTracer/guide/FormTracer", 
+         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
+    Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
+  None, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2016, 10, 21, 11, 40, 57.246447}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
+    "FormTracer Package", "status" -> "None", "summary" -> 
+    "AlwaysCheckTensorSums[True/False] enables/disables consistency checks.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "AlwaysCheckTensorSums", 
+    "titlemodifier" -> "", "windowtitle" -> "AlwaysCheckTensorSums", "type" -> 
+    "Symbol", "uri" -> "FormTracer/ref/AlwaysCheckTensorSums"}, 
+  "SearchTextTranslated" -> ""},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  StyleDefinitions -> "Default.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
+   CellTags->"PrimaryExamplesSection",
+   CellID->535990911]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 13367, 404}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[593, 21, 4001, 91, 51, "AnchorBarGrid",
+ CellID->1],
+Cell[4597, 114, 298, 11, 43, "ObjectNameGrid"],
+Cell[4898, 127, 680, 19, 85, "Usage"],
+Cell[CellGroupData[{
+Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
+ CellTags->"PrimaryExamplesSection",
+ CellID->535990911],
+Cell[CellGroupData[{
+Cell[6015, 169, 194, 6, 25, "ExampleSection",
+ CellID->63084391],
+Cell[6212, 177, 88, 1, 34, "ExampleText",
+ CellID->1222388521],
+Cell[6303, 180, 408, 11, 45, "Input",
+ CellID->1742384902],
+Cell[6714, 193, 72, 1, 34, "ExampleText",
+ CellID->1746636942],
+Cell[CellGroupData[{
+Cell[6811, 198, 120, 3, 28, "Input",
+ CellID->645507991],
+Cell[6934, 203, 197, 3, 41, "Print",
+ CellID->1435947899]
+}, Open  ]],
+Cell[7146, 209, 121, 3, 34, "ExampleText",
+ CellID->1212437806],
+Cell[CellGroupData[{
+Cell[7292, 216, 186, 6, 28, "Input",
+ CellID->2142976665],
+Cell[7481, 224, 400, 9, 26, "Message",
+ CellID->1029497541],
+Cell[7884, 235, 165, 5, 35, "Output",
+ CellID->289276600]
+}, Open  ]]
+}, Open  ]],
+Cell[8076, 244, 31, 0, 29, "SectionFooterSpacer"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8144, 249, 270, 12, 29, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[8417, 263, 3036, 92, 98, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[11468, 358, 23, 0, 70, "FooterCell"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
