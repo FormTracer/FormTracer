@@ -884,8 +884,7 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -900,7 +899,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -1003,11 +1002,11 @@ Cell[BoxData[
      RowBox[{
      "\"\<\nFormTracer \>\"", "<>", "$FormTracerVersionNumber", "<>", 
       "\"\< loaded.\n\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, \
-and Nils Strodthoff.\nThe FormTracer is released under the GNU General Public \
-License version three or later.\n\nIf used in scientific publications, please \
-acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, and N. Strodthoff, \
-arXiv:1610.xxxxx [hep-th]\n\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+Jan M. Pawlowski, and Nils Strodthoff.\nThe FormTracer is released under the \
+GNU General Public License version three or later.\n\nIf used in scientific \
+publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
+and N. Strodthoff, arXiv:1610.xxxxx [hep-th]\n\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"If", "[", 
      RowBox[{
@@ -1160,7 +1159,6 @@ Cell[BoxData[
              "\"\<\nFormTracer version \>\"", "<>", "newVersionString", "<>", 
               "\"\< is available. You are currently using version \>\"", "<>",
                " ", "$FormTracerVersionNumber", "<>", 
-              
               "\"\<.\nYou are strongly advised to update as the new version \
 may contain bugfixes. You can do so by evaluating UpdateFormTracer[].\nPlease \
 be aware that syntax changes may have occured. We recommend to read the \

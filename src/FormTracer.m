@@ -398,7 +398,7 @@ $FormTracerVersionNumber=Quiet[Check[Version/.List@@Import[FileNameJoin[{formTra
 Print["
 FormTracer "<>$FormTracerVersionNumber<>" loaded.
 
-Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, and Nils Strodthoff.
+Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
 The FormTracer is released under the GNU General Public License version three or later.
 
 If used in scientific publications, please acknowledge our work by citing:

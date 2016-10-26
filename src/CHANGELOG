@@ -3,6 +3,10 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 1.9.7 (***********)
+- Updated startup message.
+
+
 (***********) FormTracer Version 1.9.6 (***********)
 - Removed unnecessary summation over diagrams (D=+D1;) in case of just one diagram (increases performance).
 
