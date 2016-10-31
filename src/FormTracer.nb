@@ -884,7 +884,7 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", "\n", 
+requires internet access.\>\""}], ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -1005,7 +1005,7 @@ Cell[BoxData[
 Jan M. Pawlowski, and Nils Strodthoff.\nThe FormTracer is released under the \
 GNU General Public License version three or later.\n\nIf used in scientific \
 publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
-and N. Strodthoff, arXiv:1610.xxxxx [hep-th]\n\>\""}], "]"}], ";"}], 
+and N. Strodthoff, arXiv:1610.09331 [hep-ph]\n\>\""}], "]"}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"If", "[", 
@@ -10375,8 +10375,8 @@ CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{1680, 1000},
-WindowMargins->{{0, Automatic}, {0, 20}},
+WindowSize->{3840, 2043},
+WindowMargins->{{2, Automatic}, {-20, 87}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,
@@ -10467,7 +10467,7 @@ ShowSpecialCharacters->True,
 AllowInlineCells->True,
 PasteBoxFormInlineCells->Automatic,
 Background->None,
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb",
 GhostCellInEmptyNotebook -> False
 ]

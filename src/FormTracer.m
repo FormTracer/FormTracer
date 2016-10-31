@@ -402,7 +402,7 @@ Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nil
 The FormTracer is released under the GNU General Public License version three or later.
 
 If used in scientific publications, please acknowledge our work by citing:
-A. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.xxxxx [hep-th]
+A. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.09331 [hep-ph]
 "];
 
 If[$VersionNumber<10,
