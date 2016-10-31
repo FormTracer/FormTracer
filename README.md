@@ -34,3 +34,7 @@ Both can also be used to install FormTracer. For further information we refer to
 
 ## Bug reports
 Please reports bugs via the [issue tracker](https://github.com/FormTracer/FormTracer/issues) on github.
+
+## Links to related software
+* [FORM](http://www.nikhef.nl/~form/) - project for symbolic manipulation of very big expressions
+* [DoFun](http://physik.uni-graz.at/~mqh/DoFun/) - Derivation of Functional Equations
