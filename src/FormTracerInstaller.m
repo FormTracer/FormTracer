@@ -19,7 +19,6 @@
 
 
 
-(* ::Input::Initialization:: *)
 (*"
 Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
 This program is free software: you can redistribute it and/or modify
@@ -37,7 +36,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "*)
 
 
-(* ::Input::Initialization:: *)
 formTracerInstaller::allowinternetuse="You have forbidden Mathematica to access the internet. Either allow Mathematica to access the internet or download the FormTracer from https://github.com/FormTracer/FormTracer manually.";
 If[Not["AllowInternetUse" /. SystemInformation["Network"]],
 Message[formTracerInstaller::allowinternetuse];
@@ -45,21 +43,17 @@ Abort[];
 ];
 
 
-(* ::Input::Initialization:: *)
 (* just for backwards compatibility *)
 If[ToString[Context[URLDownload]]=!="System`",URLDownload=URLSave];
 
 
-(* ::Input::Initialization:: *)
 formTracerRepositoryAddress="https://raw.githubusercontent.com/FormTracer/FormTracer/master/";
 
 
-(* ::Input::Initialization:: *)
 If[Head[formTracerZipLocation]=!=String,formTracerZipLocation=formTracerRepositoryAddress<>"FormTracer.zip"];
 formTracerInstallDir=FileNameJoin[{$UserBaseDirectory,"Applications"}];
 
 
-(* ::Input::Initialization:: *)
 formTracerInstaller::zipdownloadfailed="Download from "<>formTracerZipLocation<>" failed.";
 formTracerInstaller::installationfailed="\nInstallation failed. Please read the error messages for more information!";
 
@@ -72,12 +66,11 @@ If[tmpFormTracerImport==="{\"error\":\"Not Found\"}"||tmpFormTracerImport==="404
 newVersionString=Version/.List@@Import[formTracerArchive,FileNameJoin[{"FormTracer","PacletInfo.m"}]];
 formTracerFiles=FileNameJoin[{formTracerInstallDir,#}]&/@Import[formTracerArchive];
 formTracerFilesExist=FileExistsQ/@formTracerFiles;
-formTracerExistingInstallation=And@@formTracerFilesExist;
+formTracerExistingInstallation=Or@@formTracerFilesExist;
 formTracerExistingPacletInfo=FileNameJoin[{formTracerInstallDir,"FormTracer","PacletInfo.m"}];
 formTracerExistingVersionString=If[FileExistsQ[formTracerExistingPacletInfo],Version/.List@@Import[formTracerExistingPacletInfo],"unknown"];
 
 
-(* ::Input::Initialization:: *)
 deleteExisting=False;
 deleteExisting=If[formTracerExistingInstallation,
 ChoiceDialog["The installer has found an existing FormTracer installation.
