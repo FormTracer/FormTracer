@@ -100,7 +100,7 @@ FormTrace.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]},
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$19356], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$19938], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/FormTrace", ".html"]], None}]}]},
@@ -282,7 +282,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->594920217],
+ CellID->927220243],
 
 Cell[CellGroupData[{
 
@@ -292,7 +292,7 @@ Cell[TextData[{
  Cell["(5)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->1835067646],
+ CellID->1545161033],
 
 Cell["Loading the FormTracer:", "ExampleText",
  CellID->1150517070],
@@ -1028,7 +1028,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 10, 21, 11, 41, 49.059369}", 
+   "built" -> "{2016, 11, 22, 15, 33, 13.366832}", 
     "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -1095,7 +1095,7 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[10598, 269, 387, 15, 70, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->594920217]}
+   CellID->927220243]}
  }
 *)
 (*CellTagsIndex
@@ -1113,10 +1113,10 @@ Cell[5007, 131, 5566, 134, 949, "Usage",
 Cell[CellGroupData[{
 Cell[10598, 269, 387, 15, 70, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->594920217],
+ CellID->927220243],
 Cell[CellGroupData[{
 Cell[11010, 288, 196, 6, 70, "ExampleSection",
- CellID->1835067646],
+ CellID->1545161033],
 Cell[11209, 296, 67, 1, 70, "ExampleText",
  CellID->1150517070],
 Cell[CellGroupData[{

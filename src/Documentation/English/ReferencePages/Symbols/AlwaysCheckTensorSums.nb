@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14717,        456]
-NotebookOptionsPosition[     11495,        360]
-NotebookOutlinePosition[     13595,        416]
-CellTagsIndexPosition[     13510,        411]
+NotebookDataLength[     14715,        456]
+NotebookOptionsPosition[     11494,        360]
+NotebookOutlinePosition[     13594,        416]
+CellTagsIndexPosition[     13509,        411]
 WindowTitle->AlwaysCheckTensorSums
 WindowFrame->Normal*)
 
@@ -96,7 +96,7 @@ AlwaysCheckTensorSums.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5402], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5423], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/AlwaysCheckTensorSums", ".html"]], None}]}]},
@@ -163,7 +163,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->535990911],
+ CellID->569233702],
 
 Cell[CellGroupData[{
 
@@ -173,7 +173,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->63084391],
+ CellID->3043047],
 
 Cell["Load FormTracer and define the basic syntax:", "ExampleText",
  CellID->1222388521],
@@ -373,7 +373,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 10, 21, 11, 40, 57.246447}", 
+   "built" -> "{2016, 11, 22, 15, 32, 34.184294}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -405,12 +405,12 @@ CellTagsIndex->{
  "PrimaryExamplesSection"->{
   Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->535990911]}
+   CellID->569233702]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 13367, 404}
+ {"PrimaryExamplesSection", 13366, 404}
  }
 *)
 (*NotebookFileOutline
@@ -422,42 +422,42 @@ Cell[4898, 127, 680, 19, 85, "Usage"],
 Cell[CellGroupData[{
 Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->535990911],
+ CellID->569233702],
 Cell[CellGroupData[{
-Cell[6015, 169, 194, 6, 25, "ExampleSection",
- CellID->63084391],
-Cell[6212, 177, 88, 1, 34, "ExampleText",
+Cell[6015, 169, 193, 6, 25, "ExampleSection",
+ CellID->3043047],
+Cell[6211, 177, 88, 1, 34, "ExampleText",
  CellID->1222388521],
-Cell[6303, 180, 408, 11, 45, "Input",
+Cell[6302, 180, 408, 11, 45, "Input",
  CellID->1742384902],
-Cell[6714, 193, 72, 1, 34, "ExampleText",
+Cell[6713, 193, 72, 1, 34, "ExampleText",
  CellID->1746636942],
 Cell[CellGroupData[{
-Cell[6811, 198, 120, 3, 28, "Input",
+Cell[6810, 198, 120, 3, 28, "Input",
  CellID->645507991],
-Cell[6934, 203, 197, 3, 41, "Print",
+Cell[6933, 203, 197, 3, 41, "Print",
  CellID->1435947899]
 }, Open  ]],
-Cell[7146, 209, 121, 3, 34, "ExampleText",
+Cell[7145, 209, 121, 3, 34, "ExampleText",
  CellID->1212437806],
 Cell[CellGroupData[{
-Cell[7292, 216, 186, 6, 28, "Input",
+Cell[7291, 216, 186, 6, 28, "Input",
  CellID->2142976665],
-Cell[7481, 224, 400, 9, 26, "Message",
+Cell[7480, 224, 400, 9, 26, "Message",
  CellID->1029497541],
-Cell[7884, 235, 165, 5, 35, "Output",
+Cell[7883, 235, 165, 5, 35, "Output",
  CellID->289276600]
 }, Open  ]]
 }, Open  ]],
-Cell[8076, 244, 31, 0, 29, "SectionFooterSpacer"]
+Cell[8075, 244, 31, 0, 29, "SectionFooterSpacer"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8144, 249, 270, 12, 29, "SeeAlsoSection",
+Cell[8143, 249, 270, 12, 29, "SeeAlsoSection",
  CellID->1255426704],
-Cell[8417, 263, 3036, 92, 98, "SeeAlso",
+Cell[8416, 263, 3036, 92, 98, "SeeAlso",
  CellID->929782353]
 }, Open  ]],
-Cell[11468, 358, 23, 0, 70, "FooterCell"]
+Cell[11467, 358, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

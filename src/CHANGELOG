@@ -2,6 +2,14 @@
 (************* FormTracer Changelog ***************)
 (**************************************************)
 
+(***********) FormTracer Version 2.1.0 (***********)
+- Support for gamma5 in general dimensions using the Larin scheme
+- Bugfix: renamed D (diagram) into FTxD to allow for the usage of D as symbol.
+- Added /usr/local/bin/form to form paths (required for MAC ports users).
+- Added #clearoptimize after optimize (clears RAM as soon as possible, relevant e.g. for bracketing).
+- "The FormTracer [...]" -> "FormTracer [...]" in popup preamble.
+- Temporary variable definition in exported fortran90 code added.
+- Corrected error messages in InstallFORM and UpdateFormTracer.
 
 (***********) FormTracer Version 2.0.0 (***********)
 - Added arXiv:1610.09331 [hep-ph] reference. First public version.

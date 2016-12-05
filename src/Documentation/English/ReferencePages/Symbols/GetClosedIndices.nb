@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     10225,        297]
+NotebookDataLength[     10226,        297]
 NotebookOptionsPosition[      8156,        240]
-NotebookOutlinePosition[      9995,        288]
-CellTagsIndexPosition[      9952,        285]
+NotebookOutlinePosition[      9996,        288]
+CellTagsIndexPosition[      9953,        285]
 WindowTitle->GetClosedIndices
 WindowFrame->Normal*)
 
@@ -92,7 +92,7 @@ GetClosedIndices.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$23261], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$23843], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/GetClosedIndices", ".html"]], None}]}]},
@@ -253,7 +253,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 10, 21, 11, 42, 2.318466}", 
+   "built" -> "{2016, 11, 22, 15, 33, 23.422443}", 
     "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 

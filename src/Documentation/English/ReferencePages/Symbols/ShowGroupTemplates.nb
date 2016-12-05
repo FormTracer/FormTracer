@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15473,        478]
+NotebookDataLength[     15472,        478]
 NotebookOptionsPosition[     12712,        398]
-NotebookOutlinePosition[     14811,        454]
-CellTagsIndexPosition[     14726,        449]
+NotebookOutlinePosition[     14810,        454]
+CellTagsIndexPosition[     14725,        449]
 WindowTitle->ShowGroupTemplates
 WindowFrame->Normal*)
 
@@ -95,7 +95,7 @@ ShowGroupTemplates.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$34832], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$35414], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/ShowGroupTemplates", ".html"]], None}]}]},
@@ -160,7 +160,7 @@ Cell[TextData[{
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->182767860],
+ CellID->11775775],
 
 Cell[CellGroupData[{
 
@@ -170,7 +170,7 @@ Cell[TextData[{
  Cell["(1)", "ExampleCount"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->196857296],
+ CellID->1476632346],
 
 Cell[CellGroupData[{
 
@@ -411,7 +411,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 10, 21, 11, 42, 39.346006}", 
+   "built" -> "{2016, 11, 22, 15, 33, 51.328348}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -441,9 +441,9 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[5418, 147, 387, 15, 30, "PrimaryExamplesSection",
+  Cell[5418, 147, 386, 15, 30, "PrimaryExamplesSection",
    CellTags->"PrimaryExamplesSection",
-   CellID->182767860]}
+   CellID->11775775]}
  }
 *)
 (*CellTagsIndex
@@ -458,12 +458,12 @@ Cell[590, 21, 3906, 90, 51, "AnchorBarGrid",
 Cell[4499, 113, 295, 11, 43, "ObjectNameGrid"],
 Cell[4797, 126, 596, 17, 87, "Usage"],
 Cell[CellGroupData[{
-Cell[5418, 147, 387, 15, 30, "PrimaryExamplesSection",
+Cell[5418, 147, 386, 15, 30, "PrimaryExamplesSection",
  CellTags->"PrimaryExamplesSection",
- CellID->182767860],
+ CellID->11775775],
 Cell[CellGroupData[{
-Cell[5830, 166, 195, 6, 25, "ExampleSection",
- CellID->196857296],
+Cell[5829, 166, 196, 6, 25, "ExampleSection",
+ CellID->1476632346],
 Cell[CellGroupData[{
 Cell[6050, 176, 110, 3, 28, "Input",
  CellID->1242455213],

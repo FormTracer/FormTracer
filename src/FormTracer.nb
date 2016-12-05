@@ -685,6 +685,21 @@ or False.\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]",
  RowBox[{
   RowBox[{
    RowBox[{
+    RowBox[{"FastGamma5Trace", "::", "usage"}], "=", 
+    "\"\<FastGamma5Trace[True/False] determines whether the faster algorithm \
+from arXiv:1506.04517 [hep-ph] is used instead of the Larin scheme to \
+evaluate Dirac traces with a single gamma5 matrix in d!=4 dimensions.\>\""}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"FastGamma5Trace", "::", "badarg"}], "=", 
+    "\"\<FastGamma5Trace was called with an invalid argument. Argument must \
+be True or False.\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
     RowBox[{"DefineFormAutoDeclareFunctions", "::", "usage"}], "=", 
     "\"\<DefineAutoDeclareFunctions[cfuntions] can be used to define \
 CFunctions that are autodeclared in FORM.\nDefineAutoDeclareFunctions clears \
@@ -884,7 +899,8 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\n", "\[IndentingNewLine]", 
+requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -899,7 +915,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -1002,8 +1018,8 @@ Cell[BoxData[
      RowBox[{
      "\"\<\nFormTracer \>\"", "<>", "$FormTracerVersionNumber", "<>", 
       "\"\< loaded.\n\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, \
-Jan M. Pawlowski, and Nils Strodthoff.\nThe FormTracer is released under the \
-GNU General Public License version three or later.\n\nIf used in scientific \
+Jan M. Pawlowski, and Nils Strodthoff.\nFormTracer is released under the GNU \
+General Public License version three or later.\n\nIf used in scientific \
 publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
 and N. Strodthoff, arXiv:1610.09331 [hep-ph]\n\>\""}], "]"}], ";"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
@@ -1220,8 +1236,8 @@ Cell[BoxData[
          ",", 
         RowBox[{
          RowBox[{"Message", "[", 
-          RowBox[{"CheckForFormTracerUpdates", "::", "allowinternetuse"}], 
-          "]"}], ";", 
+          RowBox[{"UpdateFormTracer", "::", "allowinternetuse"}], "]"}], ";", 
+         
          RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"newVersionNumbers", "=", 
@@ -1351,8 +1367,7 @@ dll\>\""}]}], "}"}], ",", "\[IndentingNewLine]",
           "]"}], ",", 
          RowBox[{
           RowBox[{"Message", "[", 
-           RowBox[{"CheckForFormTracerUpdates", "::", "allowinternetuse"}], 
-           "]"}], ";", 
+           RowBox[{"InstallFORM", "::", "allowinternetuse"}], "]"}], ";", 
           RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{"exeLocation", "=", 
@@ -1584,12 +1599,23 @@ Cell[BoxData[{
       RowBox[{
       "has", " ", "to", " ", "be", " ", "the", " ", "first", " ", "entry", 
        " ", "due", " ", "to", " ", "InstallFORM"}], "*)"}], ",", 
-     "\[IndentingNewLine]", "\"\<form\>\"", ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", "\"\<form\>\"", ",", 
+     RowBox[{"(*", 
+      RowBox[{
+      "should", " ", "work", " ", "if", " ", "form", " ", "lies", " ", "in", 
+       " ", "any", " ", "executable", " ", "path"}], "*)"}], 
+     "\[IndentingNewLine]", 
      RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
        RowBox[{
        "$PathnameSeparator", ",", "\"\<usr\>\"", ",", "\"\<bin\>\"", ",", 
         "\"\<form\>\""}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "$PathnameSeparator", ",", "\"\<usr\>\"", ",", "\"\<local\>\"", ",", 
+        "\"\<bin\>\"", ",", "\"\<form\>\""}], "}"}], "]"}], ",", 
+     "\[IndentingNewLine]", 
      RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
        RowBox[{
@@ -1654,6 +1680,9 @@ Cell[BoxData[{
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"partialtrace", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fastgamma5tracedneq4", "=", "False"}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"checkTensorSums", "=", "False"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -1867,6 +1896,31 @@ deactivated partial traces.\>\"", ",",
     RowBox[{"FiniteT", "[", "___", "]"}], ":=", 
     RowBox[{"Message", "[", 
      RowBox[{"FiniteT", "::", "badarg"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FastGamma5Trace", "[", 
+    RowBox[{"yesno_", "/;", 
+     RowBox[{"BooleanQ", "[", "yesno", "]"}]}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"fastgamma5tracedneq4", "=", "yesno"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Fast gamma5 trace in d!=4 \>\"", "<>", 
+        RowBox[{"If", "[", 
+         RowBox[{
+         "fastgamma5tracedneq4", ",", "\"\<enabled\>\"", ",", 
+          "\"\<disabled\>\""}], "]"}], "<>", "\"\<.\>\""}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"FastGamma5Trace", "[", "___", "]"}], ":=", 
+    RowBox[{"Message", "[", 
+     RowBox[{"FastGamma5Trace", "::", "badarg"}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -8216,7 +8270,7 @@ Cell[BoxData[
                RowBox[{"[", 
                 RowBox[{"iDia", ",", "1"}], "]"}], "]"}], "]"}], "<>", 
              "\"\<;\\n\>\""}]}], "]"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"\"\<Local D\>\"", "<>", 
+          RowBox[{"\"\<Local FTxD\>\"", "<>", 
            RowBox[{"If", "[", 
             RowBox[{
              RowBox[{"numberOfDiagrams", "===", "1"}], ",", "\"\<\>\"", ",", 
@@ -8240,11 +8294,11 @@ Cell[BoxData[
        RowBox[{"If", "[", 
         RowBox[{
          RowBox[{"numberOfDiagrams", "===", "1"}], ",", "\"\<\>\"", ",", 
-         RowBox[{"\"\<\n.sort\n\nDrop;\nLocal D=\>\"", "<>", 
+         RowBox[{"\"\<\n.sort\n\nDrop;\nLocal FTxD=\>\"", "<>", 
           RowBox[{"StringJoin", "[", 
            RowBox[{"Table", "[", 
             RowBox[{
-             RowBox[{"\"\<+D\>\"", "<>", 
+             RowBox[{"\"\<+FTxD\>\"", "<>", 
               RowBox[{"ToString", "[", "i", "]"}]}], ",", 
              RowBox[{"{", 
               RowBox[{"i", ",", "numberOfDiagrams"}], "}"}]}], "]"}], "]"}], 
@@ -8698,16 +8752,40 @@ gamma(?lor1,spi1?,spi2?)*gamma(?lor2,spi2?,spi3?)=gamma(?lor1,?lor2,spi1,spi3)\
 matrices ***\nunittrace \>\"", "~~", 
     RowBox[{"ToString", "[", 
      RowBox[{"Last", "[", "lorentzDimensions", "]"}], "]"}], "~~", 
-    "\"\<;\nRepeat;\n\nid once gamma(?mom1,spi1?,spi1?)= g_(1,?mom1);\nid \
-g_(1,g5) = g5_(1);\n\n\>\"", "~~", 
+    "\"\<;\n\>\"", "~~", 
     RowBox[{"If", "[", 
      RowBox[{
       RowBox[{
        RowBox[{"First", "[", "lorentzDimensions", "]"}], "===", "4"}], ",", 
-      "\"\<Trace4 1;\>\"", ",", "\"\<Tracen 1;\>\""}], "]"}], "~~", 
-    "\"\<\n\ncontract 0;\n\nEndRepeat;\n\n.sort\>\""}]}], ";"}]], "Input",
+      "\"\<\nRepeat;\ncontract 0;\nid once gamma(?mom1,spi1?,spi1?)= \
+g_(1,?mom1);\nid g_(1,g5)=g_(1,5_);\nTrace4 1;\nEndRepeat;\n\>\"", ",", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"fastgamma5tracedneq4", "\[Equal]", "True"}], ",", 
+         "\"\<#define FastGamma5Trace \\\"1\\\"\>\"", ",", "\"\<\>\""}], 
+        "]"}], "~~", 
+       "\"\<\n* handle gamma5s\n\n* guard external epsilons\nid \
+e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeExt(lorx1,lorx2,lorx3,lorx4);\n\nRepeat;\n\
+if( match(gamma(?mom1, spi1?,spi1?)));\n#call PreDiracTrace5\n* first \
+contract external epsilons (only those related to current spin line)\nrepeat \
+id FTxTr(?lorx1,lorx2?,?lorx3)*FTxeExt(?lorx4,lorx2?,?lorx5)=FTxTr(?lorx1,\
+lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);\nrepeat id \
+FTxeInt(?lorx1,lorx2?,?lorx3)*FTxeExt(?lorx4,lorx2?,?lorx5)=FTxeInt(?lorx1,\
+lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);\ncontract 0;\n*id \
+e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeExt(lorx1,lorx2,lorx3,lorx4);\n\n* now \
+contract internal epsilons (only those related to current spin line)\nrepeat \
+id FTxTr(?lorx1,lorx2?,?lorx3)*FTxeInt(?lorx4,lorx2?,?lorx5)=FTxTr(?lorx1,\
+lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);\nrepeat id \
+FTxeInt(?lorx1,lorx2?,?lorx3)*e_(lorx2?,lorx4?,lorx5?,lorx6?)=e_(?lorx1,lorx2,\
+?lorx3)*e_(lorx2,lorx4,lorx5,lorx6);\ncontract 0;\n* id \
+e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeInt(lorx1,lorx2,lorx3,lorx4);\nendif;\n\
+EndRepeat;\n.sort\n* perform actual dirac traces\nRepeat;\nid,once,FTxTr(?a) \
+= g_(1,?a);\nTracen,1;\nEndRepeat;\n*convert everything to standard epsilons \
+for output\nid FTxeInt(?lorx)=e_(?lorx);\nid FTxeExt(?lorx)=e_(?lorx);\n\n\
+\>\""}]}], "]"}], "~~", "\"\<\n.sort\>\""}]}], ";"}]], "Input",
  InitializationCell->True]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -8859,8 +8937,8 @@ Cell[BoxData[{
       RowBox[{"Table", "[", 
        RowBox[{
         RowBox[{
-        "\"\<Local Dcoeff\>\"", "~~", "bra", "~~", "\"\<=D[\>\"", "~~", "bra",
-          "~~", "\"\<];\>\""}], ",", 
+        "\"\<Local FTxDcoeff\>\"", "~~", "bra", "~~", "\"\<=FTxD[\>\"", "~~", 
+         "bra", "~~", "\"\<];\>\""}], ",", 
         RowBox[{"{", 
          RowBox[{"bra", ",", 
           RowBox[{"Join", "[", 
@@ -8943,7 +9021,7 @@ Cell[BoxData[{
          RowBox[{"Return", "[", 
           RowBox[{
           "\"\<\nFormat mathematica;\n#write <\>\"", "~~", "absResFileName", 
-           "~~", "\"\<> \\\"(%E)\\\", D\n\>\""}], "]"}], ";"}]}], 
+           "~~", "\"\<> \\\"(%E)\\\", FTxD\n\>\""}], "]"}], ";"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"(*", " ", 
        RowBox[{"export", " ", "to", " ", "C"}], " ", "*)"}], 
@@ -9007,13 +9085,13 @@ Cell[BoxData[{
                     "insertPosition"}], "]"}]}], "]"}]}], ";", 
                 RowBox[{
                 "\"\<\n*** coefficient \>\"", "~~", "bracketStr", "~~", 
-                 "\"\< ***\n#if termsin(Dcoeff\>\"", "~~", "bracketStr", 
+                 "\"\< ***\n#if termsin(FTxDcoeff\>\"", "~~", "bracketStr", 
                  "~~", "\"\<) == 0\n#write<\>\"", "~~", 
                  "absResFileNameBracket", "~~", "\"\<>\\\"\>\"", "~~", 
                  "exportResVar", "~~", "\"\<_\>\"", "~~", 
                  RowBox[{"ToUpperCase", "[", "bracketStr", "]"}], "~~", 
-                 "\"\<= %e;\\\",Dcoeff\>\"", "~~", "bracketStr", "~~", 
-                 "\"\<\n#else\n#optimize Dcoeff\>\"", "~~", "bracketStr", "~~", 
+                 "\"\<= %e;\\\",FTxDcoeff\>\"", "~~", "bracketStr", "~~", 
+                 "\"\<\n#else\n#optimize FTxDcoeff\>\"", "~~", "bracketStr", "~~", 
                  RowBox[{"\"\<;\>\"", "<>", 
                   RowBox[{"If", "[", 
                    RowBox[{
@@ -9023,14 +9101,23 @@ Cell[BoxData[{
                     "\"\<>\\\"\>\"", "~~", "exportVarType", "~~", "\"\< \>\"",
                      "~~", "exportTmpVar", "~~", 
                     "\"\<[{`optimmaxvar_'+1}];\\\"\>\""}], ",", "\"\<\>\""}], 
+                   "]"}], "<>", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"format", "===", "\"\<fortran90\>\""}], ",", 
+                    RowBox[{
+                    "\"\<\n#write<\>\"", "~~", "absResFileNameBracket", "~~", 
+                    "\"\<>\\\"\>\"", "~~", "exportVarType", "~~", 
+                    "\"\< :: \>\"", "~~", "exportTmpVar", "~~", 
+                    "\"\<({`optimmaxvar_'+1})\\\"\>\""}], ",", "\"\<\>\""}], 
                    "]"}], "<>", "\"\<\n#write<\>\""}], "~~", 
                  "absResFileNameBracket", "~~", 
                  "\"\<>\\\"%O\\\"\n#write<\>\"", "~~", 
                  "absResFileNameBracket", "~~", "\"\<>\\\"\>\"", "~~", 
                  "exportResVar", "~~", "\"\<_\>\"", "~~", 
                  RowBox[{"ToUpperCase", "[", "bracketStr", "]"}], "~~", 
-                 "\"\<= %e;\\\",Dcoeff\>\"", "~~", "bracketStr", "~~", 
-                 "\"\<\n#endif\n\>\""}]}], ",", 
+                 "\"\<= %e;\\\",FTxDcoeff\>\"", "~~", "bracketStr", "~~", 
+                 "\"\<\n#clearoptimize\n#endif\n\>\""}]}], ",", 
                RowBox[{"{", 
                 RowBox[{"bracketStr", ",", 
                  RowBox[{"Join", "[", 
@@ -9043,9 +9130,9 @@ Cell[BoxData[{
          RowBox[{"AppendTo", "[", 
           RowBox[{"exportString", ",", 
            RowBox[{
-           "\"\<\n#if termsin(D) == 0\n#write<\>\"", "~~", "absResFileName", 
-            "~~", "\"\<>\\\"\>\"", "~~", "exportResVar", "~~", 
-            RowBox[{"\"\<= %e;\\\",D\n#else\n#optimize D;\>\"", "<>", 
+           "\"\<\n#if termsin(FTxD) == 0\n#write<\>\"", "~~", 
+            "absResFileName", "~~", "\"\<>\\\"\>\"", "~~", "exportResVar", "~~", 
+            RowBox[{"\"\<= %e;\\\",FTxD\n#else\n#optimize FTxD;\>\"", "<>", 
              RowBox[{"If", "[", 
               RowBox[{
                RowBox[{"format", "===", "\"\<C\>\""}], ",", 
@@ -9053,11 +9140,20 @@ Cell[BoxData[{
                "\"\<\n#write<\>\"", "~~", "absResFileName", "~~", 
                 "\"\<>\\\"\>\"", "~~", "exportVarType", "~~", "\"\< \>\"", "~~",
                  "exportTmpVar", "~~", "\"\<[{`optimmaxvar_'+1}];\\\"\>\""}], 
-               ",", "\"\<\>\""}], "]"}], "<>", "\"\<\n#write<\>\""}], "~~", 
-            "absResFileName", "~~", "\"\<>\\\"%O\\\"\n#write<\>\"", "~~", 
-            "absResFileName", "~~", "\"\<>\\\"\>\"", "~~", "exportResVar", 
-            "~~", "\"\<= %e;\\\",D\n#endif\n\>\""}]}], "]"}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+               ",", "\"\<\>\""}], "]"}], "<>", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"format", "===", "\"\<fortran90\>\""}], ",", 
+               RowBox[{
+               "\"\<\n#write<\>\"", "~~", "absResFileName", "~~", 
+                "\"\<>\\\"\>\"", "~~", "exportVarType", "~~", "\"\< :: \>\"", 
+                "~~", "exportTmpVar", "~~", 
+                "\"\<({`optimmaxvar_'+1})\\\"\>\""}], ",", "\"\<\>\""}], 
+              "]"}], "<>", "\"\<\n#write<\>\""}], "~~", "absResFileName", 
+            "~~", "\"\<>\\\"%O\\\"\n#write<\>\"", "~~", "absResFileName", 
+            "~~", "\"\<>\\\"\>\"", "~~", "exportResVar", "~~", 
+            "\"\<= %e;\\\",FTxD\n#clearoptimize\n#endif\n\>\""}]}], "]"}], 
+         ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"Return", "[", 
        RowBox[{"StringJoin", "[", "exportString", "]"}], "]"}], ";"}]}], 
     "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
@@ -9506,15 +9602,22 @@ indices: \>\"", ",", "\[IndentingNewLine]",
                    "formTracerDirectory", ",", "\"\<Header\>\"", ",", "#"}], 
                    "}"}], "]"}]}], "&"}], ",", 
                RowBox[{"Union", "[", 
-                RowBox[{"groupTracingAlgorithms", "[", 
-                 RowBox[{"[", 
-                  RowBox[{"All", ",", "2"}], "]"}], "]"}], "]"}]}], "]"}], 
-             "]"}], "~~", "\"\<\n\>\"", "~~", 
+                RowBox[{
+                 RowBox[{"groupTracingAlgorithms", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"All", ",", "2"}], "]"}], "]"}], ",", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"First", "[", "lorentzDimensions", "]"}], "=!=", 
+                    "4"}], ",", 
+                   RowBox[{"{", "\"\<dirac.h\>\"", "}"}], ",", 
+                   RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], "]"}], "]"}], 
+            "~~", "\"\<\n\>\"", "~~", 
             RowBox[{"If", "[", 
              RowBox[{
               RowBox[{"preambleprerepl", "=!=", "\"\<\>\""}], ",", 
               RowBox[{
-              
               "\"\<\n*********************************************************\
 ***********************\n* user-defined preamble\n\
 ******************************************************************************\
@@ -9615,8 +9718,14 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
             RowBox[{"If", "[", 
              RowBox[{
              "finiteTenabled", ",", "\"\<,FTxvecs,FTxsps(symmetric)\>\"", 
-              ",", "\"\<\>\""}], "]"}], "~~", 
-            "\"\<;\n\n*** turn off runtime statistics ***\nOff statistics;\n\
+              ",", "\"\<\>\""}], "]"}], "~~", "\"\<;\n\>\"", "~~", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"First", "[", "lorentzDimensions", "]"}], "=!=", "4"}],
+               ",", "\"\<CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;\>\
+\"", ",", "\"\<\>\""}], "]"}], "~~", 
+            "\"\<\n*** turn off runtime statistics ***\nOff statistics;\n\
 .sort\n\n*********************************************************************\
 ***********\n* Decomposed input\n\
 ******************************************************************************\
@@ -9693,8 +9802,10 @@ tensors ***\n\>\"", "~~",
               "\"\<\n*********************************************************\
 ***********************\n* Lorentz and Dirac contraction\n\
 ******************************************************************************\
-**\n*** set dimension to dimError to show possible errors ***\nSymbol \
-dimError;\nDimension dimError;\n.sort\n\n\>\"", "~~", 
+**\n*** set dimension to Lorenz dim for epsilons ***\nDimension \>\"", "~~", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"First", "[", "lorentzDimensions", "]"}], "]"}], 
+               "~~", "\"\<;\n.sort\n\n\>\"", "~~", 
                RowBox[{"formexpr", "[", 
                 RowBox[{"[", "3", "]"}], "]"}], "~~", "\"\<\n\>\"", "~~", 
                RowBox[{"If", "[", 
@@ -9902,8 +10013,8 @@ replace_(\>\"", "<>",
      ",", "prerepl", ",", "postrepl", ",", "bracket", ",", "exportResVar", 
      ",", "exportTmpVar", ",", "exportVarType"}], "]"}]}], ";"}]}], "Input",
  InitializationCell->True]
-}, Closed]]
-}, Closed]],
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -10250,7 +10361,7 @@ Cell[BoxData[{
   ";"}]}], "Input",
  InitializationCell->True]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -10370,13 +10481,14 @@ ShowPageBreaks->False,
 WindowToolbars->{},
 RulerUnits->"Centimeters",
 BlinkingCellInsertionPoint->True,
+GhostCellInEmptyNotebook->False,
 CellInsertionPointColor->GrayLevel[0.7500114442664225],
 CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{3840, 2043},
-WindowMargins->{{2, Automatic}, {-20, 87}},
+WindowSize->{1919, 1152},
+WindowMargins->{{21, Automatic}, {Automatic, 59}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,
@@ -10467,8 +10579,7 @@ ShowSpecialCharacters->True,
 AllowInlineCells->True,
 PasteBoxFormInlineCells->Automatic,
 Background->None,
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
-StyleDefinitions->"Default.nb",
-GhostCellInEmptyNotebook -> False
+FrontEndVersion->"10.2 for Linux x86 (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
 ]
 

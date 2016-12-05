@@ -10,17 +10,17 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9483,        271]
-NotebookOptionsPosition[      7179,        212]
-NotebookOutlinePosition[      9273,        263]
-CellTagsIndexPosition[      9230,        260]
-WindowTitle->ShowFormTracerChangeLog
+NotebookDataLength[      8252,        241]
+NotebookOptionsPosition[      6026,        181]
+NotebookOutlinePosition[      8023,        232]
+CellTagsIndexPosition[      7980,        229]
+WindowTitle->FastGamma5Trace
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -32,15 +32,11 @@ Cell[BoxData[GridBox[{
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
-        StripOnInput->False], {"\<\"CheckForFormTracerUpdates\"\>":>
+        StripOnInput->False], {"\<\"DefineLorentzTensors\"\>":>
        Documentation`HelpLookup[
-       "paclet:FormTracer/ref/CheckForFormTracerUpdates"], \
-"\<\"UpdateFormTracer\"\>":>Documentation`HelpLookup[
-       "paclet:FormTracer/ref/UpdateFormTracer"], "\<\"DefineFormExecutable\"\
-\>":>Documentation`HelpLookup[
-       "paclet:FormTracer/ref/DefineFormExecutable"], "\<\"InstallFORM\"\>":>
-       Documentation`HelpLookup[
-       "paclet:FormTracer/ref/InstallFORM"], "\<\"FormTrace\"\>":>
+       "paclet:FormTracer/ref/DefineLorentzTensors"], \
+"\<\"DefineLorentzDimensions\"\>":>Documentation`HelpLookup[
+       "paclet:FormTracer/ref/DefineLorentzDimensions"], "\<\"FormTrace\"\>":>
        Documentation`HelpLookup["paclet:FormTracer/ref/FormTrace"]},
        Appearance->None,
        MenuAppearance->Automatic,
@@ -59,15 +55,13 @@ Cell[BoxData[GridBox[{
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
-        StripOnInput->
-         False], {"\<\"FormTracer/ref/ShowFormTracerChangeLog\"\>":>
+        StripOnInput->False], {"\<\"FormTracer/ref/FastGamma5Trace\"\>":>
        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
        Module[{DocumentationSearch`Private`nb$}, 
         DocumentationSearch`Private`nb$ = NotebookPut[
            Notebook[{
-             Cell["FormTracer/ref/ShowFormTracerChangeLog"]}, Visible -> 
-            False]]; SelectionMove[
-         DocumentationSearch`Private`nb$, All, Notebook]; 
+             Cell["FormTracer/ref/FastGamma5Trace"]}, Visible -> False]]; 
+        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
        Delimiter, "\<\"Copy web URL\"\>":>
@@ -79,7 +73,7 @@ Cell[BoxData[GridBox[{
                MakeBoxes[
                 Hyperlink[
                 "http://reference.wolfram.com/language/FormTracer/ref/\
-ShowFormTracerChangeLog.html"], StandardForm]], "Input", TextClipboardType -> 
+FastGamma5Trace.html"], StandardForm]], "Input", TextClipboardType -> 
               "PlainText"]}, Visible -> False]]; 
         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
@@ -89,10 +83,10 @@ ShowFormTracerChangeLog.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$34294], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$18791], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
-             "FormTracer/ref/ShowFormTracerChangeLog", ".html"]], None}]}]},
+             "FormTracer/ref/FastGamma5Trace", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
@@ -106,7 +100,7 @@ ShowFormTracerChangeLog.html"], StandardForm]], "Input", TextClipboardType ->
  CellID->1],
 
 Cell[TextData[{
- Cell["ShowFormTracerChangeLog", "ObjectName"],
+ Cell["FastGamma5Trace", "ObjectName"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -121,23 +115,18 @@ Cell[TextData[{
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"ShowFormTracerChangeLog", "[", "]"}]], "InlineFormula"],
-     "\[LineSeparator]shows the last 15 entries in the change log. If an \
-internet connection exists, it shows the latest change log available. \
-Otherwise it shows the local one.\n"
-    }]]},
-   {"", Cell[TextData[{
-     Cell[BoxData[
-      RowBox[{"ShowFormTracerChangeLog", "[", 
-       StyleBox["numberOfItems", "TI"], "]"}]], "InlineFormula"],
-     "\[LineSeparator]shows the last numberOfItems entries in the change \
-log."
+      RowBox[{"FastGamma5Trace", "[", "]"}]], "InlineFormula"],
+     " \[LineSeparator]FastGamma5Trace[True/False] determines whether the \
+faster algorithm from arXiv:1506.04517 [hep-ph] is used instead of the Larin \
+scheme to evaluate Dirac traces with a single gamma5 matrix in d!=4 \
+dimensions."
     }]]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
-  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
-   "RowsIndexed" -> {}}}],
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->982511436],
 
 Cell[CellGroupData[{
 
@@ -158,8 +147,8 @@ Cell[TextData[{
 Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{Cell[
-     TextData["CheckForFormTracerUpdates"]],
-    "paclet:FormTracer/ref/CheckForFormTracerUpdates"},
+     TextData["DefineLorentzTensors"]],
+    "paclet:FormTracer/ref/DefineLorentzTensors"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
   "InlineFormula"],
@@ -169,28 +158,8 @@ Cell[TextData[{
  " ",
  Cell[BoxData[
   TemplateBox[{Cell[
-     TextData["UpdateFormTracer"]],"paclet:FormTracer/ref/UpdateFormTracer"},
-   "RefLink",
-   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
- "\[NonBreakingSpace]",
- StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
-  "InlineSeparator"],
- " ",
- Cell[BoxData[
-  TemplateBox[{Cell[
-     TextData["DefineFormExecutable"]],
-    "paclet:FormTracer/ref/DefineFormExecutable"},
-   "RefLink",
-   BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
- "\[NonBreakingSpace]",
- StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
-  "InlineSeparator"],
- " ",
- Cell[BoxData[
-  TemplateBox[{Cell[
-     TextData["InstallFORM"]],"paclet:FormTracer/ref/InstallFORM"},
+     TextData["DefineLorentzDimensions"]],
+    "paclet:FormTracer/ref/DefineLorentzDimensions"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
   "InlineFormula"],
@@ -214,7 +183,7 @@ Saveable->False,
 ScreenStyleEnvironment->"Working",
 WindowSize->{725, 750},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-WindowTitle->"ShowFormTracerChangeLog",
+WindowTitle->"FastGamma5Trace",
 TaggingRules->{
  "ModificationHighlight" -> False, "ColorType" -> "SymbolColor", "LinkTrails" -> 
   GridBox[{{
@@ -225,19 +194,19 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 48.495527}", 
-    "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
+   "built" -> "{2016, 11, 22, 15, 33, 10.289318}", 
+    "history" -> {"2.0", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
-    "Form Tracer Package Symbol", "language" -> "en", "paclet" -> 
-    "FormTracer Package", "status" -> "None", "summary" -> 
-    "ShowFormTracerChangeLog[] shows the last 15 entries in the change log. \
-If an internet connection exists, it shows the latest change log available. \
-Otherwise it shows the local one. ShowFormTracerChangeLog[numberOfItems] \
-shows the last numberOfItems entries in the change log.", "synonyms" -> {}, 
-    "tabletags" -> {}, "title" -> "ShowFormTracerChangeLog", "titlemodifier" -> 
-    "", "windowtitle" -> "ShowFormTracerChangeLog", "type" -> "Symbol", "uri" -> 
-    "FormTracer/ref/ShowFormTracerChangeLog"}},
+    "Form Tracer Symbol", "language" -> "en", "paclet" -> "FormTracer", 
+    "status" -> "None", "summary" -> 
+    "FastGamma5Trace[] FastGamma5Trace[True/False] determines whether the \
+faster algorithm from arXiv:1506.04517 [hep-ph] is used instead of the Larin \
+scheme to evaluate Dirac traces with a single gamma5 matrix in d!=4 \
+dimensions.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "FastGamma5Trace", "titlemodifier" -> "", "windowtitle" -> 
+    "FastGamma5Trace", "type" -> "Symbol", "uri" -> 
+    "FormTracer/ref/FastGamma5Trace"}},
 CellContext->"Global`",
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
 StyleDefinitions->Notebook[{
@@ -262,17 +231,18 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[595, 21, 3560, 84, 70, "AnchorBarGrid",
+Cell[587, 21, 3284, 78, 70, "AnchorBarGrid",
  CellID->1],
-Cell[4158, 107, 300, 11, 70, "ObjectNameGrid"],
-Cell[4461, 120, 736, 19, 70, "Usage"],
+Cell[3874, 101, 292, 11, 70, "ObjectNameGrid"],
+Cell[4169, 114, 549, 14, 70, "Usage",
+ CellID->982511436],
 Cell[CellGroupData[{
-Cell[5222, 143, 270, 12, 70, "SeeAlsoSection",
+Cell[4743, 132, 270, 12, 70, "SeeAlsoSection",
  CellID->1255426704],
-Cell[5495, 157, 1642, 50, 70, "SeeAlso",
+Cell[5016, 146, 968, 30, 70, "SeeAlso",
  CellID->929782353]
 }, Open  ]],
-Cell[7152, 210, 23, 0, 70, "FooterCell"]
+Cell[5999, 179, 23, 0, 70, "FooterCell"]
 }
 ]
 *)

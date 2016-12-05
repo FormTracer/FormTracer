@@ -19,7 +19,6 @@
 
 
 
-(* ::Input::Initialization:: *)
 (*"
 Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
 This program is free software: you can redistribute it and/or modify
@@ -37,14 +36,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "*)
 
 
-(* ::Input::Initialization:: *)
 BeginPackage["FormTracer`"];
 
 Unprotect@@Names["FormTracer`*"];
 ClearAll@@Names["FormTracer`*"];
 
 
-(* ::Input::Initialization:: *)
 $FormTracerVersionNumber::usage="FormTracer version.";
 
 FormTracer::usage="A Mathematica Tracing Package Using FORM";
@@ -296,6 +293,10 @@ FiniteT::usage="FiniteT[True/False] if set to True, finite T is enabled.";
 
 FiniteT::badarg="FiniteT was called with an invalid argument. Argument must be True or False.";
 
+FastGamma5Trace::usage="FastGamma5Trace[True/False] determines whether the faster algorithm from arXiv:1506.04517 [hep-ph] is used instead of the Larin scheme to evaluate Dirac traces with a single gamma5 matrix in d!=4 dimensions.";
+
+FastGamma5Trace::badarg="FastGamma5Trace was called with an invalid argument. Argument must be True or False.";
+
 DefineFormAutoDeclareFunctions::usage="DefineAutoDeclareFunctions[cfuntions] can be used to define CFunctions that are autodeclared in FORM.
 DefineAutoDeclareFunctions clears all previously defined autodeclare functions. Note that cfuntions must not contain substrings of standard Mathematica symbols that have to be translated into FORM code (e.g. (complex) I, Pi, Sqrt). 
 
@@ -375,11 +376,9 @@ InstallCygwin::downloadfailed="The FormTracer failed to Cygwin from `1`. Ensure 
 UpdateFormTracer::usage="UpdateFormTracer[] updates the FormTracer to the latest version.";
 
 
-(* ::Input::Initialization:: *)
 Begin["`Private`"];
 
 
-(* ::Input::Initialization:: *)
 (*determine the FormTracer directory*)
 formTracerDirectory= If[DirectoryQ[FileNameJoin[{$UserBaseDirectory,"Applications","FormTracer"}]],
 (*installed in the user directory*)
@@ -399,7 +398,7 @@ Print["
 FormTracer "<>$FormTracerVersionNumber<>" loaded.
 
 Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
-The FormTracer is released under the GNU General Public License version three or later.
+FormTracer is released under the GNU General Public License version three or later.
 
 If used in scientific publications, please acknowledge our work by citing:
 A. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.09331 [hep-ph]
@@ -411,11 +410,9 @@ Abort[];
 ];
 
 
-(* ::Input::Initialization:: *)
 formTracerRepositoryAddress="https://raw.githubusercontent.com/FormTracer/FormTracer/master/";
 
 
-(* ::Input::Initialization:: *)
 getLatestVersionNumbers[quiet_]:=Module[{newVersionString,pacletInfoLocation=formTracerRepositoryAddress<>"src/PacletInfo.m"},
 If[quiet,
 newVersionString=Quiet[Check[Version/.List@@Import[pacletInfoLocation],""]];,
@@ -427,7 +424,6 @@ First@StringReplace[newVersionString,mainVersion__~~"."~~version__~~"."~~builtVe
 ];
 
 
-(* ::Input::Initialization:: *)
 CheckForFormTracerUpdates[quiet_:False]:=Module[{newVersionNumbers,newVersionString},
 If[Not["AllowInternetUse" /. SystemInformation["Network"]],If[Not[quiet],Message[CheckForFormTracerUpdates::allowinternetuse]];Return[];];
 newVersionNumbers=getLatestVersionNumbers[quiet];
@@ -451,9 +447,8 @@ If[Not[quiet],Print["You are already using the latest version of the FormTracer,
 ];
 
 
-(* ::Input::Initialization:: *)
 UpdateFormTracer[]:=Module[{newVersionNumbers},
-If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[CheckForFormTracerUpdates::allowinternetuse];Return[];];
+If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[UpdateFormTracer::allowinternetuse];Return[];];
 newVersionNumbers=getLatestVersionNumbers[False];
 If[newVersionNumbers=!={0,0,0},
 If[newVersionNumbers[[1]]+newVersionNumbers[[2]]/10+newVersionNumbers[[3]]/100>$FormTracerMainVersion+$FormTracerVersion/10+$FormTracerBuiltVersion/100,
@@ -464,7 +459,6 @@ Print["You are already using the latest version of the FormTracer, version "<> $
 ];
 
 
-(* ::Input::Initialization:: *)
 ShowFormTracerChangeLog[numberOfItems_Integer:15]:=Module[{changelog,changelogSplit},
 (*try to obtain latest changelog online, otherwise show the local one*)
 changelog=Quiet[Check[Import[formTracerRepositoryAddress<>"src/CHANGELOG","String"],Import[FileNameJoin[{formTracerDirectory,"CHANGELOG"}],"String"]]];
@@ -475,9 +469,8 @@ Return[StringTrim[StringJoin@Riffle[Take[changelogSplit,Min[Length[changelogSpli
 ];
 
 
-(* ::Input::Initialization:: *)
 InstallFORM[]:=Module[{exeLocation,cygwinDownloadSuccessfull,cygwinDLL="http://www.thphys.uni-heidelberg.de/~cyrol/downloads/cygwin1.dll"},
-If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[CheckForFormTracerUpdates::allowinternetuse];Return[];];
+If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[InstallFORM::allowinternetuse];Return[];];
 exeLocation="http://www.nikhef.nl/~form/maindir/binaries/"<>Switch[$OperatingSystem,
 "Unix",If[$ProcessorType==="x86","linux32/form","linux64/form"],
 "MacOSX",If[$ProcessorType==="x86","apple/form32","apple/form"],
@@ -533,16 +526,15 @@ Quiet[DeleteFile[setupExe]];
 *)
 
 
-(* ::Input::Initialization:: *)
 (*check for updates at startup*)
 If["AllowInternetUse" /. SystemInformation["Network"],CheckForFormTracerUpdates[True];];
 
 
-(* ::Input::Initialization:: *)
 defaultFormExecutables={
 FileNameJoin[{formTracerDirectory,If[$OperatingSystem==="Windows","form.exe","form"]}](*has to be the first entry due to InstallFORM*),
-"form",
+"form",(*should work if form lies in any executable path*)
 FileNameJoin[{$PathnameSeparator,"usr","bin","form"}],
+FileNameJoin[{$PathnameSeparator,"usr","local","bin","form"}],
 FileNameJoin[{$PathnameSeparator,"opt","bin","form"}],
 FileNameJoin[Flatten@{$UserBaseDirectory,"Applications","FormLink","bin",Switch[$OperatingSystem,"Unix",{"linux64","form"},"MacOSX",{"macosx64","form"},"Windows",{"windows","form.exe"}]}]
 };
@@ -556,11 +548,11 @@ disentangleLorentzStructures=disentangleLorentzStructuresSwitch;
 finiteTenabled=False;
 cacheFilesDirectory="FormTracerCache";
 partialtrace=False;
+fastgamma5tracedneq4=False;
 checkTensorSums=False;
 lorentzDimensions={4,4};
 
 
-(* ::Input::Initialization:: *)
 checkFormExecutable[quietMode_:False]:=Module[{formProcessResult,formResponse,formExitCode},
 (*Don't check whether FORM works if it was already checked.*)
 If[formChecked,Return[True(*=formChecked*)]];
@@ -613,6 +605,12 @@ DisentangleLorentzStructures[___]:=Message[DisentangleLorentzStructures::badarg]
 FiniteT[yesno_/;BooleanQ[yesno]]:=Print[If[enableFiniteT[yesno],"Finite T enabled.","Finite T disabled."]];
 FiniteT[___]:=Message[FiniteT::badarg];
 
+FastGamma5Trace[yesno_/;BooleanQ[yesno]]:=Module[{},
+fastgamma5tracedneq4=yesno;
+Print["Fast gamma5 trace in d!=4 "<>If[fastgamma5tracedneq4,"enabled","disabled"]<>"."];
+];
+FastGamma5Trace[___]:=Message[FastGamma5Trace::badarg];
+
 DebuggingMode[yesno_/;BooleanQ[yesno]]:=Module[{},
 debuggingMode=yesno;
 Print["Debugging mode "<>If[debuggingMode,"enabled","disabled"]<>"."];
@@ -660,7 +658,6 @@ DefineCombinedLorentzTensors[tmpCombinedLorentzTensorInputCache];
 ];
 
 
-(* ::Input::Initialization:: *)
 partialTraceDummy="dummy";
 
 lorentzTensorReplacementRulesInput={};
@@ -699,7 +696,6 @@ formCFunctionAutoDeclareListBasic={extraFormVarPrefix};
 formCFunctionAutoDeclareList=formCFunctionAutoDeclareListBasic;
 
 
-(* ::Input::Initialization:: *)
 
 getGroupTensors[group_]:={FTxdeltaAdj[group,_,_],FTxdeltaFund[group,_,_],FTxF[group,_,_,_],FTxT[group,_,_,_],FTxepsAdj[group,__],FTxepsFund[group,__]};
 
@@ -815,7 +811,6 @@ basicCombinedMomentumRepl=basicCombinedMomentumReplT0;
 combinedMomentumRepl=basicCombinedMomentumRepl;
 
 
-(* ::Input::Initialization:: *)
 generateDimensionReplRules[]:=Module[{dimReplVars,forbiddenDimVars},
 forbiddenDimVars=Complement[forbiddenFormVars,ToString/@formColorPackageExtVars];
 dimVars=Join[dimLorVars,dimGroupVars];
@@ -827,13 +822,11 @@ dimVars=dimVars/.dimVarRulesInput;
 ];
 
 
-(* ::Input::Initialization:: *)
 addbar[s_Symbol]:=ToExpression[ToString[s]<>"_"];
 barrepl[s_,vars_List]:=s/.Table[var->addbar[var],{var,vars}];
 extractExprAndVars[arg_,numberOfArgs_Integer]:=If[VectorQ[arg],{First[arg],Rest[arg]},{arg,Take[List@@arg,-numberOfArgs]}];
 
 
-(* ::Input::Initialization:: *)
 (*
 outputRules doesn't act on FORM output (e.g. just for expand terms),
 outputRulesTraced acting on FORM output with partial trace disabled,
@@ -914,7 +907,6 @@ enableFiniteT[vectorspatial=!=Null||scalarProductspatial=!=Null];
 ];
 
 
-(* ::Input::Initialization:: *)
 getGroupTensorRules[{type_,group_,deltaAdj_,structureF_,deltaFund_:Null,generatorT_:Null,epsilonAdj_:Null,epsilonFund_:Null}]:=Module[
 {groupName=If[Head[group]===List,First[group],group],inputRules={},outputRules={},outputRulesTraced={},outputRulesPartiallyTraced={},tmpExpr,tmpVars},
 (*delta adj replacement rule*)
@@ -953,7 +945,6 @@ Return[{inputRules,outputRules,outputRulesTraced,outputRulesPartiallyTraced}];
 ];
 
 
-(* ::Input::Initialization:: *)
 getGroupNames[groups_List]:=Table[If[Head[groupName]===List,First[groupName],groupName],{groupName,groups[[All,2]]}];
 
 getShortGroupNames[groups_List]:=Module[{n=1,groupNames=ToString/@getGroupNames[groups]},
@@ -997,7 +988,6 @@ id f(a"~~shortGroupName~~"1?,a"~~shortGroupName~~"2?,a"~~shortGroupName~~"3?)=FT
 
 
 
-(* ::Input::Initialization:: *)
 ClearGroupTensors[]:=Module[{},
 prefixListIndices=prefixListLorentzDirac;
 groupTypes={};
@@ -1059,7 +1049,6 @@ TableHeadings->{#[[1]]<>"("<>#[[2]]<>")"&/@Partition[ToString/@Riffle[groupNames
 ];
 
 
-(* ::Input::Initialization:: *)
 DefineFormAutoDeclareFunctions[vars___]:=DefineFormAutoDeclareFunctions[List[vars]];
 DefineFormAutoDeclareFunctions[vars_List]:=formCFunctionAutoDeclareList=Union[DeleteDuplicates[ToString/@vars],formCFunctionAutoDeclareListBasic];
 
@@ -1094,7 +1083,6 @@ extraFormVarsListOutputConversion={};
 ];
 
 
-(* ::Input::Initialization:: *)
 replaceMomentaAndIndicesInExpression[momentaFrom_List,indicesFrom_List,expression_,momentaToNameStrings_List,indicesToNameStrings_List]:=Module[{replacementRules},
 replacementRules=Join[(* Replace the provided momenta and indices in the expression. *)
 Table[momentaFrom[[i]]->ToExpression[momentaToNameStrings[[i]]],{i,Length@momentaFrom}],
@@ -1104,13 +1092,11 @@ Return[expression/.replacementRules];
 ];
 
 
-(* ::Input::Initialization:: *)
 addWildcardMarkersInString[wildcardArguments_List,stringExpression_String,wildcardMarker_String:"?"]:=Module[{RenamingRules},
 (* Add "wildcardMarker" after the arguments provided every time they occur in the string.*)RenamingRules=Reverse[SortBy[Table[wildcardArguments[[i]]->wildcardArguments[[i]]<>wildcardMarker,{i,Length@wildcardArguments}],Length]];Return[StringReplace[stringExpression,RenamingRules]];
 ];
 
 
-(* ::Input::Initialization:: *)
 getFormIdentity[{lhs_,rhs_},momentaName_String:prefixListLorentzDirac[[1]],indicesName_String:prefixListLorentzDirac[[2]]]:=getFormIdentity[{momentumFromExpr[lhs],lorentzFromExpr[lhs],lhs,rhs},momentaName,indicesName];
 getFormIdentity[{momenta_List,indices_List,lhs_,rhs_},momentaName_String:prefixListLorentzDirac[[1]],indicesName_String:prefixListLorentzDirac[[2]]]:=Module[{left,right,momentumNames,indexNames},
 (* Replace the momenta and indices provided with "momentaName"i and "indicesName"i *)
@@ -1123,7 +1109,6 @@ Return["id "<>left<>"="<>toFormStringLorentz[right]<>";"];
 ];
 
 
-(* ::Input::Initialization:: *)
 getFormIdentityFromFile[{lhs_,importPath_String}]:=getFormIdentityFromFile[{momentumFromExpr[lhs],lorentzFromExpr[lhs],lhs,importPath}];
 getFormIdentityFromFile[{momenta_List,indices_List,lhs_,importPath_String}]:= Module[{short,identityString,declarationsString},
 (* Bring the lhs into FORM format. *)
@@ -1135,25 +1120,20 @@ Return[declarationsString<>identityString];
 ];
 
 
-(* ::Input::Initialization:: *)
 getIndicesRuleFromCombinedLorentzTensor[combinedTensor_]:=barrepl[combinedTensor[[3]],Join[combinedTensor[[1]],combinedTensor[[2]]]]:>Evaluate[combinedTensor[[2]]];
 getMomentumRuleFromCombinedLorentzTensor[combinedTensor_]:=barrepl[combinedTensor[[3]],Join[combinedTensor[[1]],combinedTensor[[2]]]]:>Evaluate[combinedTensor[[1]]];
 
 
-(* ::Input::Initialization:: *)
 addbarPlus[s_Symbol]:=ToExpression[ToString[s]<>"_Plus"];
 
 
-(* ::Input::Initialization:: *)
 barreplPlus[s_,vars_List,i_Integer]:=s/.Table[If[i==j,vars[[j]]->addbarPlus[vars[[j]]],vars[[j]]->addbar[vars[[j]]]],{j,1,Length[vars]}];
 
 
-(* ::Input::Initialization:: *)
 getCombinedMomentumReplForCombinedTensor[combinedTensor_]:=Module[{ms},
 Table[barreplPlus[combinedTensor[[3]],Join[combinedTensor[[1]],combinedTensor[[2]]],i]:>Evaluate[(combinedTensor[[3]]/.combinedTensor[[1]][[i]]->ms[combinedTensor[[1]][[i]]])],{i,Length[combinedTensor[[1]]]}]/.ms->momentumSum];
 
 
-(* ::Input::Initialization:: *)
 lorentzTensorIdentitiesInputCache={};
 
 ClearLorentzTensorIdentities[]:=Module[{},
@@ -1174,7 +1154,6 @@ Do[AddLorentzTensorIdentity[identity],{identity,identities}];
 ];
 
 
-(* ::Input::Initialization:: *)
 combinedLorentzTensorInputCache={};
 
 ClearCombinedLorentzTensors[]:=Module[{},
@@ -1229,7 +1208,6 @@ Do[AddCombinedLorentzTensor[combinedTensor],{combinedTensor,combinedTensors}];
 ];
 
 
-(* ::Input::Initialization:: *)
 isTensor[expr_]:=Or@@Join[{Not[FreeQ[expr,Alternatives@@lorentzTensors]]},Map[Not[FreeQ[expr,Alternatives@@#]]&,groupTensorsList]];
 removeSquaredTensorSums={Power[a_Plus,n_/;n!=2]:>pow[a,n],Power[a_Plus,2]:>If[isTensor[a],Expand[a^2],pow[a,2]]};
 
@@ -1257,7 +1235,6 @@ removeSquaredTensorsRules=removeSquaredTensorsRulesT0;
 removeSquaredTensors[expr_]:=expr/.removeSquaredTensorSums/.removeSquaredTensorsRules/.combinedTensorSquaresReplRules;
 
 
-(* ::Input::Initialization:: *)
 convertInput[input_,replaceExtraAllVars_:True]:=Module[{res,check=True},
 If[lorentzTensorReplacementRulesInput==={}&&groupTensorReplacementRulesInput==={},Message[convertInput::missingnotation];Abort[];];
 res=removeSquaredTensors[input/.lorentzTensorReplacementRulesInput/.groupTensorReplacementRulesInput/.If[replaceExtraAllVars,extraFormVarsListInputConversion,extraFormVarsListInputConversionExport]];
@@ -1266,11 +1243,9 @@ Return[If[check,res,Null]];
 ]
 
 
-(* ::Input::Initialization:: *)
 ConvertInput[input_,replaceExtraAllVars_:False]:=convertInput[input,replaceExtraAllVars];
 
 
-(* ::Input::Initialization:: *)
 enableFiniteT[yesno_]:=Module[{},
 If[yesno==True,
 basicLorentzFromExprRules=Join[basicLorentzFromExprRulesT0,basicLorentzFromExprRulesT];
@@ -1305,7 +1280,6 @@ Return[finiteTenabled];
 ];
 
 
-(* ::Input::Initialization:: *)
 createOutputReplacementList[repl_List]:=Flatten[Join[Map[If[Length[#[[1]]]>0,generateReplList[#[[2]],#[[1]]],{}]&,repl]]];
 
 convertOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[repl]/.lorentzTensorReplacementRulesOutput/.groupTensorReplacementRulesOutput/.extraFormVarsListOutputConversion/.pow[x_,y_]:>x^y;
@@ -1313,7 +1287,6 @@ convertTracedOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[r
 convertPartiallyTracedOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[repl]/.lorentzTensorReplacementRulesOutputPartiallyTraced/.groupTensorReplacementRulesOutputPartiallyTraced/.extraFormVarsListOutputConversion/.Global`pow[x_,y_]:>x^y;
 
 
-(* ::Input::Initialization:: *)
 (* extracts variables from expression from rules *)
 variablesFromExprRules[expr_,rules_List]:=Select[Map[Cases[{expr},#,Infinity]&,rules]//Flatten//DeleteDuplicates,Not[NumericQ[#]]&];
 
@@ -1373,7 +1346,6 @@ Return[Join[getClosedLorentzIndices[expr],getClosedDiracIndices[expr],closedFund
 ];
 
 
-(* ::Input::Initialization:: *)
 
 (* Public indices functions *)
 GetLorentzIndices[expr_List]:=GetLorentzIndices/@expr;
@@ -1428,7 +1400,6 @@ GetClosedAdjGroupIndices[expr_List,group_]:=Map[GetClosedAdjGroupIndices[#,group
 GetClosedAdjGroupIndices[expr_,group_]:=getClosedAdjGroupIndices[convertInput[expr],group];
 
 
-(* ::Input::Initialization:: *)
 (* private sum checks functions *)
 checkSum[expr_Plus,openIndicesFunction_]:=Module[{openIndicesLists},
 openIndicesLists=Sort/@(openIndicesFunction/@Apply[List,expr]);
@@ -1462,7 +1433,6 @@ Return[convertedExpr];
 ];
 
 
-(* ::Input::Initialization:: *)
 (* public check functions *)
 CheckLorentzTensorSums[expr_]:=checkLorentzTensorSums[convertInputWithoutSumCheck[expr]];
 CheckDiracTensorSums[expr_]:=checkDiracTensorSums[convertInputWithoutSumCheck[expr]];
@@ -1476,7 +1446,6 @@ CheckAdjGroupTensorSums[expr_,group_]:=checkAdjGroupTensorSums[convertInputWitho
 CheckTensorSums[expr_]:=checkAllTensorSums[convertInputWithoutSumCheck[expr]];
 
 
-(* ::Input::Initialization:: *)
 lorentzTensorProductToSortedLists[term_]:={{term}};
 lorentzTensorProductToSortedLists[term_Times]:=Module[{abort,completeDiracTrace,iTensor,openLorentzIndices,openDiracIndices,tmpProduct,tmpProductList,disjointProductsList={},unsortedTensors=List@@term},
 abort[]:=Module[{},Message[ExpandLorentzStructures::failedconsistencycheck];Abort[];];
@@ -1514,7 +1483,6 @@ Return[disjointProductsList];
 ];
 
 
-(* ::Input::Initialization:: *)
 (* Private function *)
 expandLorentzStructures[expr_Plus]:=lorentzTensorProductToSortedLists/@(List@@expr);
 expandLorentzStructures[expr_]:={lorentzTensorProductToSortedLists[expr]};
@@ -1523,7 +1491,6 @@ expandLorentzStructures[expr_]:={lorentzTensorProductToSortedLists[expr]};
 ExpandLorentzStructures[expr_]:=convertOutput[expandLorentzStructures[convertInput[expr]]];
 
 
-(* ::Input::Initialization:: *)
 (* This function separates factors in expr. It returns a list of length 2. The first element of that list contains all factors that do not depend on any object in the objects list, the second element all others, i.e. those that do depend on at least one object of the objects list. *)
 separateFactors[expr_,alternatives_]:=If[FreeQ[expr,alternatives],{expr,1},{1,expr}];
 separateFactors[expr_Times,alternatives_]:=Module[{prefactorList={1},mainList={1}},
@@ -1543,7 +1510,6 @@ Expand[expandIteratively[expr,Rest[expansionList]],First[expansionList]]
 ];
 
 
-(* ::Input::Initialization:: *)
 expandExpr[expr_,tensorLists_List]:=Module[{currentList=First[tensorLists],remainingLists=Rest[tensorLists],expandedExpr,separatedExpr},
 If[remainingLists==={},
 Return[If[disentangleLorentzStructures,expandLorentzStructures[removeSquaredTensors[expr]],expr]];
@@ -1571,7 +1537,6 @@ Return[Map[expandTerm[#,tensorLists]&,terms]];
 ExpandTerms[terms_]:=convertOutput[expandTerms[convertInput[terms]]];
 
 
-(* ::Input::Initialization:: *)
 removeSign[expr_Times]:=expr[[2]];
 removeSign[expr_Symbol]:=expr;(*for combined tensors*)
 removeSign[expr_Plus]:=expr;(*for combined tensors-error message*)
@@ -1581,7 +1546,6 @@ momentumFromExpr[expr_]:=removeSign/@variablesFromExprRules[expr,momentumFromExp
 canonicalOrderQ[expr_]:=Module[{exprsym},exprsym=(expr//Expand);If[Head@exprsym===Plus,If[Head@exprsym[[1]]===Times,Sign[exprsym[[1,1]]]==1,True],If[Head@exprsym===Times,Sign[exprsym[[1]]]==1,True]]];
 
 
-(* ::Input::Initialization:: *)
 momentumSum[expr_]:=Module[{exprsym,sign,label},
 sign=If[canonicalOrderQ[expr]==True,1,-1];
 exprsym=sign*expr;
@@ -1590,7 +1554,6 @@ Return[sign*ToExpression[label]]
 ];
 
 
-(* ::Input::Initialization:: *)
 invmomentumsum[expr_]:=Module[{s},s=StringReplace[ToString[expr],{"MOMSUM"->"","Plus"->"+","Minus"->"-","Times"->"*"}]];
 invmomentumsumwithrepl[expr_,repl_]:=Module[{s},s=ToString[ToExpression[StringReplace[ToString[expr],{"MOMSUM"->"","Plus"->"+","Minus"->"-","Times"->"*"}]]/.repl]];
 idinvmomentumsum[exprms_]:=ToString[exprms]~~","~~invmomentumsum[exprms];
@@ -1599,13 +1562,11 @@ idinvmomentumsumwithrepl[exprms_,repl_]:=ToString[exprms/.repl]~~","~~invmomentu
 idinvmomentumsumswithrepl[expr_List,repl_]:="Multiply replace_("~~stringList[Map[idinvmomentumsumwithrepl[#,repl]&,expr]]~~");";
 
 
-(* ::Input::Initialization:: *)
 replacevec3[mom_]:="id FTxvecs("~~ToString[mom]~~",lor1?)="~~"vecsx"~~ToString[mom]~~"(lor1);";
 
 replacevec3inv[moms_List]:="Multiply replace_("~~stringList["vecsx"~~ToString[#]~~","~~ToString[#]&/@moms]~~");";
 
 
-(* ::Input::Initialization:: *)
 stringList[expr_List]:=StringJoin[Riffle[ToString/@expr,","]];
 stringLines[expr_List]:=StringJoin[Riffle[expr,"\n"]];
 
@@ -1614,7 +1575,6 @@ formBlockArgument[block_String,level_Integer:3]:=block~~If[level===1,"","\n"~~st
 numToString[x_]:=If[Head[x]===Rational,ToString[Numerator[x]]~~"/"~~ToString[Denominator[x]],ToString[x]];
 
 
-(* ::Input::Initialization:: *)
 toGenericFormString[expr_]:=StringReplace[ToString[expr,InputForm],{"FormTracer`Private`"->""," + "->"+"," - "->"-"}];
 replaceGroupTensors[expr_]:=StringReplace[expr,{
 Shortest["FTxepsAdj["~~group__~~", "~~x__~~"]"]:>"e_("~~x~~")",
@@ -1642,7 +1602,6 @@ toFormStringLorentz[expr_]:=finalizeFormString[replaceLorentzTensors[toGenericFo
 toFormStringAll[expr_]:=finalizeFormString[replaceLorentzTensors[replaceGroupTensors[toGenericFormString[expr]]]];
 
 
-(* ::Input::Initialization:: *)
 generateLorentzFormExpressions[input_List,lorentzTermString_String]:=Module[{x=Reverse[input,3],vars={},termSummation={"Local ",lorentzTermString,"="},factorMultiplications={},spinorFactors={},structures,tmpFactorName},
 (*ti = term index*)
 (*si = short for structure index*)
@@ -1667,7 +1626,6 @@ Return[{StringJoin[vars],structures,StringJoin[Riffle[factorMultiplications,";\n
 ];
 
 
-(* ::Input::Initialization:: *)
 (* Private function *)
 generateDiracLorentzContractionCode[lorentzSymbols_List,lorentzprerepl_String,vectorIds_String]:="Unhide "<>stringList[lorentzSymbols]<>";
 "~~If[formLorentzTensorIdentities==={},"","
@@ -1719,7 +1677,6 @@ Return[StringJoin[contractionString]<>lorentzprerepl];
 ];
 
 
-(* ::Input::Initialization:: *)
 generateFormExpressions[expandedDiagrams_List,lorentzprerepl_String,vectorIds_String]:=Module[{generateSummationCode,tmpGroupVar,numberOfDiagrams=Length[expandedDiagrams],groupVariables=Table[{},{Length[groupTensorsList]}],lorentzVariables={},defList={},lorentzSummations={},groupSummations,diagramSummation,lorentzStructures={},diracFactors={},lorentzContractionCode},
 
 If[disentangleLorentzStructures,
@@ -1748,14 +1705,14 @@ AppendTo[defList,"Local "<>tmpGroupVar<>"="<>toFormStringGroup[expr[[iGroupExpr,
 
 groupSummations=Table[
 AppendTo[defList,"Local D"<>ToString[iDia]<>"prefactor="<>toFormStringScalar[expandedDiagrams[[iDia,1]]]<>";\n"];
-"Local D"<>If[numberOfDiagrams===1,"",ToString[iDia]]<>"=D"<>ToString[iDia]<>"prefactor*("<>generateSummationCode[expandedDiagrams[[iDia,2]],"D"<>ToString[iDia],Length[groupTensorsList]]<>");"
+"Local FTxD"<>If[numberOfDiagrams===1,"",ToString[iDia]]<>"=D"<>ToString[iDia]<>"prefactor*("<>generateSummationCode[expandedDiagrams[[iDia,2]],"D"<>ToString[iDia],Length[groupTensorsList]]<>");"
 ,{iDia,numberOfDiagrams}];
 
 diagramSummation=If[numberOfDiagrams===1,"","
 .sort
 
 Drop;
-Local D="<>StringJoin[Table["+D"<>ToString[i],{i,numberOfDiagrams}]]<>";"];
+Local FTxD="<>StringJoin[Table["+FTxD"<>ToString[i],{i,numberOfDiagrams}]]<>";"];
 
 lorentzContractionCode=If[disentangleLorentzStructures,
 generateDisentangledDiracContractionCode[Flatten[diracFactors],lorentzprerepl]<>generateDisentangledLorentzContractionCode[Flatten[lorentzStructures,1],lorentzprerepl],
@@ -1771,7 +1728,6 @@ If[disentangleLorentzStructures,stringLines[lorentzSummations]<>"\n",""]<>string
 ];
 
 
-(* ::Input::Initialization:: *)
 measureEvaluationTime[False,message_String:"",arg_]:=ReleaseHold[arg];
 measureEvaluationTime[True,message_String:"",arg_]:=Module[{res},
 res=ReleaseHold[AbsoluteTiming[arg]];
@@ -1783,7 +1739,6 @@ MeasureEvaluationTime[arg_,message_String:""]:=measureEvaluationTime[True,messag
 SetAttributes[MeasureEvaluationTime,HoldAll];
 
 
-(* ::Input::Initialization:: *)
 (*{momenta},{momentamomentumsum},{extramomenta},...*)
 getAllIndices[expr_]:=Module[{momenta,momentaall,momentams},
 momenta=DeleteDuplicates[momentumFromExpr[expr]];
@@ -1795,7 +1750,6 @@ getAllIndicesReplaced[l_List]:=Join[Table[generatePrefixedList[prefixListIndices
 generateReplList[from_,to_]:=Table[from[[gri1]]->to[[gri1]],{gri1,Length[from]}];
 
 
-(* ::Input::Initialization:: *)
 declareGenericDs[shortGroupName_String]:="Symbol "~~stringList@Map[#~~shortGroupName&,formColorPackageGenericD]~~";";
 
 generateDeclareHeader[allindicesrepl_]:=If[dimVars==={},"","
@@ -1842,7 +1796,6 @@ Set f"~~ToString@shortGroupNames[[i]]~~"Indices: "~~stringList[allindicesrepl[[i
 ]];
 
 
-(* ::Input::Initialization:: *)
 generateVectorReplacementsFiniteT[vectorIds_String]:="
 ********************************************************************************
 * Replace vec3 with dummy momenta for finite T
@@ -1885,7 +1838,6 @@ undoCombinedMomentaCode[momentaIds_String]:=If[momentaIds==="","","
 .sort"];
 
 
-(* ::Input::Initialization:: *)
 generateDiracContractionCode[]:="
 ********************************************************************************
 * Performs Lorentz/Dirac contraction
@@ -1897,21 +1849,49 @@ repeat id gamma(?lor1,spi1?,spi2?)*gamma(?lor2,spi2?,spi3?)=gamma(?lor1,?lor2,sp
 
 *** convert Dirac strings without open indices to FORM gamma matrices ***
 unittrace "~~ToString[Last[lorentzDimensions]]~~";
+"~~If[First[lorentzDimensions]===4,"
 Repeat;
-
-id once gamma(?mom1,spi1?,spi1?)= g_(1,?mom1);
-id g_(1,g5) = g5_(1);
-
-"~~If[First[lorentzDimensions]===4,"Trace4 1;","Tracen 1;"]~~"
-
 contract 0;
-
+id once gamma(?mom1,spi1?,spi1?)= g_(1,?mom1);
+id g_(1,g5)=g_(1,5_);
+Trace4 1;
 EndRepeat;
+",If[fastgamma5tracedneq4==True,"#define FastGamma5Trace \"1\"",""]~~"
+* handle gamma5s
 
+* guard external epsilons
+id e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeExt(lorx1,lorx2,lorx3,lorx4);
+
+Repeat;
+if( match(gamma(?mom1, spi1?,spi1?)));
+#call PreDiracTrace5
+* first contract external epsilons (only those related to current spin line)
+repeat id FTxTr(?lorx1,lorx2?,?lorx3)*FTxeExt(?lorx4,lorx2?,?lorx5)=FTxTr(?lorx1,lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);
+repeat id FTxeInt(?lorx1,lorx2?,?lorx3)*FTxeExt(?lorx4,lorx2?,?lorx5)=FTxeInt(?lorx1,lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);
+contract 0;
+*id e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeExt(lorx1,lorx2,lorx3,lorx4);
+
+* now contract internal epsilons (only those related to current spin line)
+repeat id FTxTr(?lorx1,lorx2?,?lorx3)*FTxeInt(?lorx4,lorx2?,?lorx5)=FTxTr(?lorx1,lorx2,?lorx3)*e_(?lorx4,lorx2,?lorx5);
+repeat id FTxeInt(?lorx1,lorx2?,?lorx3)*e_(lorx2?,lorx4?,lorx5?,lorx6?)=e_(?lorx1,lorx2,?lorx3)*e_(lorx2,lorx4,lorx5,lorx6);
+contract 0;
+* id e_(lorx1?,lorx2?,lorx3?,lorx4?)=FTxeInt(lorx1,lorx2,lorx3,lorx4);
+endif;
+EndRepeat;
+.sort
+* perform actual dirac traces
+Repeat;
+id,once,FTxTr(?a) = g_(1,?a);
+Tracen,1;
+EndRepeat;
+*convert everything to standard epsilons for output
+id FTxeInt(?lorx)=e_(?lorx);
+id FTxeExt(?lorx)=e_(?lorx);
+
+"]~~"
 .sort";
 
 
-(* ::Input::Initialization:: *)
 generateGroupContractionCode[id_Integer,groupVariables_List,groupprerepl_,grouppostrepl_]:="
 ********************************************************************************
 * Perform "~~ToString[groupNames[[id]]]~~" trace
@@ -1945,12 +1925,11 @@ Hide "~~groupVariables[[id]]~~";
 generateExtraGroupPrereplLists[expr_List,listhead_]:=stringLines[Last/@Select[Select[expr,Head@#===List&],#[[1]]==listhead&]];
 
 
-(* ::Input::Initialization:: *)
 generateBracketingString[bracket_]:="
 bracket "~~stringList[bracket]~~";
 .sort
 
-"~~stringLines@Table["Local Dcoeff"~~bra~~"=D["~~bra~~"];",{bra,Join[{"1"},ToString/@bracket]}]~~"
+"~~stringLines@Table["Local FTxDcoeff"~~bra~~"=FTxD["~~bra~~"];",{bra,Join[{"1"},ToString/@bracket]}]~~"
 .sort";
 
 generateExportCode[format_String,bracket_List,optimization_String,resFileName_String,exportResVar_String,exportTmpVar_String,exportVarType_String]:=Module[{absResFileName,exportString={},tmpFileName,insertPosition,absResFileNameBracket},
@@ -1964,7 +1943,7 @@ If[format==="mathematica",
 If[Length[bracket]>0,Message[FormTrace::nobracketing];Abort[];];
 Return["
 Format mathematica;
-#write <"~~absResFileName~~"> \"(%E)\", D
+#write <"~~absResFileName~~"> \"(%E)\", FTxD
 "];
 ];
 (* export to C *)
@@ -1980,24 +1959,28 @@ insertPosition=If[StringContainsQ[tmpFileName,"."],First[Last[StringPosition[tmp
 AppendTo[exportString,"
 "<>StringJoin@@Table[absResFileNameBracket=If[insertPosition===0,absResFileName<>bracketStr,StringInsert[absResFileName,"_"<>bracketStr, insertPosition]];"
 *** coefficient "~~bracketStr~~" ***
-#if termsin(Dcoeff"~~bracketStr~~") == 0
-#write<"~~absResFileNameBracket~~">\""~~exportResVar~~"_"~~ToUpperCase[bracketStr]~~"= %e;\",Dcoeff"~~bracketStr~~"
+#if termsin(FTxDcoeff"~~bracketStr~~") == 0
+#write<"~~absResFileNameBracket~~">\""~~exportResVar~~"_"~~ToUpperCase[bracketStr]~~"= %e;\",FTxDcoeff"~~bracketStr~~"
 #else
-#optimize Dcoeff"~~bracketStr~~";"<>If[format==="C","
-#write<"~~absResFileNameBracket~~">\""~~exportVarType~~" "~~exportTmpVar~~"[{`optimmaxvar_'+1}];\"",""]<>"
+#optimize FTxDcoeff"~~bracketStr~~";"<>If[format==="C","
+#write<"~~absResFileNameBracket~~">\""~~exportVarType~~" "~~exportTmpVar~~"[{`optimmaxvar_'+1}];\"",""]<>If[format==="fortran90","
+#write<"~~absResFileNameBracket~~">\""~~exportVarType~~" :: "~~exportTmpVar~~"({`optimmaxvar_'+1})\"",""]<>"
 #write<"~~absResFileNameBracket~~">\"%O\"
-#write<"~~absResFileNameBracket~~">\""~~exportResVar~~"_"~~ToUpperCase[bracketStr]~~"= %e;\",Dcoeff"~~bracketStr~~"
+#write<"~~absResFileNameBracket~~">\""~~exportResVar~~"_"~~ToUpperCase[bracketStr]~~"= %e;\",FTxDcoeff"~~bracketStr~~"
+#clearoptimize
 #endif
 ",{bracketStr,Join[{"1"},ToString/@bracket]}]];
 ,
 AppendTo[exportString,"
-#if termsin(D) == 0
-#write<"~~absResFileName~~">\""~~exportResVar~~"= %e;\",D
+#if termsin(FTxD) == 0
+#write<"~~absResFileName~~">\""~~exportResVar~~"= %e;\",FTxD
 #else
-#optimize D;"<>If[format==="C","
-#write<"~~absResFileName~~">\""~~exportVarType~~" "~~exportTmpVar~~"[{`optimmaxvar_'+1}];\"",""]<>"
+#optimize FTxD;"<>If[format==="C","
+#write<"~~absResFileName~~">\""~~exportVarType~~" "~~exportTmpVar~~"[{`optimmaxvar_'+1}];\"",""]<>If[format==="fortran90","
+#write<"~~absResFileName~~">\""~~exportVarType~~" :: "~~exportTmpVar~~"({`optimmaxvar_'+1})\"",""]<>"
 #write<"~~absResFileName~~">\"%O\"
-#write<"~~absResFileName~~">\""~~exportResVar~~"= %e;\",D
+#write<"~~absResFileName~~">\""~~exportResVar~~"= %e;\",FTxD
+#clearoptimize
 #endif
 "];
 ];
@@ -2005,7 +1988,6 @@ Return[StringJoin[exportString]];
 ];
 
 
-(* ::Input::Initialization:: *)
 generateFormFile[expr_,formFileName_String,resFileName_String,optimization_String,format_String,prerepl_List,postrepl_List,bracket_List,exportResVar_String,exportTmpVar_String,exportVarType_String]:=Module[{replacemomenta,idmomenta1,id3momenta1,id3momenta1inv,momentams,momenta,momentaall,allindicesextracted,allindices,allindicesrepl,indicesreplrule,momreplrule,mathematicavariablelistsreturn,preambleprerepl,generalprerepl,lorentzprerepl,groupprerepl,generalpostrepl,lorentzpostrepl,grouppostrepl,formCode,file,exprlst,formexpr,openIndicesString},
 If[expr===Null,Abort[]];
 
@@ -2067,7 +2049,7 @@ formexpr=generateFormExpressions[removeSquaredTensors[expandTerms[exprlst]]/.dim
 
 measureEvaluationTime[debuggingMode,"Time needed for string generation: ",
 (*put strings together; the result is the FORM program*)
-formCode=stringLines[Map["#include- "<>FileNameJoin[{formTracerDirectory,"Header",#}]&,Union[groupTracingAlgorithms[[All,2]]]]]~~"
+formCode=stringLines[Map["#include- "<>FileNameJoin[{formTracerDirectory,"Header",#}]&,Union[groupTracingAlgorithms[[All,2]],If[First[lorentzDimensions]=!=4,{"dirac.h"},{}]]]]~~"
 "~~If[preambleprerepl=!="","
 ********************************************************************************
 * user-defined preamble
@@ -2097,7 +2079,7 @@ Set setvecs:"~~stringList[StringJoin["vecsx",ToString[#]]&/@If[replacemomenta==F
 AutoDeclare CFunction "~~stringList[formCFunctionAutoDeclareList]~~";
 "~~If[format==="mathematica"||extraFormVarsListExportDeclare=={},"","CFunction "<>stringList[extraFormVarsListExportDeclare]<>";"]~~"
 CFunction pow,sqrt,gamma,FTxsp(symmetric),FTxvec"~~If[finiteTenabled,",FTxvecs,FTxsps(symmetric)",""]~~";
-
+"~~If[First[lorentzDimensions]=!=4,"CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;",""]~~"
 *** turn off runtime statistics ***
 Off statistics;
 .sort
@@ -2133,9 +2115,8 @@ Off statistics;
 ********************************************************************************
 * Lorentz and Dirac contraction
 ********************************************************************************
-*** set dimension to dimError to show possible errors ***
-Symbol dimError;
-Dimension dimError;
+*** set dimension to Lorenz dim for epsilons ***
+Dimension "~~ToString[First[lorentzDimensions]]~~";
 .sort
 
 "~~formexpr[[3]]~~"
@@ -2266,7 +2247,6 @@ Return[mathematicavariablelistsreturn];
 GenerateFormFile[expr_,formFileName_String,resFileName_String,optimization_String:"",format_String:"mathematica",prerepl_List:{},postrepl_List:{},bracket_List:{},exportResVar_String:"expr",exportTmpVar_String:"w",exportVarType_String:"double"]:=generateFormFile[convertInput[expr,format==="mathematica"],formFileName,resFileName,optimization,format,prerepl,postrepl,bracket,exportResVar,exportTmpVar,exportVarType];
 
 
-(* ::Input::Initialization:: *)
 importFormResult[filename_String,deleteImportedFile_]:=Module[{result},
 If[Not[FileExistsQ[filename]],Message[ImportFormResult::noformoutput];Abort[];];
 result=ToExpression[StringReplace[ReadString[filename],Join[{"\n"->" ","sqrt_"->"Sqrt","pi_"->"Pi","i_"-> "I","pow["->"Power["},If[partialtrace,{Shortest["N"~~x:DigitCharacter..~~"_?"]:>partialTraceDummy~~x},{}]]]];
@@ -2277,7 +2257,6 @@ Return[result];
 ImportFormResult[filename_String,deleteImportedFile_:False]:=convertPartiallyTracedOutput[importFormResult[filename,deleteImportedFile]];
 
 
-(* ::Input::Initialization:: *)
 FormTrace[___]:=Message[FormTrace::badarg];
 FormTrace[expr_,prerepl_List:{},postrepl_List:{},filename_:"",bracket_List:{},exportResVar_String:"expr",exportTmpVar_String:"w",exportVarType_String:"double"]:=Module[{timeString,formFile,resFile,format,optimization,formProcessResult,formConsoleOutput,formErrors,retValVariableLists,importedRes},
 If[expr===Null||checkFormExecutable[]==False,Abort[];];
@@ -2330,7 +2309,6 @@ Return[If[partialtrace,convertPartiallyTracedOutput[importedRes,retValVariableLi
 ];
 
 
-(* ::Input::Initialization:: *)
 If[ToString[Context[URLDownload]]=!="System`",URLDownload=URLSave];
 If[ToString[Context[ReadString]]=!="System`",ReadString[fn_String] :=Import[fn,"Text"]];
 If[ToString[Context[FirstPosition]]=!="System`",FirstPosition[list_,item_]:=First[Position[list,item]]];
@@ -2338,7 +2316,6 @@ If[ToString[Context[FirstCase]]=!="System`",FirstCase[list_,patt_]:=First[Cases[
 If[ToString[Context[DuplicateFreeQ]]=!="System`",DuplicateFreeQ[lst_List]:=If[Length[DeleteDuplicates[Map[Count[lst,#]&,lst]]]>1,False,True]];
 
 
-(* ::Input::Initialization:: *)
 End[];
 Protect@@Names["FormTracer`*"];
 EndPackage[];

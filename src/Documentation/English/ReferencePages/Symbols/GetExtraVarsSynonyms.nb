@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12039,        337]
+NotebookDataLength[     12040,        337]
 NotebookOptionsPosition[      9713,        277]
-NotebookOutlinePosition[     11828,        329]
-CellTagsIndexPosition[     11785,        326]
+NotebookOutlinePosition[     11829,        329]
+CellTagsIndexPosition[     11786,        326]
 WindowTitle->GetExtraVarsSynonyms
 WindowFrame->Normal*)
 
@@ -99,7 +99,7 @@ GetExtraVarsSynonyms.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$25461], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$26043], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/GetExtraVarsSynonyms", ".html"]], None}]}]},
@@ -290,7 +290,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 10, 21, 11, 42, 9.171146}", 
+   "built" -> "{2016, 11, 22, 15, 33, 28.500078}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
