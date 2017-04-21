@@ -3,31 +3,32 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5528,        156]
-NotebookOptionsPosition[      3634,        105]
-NotebookOutlinePosition[      5464,        153]
-CellTagsIndexPosition[      5421,        150]
+NotebookDataLength[      6546,        168]
+NotebookOptionsPosition[      4404,        113]
+NotebookOutlinePosition[      6234,        161]
+CellTagsIndexPosition[      6191,        158]
 WindowTitle->TensorSumCheck
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[Cell[BoxData[
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell",ExpressionUUID->
+     "7cf50773-d9e1-42e1-b240-dba354fa4a4d"], Cell[TextData[Cell[BoxData[
      ActionMenuBox[
       FrameBox[
        InterpretationBox[Cell[TextData[{
          "URL",
          StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
           StripOnInput->False]
-        }]],
+        }],ExpressionUUID->"3c4540b1-f9a3-41de-bfa1-67bca9ee2ff4"],
         TextCell[
          Row[{"URL", 
            Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -59,23 +60,26 @@ TensorSumCheck.html"], StandardForm]], "Input", TextClipboardType ->
           URL[
            StringJoin[
             If[
-             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$38783], 
+             TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$43123], 
              "http://reference.wolfram.com/system-modeler/", 
              "http://reference.wolfram.com/language/"], 
             "FormTracer/ref/TensorSumCheck", ".html"]], None}]}]},
       Appearance->None,
       MenuAppearance->Automatic,
       MenuStyle->"URLMenu"]],
-     LineSpacing->{1.4, 0}]], "AnchorBar"]}
+     LineSpacing->{1.4, 0},ExpressionUUID->
+     "72cad2e5-eaed-4035-9a96-41ff2f475ebc"]], "AnchorBar",ExpressionUUID->
+     "40f27676-b0b7-4d5d-8574-9acf2dd8e6b1"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"c8959372-8439-4da1-8406-6e0fde76dd2f"],
 
 Cell[TextData[{
- Cell["TensorSumCheck", "ObjectName"],
+ Cell["TensorSumCheck", "ObjectName",ExpressionUUID->
+  "d9fff815-a241-46a0-b5a3-742b5230ac46"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -83,25 +87,29 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"48c0127d-120f-4895-97d8-a33a6adc627a"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "bbf4d66e-378f-4a2f-ba58-eea60dc26730"]
+}], "ObjectNameGrid",ExpressionUUID->"15e3561e-a75b-4f64-8c60-5c788cdb4a35"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"TensorSumCheck", "[", 
-       StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+       StyleBox["expr", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+      "8e8dc174-e273-4bc8-bf8d-d2c0ca30b9ec"],
      " \[LineSeparator]checks all tensor sums in expr for consistency."
-    }]]}
+    }],ExpressionUUID->"4f9e510b-5c18-455a-94be-de01598a4942"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
    "RowsIndexed" -> {}}},
- CellID->982511436],
+ CellID->982511436,ExpressionUUID->"c44484e8-3320-4200-ad9b-564cc6eca2cb"],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"e4cf4544-e149-435f-9fe3-c4662cd3dcf7"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -118,7 +126,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 59.450968}", 
+   "built" -> "{2017, 3, 24, 16, 1, 11.901742}", 
     "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -129,7 +137,7 @@ TaggingRules->{
     "titlemodifier" -> "", "windowtitle" -> "TensorSumCheck", "type" -> 
     "Symbol", "uri" -> "FormTracer/ref/TensorSumCheck"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -138,7 +146,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -152,12 +160,16 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[586, 21, 2307, 53, 70, "AnchorBarGrid",
+Cell[586, 21, 2600, 56, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"c8959372-8439-4da1-8406-6e0fde76dd2f",
  CellID->1],
-Cell[2896, 76, 291, 11, 70, "ObjectNameGrid"],
-Cell[3190, 89, 414, 12, 70, "Usage",
+Cell[3189, 79, 541, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"15e3561e-a75b-4f64-8c60-5c788cdb4a35"],
+Cell[3733, 96, 586, 13, 70, "Usage", "ExpressionUUID" -> \
+"c44484e8-3320-4200-ad9b-564cc6eca2cb",
  CellID->982511436],
-Cell[3607, 103, 23, 0, 70, "FooterCell"]
+Cell[4322, 111, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"e4cf4544-e149-435f-9fe3-c4662cd3dcf7"]
 }
 ]
 *)

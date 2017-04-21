@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      7189,        213]
-NotebookOptionsPosition[      5051,        155]
-NotebookOutlinePosition[      6962,        204]
-CellTagsIndexPosition[      6919,        201]
+NotebookDataLength[      8691,        230]
+NotebookOptionsPosition[      6179,        166]
+NotebookOutlinePosition[      8090,        215]
+CellTagsIndexPosition[      8047,        212]
 WindowTitle->FiniteT
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell",ExpressionUUID->
+     "a02b0396-0bd3-4e77-bcd7-620c9652bf40"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"38b15bbd-7877-499b-8b4d-b1f832cacafe"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -37,7 +38,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "fc26d33b-0502-4fea-b971-e2bf6b0fe88d"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -47,7 +49,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"69b7fec6-84b6-47a3-8ed9-8fcaf9c3432a"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -79,24 +81,26 @@ html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, Visible ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$19317], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$23771], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/FiniteT", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7f2fafe6-3dbf-4757-99eb-d113be3bf365"]
+    }], "AnchorBar",ExpressionUUID->"ed8de6b0-a040-4215-abbb-d07797251ce2"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"e6f47937-bd8b-4227-8ccb-2fa4535f1585"],
 
 Cell[TextData[{
- Cell["FiniteT", "ObjectName"],
+ Cell["FiniteT", "ObjectName",ExpressionUUID->
+  "6e540997-abb2-49be-9df8-b4b60931943d"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -104,25 +108,29 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"53e1b770-a3c3-4528-ae71-bcb480ef09d9"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "6a831048-3458-41cf-afc3-d22a68de55a5"]
+}], "ObjectNameGrid",ExpressionUUID->"29646603-0fd2-4101-a022-fa921e47e4f5"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"FiniteT", "[", 
-       RowBox[{"True", "/", "False"}], "]"}]], "InlineFormula"],
+       RowBox[{"True", "/", "False"}], "]"}]], "InlineFormula",
+      ExpressionUUID->"228d30ea-aad0-4a3f-bd93-7a12f8bbe3a9"],
      " \[LineSeparator]if set to True/False, finite T is en-/disabled. By \
 default, FiniteT is active if finite vectors and scalar products have been \
 defined in DefineLorentzTensors."
-    }]]}
+    }],ExpressionUUID->"1c867afd-9a3d-4df4-866a-5ded9f55083a"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
    "RowsIndexed" -> {}}},
- CellID->982511436],
+ CellID->982511436,ExpressionUUID->"d7c4b514-b83c-42f3-a214-4c0f74eada53"],
 
 Cell[CellGroupData[{
 
@@ -134,11 +142,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"d5daa724-d10c-45a1-af82-fc942b71b110"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"beb4560c-05af-488d-8883-20da999ac40a"],
 
 Cell[TextData[Cell[BoxData[
  TemplateBox[{Cell[
@@ -147,11 +156,13 @@ Cell[TextData[Cell[BoxData[
   "RefLink",
   BaseStyle->{
    "InlineFormula", FontFamily -> "Verdana", 
-    "CodeFont"}]], "InlineFormula"]], "SeeAlso",
- CellID->929782353]
+    "CodeFont"}]], \
+"InlineFormula",ExpressionUUID->"845a6fc1-695a-4f3b-a058-b3be8e82d6fd"]], \
+"SeeAlso",
+ CellID->929782353,ExpressionUUID->"39ba6daa-f7b5-49a0-b184-3511749e7a9f"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"6f1b4b52-8fda-437c-b970-048ac6857db6"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -168,7 +179,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 11.595919}", 
+   "built" -> "{2017, 3, 24, 16, 0, 20.991587}", 
     "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -180,7 +191,7 @@ defined in DefineLorentzTensors.", "synonyms" -> {}, "tabletags" -> {},
     "title" -> "FiniteT", "titlemodifier" -> "", "windowtitle" -> "FiniteT", 
     "type" -> "Symbol", "uri" -> "FormTracer/ref/FiniteT"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -189,7 +200,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -203,18 +214,24 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[579, 21, 3033, 74, 70, "AnchorBarGrid",
+Cell[579, 21, 3438, 77, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"e6f47937-bd8b-4227-8ccb-2fa4535f1585",
  CellID->1],
-Cell[3615, 97, 284, 11, 70, "ObjectNameGrid"],
-Cell[3902, 110, 530, 14, 70, "Usage",
+Cell[4020, 100, 534, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"29646603-0fd2-4101-a022-fa921e47e4f5"],
+Cell[4557, 117, 702, 15, 70, "Usage", "ExpressionUUID" -> \
+"d7c4b514-b83c-42f3-a214-4c0f74eada53",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[4457, 128, 270, 12, 70, "SeeAlsoSection",
+Cell[5284, 136, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"beb4560c-05af-488d-8883-20da999ac40a",
  CellID->1255426704],
-Cell[4730, 142, 279, 8, 70, "SeeAlso",
+Cell[5689, 151, 393, 10, 70, "SeeAlso", "ExpressionUUID" -> \
+"39ba6daa-f7b5-49a0-b184-3511749e7a9f",
  CellID->929782353]
 }, Open  ]],
-Cell[5024, 153, 23, 0, 70, "FooterCell"]
+Cell[6097, 164, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"6f1b4b52-8fda-437c-b970-048ac6857db6"]
 }
 ]
 *)

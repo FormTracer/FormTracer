@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9658,        275]
-NotebookOptionsPosition[      7413,        217]
-NotebookOutlinePosition[      9448,        267]
-CellTagsIndexPosition[      9405,        264]
+NotebookDataLength[     11433,        291]
+NotebookOptionsPosition[      8815,        227]
+NotebookOutlinePosition[     10851,        277]
+CellTagsIndexPosition[     10808,        274]
 WindowTitle->ExpandLorentzStructures
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "101f7bd7-7d1b-45b7-85d2-9f7d3f4e74fe"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"fa15209a-d417-4b97-8928-d704a768a01c"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -47,7 +48,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "d1470c42-8fb4-4210-843e-d4d82dbcff43"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -57,7 +59,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"db2243c5-79fe-44b8-8338-1ff49ac91dde"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -68,8 +70,8 @@ Cell[BoxData[GridBox[{
         DocumentationSearch`Private`nb$ = NotebookPut[
            Notebook[{
              Cell["FormTracer/ref/ExpandLorentzStructures"]}, Visible -> 
-            False]]; 
-        SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+            False]]; SelectionMove[
+         DocumentationSearch`Private`nb$, All, Notebook]; 
         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
        Delimiter, "\<\"Copy web URL\"\>":>
@@ -91,24 +93,26 @@ ExpandLorentzStructures.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$17695], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$22161], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/ExpandLorentzStructures", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "ad0a9cce-93c2-4429-96a5-27337d02311c"]
+    }], "AnchorBar",ExpressionUUID->"28d01b26-4525-4680-b2be-2d8ba0e79aea"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"026e1ad1-133a-42eb-a0fa-8903849406d8"],
 
 Cell[TextData[{
- Cell["ExpandLorentzStructures", "ObjectName"],
+ Cell["ExpandLorentzStructures", "ObjectName",ExpressionUUID->
+  "3fac1069-f13b-418e-8a3c-8a20a51b23e7"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -116,24 +120,29 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"63d69114-5e27-4d2c-b7b1-e55c5363d2b6"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "1d80c482-d028-423a-ae3c-a3f73a52d9b7"]
+}], "ObjectNameGrid",ExpressionUUID->"9bd94244-4b30-47c2-9ab6-afa3d270059e"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"ExpandLorentzStructures", "[", 
-       StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+       StyleBox["expr", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+      "63113f09-2eba-4229-b5d5-2897ce1ac52a"],
      "\[LineSeparator]dismantles Lorentz and Dirac tensors. This is an \
 expert's function and requires deep FormTracer knowledge. There is no proper \
 documentation available at this stage. Use it at your own risk."
-    }]]}
+    }],ExpressionUUID->"9699ed24-50e0-4ca6-aff6-6ce2114d573a"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"dea8e482-feb3-42ea-a8fe-bf46ba2fdbf3"],
 
 Cell[CellGroupData[{
 
@@ -145,11 +154,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"92bf0a4a-0a1e-4b9c-a52c-9318f8951475"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"5c280b82-f855-499f-8d83-0859ba2290dc"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -157,7 +167,7 @@ Cell[TextData[{
      TextData["ConvertInput"]],"paclet:FormTracer/ref/ConvertInput"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"3ff6c7b5-ef8b-43ce-9847-db3dc7870b5a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -167,7 +177,7 @@ Cell[TextData[{
      TextData["ExpandTerms"]],"paclet:FormTracer/ref/ExpandTerms"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"2d02d806-755b-4f18-b838-557fffbc576f"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -177,7 +187,7 @@ Cell[TextData[{
      TextData["GenerateFormFile"]],"paclet:FormTracer/ref/GenerateFormFile"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"31f716db-9e6f-4c3f-a339-d03f67f8e2a6"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -187,7 +197,7 @@ Cell[TextData[{
      TextData["ImportFormResult"]],"paclet:FormTracer/ref/ImportFormResult"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"822f11d6-ddfd-4b63-8c26-2c5634cdc0db"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -198,7 +208,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/GetExtraVarsSynonyms"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"4e8c430e-8f32-4dfc-a971-ef2a77c8ef15"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -208,12 +218,12 @@ Cell[TextData[{
      TextData["PreambleFormRule"]],"paclet:FormTracer/ref/PreambleFormRule"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"4f21d343-a7f2-4ad2-b885-c0f7d6fe6284"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"c7180107-12c5-4cda-8186-0c6fd27ff2ff"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"ed907fcb-4141-478a-a559-7a40748a572d"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -230,7 +240,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 7.794793}", 
+   "built" -> "{2017, 3, 24, 16, 0, 16.917193}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -243,7 +253,7 @@ proper documentation available at this stage. Use it at your own risk.",
      "titlemodifier" -> "", "windowtitle" -> "ExpandLorentzStructures", 
     "type" -> "Symbol", "uri" -> "FormTracer/ref/ExpandLorentzStructures"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -252,7 +262,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -266,17 +276,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[595, 21, 3659, 86, 70, "AnchorBarGrid",
+Cell[595, 21, 4065, 89, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"026e1ad1-133a-42eb-a0fa-8903849406d8",
  CellID->1],
-Cell[4257, 109, 300, 11, 70, "ObjectNameGrid"],
-Cell[4560, 122, 548, 13, 70, "Usage"],
+Cell[4663, 112, 550, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"9bd94244-4b30-47c2-9ab6-afa3d270059e"],
+Cell[5216, 129, 722, 15, 70, "Usage", "ExpressionUUID" -> \
+"dea8e482-feb3-42ea-a8fe-bf46ba2fdbf3"],
 Cell[CellGroupData[{
-Cell[5133, 139, 270, 12, 70, "SeeAlsoSection",
+Cell[5963, 148, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"5c280b82-f855-499f-8d83-0859ba2290dc",
  CellID->1255426704],
-Cell[5406, 153, 1965, 59, 70, "SeeAlso",
+Cell[6368, 163, 2350, 59, 70, "SeeAlso", "ExpressionUUID" -> \
+"c7180107-12c5-4cda-8186-0c6fd27ff2ff",
  CellID->929782353]
 }, Open  ]],
-Cell[7386, 215, 23, 0, 70, "FooterCell"]
+Cell[8733, 225, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"ed907fcb-4141-478a-a559-7a40748a572d"]
 }
 ]
 *)

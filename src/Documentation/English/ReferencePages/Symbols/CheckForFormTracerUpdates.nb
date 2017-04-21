@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9281,        269]
-NotebookOptionsPosition[      7081,        211]
-NotebookOutlinePosition[      9071,        261]
-CellTagsIndexPosition[      9028,        258]
+NotebookDataLength[     11118,        286]
+NotebookOptionsPosition[      8545,        222]
+NotebookOutlinePosition[     10536,        272]
+CellTagsIndexPosition[     10493,        269]
 WindowTitle->CheckForFormTracerUpdates
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "854ee532-bad7-43fd-aa46-53dbc930e39c"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"13355e73-ba1a-4336-8e44-77451b9d5303"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -45,7 +46,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "cb3d0954-813b-4a53-a56a-59c26e8e4fe9"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -55,7 +57,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"b3fca305-eb95-4fc8-bd4c-1b34200640de"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -89,7 +91,7 @@ CheckForFormTracerUpdates.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$7140], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$11682], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/CheckForFormTracerUpdates", ".html"]], None}]}]},
@@ -97,17 +99,19 @@ CheckForFormTracerUpdates.html"], StandardForm]], "Input", TextClipboardType ->
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "f34ded8f-bf90-4edb-8070-8e07c05b1e59"]
+    }], "AnchorBar",ExpressionUUID->"80af8e31-bd88-4858-a00d-175b12f91b59"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"53db966a-edfa-4787-ac9a-9a9865c577f6"],
 
 Cell[TextData[{
- Cell["CheckForFormTracerUpdates", "ObjectName"],
+ Cell["CheckForFormTracerUpdates", "ObjectName",ExpressionUUID->
+  "7417a256-27d9-4e9d-85c3-c00a1118f80b"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -115,28 +119,34 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"e2473ecf-2d26-4a75-9ea6-0f6accac152d"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "a6d6d641-d0ff-4aae-bcfd-5e4cba460a28"]
+}], "ObjectNameGrid",ExpressionUUID->"69c212c1-7685-4c7d-864a-e15aeb219ffa"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"CheckForFormTracerUpdates", "[", "]"}]], "InlineFormula"],
+      RowBox[{"CheckForFormTracerUpdates", "[", "]"}]], "InlineFormula",
+      ExpressionUUID->"64346ef7-fd5e-4717-9d09-6e0af50c8dbc"],
      "\[LineSeparator]searches online for FormTracer updates. "
-    }]]},
+    }],ExpressionUUID->"4bbe808f-2796-472b-8c9e-a102510fdfc0"]},
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"CheckForFormTracerUpdates", "[", 
-       StyleBox["quiet", "TI"], "]"}]], "InlineFormula"],
+       StyleBox["quiet", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+      "5ac2567f-2341-4fde-8fb7-6a25d05e6908"],
      "\[LineSeparator]with quiet=True suppresses warnings if paclet info is \
 not found."
-    }]]}
+    }],ExpressionUUID->"5854a6b6-9713-4b43-b43d-49b26b5cff3b"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {None, {None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"dc68ba5c-34e4-47d9-a14a-4a0f36272351"],
 
 Cell[CellGroupData[{
 
@@ -148,11 +158,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"414c5c62-09d3-4de2-991f-f530336752ac"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"9ffa3bb3-7a99-4a93-820a-18506e9aad0a"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -161,7 +172,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/ShowFormTracerChangeLog"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"99fca850-d135-40b9-88eb-280107f5d69b"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -171,7 +182,7 @@ Cell[TextData[{
      TextData["UpdateFormTracer"]],"paclet:FormTracer/ref/UpdateFormTracer"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"22baaa5c-632f-45b4-9661-d88c440bdf8a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -181,7 +192,7 @@ Cell[TextData[{
      TextData["InstallFORM"]],"paclet:FormTracer/ref/InstallFORM"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"8100656d-dc4a-4688-89f4-fc66cde14d0c"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -192,7 +203,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineFormExecutable"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"c915bb0b-892e-4022-a34e-f90d9fee0aeb"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -202,12 +213,12 @@ Cell[TextData[{
      TextData["FormTrace"]],"paclet:FormTracer/ref/FormTrace"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"78017d87-a121-4d98-b585-bc65e82ad72c"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"384573e8-f0fc-4c34-88d8-5e0081eb5ae3"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"1b92658d-3f7c-4f58-b0c4-9a3d58ea1993"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -224,7 +235,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 32, 38.962531}", 
+   "built" -> "{2017, 3, 24, 15, 59, 46.067637}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -237,7 +248,7 @@ paclet info is not found.", "synonyms" -> {}, "tabletags" -> {}, "title" ->
     "CheckForFormTracerUpdates", "type" -> "Symbol", "uri" -> 
     "FormTracer/ref/CheckForFormTracerUpdates"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -246,7 +257,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -260,17 +271,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[597, 21, 3577, 85, 70, "AnchorBarGrid",
+Cell[597, 21, 3983, 88, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"53db966a-edfa-4787-ac9a-9a9865c577f6",
  CellID->1],
-Cell[4177, 108, 302, 11, 70, "ObjectNameGrid"],
-Cell[4482, 121, 621, 17, 70, "Usage"],
+Cell[4583, 111, 552, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"69c212c1-7685-4c7d-864a-e15aeb219ffa"],
+Cell[5138, 128, 912, 20, 70, "Usage", "ExpressionUUID" -> \
+"dc68ba5c-34e4-47d9-a14a-4a0f36272351"],
 Cell[CellGroupData[{
-Cell[5128, 142, 270, 12, 70, "SeeAlsoSection",
+Cell[6075, 152, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"9ffa3bb3-7a99-4a93-820a-18506e9aad0a",
  CellID->1255426704],
-Cell[5401, 156, 1638, 50, 70, "SeeAlso",
+Cell[6480, 167, 1968, 50, 70, "SeeAlso", "ExpressionUUID" -> \
+"384573e8-f0fc-4c34-88d8-5e0081eb5ae3",
  CellID->929782353]
 }, Open  ]],
-Cell[7054, 209, 23, 0, 70, "FooterCell"]
+Cell[8463, 220, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"1b92658d-3f7c-4f58-b0c4-9a3d58ea1993"]
 }
 ]
 *)

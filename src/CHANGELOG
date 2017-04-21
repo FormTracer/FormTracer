@@ -3,6 +3,27 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.2.0 (***********)
+- Minor update in FormTracerInstaller.
+- New example notebook with more demanding calculations.
+- New public version.
+
+
+(***********) FormTracer Version 2.1.3 (***********)
+- Bugfix (GitHub issue #1): better naming of temporary files.
+
+
+(***********) FormTracer Version 2.1.2 (***********)
+- Shorthand notation for re-imported gammas stemming from partial traces.
+- Better handling of group dummy indices introduced by FORM in case of partial traces.
+- Renaming of Lorentz/Dirac dummies introduced by FORM.
+
+
+(***********) FormTracer Version 2.1.1 (***********)
+- Support for gamma shorthand notation implemented, e.g. gamma[{gamma5,vec[p],mu,3,3,nu},i,j].
+- Syntax check for pre and post replacement rules.
+
+
 (***********) FormTracer Version 2.1.0 (***********)
 - Installer: Documentation is now directly available after installation with RebuildPacletData[];
 - Support for gamma5 in general dimensions using the Larin scheme

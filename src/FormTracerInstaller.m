@@ -21,7 +21,7 @@
 
 (* ::Input::Initialization:: *)
 (*"
-Copyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
+Copyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -63,6 +63,7 @@ formTracerInstallDir=FileNameJoin[{$UserBaseDirectory,"Applications"}];
 formTracerInstaller::zipdownloadfailed="Download from "<>formTracerZipLocation<>" failed.";
 formTracerInstaller::installationfailed="\nInstallation failed. Please read the error messages for more information!";
 
+Print["Downloading FormTracer ..."];
 formTracerArchive=FileNameJoin[{$TemporaryDirectory,"FormTracer.zip"}];
 URLDownload[formTracerZipLocation,formTracerArchive]
 
@@ -89,12 +90,10 @@ If[deleteExisting,DeleteFile[Pick[formTracerFiles,formTracerFilesExist]]];
 
 If[formTracerExistingInstallation&&deleteExisting===False,
 (*abort installation*)
-Print["FormTracer installation aborted."];
-Quiet[DeleteFile[formTracerArchive]];,
+Print["FormTracer installation aborted."];,
 (*install FormTracer*)
 installationSuccess=Check[
 ExtractArchive[formTracerArchive,formTracerInstallDir];
-DeleteFile[formTracerArchive];
 <<"FormTracer`";
 ,$Failed];
 If[installationSuccess===$Failed,
@@ -119,3 +118,5 @@ If[formInstallationSuccessfull,Print["FORM was successfully installed, you can n
 ];
 ];
 ];
+
+Quiet[DeleteFile[formTracerArchive]];

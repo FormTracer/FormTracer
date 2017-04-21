@@ -9,7 +9,7 @@ Cell["License", "Section"],
 
 Cell[BoxData[
  RowBox[{"(*", 
-  "\"\<\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. \
+  "\"\<\nCopyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. \
 Pawlowski and Nils Strodthoff.\nThis program is free software: you can \
 redistribute it and/or modify\nit under the terms of the GNU General Public \
 License as published by\nthe Free Software Foundation, either version 3 of \
@@ -442,6 +442,18 @@ postreplrule).\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]",
     "\"\<PreambleFormRules specifies user-specific FORM code that is inserted \
 in the preamble of the generated FORM file (passed as first list argument in \
 FormTrace's prereplrule).\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"FormTrace", "::", "invalidprerepl"}], "=", 
+    "\"\<Invalid pre-replacement rules discovered.\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"FormTrace", "::", "invalidpostrepl"}], "=", 
+    "\"\<Invalid post replacement rules discovered.\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -915,7 +927,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -1017,7 +1029,7 @@ Cell[BoxData[
     RowBox[{"Print", "[", 
      RowBox[{
      "\"\<\nFormTracer \>\"", "<>", "$FormTracerVersionNumber", "<>", 
-      "\"\< loaded.\n\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, \
+      "\"\< loaded.\n\nCopyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, \
 Jan M. Pawlowski, and Nils Strodthoff.\nFormTracer is released under the GNU \
 General Public License version three or later.\n\nIf used in scientific \
 publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
@@ -2105,8 +2117,27 @@ Cell["Internal Tensor Notation and Indices Rules", "Subsubsection"],
 
 Cell[BoxData[{
  RowBox[{
+  RowBox[{"lorDummyPrefix", "=", "\"\<lorDummy\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
-   RowBox[{"partialTraceDummy", "=", "\"\<dummy\>\""}], ";"}], 
+   RowBox[{"spiDummyPrefix", "=", "\"\<spiDummy\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tempPartialTraceDummy", "=", "FormTracer`Private`TempDummy"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"adjGroupDummyPrefix", "=", "\"\<adj\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fundGroupDummyPrefix", "=", "\"\<fund\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lorDummyPrefixFORM", "=", "\"\<lorFORMDummy\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"spiDummyPrefixFORM", "=", "\"\<spiFORMDummy\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"lorentzTensorReplacementRulesInput", "=", 
@@ -2247,529 +2278,543 @@ Cell[BoxData[{
   ";"}]}], "Input",
  InitializationCell->True],
 
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+Cell[BoxData[{
+ RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{
-     RowBox[{"getGroupTensors", "[", "group_", "]"}], ":=", 
-     RowBox[{"{", 
+    RowBox[{"getGroupTensors", "[", "group_", "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"FTxdeltaAdj", "[", 
+       RowBox[{"group", ",", "_", ",", "_"}], "]"}], ",", 
+      RowBox[{"FTxdeltaFund", "[", 
+       RowBox[{"group", ",", "_", ",", "_"}], "]"}], ",", 
+      RowBox[{"FTxF", "[", 
+       RowBox[{"group", ",", "_", ",", "_", ",", "_"}], "]"}], ",", 
+      RowBox[{"FTxT", "[", 
+       RowBox[{"group", ",", "_", ",", "_", ",", "_"}], "]"}], ",", 
+      RowBox[{"FTxepsAdj", "[", 
+       RowBox[{"group", ",", "__"}], "]"}], ",", 
+      RowBox[{"FTxepsFund", "[", 
+       RowBox[{"group", ",", "__"}], "]"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"adjIndicesFromExprRules", "[", "group_", "]"}], ":=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
       RowBox[{
        RowBox[{"FTxdeltaAdj", "[", 
-        RowBox[{"group", ",", "_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxdeltaFund", "[", 
-        RowBox[{"group", ",", "_", ",", "_"}], "]"}], ",", 
+        RowBox[{"group", ",", "x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
        RowBox[{"FTxF", "[", 
-        RowBox[{"group", ",", "_", ",", "_", ",", "_"}], "]"}], ",", 
+        RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
+       "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
        RowBox[{"FTxT", "[", 
-        RowBox[{"group", ",", "_", ",", "_", ",", "_"}], "]"}], ",", 
+        RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
+       "\[RuleDelayed]", 
+       RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
        RowBox[{"FTxepsAdj", "[", 
-        RowBox[{"group", ",", "__"}], "]"}], ",", 
-       RowBox[{"FTxepsFund", "[", 
-        RowBox[{"group", ",", "__"}], "]"}]}], "}"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"group", ",", "x__"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{
-    RowBox[{
-     RowBox[{"adjIndicesFromExprRules", "[", "group_", "]"}], ":=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"FTxdeltaAdj", "[", 
-         RowBox[{"group", ",", "x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxF", "[", 
-         RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
-        "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxT", "[", 
-         RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
-        "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxepsAdj", "[", 
-         RowBox[{"group", ",", "x__"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
-     RowBox[{"fundIndicesFromExprRules", "[", "group_", "]"}], ":=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"FTxdeltaFund", "[", 
-         RowBox[{"group", ",", "x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxT", "[", 
-         RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
-        "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxepsFund", "[", 
-         RowBox[{"group", ",", "x__"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "the", " ", "order", " ", "is", " ", "relevant", " ", "in", " ", 
-     "removeSquaredTensorsRulesT0"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formColorPackageExtVars", "=", 
-     RowBox[{"{", 
-      RowBox[{
-      "Global`NR", ",", "Global`cR", ",", "Global`NA", ",", "Global`cA", ",", 
-       "Global`I2R"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "last", " ", "argument", " ", "is", " ", "the", " ", "tracing", " ", 
-     "algorithm"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formColorPackageGroupTemplates", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-        "FormTracer`GenericGroup", ",", "formColorPackageExtVars", ",", "1"}],
-         "}"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"FormTracer`SUNfund", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"Global`NR", ",", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{"Global`NR", "^", "2"}], "-", "1"}], ")"}], "/", 
-            RowBox[{"(", 
-             RowBox[{"2", "*", "Global`NR"}], ")"}]}], ",", 
-           RowBox[{"(", 
-            RowBox[{
-             RowBox[{"Global`NR", "^", "2"}], "-", "1"}], ")"}], ",", 
-           "Global`NR", ",", 
-           RowBox[{"1", "/", "2"}]}], "}"}], ",", "2"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"FormTracer`SONfund", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"Global`NR", ",", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{"Global`NR", "-", "1"}], ")"}], "/", "2"}], ",", 
-           RowBox[{"Global`NR", "*", 
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"Global`NR", "-", "1"}], ")"}], "/", "2"}]}], ",", 
-           RowBox[{"Global`NR", "-", "2"}], ",", "1"}], "}"}], ",", "3"}], 
-        "}"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"FormTracer`SPNfund", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"Global`NR", ",", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{"Global`NR", "+", "1"}], ")"}], "/", "4"}], ",", 
-           RowBox[{"Global`NR", "*", 
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"Global`NR", "+", "1"}], ")"}], "/", "2"}]}], ",", 
-           RowBox[{
-            RowBox[{"(", 
-             RowBox[{"Global`NR", "+", "2"}], ")"}], "/", "2"}], ",", 
-           RowBox[{"1", "/", "2"}]}], "}"}], ",", "4"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"FormTracer`SU2fundexplicit", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"2", ",", 
-           RowBox[{"3", "/", "4"}], ",", "3", ",", "2", ",", 
-           RowBox[{"1", "/", "2"}]}], "}"}], ",", "5"}], "}"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"{", 
-        RowBox[{"FormTracer`SU3fundexplicit", ",", " ", 
-         RowBox[{"{", 
-          RowBox[{"3", ",", 
-           RowBox[{"4", "/", "3"}], ",", "8", ",", "3", ",", 
-           RowBox[{"1", "/", "2"}]}], "}"}], ",", "6"}], "}"}]}], 
-      "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
+    RowBox[{"fundIndicesFromExprRules", "[", "group_", "]"}], ":=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"first", " ", 
-       RowBox[{"argument", ":", " ", "algorithm"}]}], ";", " ", 
-      RowBox[{"second", ":", " ", "header"}], ";", " ", 
-      RowBox[{"third", ":", " ", 
-       RowBox[{"1", " ", "requires", " ", "dimension", " ", "NA"}]}]}], ",", 
-     " ", 
-     RowBox[{"2", " ", "requires", " ", "dimension", " ", "NR"}], ",", " ", 
-     RowBox[{"0", " ", "nothing"}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formColorPackageTracingAlgorithms", "=", 
-     RowBox[{"{", 
       RowBox[{
+       RowBox[{"FTxdeltaFund", "[", 
+        RowBox[{"group", ",", "x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
        RowBox[{"{", 
-        RowBox[{"\"\<color\>\"", ",", "\"\<color.h\>\"", ",", "1"}], "}"}], 
-       ",", 
+        RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"FTxT", "[", 
+        RowBox[{"group", ",", "x_", ",", "y_", ",", "z_"}], "]"}], 
+       "\[RuleDelayed]", 
        RowBox[{"{", 
-        RowBox[{"\"\<SUNfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}],
-         "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<SONfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}],
-         "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"\"\<SPNfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}],
-         "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<SU2fundexplicit\>\"", ",", "\"\<special_color.h\>\"", ",", "1"}],
-         "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<SU3fundexplicit\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}],
-         "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+        RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"FTxepsFund", "[", 
+        RowBox[{"group", ",", "x__"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
-    RowBox[{"formColorPackageGenericD", "=", 
-     RowBox[{"ToString", "/@", 
+   "the", " ", "order", " ", "is", " ", "relevant", " ", "in", " ", 
+    "removeSquaredTensorsRulesT0"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formColorPackageExtVars", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "Global`NR", ",", "Global`cR", ",", "Global`NA", ",", "Global`cA", ",", 
+      "Global`I2R"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "last", " ", "argument", " ", "is", " ", "the", " ", "tracing", " ", 
+    "algorithm"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formColorPackageGroupTemplates", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
       RowBox[{"{", 
        RowBox[{
-       "d33", ",", "d44", ",", "d55", ",", "d433", ",", "d66", ",", "d633", 
-        ",", "d543", ",", "d444", ",", "d3333", ",", "d77", ",", "d743", ",", 
-        "d653", ",", "d644", ",", "d554", ",", "d5333", ",", "d4433a", ",", 
-        "d4433b", ",", "d4433c", ",", "d88", ",", "d853", ",", "d844", ",", 
-        "d763", ",", "d754", ",", "d7333", ",", "d664", ",", "d655", ",", 
-        "d6433a", ",", "d6433b", ",", "d6433c", ",", "d5533a", ",", "d5533b", 
-        ",", "d5533c", ",", "d5533d", ",", "d5443a", ",", "d5443b", ",", 
-        "d5443c", ",", "d5443d", ",", "d4444a", ",", "d4444b", ",", "d43333a",
-         ",", "d43333b"}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{"prefix", " ", "for", " ", "GenericD", " ", "replacements"}], 
-    "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"prefixColorPackageGenericD", "=", "\"\<grp\>\""}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-     RowBox[{
-     "postfix", " ", "for", " ", "scalar", " ", "products", " ", "of", " ", 
-      "group", " ", "vectors"}], "-", " ", 
-     RowBox[{
-     "gets", " ", "appended", " ", "to", " ", 
-      "prefixColorPackageGenericD"}]}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"postfixColorPackagesp", "=", "\"\<sp\>\""}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "prefix", " ", "for", " ", "the", " ", "group", " ", "vectors", " ", 
-     "coming", " ", "out", " ", "of", " ", "color", " ", "package"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"prefixColorPackagegrpvecsym", "=", "\"\<grpvecx\>\""}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "maximal", " ", "order", " ", "up", " ", "to", " ", "which", " ", 
-     "grpvecsyms", " ", "are", " ", "replaced"}], "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"grpvecsymreplorder", "=", "2"}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"forbiddenFormVars", "=", 
-     RowBox[{"Join", "[", 
-      RowBox[{
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<f\>\"", ",", "\"\<T\>\"", ",", "\"\<cA\>\"", ",", "\"\<cR\>\"", 
-         ",", "\"\<NA\>\"", ",", "\"\<NR\>\"", ",", "\"\<I2R\>\""}], "}"}], 
-       ",", "formColorPackageGenericD"}], "]"}]}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"prefixListLorentzDirac", "=", 
-     RowBox[{"{", 
-      RowBox[{"\"\<mom\>\"", ",", "\"\<lor\>\"", ",", "\"\<spi\>\""}], 
-      "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"prefixListIndices", "=", "prefixListLorentzDirac"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"groupTypes", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"groupNames", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"shortGroupNames", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"groupConstantsTable", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"groupTracingAlgorithms", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formPreGroupTraceIdentities", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formPostGroupRenamingRules", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formGenericDReplacementRules", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"formPostGroupTensorRenamingRules", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"groupTensorsList", "=", 
-     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicLorentzTensorsT0", "=", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"FTxdeltaLorentz", "[", 
-        RowBox[{"_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxdeltaDirac", "[", 
-        RowBox[{"_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxvec", "[", 
-        RowBox[{"_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxgamma", "[", 
-        RowBox[{"_", ",", "_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxgamma5", "[", 
-        RowBox[{"_", ",", "_"}], "]"}], ",", 
-       RowBox[{"FTxepsLorentz", "[", "__", "]"}]}], "}"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicLorentzTensorsT", "=", 
-     RowBox[{"{", 
-      RowBox[{"FTxvecs", "[", 
-       RowBox[{"_", ",", "_"}], "]"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
-   
-   RowBox[{
-    RowBox[{"basicLorentzTensors", "=", "basicLorentzTensorsT0"}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"lorentzTensors", "=", "basicLorentzTensors"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicLorentzFromExprRulesT0", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"FTxdeltaLorentz", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+       "FormTracer`GenericGroup", ",", "formColorPackageExtVars", ",", "1"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"FormTracer`SUNfund", ",", " ", 
         RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxvec", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "y", "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxgamma", "[", 
-         RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxepsLorentz", "[", "x__", "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
-   "\[IndentingNewLine]", 
+         RowBox[{"Global`NR", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Global`NR", "^", "2"}], "-", "1"}], ")"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"2", "*", "Global`NR"}], ")"}]}], ",", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Global`NR", "^", "2"}], "-", "1"}], ")"}], ",", 
+          "Global`NR", ",", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", "2"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"FormTracer`SONfund", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Global`NR", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Global`NR", "-", "1"}], ")"}], "/", "2"}], ",", 
+          RowBox[{"Global`NR", "*", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"Global`NR", "-", "1"}], ")"}], "/", "2"}]}], ",", 
+          RowBox[{"Global`NR", "-", "2"}], ",", "1"}], "}"}], ",", "3"}], 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"FormTracer`SPNfund", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"Global`NR", ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Global`NR", "+", "1"}], ")"}], "/", "4"}], ",", 
+          RowBox[{"Global`NR", "*", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"Global`NR", "+", "1"}], ")"}], "/", "2"}]}], ",", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Global`NR", "+", "2"}], ")"}], "/", "2"}], ",", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", "4"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"FormTracer`SU2fundexplicit", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", 
+          RowBox[{"3", "/", "4"}], ",", "3", ",", "2", ",", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", "5"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"FormTracer`SU3fundexplicit", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", 
+          RowBox[{"4", "/", "3"}], ",", "8", ",", "3", ",", 
+          RowBox[{"1", "/", "2"}]}], "}"}], ",", "6"}], "}"}]}], 
+     "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
    RowBox[{
-    RowBox[{"basicLorentzFromExprRulesT", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"first", " ", 
+      RowBox[{"argument", ":", " ", "algorithm"}]}], ";", " ", 
+     RowBox[{"second", ":", " ", "header"}], ";", " ", 
+     RowBox[{"third", ":", " ", 
+      RowBox[{"1", " ", "requires", " ", "dimension", " ", "NA"}]}]}], ",", 
+    " ", 
+    RowBox[{"2", " ", "requires", " ", "dimension", " ", "NR"}], ",", " ", 
+    RowBox[{"0", " ", "nothing"}]}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formColorPackageTracingAlgorithms", "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<color\>\"", ",", "\"\<color.h\>\"", ",", "1"}], "}"}], 
+      ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<SUNfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<SONfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<SPNfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<SU2fundexplicit\>\"", ",", "\"\<special_color.h\>\"", ",", "1"}], 
+       "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<SU3fundexplicit\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}], 
+       "}"}]}], "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"formColorPackageGenericD", "=", 
+    RowBox[{"ToString", "/@", 
+     RowBox[{"{", 
+      RowBox[{
+      "d33", ",", "d44", ",", "d55", ",", "d433", ",", "d66", ",", "d633", 
+       ",", "d543", ",", "d444", ",", "d3333", ",", "d77", ",", "d743", ",", 
+       "d653", ",", "d644", ",", "d554", ",", "d5333", ",", "d4433a", ",", 
+       "d4433b", ",", "d4433c", ",", "d88", ",", "d853", ",", "d844", ",", 
+       "d763", ",", "d754", ",", "d7333", ",", "d664", ",", "d655", ",", 
+       "d6433a", ",", "d6433b", ",", "d6433c", ",", "d5533a", ",", "d5533b", 
+       ",", "d5533c", ",", "d5533d", ",", "d5443a", ",", "d5443b", ",", 
+       "d5443c", ",", "d5443d", ",", "d4444a", ",", "d4444b", ",", "d43333a", 
+       ",", "d43333b"}], "}"}]}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"prefix", " ", "for", " ", "GenericD", " ", "replacements"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"prefixColorPackageGenericD", "=", "\"\<grp\>\""}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "postfix", " ", "for", " ", "scalar", " ", "products", " ", "of", " ", 
+     "group", " ", "vectors"}], "-", " ", 
+    RowBox[{
+    "gets", " ", "appended", " ", "to", " ", "prefixColorPackageGenericD"}]}],
+    "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"postfixColorPackagesp", "=", "\"\<sp\>\""}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "prefix", " ", "for", " ", "the", " ", "group", " ", "vectors", " ", 
+    "coming", " ", "out", " ", "of", " ", "color", " ", "package"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"prefixColorPackagegrpvecsym", "=", "\"\<grpvecx\>\""}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "maximal", " ", "order", " ", "up", " ", "to", " ", "which", " ", 
+    "grpvecsyms", " ", "are", " ", "replaced"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"grpvecsymreplorder", "=", "2"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"forbiddenFormVars", "=", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<f\>\"", ",", "\"\<T\>\"", ",", "\"\<cA\>\"", ",", "\"\<cR\>\"", 
+        ",", "\"\<NA\>\"", ",", "\"\<NR\>\"", ",", "\"\<I2R\>\""}], "}"}], 
+      ",", "formColorPackageGenericD"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"prefixListLorentzDirac", "=", 
+   RowBox[{"{", 
+    RowBox[{"\"\<mom\>\"", ",", "\"\<lor\>\"", ",", "\"\<spi\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"prefixListIndices", "=", "prefixListLorentzDirac"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"groupTypes", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"groupNames", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"shortGroupNames", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"groupConstantsTable", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"groupTracingAlgorithms", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formPreGroupTraceIdentities", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formPostGroupRenamingRules", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formGenericDReplacementRules", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"formPostGroupTensorRenamingRules", "=", 
+   RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"groupTensorsList", "=", 
+    RowBox[{"{", "}"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzTensorsT0", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"FTxdeltaLorentz", "[", 
+      RowBox[{"_", ",", "_"}], "]"}], ",", 
+     RowBox[{"FTxdeltaDirac", "[", 
+      RowBox[{"_", ",", "_"}], "]"}], ",", 
+     RowBox[{"FTxvec", "[", 
+      RowBox[{"_", ",", "_"}], "]"}], ",", 
+     RowBox[{"FTxgamma", "[", 
+      RowBox[{"_", ",", "_", ",", "_"}], "]"}], ",", 
+     RowBox[{"FTxgamma5", "[", 
+      RowBox[{"_", ",", "_"}], "]"}], ",", 
+     RowBox[{"FTxepsLorentz", "[", "__", "]"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzTensorsT", "=", 
+   RowBox[{"{", 
+    RowBox[{"FTxvecs", "[", 
+     RowBox[{"_", ",", "_"}], "]"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzTensors", "=", "basicLorentzTensorsT0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lorentzTensors", "=", "basicLorentzTensors"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzFromExprRulesT0", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"FTxdeltaLorentz", "[", 
+       RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FTxvec", "[", 
+       RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", "y", "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FTxgamma", "[", 
+       RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FTxepsLorentz", "[", "x__", "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", "x", "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzFromExprRulesT", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxvecs", "[", 
+      RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"{", "y", "}"}]}], "\[IndentingNewLine]", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicLorentzFromExprRules", "=", "basicLorentzFromExprRulesT0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"lorentzFromExprRules", "=", "basicLorentzFromExprRules"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"spinorFromExprRules", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"FTxgamma", "[", 
+        RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"FTxgamma5", "[", 
+        RowBox[{"y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"FTxdeltaDirac", "[", 
+        RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+   ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicMomentumFromExprRulesT0", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"FTxvec", "[", 
+       RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"FTxsp", "[", 
+       RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"basicMomentumFromExprRulesT", "=", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
       RowBox[{
        RowBox[{"FTxvecs", "[", 
         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"{", "y", "}"}]}], "\[IndentingNewLine]", "}"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicLorentzFromExprRules", "=", "basicLorentzFromExprRulesT0"}],
-     ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"lorentzFromExprRules", "=", "basicLorentzFromExprRules"}], ";"}],
-    "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"spinorFromExprRules", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
       RowBox[{
-       RowBox[{
-        RowBox[{"FTxgamma", "[", 
-         RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxgamma5", "[", 
-         RowBox[{"y_", ",", "z_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"y", ",", "z"}], "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxdeltaDirac", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
-    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicMomentumFromExprRulesT0", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"FTxvec", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxsp", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"basicMomentumFromExprRulesT", "=", 
-     RowBox[{"{", "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"FTxvecs", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", "x", "}"}]}], ",", "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"FTxsps", "[", 
-         RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-        RowBox[{"{", 
-         RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
-    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"FTxsps", "[", 
+        RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicMomentumFromExprRules", "=", "basicMomentumFromExprRulesT0"}],
+   ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"momentumFromExprRules", "=", "basicMomentumFromExprRules"}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"basicCombinedMomentumReplT0", "=", 
+  RowBox[{"{", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-    "basicMomentumFromExprRules", "=", "basicMomentumFromExprRulesT0"}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"momentumFromExprRules", "=", "basicMomentumFromExprRules"}], 
-    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"basicCombinedMomentumReplT0", "=", 
-    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"FTxvec", "[", 
+      RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxvec", "[", 
+      RowBox[{
+       RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxvec", "[", 
+      RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
      RowBox[{
-      RowBox[{
-       RowBox[{"FTxvec", "[", 
-        RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxvec", "[", 
-        RowBox[{
-         RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxvec", "[", 
-        RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxvec", "[", 
        RowBox[{
         RowBox[{"p", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxvec", "[", 
-         RowBox[{
-          RowBox[{"p", "[", 
-           RowBox[{"[", "2", "]"}], "]"}], ",", "mu"}], "]"}]}]}], ",", 
-      "\[IndentingNewLine]", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "mu"}], "]"}]}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxsp", "[", 
       RowBox[{
-       RowBox[{"FTxsp", "[", 
-        RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxsp", "[", 
-        RowBox[{
-         RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsp", "[", 
-        RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxsp", "[", 
-        RowBox[{"p", ",", 
-         RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsp", "[", 
-        RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{
-        RowBox[{"p", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxsp", "[", 
-         RowBox[{
-          RowBox[{"p", "[", 
-           RowBox[{"[", "2", "]"}], "]"}], ",", "q"}], "]"}]}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsp", "[", 
-        RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{
-        RowBox[{"q", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxsp", "[", 
-         RowBox[{"p", ",", 
-          RowBox[{"q", "[", 
-           RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}]}], 
-     "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
-   RowBox[{"basicCombinedMomentumReplT", "=", 
-    RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p", ",", 
+       RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
      RowBox[{
-      RowBox[{
-       RowBox[{"FTxvecs", "[", 
-        RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxvecs", "[", 
-        RowBox[{
-         RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxvecs", "[", 
-        RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxsp", "[", 
        RowBox[{
         RowBox[{"p", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxvecs", "[", 
-         RowBox[{
-          RowBox[{"p", "[", 
-           RowBox[{"[", "2", "]"}], "]"}], ",", "mu"}], "]"}]}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsps", "[", 
-        RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxsps", "[", 
-        RowBox[{
-         RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsps", "[", 
-        RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{"FTxsps", "[", 
-        RowBox[{"p", ",", 
-         RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsps", "[", 
-        RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{
-        RowBox[{"p", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxsps", "[", 
-         RowBox[{
-          RowBox[{"p", "[", 
-           RowBox[{"[", "2", "]"}], "]"}], ",", "q"}], "]"}]}]}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{
-       RowBox[{"FTxsps", "[", 
-        RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
-       RowBox[{
+         RowBox[{"[", "2", "]"}], "]"}], ",", "q"}], "]"}]}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{
+      RowBox[{"q", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxsp", "[", 
+       RowBox[{"p", ",", 
         RowBox[{"q", "[", 
-         RowBox[{"[", "1", "]"}], "]"}], "*", 
-        RowBox[{"FTxsps", "[", 
-         RowBox[{"p", ",", 
-          RowBox[{"q", "[", 
-           RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}]}], 
-     "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}]}], "\[IndentingNewLine]",
+    "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"basicCombinedMomentumReplT", "=", 
+  RowBox[{"{", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"basicCombinedMomentumRepl", "=", "basicCombinedMomentumReplT0"}],
-     ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"combinedMomentumRepl", "=", "basicCombinedMomentumRepl"}], 
-    ";"}]}]}]], "Input",
+    RowBox[{
+     RowBox[{"FTxvecs", "[", 
+      RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxvecs", "[", 
+      RowBox[{
+       RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxvecs", "[", 
+      RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxvecs", "[", 
+       RowBox[{
+        RowBox[{"p", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "mu"}], "]"}]}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxsps", "[", 
+      RowBox[{
+       RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p", ",", 
+       RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{
+      RowBox[{"p", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxsps", "[", 
+       RowBox[{
+        RowBox[{"p", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "q"}], "]"}]}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{
+      RowBox[{"q", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "*", 
+      RowBox[{"FTxsps", "[", 
+       RowBox[{"p", ",", 
+        RowBox[{"q", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}]}], "\[IndentingNewLine]",
+    "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicCombinedMomentumRepl", "=", "basicCombinedMomentumReplT0"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"combinedMomentumRepl", "=", "basicCombinedMomentumRepl"}], 
+  ";"}]}], "Input",
  InitializationCell->True]
 }, Closed]]
 }, Closed]]
@@ -3053,6 +3098,34 @@ Cell[BoxData[
                    RowBox[{"tmpVars", "[", 
                     RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}]}], "]"}],
               ";", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+              "special", " ", "rule", " ", "for", " ", "shorthand", " ", 
+               "vecs", " ", "in", " ", "gamma", " ", "strings"}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"gamma", "=!=", "Null"}], ",", 
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"inputRules", ",", 
+                 RowBox[{
+                  RowBox[{"barrepl", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"Head", "[", "tmpExpr", "]"}], "@@", 
+                    RowBox[{"(", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{
+                    RowBox[{"List", "@@", "tmpExpr"}], ",", 
+                    RowBox[{"-", "1"}]}], "]"}], ")"}]}], ",", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{"tmpVars", ",", 
+                    RowBox[{"-", "1"}]}], "]"}]}], "]"}], "\[RuleDelayed]", 
+                  RowBox[{"Evaluate", "[", 
+                   RowBox[{"FormTracer`Private`FTxvec", "[", 
+                    RowBox[{"tmpVars", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}]}], "]"}]}],
+               "]"}], ";", "\[IndentingNewLine]", 
              RowBox[{"AppendTo", "[", 
               RowBox[{"outputRules", ",", 
                RowBox[{
@@ -3081,6 +3154,28 @@ Cell[BoxData[
                   "]"}], "\[RuleDelayed]", 
                 RowBox[{"Evaluate", "[", "tmpExpr", "]"}]}]}], "]"}], ";", 
              "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+              "special", " ", "rule", " ", "for", " ", "shorthand", " ", 
+               "vecs", " ", "in", " ", "gamma", " ", "strings"}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"gamma", "=!=", "Null"}], ",", 
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"outputRulesPartiallyTraced", ",", 
+                 RowBox[{
+                  RowBox[{"barrepl", "[", 
+                   RowBox[{
+                    RowBox[{"Global`FTxvec", "[", 
+                    RowBox[{"tmpVars", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "tmpVars"}], 
+                   "]"}], "\[RuleDelayed]", 
+                  RowBox[{"Evaluate", "[", 
+                   RowBox[{"Drop", "[", 
+                    RowBox[{"tmpExpr", ",", 
+                    RowBox[{"-", "1"}]}], "]"}], "]"}]}]}], "]"}]}], "]"}], 
+             ";", "\[IndentingNewLine]", 
              RowBox[{"(*", 
               RowBox[{
               "scalar", " ", "product", " ", "replacement", " ", "rule"}], 
@@ -3255,6 +3350,30 @@ Cell[BoxData[
                     RowBox[{"tmpVars", "[", 
                     RowBox[{"[", "3", "]"}], "]"}]}], "]"}], "]"}]}]}], "]"}],
                  ";", "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "special", " ", "rule", " ", "for", " ", "closed", " ", 
+                  "gamma", " ", "strings"}], "*)"}], "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"inputRules", ",", 
+                  RowBox[{
+                   RowBox[{"barrepl", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Head", "[", "tmpExpr", "]"}], "@@", 
+                    RowBox[{"(", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{
+                    RowBox[{"List", "@@", "tmpExpr"}], ",", 
+                    RowBox[{"-", "2"}]}], "]"}], ")"}]}], ",", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{"tmpVars", ",", 
+                    RowBox[{"-", "2"}]}], "]"}]}], "]"}], "\[RuleDelayed]", 
+                   RowBox[{"Evaluate", "[", 
+                    RowBox[{"FormTracer`Private`FTxgamma", "[", 
+                    RowBox[{"tmpVars", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}]}], "]"}], 
+                ";", "\[IndentingNewLine]", 
                 RowBox[{"AppendTo", "[", 
                  RowBox[{"outputRules", ",", 
                   RowBox[{
@@ -3317,6 +3436,17 @@ Cell[BoxData[
                     RowBox[{"tmpVars", "[", 
                     RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}]}], "]"}],
                  ";", "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "special", " ", "rule", " ", "for", " ", "shorthand", " ", 
+                  "gamma5", " ", "in", " ", "gamma", " ", "strings"}], "*)"}],
+                 "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"inputRules", ",", 
+                  RowBox[{
+                   RowBox[{"Head", "[", "tmpExpr", "]"}], "\[RuleDelayed]", 
+                   "FormTracer`Private`FTxgamma5"}]}], "]"}], ";", 
+                "\[IndentingNewLine]", 
                 RowBox[{"AppendTo", "[", 
                  RowBox[{"outputRules", ",", 
                   RowBox[{
@@ -3375,6 +3505,31 @@ Cell[BoxData[
                     RowBox[{"tmpVars", "[", 
                     RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "]"}]}]}], "]"}],
                  ";", "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "special", " ", "rule", " ", "for", " ", "shorthand", " ", 
+                  "vecs", " ", "in", " ", "gamma", " ", "strings"}], "*)"}], 
+                "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"inputRules", ",", 
+                  RowBox[{
+                   RowBox[{"barrepl", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Head", "[", "tmpExpr", "]"}], "@@", 
+                    RowBox[{"(", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{
+                    RowBox[{"List", "@@", "tmpExpr"}], ",", 
+                    RowBox[{"-", "1"}]}], "]"}], ")"}]}], ",", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{"tmpVars", ",", 
+                    RowBox[{"-", "1"}]}], "]"}]}], "]"}], "\[RuleDelayed]", 
+                   RowBox[{"Evaluate", "[", 
+                    RowBox[{"FormTracer`Private`FTxvecs", "[", 
+                    RowBox[{"tmpVars", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], "]"}]}]}], "]"}], 
+                ";", "\[IndentingNewLine]", 
                 RowBox[{"AppendTo", "[", 
                  RowBox[{"outputRules", ",", 
                   RowBox[{
@@ -3401,9 +3556,27 @@ Cell[BoxData[
                     RowBox[{"tmpVars", "[", 
                     RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", "tmpVars"}],
                      "]"}], "\[RuleDelayed]", 
-                   RowBox[{"Evaluate", "[", "tmpExpr", "]"}]}]}], "]"}], 
-                ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-             "\[IndentingNewLine]", 
+                   RowBox[{"Evaluate", "[", "tmpExpr", "]"}]}]}], "]"}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"(*", 
+                 RowBox[{
+                 "special", " ", "rule", " ", "for", " ", "shorthand", " ", 
+                  "vecs", " ", "in", " ", "gamma", " ", "strings"}], "*)"}], 
+                "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"outputRulesPartiallyTraced", ",", 
+                  RowBox[{
+                   RowBox[{"barrepl", "[", 
+                    RowBox[{
+                    RowBox[{"Global`FTxvecs", "[", 
+                    RowBox[{"tmpVars", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "tmpVars"}], 
+                    "]"}], "\[RuleDelayed]", 
+                   RowBox[{"Evaluate", "[", 
+                    RowBox[{"Drop", "[", 
+                    RowBox[{"tmpExpr", ",", 
+                    RowBox[{"-", "1"}]}], "]"}], "]"}]}]}], "]"}], ";"}]}], 
+              "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
              RowBox[{"(*", 
               RowBox[{
               "optional", " ", "sp3", " ", "replacement", " ", "rule"}], 
@@ -4085,9 +4258,18 @@ Cell[BoxData[{
      "shortGroupName", "~~", "\"\<Indices,f\>\"", "~~", "shortGroupName", 
     "~~", "\"\<2?)=FTxdeltaFund(\>\"", "~~", "groupName", "~~", "\"\<,f\>\"", 
     "~~", "shortGroupName", "~~", "\"\<1,f\>\"", "~~", "shortGroupName", 
-    "~~", "\"\<2);\nid T(f\>\"", "~~", "shortGroupName", "~~", "\"\<1?,f\>\"",
-     "~~", "shortGroupName", "~~", "\"\<2?,a\>\"", "~~", "shortGroupName", 
-    "~~", "\"\<1?)=FTxT(\>\"", "~~", "groupName", "~~", "\"\<,a\>\"", "~~", 
+    "~~", "\"\<2);\nid FTxeps(a\>\"", "~~", "shortGroupName", "~~", 
+    "\"\<1?a\>\"", "~~", "shortGroupName", "~~", "\"\<Indices,?a\>\"", "~~", 
+    "shortGroupName", "~~", "\"\<2)=FTxepsAdj(\>\"", "~~", "groupName", "~~", 
+    "\"\<,a\>\"", "~~", "shortGroupName", "~~", "\"\<1,?a\>\"", "~~", 
+    "shortGroupName", "~~", "\"\<2);\nid FTxeps(f\>\"", "~~", 
+    "shortGroupName", "~~", "\"\<1?f\>\"", "~~", "shortGroupName", "~~", 
+    "\"\<Indices,?f\>\"", "~~", "shortGroupName", "~~", 
+    "\"\<2)=FTxepsFund(\>\"", "~~", "groupName", "~~", "\"\<,f\>\"", "~~", 
+    "shortGroupName", "~~", "\"\<1,?f\>\"", "~~", "shortGroupName", "~~", 
+    "\"\<2);\nid T(f\>\"", "~~", "shortGroupName", "~~", "\"\<1?,f\>\"", "~~",
+     "shortGroupName", "~~", "\"\<2?,a\>\"", "~~", "shortGroupName", "~~", 
+    "\"\<1?)=FTxT(\>\"", "~~", "groupName", "~~", "\"\<,a\>\"", "~~", 
     "shortGroupName", "~~", "\"\<1,f\>\"", "~~", "shortGroupName", "~~", 
     "\"\<1,f\>\"", "~~", "shortGroupName", "~~", "\"\<2);\nid f(a\>\"", "~~", 
     "shortGroupName", "~~", "\"\<1?,a\>\"", "~~", "shortGroupName", "~~", 
@@ -5380,7 +5562,7 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["Input and Output Conversion Functions", "Section"],
+Cell["Conversion Functions", "Section"],
 
 Cell[CellGroupData[{
 
@@ -5650,6 +5832,132 @@ Cell[BoxData[{
 
 Cell[BoxData[
  RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "implements", " ", "support", " ", "for", " ", "shorthand", " ", 
+    "notation", " ", "for", " ", "gamma", " ", "matrices"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"expandGammaMatrices", "[", 
+     RowBox[{"lor_", ",", "spi___"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"lorList", "=", "lor"}], 
+        RowBox[{"(*", 
+         RowBox[{"/.", "lorentzTensorReplacementRulesInput"}], "*)"}], ",", 
+        RowBox[{"spiList", "=", 
+         RowBox[{"List", "[", "spi", "]"}]}], ",", "res"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "spiList", "]"}], "===", "0"}], ",", 
+         RowBox[{"spiList", "=", 
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"spiDummy", "=", 
+              RowBox[{"Unique", "[", "spiDummyPrefix", "]"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"spiDummy", ",", "spiDummy"}], "}"}]}], "]"}]}]}], "]"}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"res", "=", 
+        RowBox[{"FTxgamma", "@@", 
+         RowBox[{"Join", "[", 
+          RowBox[{"lorList", ",", "spiList"}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"expand", " ", "momenta"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"res", "=", 
+        RowBox[{"res", "//.", 
+         RowBox[{
+          RowBox[{"FTxgamma", "[", 
+           RowBox[{"a___", ",", 
+            RowBox[{"FTxvec", "[", "p_", "]"}], ",", "b___"}], "]"}], 
+          "\[RuleDelayed]", 
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"lorDummy", "=", 
+              RowBox[{"Unique", "[", "lorDummyPrefix", "]"}]}], "}"}], ",", 
+            RowBox[{
+             RowBox[{"FTxvec", "[", 
+              RowBox[{"p", ",", "lorDummy"}], "]"}], 
+             RowBox[{"FTxgamma", "[", 
+              RowBox[{"a", ",", "lorDummy", ",", "b"}], "]"}]}]}], 
+           "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{"finiteTenabled", ",", 
+         RowBox[{
+          RowBox[{"res", "=", 
+           RowBox[{"res", "//.", 
+            RowBox[{
+             RowBox[{"FTxgamma", "[", 
+              RowBox[{"a___", ",", 
+               RowBox[{"FTxvecs", "[", "p_", "]"}], ",", "b___"}], "]"}], 
+             "\[RuleDelayed]", 
+             RowBox[{"With", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"lorDummy", "=", 
+                 RowBox[{"Unique", "[", "lorDummyPrefix", "]"}]}], "}"}], ",", 
+               RowBox[{
+                RowBox[{"FTxvecs", "[", 
+                 RowBox[{"p", ",", "lorDummy"}], "]"}], 
+                RowBox[{"FTxgamma", "[", 
+                 RowBox[{"a", ",", "lorDummy", ",", "b"}], "]"}]}]}], 
+              "]"}]}]}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"expand", " ", "gamma", " ", "matrices"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"res", "=", 
+        RowBox[{"res", "//.", 
+         RowBox[{
+          RowBox[{"FTxgamma", "[", 
+           RowBox[{"a___", ",", "b_", ",", "c_", ",", "i_", ",", "j_"}], 
+           "]"}], "\[RuleDelayed]", 
+          RowBox[{"With", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"spiDummy", "=", 
+              RowBox[{"Unique", "[", "spiDummyPrefix", "]"}]}], "}"}], ",", 
+            RowBox[{
+             RowBox[{"FTxgamma", "[", 
+              RowBox[{"a", ",", "b", ",", "i", ",", "spiDummy"}], "]"}], 
+             RowBox[{"FTxgamma", "[", 
+              RowBox[{"c", ",", "spiDummy", ",", "j"}], "]"}]}]}], 
+           "]"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{
+        "convert", " ", "gamma", " ", "5", " ", "matrices", " ", "to", " ", 
+         "FTxgamma5", " ", "symbols"}], "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"res", "=", 
+        RowBox[{"res", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{"5", ",", "spi1_", ",", "spi2_"}], "]"}], 
+            "\[RuleDelayed]", 
+            RowBox[{"FTxgamma5", "[", 
+             RowBox[{"spi1", ",", "spi2"}], "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{"FTxgamma5", ",", "spi1_", ",", "spi2_"}], "]"}], 
+            "\[RuleDelayed]", 
+            RowBox[{"FTxgamma5", "[", 
+             RowBox[{"spi1", ",", "spi2"}], "]"}]}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "res", "]"}], ";"}]}], "\[IndentingNewLine]", 
+     "]"}]}], ";"}]}]], "Input",
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{
   RowBox[{"convertInput", "[", 
    RowBox[{"input_", ",", 
     RowBox[{"replaceExtraAllVars_:", "True"}]}], "]"}], ":=", 
@@ -5675,13 +5983,44 @@ Cell[BoxData[
       RowBox[{"removeSquaredTensors", "[", 
        RowBox[{
         RowBox[{
-         RowBox[{"input", "/.", "lorentzTensorReplacementRulesInput"}], "/.", 
-         "groupTensorReplacementRulesInput"}], "/.", 
+         RowBox[{"input", "//.", "lorentzTensorReplacementRulesInput"}], "/.",
+          "groupTensorReplacementRulesInput"}], "/.", 
         RowBox[{"If", "[", 
          RowBox[{
          "replaceExtraAllVars", ",", "extraFormVarsListInputConversion", ",", 
           "extraFormVarsListInputConversionExport"}], "]"}]}], "]"}]}], ";", 
      "\[IndentingNewLine]", 
+     RowBox[{"res", "=", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"res", "/.", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{
+              RowBox[{"FTxvec", "[", "p_", "]"}], ",", "spi___"}], "]"}], 
+            "\[RuleDelayed]", 
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"FTxvec", "[", "p", "]"}], "}"}], ",", "spi"}], 
+             "]"}]}], ",", 
+           RowBox[{
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{
+              RowBox[{"FTxvecs", "[", "p_", "]"}], ",", "spi___"}], "]"}], 
+            "\[RuleDelayed]", 
+            RowBox[{"FTxgamma", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"FTxvecs", "[", "p", "]"}], "}"}], ",", "spi"}], 
+             "]"}]}]}], "}"}]}], ")"}], "/.", 
+       RowBox[{
+        RowBox[{"FTxgamma", "[", 
+         RowBox[{"lor_List", ",", "spi___"}], "]"}], "\[RuleDelayed]", 
+        RowBox[{"expandGammaMatrices", "[", 
+         RowBox[{"lor", ",", "spi"}], "]"}]}]}]}], ";", "\[IndentingNewLine]", 
      RowBox[{"If", "[", 
       RowBox[{
        RowBox[{"checkTensorSums", "||", "debuggingMode"}], ",", 
@@ -5714,8 +6053,7 @@ Cell[BoxData[
      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"yesno", "\[Equal]", "True"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yesno", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"basicLorentzFromExprRules", "=", 
           RowBox[{"Join", "[", 
@@ -5738,8 +6076,7 @@ Cell[BoxData[
            "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"yesno", "\[Equal]", "True"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yesno", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"basicMomentumFromExprRules", "=", 
           RowBox[{"Join", "[", 
@@ -5763,8 +6100,7 @@ Cell[BoxData[
            "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"yesno", "\[Equal]", "True"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yesno", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"basicLorentzTensors", "=", 
           RowBox[{"Join", "[", 
@@ -5782,8 +6118,7 @@ Cell[BoxData[
            RowBox[{"lorentzTensors", ",", "basicLorentzTensorsT"}], "]"}]}], 
          ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"yesno", "\[Equal]", "True"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yesno", ",", "\[IndentingNewLine]", 
         RowBox[{"removeSquaredTensorsRules", "=", 
          RowBox[{"Join", "[", 
           RowBox[{
@@ -5793,8 +6128,7 @@ Cell[BoxData[
         "removeSquaredTensorsRules", "=", "removeSquaredTensorsRulesT0"}]}], 
        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
-       RowBox[{
-        RowBox[{"yesno", "\[Equal]", "True"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yesno", ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"basicCombinedMomentumRepl", "=", 
           RowBox[{"Join", "[", 
@@ -5825,6 +6159,290 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell["Output", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "FORM", " ", "names", " ", "dummies", " ", "on", " ", "a", " ", "term", 
+     " ", "by", " ", "term", " ", 
+     RowBox[{"basis", ".", " ", "Thus"}]}], ",", " ", 
+    RowBox[{
+    "the", " ", "same", " ", "dummy", " ", "names", " ", "can", " ", "be", 
+     " ", "used", " ", "for", " ", "different", " ", "index", " ", "types"}], 
+    ",", " ", 
+    RowBox[{"which", " ", "is", " ", "a", " ", "problem", " ", "for", " ", 
+     RowBox[{"FormTracer", ".", " ", "Here"}], " ", "we", " ", "rename", " ", 
+     "the", " ", "dummy", " ", "indices", " ", "to", " ", "solve", " ", 
+     "that", " ", 
+     RowBox[{"problem", "."}]}]}], "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"getDummy", "[", 
+     RowBox[{"group_", ",", "tempDummy_", ",", "typePrefix_"}], "]"}], ":=", 
+    RowBox[{"ToExpression", "[", 
+     RowBox[{"typePrefix", "<>", 
+      RowBox[{"ToString", "[", "group", "]"}], "<>", "\"\<Dummy\>\"", "<>", 
+      RowBox[{"ToString", "[", "tempDummy", "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getAdjDummy", "[", 
+     RowBox[{"group_", ",", "tempDummy_"}], "]"}], ":=", 
+    RowBox[{"getDummy", "[", 
+     RowBox[{"group", ",", "tempDummy", ",", "adjGroupDummyPrefix"}], "]"}]}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getFundDummy", "[", 
+     RowBox[{"group_", ",", "tempDummy_"}], "]"}], ":=", 
+    RowBox[{"getDummy", "[", 
+     RowBox[{"group", ",", "tempDummy", ",", "fundGroupDummyPrefix"}], 
+     "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getLorDummy", "[", "tempDummy_", "]"}], ":=", 
+    RowBox[{"ToExpression", "[", 
+     RowBox[{"lorDummyPrefixFORM", "<>", 
+      RowBox[{"ToString", "[", "tempDummy", "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"getSpiDummy", "[", "tempDummy_", "]"}], ":=", 
+    RowBox[{"ToExpression", "[", 
+     RowBox[{"spiDummyPrefixFORM", "<>", 
+      RowBox[{"ToString", "[", "tempDummy", "]"}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"groupDummyReplacementFORM", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Global`FTxdeltaAdj", "[", 
+         RowBox[{"group_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "a_", "]"}], ",", "b_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaAdj", "[", 
+         RowBox[{"group", ",", 
+          RowBox[{"getAdjDummy", "[", 
+           RowBox[{"group", ",", "a"}], "]"}], ",", "b"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaAdj", "[", 
+         RowBox[{"group_", ",", "a_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "b_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaAdj", "[", 
+         RowBox[{"group", ",", "a", ",", 
+          RowBox[{"getAdjDummy", "[", 
+           RowBox[{"group", ",", "b"}], "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaFund", "[", 
+         RowBox[{"group_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "i_", "]"}], ",", "j_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaFund", "[", 
+         RowBox[{"group", ",", 
+          RowBox[{"getFundDummy", "[", 
+           RowBox[{"group", ",", "i"}], "]"}], ",", "j"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaFund", "[", 
+         RowBox[{"group_", ",", "i_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaFund", "[", 
+         RowBox[{"group", ",", "i", ",", 
+          RowBox[{"getFundDummy", "[", 
+           RowBox[{"group", ",", "j"}], "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxF", "[", 
+         RowBox[{"group_", ",", "a___", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "b_", "]"}], ",", "c___"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxF", "[", 
+         RowBox[{"group", ",", "a", ",", 
+          RowBox[{"getAdjDummy", "[", 
+           RowBox[{"group", ",", "b"}], "]"}], ",", "c"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "a_", "]"}], ",", "i_", ",", 
+          "j_"}], "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group", ",", 
+          RowBox[{"getAdjDummy", "[", 
+           RowBox[{"group", ",", "a"}], "]"}], ",", "i", ",", "j"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group_", ",", "a_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "i_", "]"}], ",", "j_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group", ",", "a", ",", 
+          RowBox[{"getFundDummy", "[", 
+           RowBox[{"group", ",", "i"}], "]"}], ",", "j"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group_", ",", "a_", ",", "i_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxT", "[", 
+         RowBox[{"group", ",", "a", ",", "i", ",", 
+          RowBox[{"getFundDummy", "[", 
+           RowBox[{"group", ",", "j"}], "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxepsAdj", "[", 
+         RowBox[{"group_", ",", "a___", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "b_", "]"}], ",", "c___"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxepsAdj", "[", 
+         RowBox[{"group", ",", "a", ",", 
+          RowBox[{"getAdjDummy", "[", 
+           RowBox[{"group", ",", "b"}], "]"}], ",", "c"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxepsFund", "[", 
+         RowBox[{"group_", ",", "i___", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}], ",", "k___"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxepsFund", "[", 
+         RowBox[{"group", ",", "i", ",", 
+          RowBox[{"getFundDummy", "[", 
+           RowBox[{"group", ",", "j"}], "]"}], ",", "k"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"lorentzDummyReplacementFORM", "=", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Global`FTxdeltaLorentz", "[", 
+         RowBox[{
+          RowBox[{"tempPartialTraceDummy", "[", "mu_", "]"}], ",", "nu_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaLorentz", "[", 
+         RowBox[{
+          RowBox[{"getLorDummy", "[", "mu", "]"}], ",", "nu"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaLorentz", "[", 
+         RowBox[{"mu_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "nu_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaLorentz", "[", 
+         RowBox[{"mu", ",", 
+          RowBox[{"getLorDummy", "[", "nu", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaDirac", "[", 
+         RowBox[{
+          RowBox[{"tempPartialTraceDummy", "[", "i_", "]"}], ",", "j_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaDirac", "[", 
+         RowBox[{
+          RowBox[{"getSpiDummy", "[", "i", "]"}], ",", "j"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxdeltaDirac", "[", 
+         RowBox[{"i_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxdeltaDirac", "[", 
+         RowBox[{"i", ",", 
+          RowBox[{"getSpiDummy", "[", "j", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxvec", "[", 
+         RowBox[{"p_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "mu_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxvec", "[", 
+         RowBox[{"p", ",", 
+          RowBox[{"getLorDummy", "[", "mu", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxvecs", "[", 
+         RowBox[{"p_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "mu_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxvecs", "[", 
+         RowBox[{"p", ",", 
+          RowBox[{"getLorDummy", "[", "mu", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{
+          RowBox[{"tempPartialTraceDummy", "[", "mu_", "]"}], ",", "i_", ",", 
+          "j_"}], "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{
+          RowBox[{"getLorDummy", "[", "mu", "]"}], ",", "i", ",", "j"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"mu___", ",", 
+            RowBox[{"tempPartialTraceDummy", "[", "nu_", "]"}], ",", 
+            "rho___"}], "}"}], ",", "i_", ",", "j_"}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"mu", ",", 
+            RowBox[{"getLorDummy", "[", "nu", "]"}], ",", "rho"}], "}"}], ",",
+           "i", ",", "j"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{"mu_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "i_", "]"}], ",", "j_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{"mu", ",", 
+          RowBox[{"getSpiDummy", "[", "i", "]"}], ",", "j"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{"mu_", ",", "i_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma", "[", 
+         RowBox[{"mu", ",", "i", ",", 
+          RowBox[{"getSpiDummy", "[", "j", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma5", "[", 
+         RowBox[{
+          RowBox[{"tempPartialTraceDummy", "[", "i_", "]"}], ",", "j_"}], 
+         "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma5", "[", 
+         RowBox[{
+          RowBox[{"getSpiDummy", "[", "i", "]"}], ",", "j"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxgamma5", "[", 
+         RowBox[{"i_", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "j_", "]"}]}], "]"}], 
+        "\[RuleDelayed]", 
+        RowBox[{"Global`FTxgamma5", "[", 
+         RowBox[{"i", ",", 
+          RowBox[{"getSpiDummy", "[", "j", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Global`FTxepsLorentz", "[", 
+         RowBox[{"mu___", ",", 
+          RowBox[{"tempPartialTraceDummy", "[", "nu_", "]"}], ",", "rho___"}],
+          "]"}], "\[RuleDelayed]", 
+        RowBox[{"Global`FTxepsLorentz", "[", 
+         RowBox[{"mu", ",", 
+          RowBox[{"getLorDummy", "[", "nu", "]"}], ",", "rho"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "}"}]}], ";"}]}]}]], "Input",
+ InitializationCell->True],
 
 Cell[BoxData[{
  RowBox[{
@@ -5898,8 +6516,11 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{"output", "/.", 
-        RowBox[{"createOutputReplacementList", "[", "repl", "]"}]}], "/.", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"output", "//.", "groupDummyReplacementFORM"}], "//.", 
+         "lorentzDummyReplacementFORM"}], "/.", 
+        RowBox[{"createOutputReplacementList", "[", "repl", "]"}]}], "//.", 
        "lorentzTensorReplacementRulesOutputPartiallyTraced"}], "/.", 
       "groupTensorReplacementRulesOutputPartiallyTraced"}], "/.", 
      "extraFormVarsListOutputConversion"}], "/.", 
@@ -8619,8 +9240,8 @@ NR;\nAutoDeclare Index \>\"", "~~",
       RowBox[{"partialtrace", "\[Equal]", "False"}], ",", "\"\<\>\"", ",", 
       RowBox[{
       "\"\<\n*** declare Lorentz and Dirac tensors\nCFunction \
-FTxdeltaLorentz,FTxdeltaDirac,FTxgamma,FTxgamma5;\n\n*** declare index sets \
-to distinguish deltas\nSet lorIndices: \>\"", "~~", 
+FTxdeltaLorentz,FTxdeltaDirac,FTxgamma,FTxgamma5,FTxepsLorentz;\n\n*** \
+declare index sets to distinguish deltas\nSet lorIndices: \>\"", "~~", 
        RowBox[{"stringList", "[", 
         RowBox[{"allindicesrepl", "[", 
          RowBox[{"[", "2", "]"}], "]"}], "]"}], "~~", 
@@ -8635,7 +9256,11 @@ to distinguish deltas\nSet lorIndices: \>\"", "~~",
          "\"\<\>\"", ",", 
          RowBox[{"\"\<\n*** declare group names and tensors\nSymbol \>\"", "~~", 
           RowBox[{"stringList", "[", "groupNames", "]"}], "~~", 
-          "\"\<;\nCFunction FTxT,FTxF,FTxdeltaFund,FTxdeltaAdj;\n\n\>\"", "~~", 
+          "\"\<;\nCFunction FTxT,FTxF,FTxdeltaFund,FTxdeltaAdj\>\"", "~~", 
+          RowBox[{"If", "[", 
+           RowBox[{
+           "partialtrace", ",", "\"\<,FTxepsFund,FTxepsAdj\>\"", ",", 
+            "\"\<\>\""}], "]"}], "~~", "\"\<;\n\n\>\"", "~~", 
           RowBox[{"stringLines", "[", 
            RowBox[{"Table", "[", 
             RowBox[{
@@ -8785,7 +9410,7 @@ EndRepeat;\n.sort\n* perform actual dirac traces\nRepeat;\nid,once,FTxTr(?a) \
 for output\nid FTxeInt(?lorx)=e_(?lorx);\nid FTxeExt(?lorx)=e_(?lorx);\n\n\
 \>\""}]}], "]"}], "~~", "\"\<\n.sort\>\""}]}], ";"}]], "Input",
  InitializationCell->True]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -8884,8 +9509,9 @@ NR;\>\""}], "]"}]}], ",", "\"\<\>\""}], "]"}], "~~",
          RowBox[{"[", "id", "]"}], "]"}], "~~", "\"\<x2); \nsum f\>\"", "~~", 
         
         RowBox[{"shortGroupNames", "[", 
-         RowBox[{"[", "id", "]"}], "]"}], "~~", "\"\<x3;\nendrepeat;\>\""}], 
-       ",", "\"\<\>\""}], "]"}], "~~", "\"\<\n\>\"", "~~", 
+         RowBox[{"[", "id", "]"}], "]"}], "~~", 
+        "\"\<x3;\nendrepeat;\n*replace epsilon\n#call replaceepsilon\n\>\""}],
+        ",", "\"\<\>\""}], "]"}], "~~", "\"\<\n\>\"", "~~", 
      RowBox[{"formPostGroupRenamingRules", "[", 
       RowBox[{"[", "id", "]"}], "]"}], "~~", "\"\<\n\>\"", "~~", 
      RowBox[{"formGenericDReplacementRules", "[", 
@@ -9513,6 +10139,21 @@ indices: \>\"", ",", "\[IndentingNewLine]",
            RowBox[{
            "prerepl", " ", "and", " ", "postrepl", " ", "list", " ", 
             "handling"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"Not", "@", 
+             RowBox[{"AllTrue", "[", 
+              RowBox[{
+               RowBox[{"Head", "/@", "prerepl"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"#", "===", "List"}], "||", 
+                 RowBox[{"#", "===", "String"}]}], "&"}]}], "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"Message", "[", 
+              RowBox[{"FormTrace", "::", "invalidprerepl"}], "]"}], ";", 
+             RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"preambleprerepl", "=", 
            RowBox[{"generateExtraGroupPrereplLists", "[", 
             RowBox[{"prerepl", ",", "PreambleFormRule"}], "]"}]}], ";", 
@@ -9536,6 +10177,21 @@ indices: \>\"", ",", "\[IndentingNewLine]",
               RowBox[{"generateExtraGroupPrereplLists", "[", 
                RowBox[{"prerepl", ",", "#"}], "]"}], "&"}], ",", 
              "groupNames"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"Not", "@", 
+             RowBox[{"AllTrue", "[", 
+              RowBox[{
+               RowBox[{"Head", "/@", "postrepl"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"#", "===", "List"}], "||", 
+                 RowBox[{"#", "===", "String"}]}], "&"}]}], "]"}]}], ",", 
+            RowBox[{
+             RowBox[{"Message", "[", 
+              RowBox[{"FormTrace", "::", "invalidpostrepl"}], "]"}], ";", 
+             RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
           RowBox[{"generalpostrepl", "=", 
            RowBox[{"stringLines", "@", 
             RowBox[{"Select", "[", 
@@ -9614,6 +10270,15 @@ indices: \>\"", ",", "\[IndentingNewLine]",
                    RowBox[{"{", "\"\<dirac.h\>\"", "}"}], ",", 
                    RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], "]"}], "]"}], 
             "~~", "\"\<\n\>\"", "~~", 
+            RowBox[{"If", "[", 
+             RowBox[{"partialtrace", ",", 
+              RowBox[{"\"\<#include- \>\"", "<>", 
+               RowBox[{"FileNameJoin", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "formTracerDirectory", ",", "\"\<Header\>\"", ",", 
+                  "\"\<misc.h\>\""}], "}"}], "]"}]}], ",", "\"\<\>\""}], 
+             "]"}], "~~", "\"\<\n\>\"", "~~", 
             RowBox[{"If", "[", 
              RowBox[{
               RowBox[{"preambleprerepl", "=!=", "\"\<\>\""}], ",", 
@@ -9814,29 +10479,22 @@ tensors ***\n\>\"", "~~",
                  "\"\<\n******************************************************\
 ****************************\n*partial trace manipulations\n\
 ******************************************************************************\
-****\n*resolve gamma string\nRepeat;\n\tid,once \
-gamma(lorx1?,lorx2?,?lorx3,spix1?,spix2?)=gamma(lorx1,spix1,spix3)*gamma(\
-lorx2,?lorx3,spix3,spix2); \n\tsum spix3;\nEndRepeat;\n\n*replace vectors \n\
-Repeat;\n\tid,once \
-gamma(momx1?setvec,spix1?,spix2?)=FTxvec(momx1,lorx1)*FTxgamma(lorx1,spix1,\
-spix2);\>\"", "~~", 
+****\n*replace vectors \nrepeat id \
+gamma(?lor1,momx1?setvec,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvec(momx1),?lor2,\
+spix1,spix2);\nrepeat id \
+gamma(?lor1,g5,?lor2,spix1?,spix2?)=gamma(?lor1,5,?lor2,spix1,spix2);\>\"", "~~", 
                   RowBox[{"If", "[", 
                    RowBox[{
                     RowBox[{"finiteTenabled", " ", "&&", " ", 
                     RowBox[{
                     RowBox[{"Length", "[", "momenta", "]"}], ">", "0"}]}], 
-                    ",", "\"\<\n\tid,once \
-gamma(momx1?setvecs,spix1?,spix2?)=FTxvecs(momx1,lorx2)*FTxgamma(lorx2,spix1,\
-spix2);\n\tsum lorx2;\>\"", ",", "\"\<\>\""}], "]"}], "~~", 
-                  "\"\<\n\tsum lorx1;\nEndRepeat;\n\n*replace epsilon and \
-pull out vectors \nAntiBracket e_;\n.sort \nTensor FTxepsLorentz;\nVector \
-epsilonvec;\nCFunction epsilonguard;\nSymbol epsilontmp;\nCollect \
-epsilonguard;\nFactArg epsilonguard;\nChainout epsilonguard;\nArgument;\n\
-ToVector e_,epsilonvec;\nToTensor epsilonvec,FTxepsLorentz;\nEndArgument;\nid \
-epsilonguard(FTxepsLorentz(?x))=FTxepsLorentz(?x); \nid \
-epsilonguard(epsilontmp?number_)=epsilontmp;\n\nRepeat;\n\tid,once \
-FTxepsLorentz(?lorx1,momx1?setvec,?lorx2)=FTxvec(momx1,lorx3)*FTxepsLorentz(?\
-lorx1,lorx3,?lorx2);\>\"", "~~", 
+                    ",", "\"\<\nrepeat \
+gamma(?lor1,momx1?setvecs,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvecs(momx1),?\
+lor2,spix1,spix2);\n\>\"", ",", "\"\<\>\""}], "]"}], "~~", 
+                  "\"\<\n\n*replace epsilon and pull out vectors \n#call \
+replaceepsilon\nmultiply replace_(FTxeps,FTxepsLorentz);\n\nRepeat;\n\t\
+id,once FTxepsLorentz(?lorx1,momx1?setvec,?lorx2)=FTxvec(momx1,lorx3)*\
+FTxepsLorentz(?lorx1,lorx3,?lorx2);\>\"", "~~", 
                   RowBox[{"If", "[", 
                    RowBox[{
                     RowBox[{"finiteTenabled", "&&", 
@@ -9882,8 +10540,9 @@ Lorentz/Dirac trace\n\
 d_(lor1?lorIndices,lor2?)=FTxdeltaLorentz(lor1,lor2);\nid \
 d_(spi1?spiIndices,spi2?)=FTxdeltaDirac(spi1,spi2);\nid \
 gamma(g5,spi1?,spi2?)=FTxgamma5(spi1,spi2);\nid \
-gamma(lor1?!setg5,spi1?,spi2?)=FTxgamma(lor1,spi1,spi2);\n\>\"", ",", "1"}], 
-                   "]"}], "~~", "\"\<\n*** replace momenta ***\n\>\"", "~~", 
+gamma(lor1?!setg5,spi1?,spi2?)=FTxgamma(lor1,spi1,spi2);\nMultiply \
+replace_(gamma,FTxgamma);\n\>\"", ",", "1"}], "]"}], "~~", 
+                  "\"\<\n*** replace momenta ***\n\>\"", "~~", 
                   RowBox[{"formBlockArgument", "[", 
                    RowBox[{
                    "\"\<id mom1?(lor1?)=FTxvec(mom1,lor1);\>\"", ",", "1"}], 
@@ -10013,7 +10672,7 @@ replace_(\>\"", "<>",
      ",", "prerepl", ",", "postrepl", ",", "bracket", ",", "exportResVar", 
      ",", "exportTmpVar", ",", "exportVarType"}], "]"}]}], ";"}]}], "Input",
  InitializationCell->True]
-}, Open  ]]
+}, Closed]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -10062,7 +10721,10 @@ Cell[BoxData[{
                   RowBox[{"x", ":", 
                    RowBox[{"DigitCharacter", ".."}]}], "~~", "\"\<_?\>\""}], 
                  "]"}], "\[RuleDelayed]", 
-                RowBox[{"partialTraceDummy", "~~", "x"}]}], "}"}], ",", 
+                RowBox[{
+                 RowBox[{"ToString", "[", "tempPartialTraceDummy", "]"}], 
+                 "~~", "\"\<[\>\"", "~~", "x", "~~", "\"\<]\>\""}]}], "}"}], 
+              ",", 
               RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], "]"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
@@ -10141,20 +10803,25 @@ Cell[BoxData[{
        RowBox[{"StringJoin", "@", 
         RowBox[{"Riffle", "[", 
          RowBox[{
-          RowBox[{"Map", "[", 
+          RowBox[{"Join", "[", 
            RowBox[{
-            RowBox[{
-             RowBox[{"If", "[", 
+            RowBox[{"Map", "[", 
+             RowBox[{
               RowBox[{
-               RowBox[{
-                RowBox[{"StringLength", "[", 
-                 RowBox[{"ToString", "[", "#", "]"}], "]"}], "\[Equal]", 
-                "1"}], ",", 
-               RowBox[{"\"\<0\>\"", "~~", 
-                RowBox[{"ToString", "[", "#", "]"}]}], ",", 
-               RowBox[{"ToString", "[", "#", "]"}]}], "]"}], "&"}], ",", 
-            RowBox[{"Date", "[", "]"}]}], "]"}], ",", "\"\<-\>\""}], 
-         "]"}]}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"StringLength", "[", 
+                   RowBox[{"ToString", "[", "#", "]"}], "]"}], "\[Equal]", 
+                  "1"}], ",", 
+                 RowBox[{"\"\<0\>\"", "~~", 
+                  RowBox[{"ToString", "[", "#", "]"}]}], ",", 
+                 RowBox[{"ToString", "[", "#", "]"}]}], "]"}], "&"}], ",", 
+              RowBox[{"Date", "[", "]"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"Unique", "[", "\"\<f\>\"", "]"}], "]"}], "}"}]}], 
+           "]"}], ",", "\"\<-\>\""}], "]"}]}]}], ";", "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
        RowBox[{
         RowBox[{"debuggingMode", "&&", 
@@ -10352,7 +11019,18 @@ Cell[BoxData[{
             RowBox[{"If", "[", 
              RowBox[{"partialtrace", ",", 
               RowBox[{"convertPartiallyTracedOutput", "[", 
-               RowBox[{"importedRes", ",", "retValVariableLists"}], "]"}], 
+               RowBox[{
+                RowBox[{"importedRes", "/.", 
+                 RowBox[{
+                  RowBox[{"Global`FTxgamma", "[", 
+                   RowBox[{
+                   "a_", ",", "b___", ",", "c_", ",", "d_", ",", "e_"}], 
+                   "]"}], "\[Rule]", 
+                  RowBox[{"Global`FTxgamma", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"a", ",", "b", ",", "c"}], "}"}], ",", "d", ",", 
+                    "e"}], "]"}]}]}], ",", "retValVariableLists"}], "]"}], 
               ",", 
               RowBox[{"convertTracedOutput", "[", 
                RowBox[{"importedRes", ",", "retValVariableLists"}], "]"}]}], 
@@ -10361,7 +11039,7 @@ Cell[BoxData[{
   ";"}]}], "Input",
  InitializationCell->True]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -10481,14 +11159,13 @@ ShowPageBreaks->False,
 WindowToolbars->{},
 RulerUnits->"Centimeters",
 BlinkingCellInsertionPoint->True,
-GhostCellInEmptyNotebook->False,
 CellInsertionPointColor->GrayLevel[0.7500114442664225],
 CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{1919, 1152},
-WindowMargins->{{21, Automatic}, {Automatic, 59}},
+WindowSize->{3840, 2041},
+WindowMargins->{{2044, -2044}, {-1036, Automatic}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,
@@ -10579,7 +11256,8 @@ ShowSpecialCharacters->True,
 AllowInlineCells->True,
 PasteBoxFormInlineCells->Automatic,
 Background->None,
-FrontEndVersion->"10.2 for Linux x86 (64-bit) (July 29, 2015)",
-StyleDefinitions->"Default.nb"
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb",
+GhostCellInEmptyNotebook -> False
 ]
 

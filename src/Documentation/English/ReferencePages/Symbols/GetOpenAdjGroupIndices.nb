@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9655,        279]
-NotebookOptionsPosition[      7462,        221]
-NotebookOutlinePosition[      9445,        271]
-CellTagsIndexPosition[      9402,        268]
+NotebookDataLength[     11428,        295]
+NotebookOptionsPosition[      8863,        231]
+NotebookOutlinePosition[     10846,        281]
+CellTagsIndexPosition[     10803,        278]
 WindowTitle->GetOpenAdjGroupIndices
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "3654f7e3-2d6b-47e4-a01a-9923f891fc8d"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"1dc2a85f-114f-4c0f-814c-154207cd3558"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -47,7 +48,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "0c01eba3-fea9-4997-9c0e-4e40d5e82767"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -57,7 +59,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"436e59d8-a5b0-41d5-891f-270d9ddbd8d9"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -91,24 +93,26 @@ GetOpenAdjGroupIndices.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$28286], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$32702], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/GetOpenAdjGroupIndices", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "08bb2c4e-abf3-48ef-9574-4a24c52a7118"]
+    }], "AnchorBar",ExpressionUUID->"95ca6832-4fb3-4ccc-9ad5-0ff5e1bd031e"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"2f3a8b84-31fb-45b6-a685-cd5e04fdec8b"],
 
 Cell[TextData[{
- Cell["GetOpenAdjGroupIndices", "ObjectName"],
+ Cell["GetOpenAdjGroupIndices", "ObjectName",ExpressionUUID->
+  "44fec9a6-ed51-4fd2-a99f-a4e29b9307de"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -116,9 +120,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"1356f6e5-5c90-4c92-991b-4458909b4df4"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "4ff2ab93-dae6-47dc-87b1-85e66c0352d8"]
+}], "ObjectNameGrid",ExpressionUUID->"f2074986-5676-4884-b4c1-6e78fe909124"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -126,16 +133,18 @@ Cell[BoxData[GridBox[{
       RowBox[{"GetOpenAdjGroupIndices", "[", 
        RowBox[{
         StyleBox["expr", "TI"], ",", 
-        StyleBox["group", "TI"]}], "]"}]], "InlineFormula"],
+        StyleBox["group", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+      "390e04b8-2cc7-48a8-b07a-2730d41ec1b9"],
      "\[LineSeparator]returns a list with all open adjoint indices of group \
 group in expr. The group argument can be omitted if only one group is \
 specified."
-    }]]}
+    }],ExpressionUUID->"e776cc75-164f-412a-b759-aa09d30103b2"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"845fc0fa-e9e0-41cd-a718-8497d37b2bd0"],
 
 Cell[CellGroupData[{
 
@@ -147,11 +156,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"82f8ddcd-e6bc-4407-ad1c-161325620e71"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"d740358e-5221-4cef-a699-0f29b2b90847"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -159,7 +169,7 @@ Cell[TextData[{
      TextData["GetIndices"]],"paclet:FormTracer/ref/GetIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"e8f83ca2-6686-48f1-a7ca-b1fc17b70fff"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -169,7 +179,7 @@ Cell[TextData[{
      TextData["GetOpenIndices"]],"paclet:FormTracer/ref/GetOpenIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"82d27e2d-2757-48af-aeed-5a3e98855e57"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -179,7 +189,7 @@ Cell[TextData[{
      TextData["GetClosedIndices"]],"paclet:FormTracer/ref/GetClosedIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"aa09520e-3641-4ac0-b992-b192fca901ee"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -190,7 +200,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/GetOpenLorentzIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"a9c7d77e-d502-4ab5-805e-42b0fce9cf98"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -201,7 +211,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/GetOpenDiracIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"e9c3a5b8-2ebd-416f-b568-c1a8883005f0"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -212,12 +222,12 @@ Cell[TextData[{
     "paclet:FormTracer/ref/GetOpenFundGroupIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"491ab54e-a0ef-4270-9ced-c58ccc1923ea"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"fab8c505-39ea-4059-bbca-7fbdee0baaf4"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"c12cf4d8-4397-4682-af15-5ceb38b29d24"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -234,7 +244,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 33.697242}", 
+   "built" -> "{2017, 3, 24, 16, 0, 44.098495}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -247,7 +257,7 @@ group is specified.", "synonyms" -> {}, "tabletags" -> {}, "title" ->
     "GetOpenAdjGroupIndices", "type" -> "Symbol", "uri" -> 
     "FormTracer/ref/GetOpenAdjGroupIndices"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -256,7 +266,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -270,17 +280,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[594, 21, 3674, 86, 70, "AnchorBarGrid",
+Cell[594, 21, 4079, 89, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"2f3a8b84-31fb-45b6-a685-cd5e04fdec8b",
  CellID->1],
-Cell[4271, 109, 299, 11, 70, "ObjectNameGrid"],
-Cell[4573, 122, 550, 15, 70, "Usage"],
+Cell[4676, 112, 549, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"f2074986-5676-4884-b4c1-6e78fe909124"],
+Cell[5228, 129, 724, 17, 70, "Usage", "ExpressionUUID" -> \
+"845fc0fa-e9e0-41cd-a718-8497d37b2bd0"],
 Cell[CellGroupData[{
-Cell[5148, 141, 270, 12, 70, "SeeAlsoSection",
+Cell[5977, 150, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"d740358e-5221-4cef-a699-0f29b2b90847",
  CellID->1255426704],
-Cell[5421, 155, 1999, 61, 70, "SeeAlso",
+Cell[6382, 165, 2384, 61, 70, "SeeAlso", "ExpressionUUID" -> \
+"fab8c505-39ea-4059-bbca-7fbdee0baaf4",
  CellID->929782353]
 }, Open  ]],
-Cell[7435, 219, 23, 0, 70, "FooterCell"]
+Cell[8781, 229, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"c12cf4d8-4397-4682-af15-5ceb38b29d24"]
 }
 ]
 *)

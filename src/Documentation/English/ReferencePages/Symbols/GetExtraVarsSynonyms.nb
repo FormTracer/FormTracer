@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12040,        337]
-NotebookOptionsPosition[      9713,        277]
-NotebookOutlinePosition[     11829,        329]
-CellTagsIndexPosition[     11786,        326]
+NotebookDataLength[     14089,        353]
+NotebookOptionsPosition[     11389,        287]
+NotebookOutlinePosition[     13505,        339]
+CellTagsIndexPosition[     13462,        336]
 WindowTitle->GetExtraVarsSynonyms
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "621f3835-6a8b-44ef-af08-3f0b47a903ce"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"454f64a3-b7e0-4993-9ddc-7bdbc13f41fd"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -57,7 +58,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "aa90c56d-05de-45f0-a2ed-31a7bb8cfab5"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -67,7 +69,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"f87f65fe-f2c6-4d5e-93ee-9b09ed714c59"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -99,24 +101,26 @@ GetExtraVarsSynonyms.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$26043], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$30475], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/GetExtraVarsSynonyms", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "a09cb454-71f3-4c02-96b5-2d1613708fa3"]
+    }], "AnchorBar",ExpressionUUID->"1aa7d75c-73aa-4146-b1d9-c2c7ff041544"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"88c66422-221b-4e27-b4e5-9c16b0da969d"],
 
 Cell[TextData[{
- Cell["GetExtraVarsSynonyms", "ObjectName"],
+ Cell["GetExtraVarsSynonyms", "ObjectName",ExpressionUUID->
+  "846b36e7-f315-486d-883c-9f6aab4b308e"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -124,25 +128,30 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"dc85abda-f5f4-43d2-9836-8602771604b3"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "673f1278-aa1a-4231-a617-6166cac103d8"]
+}], "ObjectNameGrid",ExpressionUUID->"db45be82-e982-4e02-be1e-203a498b83bb"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"GetExtraVarsSynonyms", "[", "]"}]], "InlineFormula"],
+      RowBox[{"GetExtraVarsSynonyms", "[", "]"}]], "InlineFormula",
+      ExpressionUUID->"b0fb5a5b-9fef-492c-a422-6f53cee0e8b2"],
      "\[LineSeparator]returns a list with all extra variables and their \
 respective FORM synonyms (that changes whenever new extra variables are \
 declared). This is an expert's function and requires deep FormTracer \
 knowledge. There is no proper documentation available at this stage. Use it \
 at your own risk."
-    }]]}
+    }],ExpressionUUID->"5998b0da-e8b3-41c6-8b50-f7bf0a759cc1"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"23a12a23-cc37-433a-b877-6f5cdc964658"],
 
 Cell[CellGroupData[{
 
@@ -154,11 +163,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"d9d16caf-fbd5-4d29-8d80-8f37ae709e39"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"b30faa24-3149-4d93-92ef-c768881e3ab5"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -166,7 +176,7 @@ Cell[TextData[{
      TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"406eed25-6458-496f-b71a-827a90b924fe"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -176,7 +186,7 @@ Cell[TextData[{
      TextData["DefineExtraVars"]],"paclet:FormTracer/ref/DefineExtraVars"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"0d7b8292-b36f-40ff-9311-18a4ea7cad0b"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -186,7 +196,7 @@ Cell[TextData[{
      TextData["GetExtraVars"]],"paclet:FormTracer/ref/GetExtraVars"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"c778f957-c3a6-4b1c-9e68-6505f8603a75"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -196,7 +206,7 @@ Cell[TextData[{
      TextData["ClearExtraVars"]],"paclet:FormTracer/ref/ClearExtraVars"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"13298c5b-969d-49ed-bba3-1320d85eb099"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -207,7 +217,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineFormAutoDeclareFunctions"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"efd87e0e-e6df-4a19-9ef2-35ba19bb3a1b"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -217,7 +227,7 @@ Cell[TextData[{
      TextData["ConvertInput"]],"paclet:FormTracer/ref/ConvertInput"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"42e28ced-260a-4d7b-b647-1edbf0880e31"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -227,7 +237,7 @@ Cell[TextData[{
      TextData["ExpandTerms"]],"paclet:FormTracer/ref/ExpandTerms"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"437b9739-773b-4b9f-892a-efffba9ceba0"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -238,7 +248,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/ExpandLorentzStructures"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"1f04dde7-7e92-4a44-922c-d27ccda0555a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -248,7 +258,7 @@ Cell[TextData[{
      TextData["GenerateFormFile"]],"paclet:FormTracer/ref/GenerateFormFile"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"25c5d839-2f8a-42d8-a757-944f65d32436"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -258,7 +268,7 @@ Cell[TextData[{
      TextData["ImportFormResult"]],"paclet:FormTracer/ref/ImportFormResult"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"72967870-3c82-4058-a1c9-849b3c638ade"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -268,12 +278,12 @@ Cell[TextData[{
      TextData["PreambleFormRule"]],"paclet:FormTracer/ref/PreambleFormRule"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"7f0e1555-5692-48b2-a518-9408250f5dd8"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"3eb56533-f7fd-4615-9dfd-fc9590e3078c"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"87a9653e-34c7-4caa-b13d-350158194183"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -290,7 +300,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 28.500078}", 
+   "built" -> "{2017, 3, 24, 16, 0, 38.656868}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -305,7 +315,7 @@ at your own risk.", "synonyms" -> {}, "tabletags" -> {}, "title" ->
     "GetExtraVarsSynonyms", "type" -> "Symbol", "uri" -> 
     "FormTracer/ref/GetExtraVarsSynonyms"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -314,7 +324,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -328,17 +338,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[592, 21, 4184, 94, 70, "AnchorBarGrid",
+Cell[592, 21, 4589, 97, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"88c66422-221b-4e27-b4e5-9c16b0da969d",
  CellID->1],
-Cell[4779, 117, 297, 11, 70, "ObjectNameGrid"],
-Cell[5079, 130, 612, 14, 70, "Usage"],
+Cell[5184, 120, 547, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"db45be82-e982-4e02-be1e-203a498b83bb"],
+Cell[5734, 137, 786, 16, 70, "Usage", "ExpressionUUID" -> \
+"23a12a23-cc37-433a-b877-6f5cdc964658"],
 Cell[CellGroupData[{
-Cell[5716, 148, 270, 12, 70, "SeeAlsoSection",
+Cell[6545, 157, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"b30faa24-3149-4d93-92ef-c768881e3ab5",
  CellID->1255426704],
-Cell[5989, 162, 3682, 110, 70, "SeeAlso",
+Cell[6950, 172, 4342, 110, 70, "SeeAlso", "ExpressionUUID" -> \
+"3eb56533-f7fd-4615-9dfd-fc9590e3078c",
  CellID->929782353]
 }, Open  ]],
-Cell[9686, 275, 23, 0, 70, "FooterCell"]
+Cell[11307, 285, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"87a9653e-34c7-4caa-b13d-350158194183"]
 }
 ]
 *)

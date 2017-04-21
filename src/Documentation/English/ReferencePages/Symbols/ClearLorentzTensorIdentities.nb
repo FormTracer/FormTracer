@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      8672,        252]
-NotebookOptionsPosition[      6555,        195]
-NotebookOutlinePosition[      8462,        244]
-CellTagsIndexPosition[      8419,        241]
+NotebookDataLength[     10336,        268]
+NotebookOptionsPosition[      7846,        205]
+NotebookOutlinePosition[      9754,        254]
+CellTagsIndexPosition[      9711,        251]
 WindowTitle->ClearLorentzTensorIdentities
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "753007a5-d41d-41ca-861b-69dab77807d2"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"3c3ac439-76d4-49bc-8a23-dbefbe4c5aaf"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -44,7 +45,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "58d4458f-f7b5-47a4-8d01-b155cb62c847"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -54,7 +56,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"c0ebb307-cd0f-4987-bb91-38ed673abcd3"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -88,7 +90,7 @@ ClearLorentzTensorIdentities.html"], StandardForm]], "Input",
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$11000], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$15514], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/ClearLorentzTensorIdentities", ".html"]], 
@@ -96,17 +98,19 @@ ClearLorentzTensorIdentities.html"], StandardForm]], "Input",
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "84d9dd56-67a4-4df9-b299-8c24ded8930d"]
+    }], "AnchorBar",ExpressionUUID->"8651a2e1-f7ca-4703-9df9-7f2db4ff8c83"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"4b06e0cd-f646-424b-8d6a-05ca61ff1a45"],
 
 Cell[TextData[{
- Cell["ClearLorentzTensorIdentities", "ObjectName"],
+ Cell["ClearLorentzTensorIdentities", "ObjectName",ExpressionUUID->
+  "586a84ef-96f2-45f5-b61e-84abd0741fbb"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -114,21 +118,26 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"ea6d348e-6f2b-4398-9954-4633435b8bf9"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "c7435bfe-5439-4900-9093-60a69060ad20"]
+}], "ObjectNameGrid",ExpressionUUID->"81e7b3ce-f9dd-4fde-a0aa-58008cfbb5d0"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"ClearLorentzTensorIdentities", "[", "]"}]], "InlineFormula"],
+      RowBox[{"ClearLorentzTensorIdentities", "[", "]"}]], "InlineFormula",
+      ExpressionUUID->"c266ce3e-fd60-4f59-a2ec-43fe704f5727"],
      "\[LineSeparator]clears all Lorentz tensors identities."
-    }]]}
+    }],ExpressionUUID->"1875137d-1f65-4ba9-be21-2ef235f3c542"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"dbf040e2-b109-437b-8b0a-c9f89b6b3929"],
 
 Cell[CellGroupData[{
 
@@ -140,11 +149,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"367452ac-810f-43a9-84b7-f02eb3516a03"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"bfdc4b11-5e16-44fb-8d52-d96e1e7ecbcc"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -153,7 +163,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineLorentzTensors"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"a27af832-cc73-45ec-a595-ede7863cce0a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -164,7 +174,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/AddLorentzTensorIdentity"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"add2d214-2c8d-42cb-aee4-4adbc642929e"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -175,7 +185,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineLorentzTensorIdentities"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"5ff2ad43-893e-4d7e-8135-afcee3631b6c"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -186,12 +196,12 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"739a0514-98f7-413d-9b4d-9453371ee6e2"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"40df3e98-02d2-411b-8c17-2aa12c73e2a6"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"958013c7-38e1-4daa-afc6-3393089fb1da"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -208,7 +218,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 32, 48.558569}", 
+   "built" -> "{2017, 3, 24, 15, 59, 56.480448}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -220,7 +230,7 @@ TaggingRules->{
     "ClearLorentzTensorIdentities", "type" -> "Symbol", "uri" -> 
     "FormTracer/ref/ClearLorentzTensorIdentities"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -229,7 +239,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -243,17 +253,23 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[600, 21, 3554, 84, 70, "AnchorBarGrid",
+Cell[600, 21, 3959, 87, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"4b06e0cd-f646-424b-8d6a-05ca61ff1a45",
  CellID->1],
-Cell[4157, 107, 305, 11, 70, "ObjectNameGrid"],
-Cell[4465, 120, 366, 10, 70, "Usage"],
+Cell[4562, 110, 555, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"81e7b3ce-f9dd-4fde-a0aa-58008cfbb5d0"],
+Cell[5120, 127, 540, 12, 70, "Usage", "ExpressionUUID" -> \
+"dbf040e2-b109-437b-8b0a-c9f89b6b3929"],
 Cell[CellGroupData[{
-Cell[4856, 134, 270, 12, 70, "SeeAlsoSection",
+Cell[5685, 143, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"bfdc4b11-5e16-44fb-8d52-d96e1e7ecbcc",
  CellID->1255426704],
-Cell[5129, 148, 1384, 42, 70, "SeeAlso",
+Cell[6090, 158, 1659, 42, 70, "SeeAlso", "ExpressionUUID" -> \
+"40df3e98-02d2-411b-8c17-2aa12c73e2a6",
  CellID->929782353]
 }, Open  ]],
-Cell[6528, 193, 23, 0, 70, "FooterCell"]
+Cell[7764, 203, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"958013c7-38e1-4daa-afc6-3393089fb1da"]
 }
 ]
 *)

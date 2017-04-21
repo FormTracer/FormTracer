@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     17660,        434]
-NotebookOptionsPosition[     16721,        397]
-NotebookOutlinePosition[     17081,        413]
-CellTagsIndexPosition[     17038,        410]
+NotebookDataLength[     17981,        442]
+NotebookOptionsPosition[     17036,        405]
+NotebookOutlinePosition[     17408,        421]
+CellTagsIndexPosition[     17365,        418]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -37,7 +37,7 @@ Cell["License", "Section"],
 
 Cell[BoxData[
  RowBox[{"(*", 
-  "\"\<\nCopyright (C) 2013-2016, Anton K. Cyrol, Mario Mitter, Jan M. \
+  "\"\<\nCopyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. \
 Pawlowski and Nils Strodthoff.\nThis program is free software: you can \
 redistribute it and/or modify\nit under the terms of the GNU General Public \
 License as published by\nthe Free Software Foundation, either version 3 of \
@@ -48,7 +48,8 @@ PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\n\
 You should have received a copy of the GNU General Public License\nalong with \
 this program.  If not, see <http://www.gnu.org/licenses/>.\n\>\"", 
   "*)"}]], "Input",
- InitializationCell->True]
+ InitializationCell->True,
+ CellChangeTimes->{{3.700286998707469*^9, 3.700286998883017*^9}}]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -153,6 +154,9 @@ Cell[BoxData[{
     "\"\<\\nInstallation failed. Please read the error messages for more \
 information!\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"Print", "[", "\"\<Downloading FormTracer ...\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"formTracerArchive", "=", 
    RowBox[{"FileNameJoin", "[", 
     RowBox[{"{", 
@@ -244,7 +248,8 @@ information!\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]",
    3.686028100342278*^9}, {3.686028151820121*^9, 3.686028152063704*^9}, {
    3.686028329586063*^9, 3.686028386758148*^9}, 3.686028541021409*^9, {
    3.6860285819434223`*^9, 3.6860286102229156`*^9}, {3.686028727356236*^9, 
-   3.686028730099649*^9}, {3.689949553892756*^9, 3.6899495542156477`*^9}}],
+   3.686028730099649*^9}, {3.689949553892756*^9, 3.6899495542156477`*^9}, {
+   3.701664780634798*^9, 3.701664782330064*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -278,95 +283,97 @@ you want to overwrite the existing installation version \>\"", "<>",
        RowBox[{"formTracerFiles", ",", "formTracerFilesExist"}], "]"}], 
       "]"}]}], "]"}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"If", "[", 
-   RowBox[{
-    RowBox[{"formTracerExistingInstallation", "&&", 
-     RowBox[{"deleteExisting", "===", "False"}]}], ",", "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{"abort", " ", "installation"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"If", "[", 
     RowBox[{
-     RowBox[{"Print", "[", "\"\<FormTracer installation aborted.\>\"", "]"}], 
-     ";", "\[IndentingNewLine]", 
-     RowBox[{"Quiet", "[", 
-      RowBox[{"DeleteFile", "[", "formTracerArchive", "]"}], "]"}], ";"}], 
-    ",", "\[IndentingNewLine]", 
-    RowBox[{"(*", 
-     RowBox[{"install", " ", "FormTracer"}], "*)"}], "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"installationSuccess", "=", 
-      RowBox[{"Check", "[", "\[IndentingNewLine]", 
-       RowBox[{
+     RowBox[{"formTracerExistingInstallation", "&&", 
+      RowBox[{"deleteExisting", "===", "False"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"abort", " ", "installation"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", "\"\<FormTracer installation aborted.\>\"", "]"}],
+       ";"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"install", " ", "FormTracer"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"installationSuccess", "=", 
+       RowBox[{"Check", "[", "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"ExtractArchive", "[", 
-          RowBox[{"formTracerArchive", ",", "formTracerInstallDir"}], "]"}], 
-         ";", "\[IndentingNewLine]", 
-         RowBox[{"DeleteFile", "[", "formTracerArchive", "]"}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"<<", "\"\<FormTracer`\>\""}], ";"}], "\[IndentingNewLine]", 
-        ",", "$Failed"}], "]"}]}], ";", "\[IndentingNewLine]", 
-     RowBox[{"If", "[", 
-      RowBox[{
-       RowBox[{"installationSuccess", "===", "$Failed"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", 
-        RowBox[{"installation", " ", "failed"}], "*)"}], 
-       "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ExtractArchive", "[", 
+           RowBox[{"formTracerArchive", ",", "formTracerInstallDir"}], "]"}], 
+          ";", "\[IndentingNewLine]", 
+          RowBox[{"<<", "\"\<FormTracer`\>\""}], ";"}], "\[IndentingNewLine]",
+          ",", "$Failed"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
        RowBox[{
-        RowBox[{"Message", "[", 
-         RowBox[{"formTracerInstaller", "::", "installationfailed"}], "]"}], 
-        ";"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"(*", 
-        RowBox[{"installation", " ", "successful"}], "*)"}], 
-       "\[IndentingNewLine]", 
-       RowBox[{
-        RowBox[{"RebuildPacletData", "[", "]"}], ";", "\[IndentingNewLine]", 
-        RowBox[{
-        "Print", "[", 
-         "\"\<\nInstallation was successful. Happy tracing!\nSearch for \
-FormTracer in the documentation center to get started!\n\>\"", "]"}], ";", 
+        RowBox[{"installationSuccess", "===", "$Failed"}], ",", 
         "\[IndentingNewLine]", 
         RowBox[{"(*", 
+         RowBox[{"installation", " ", "failed"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Message", "[", 
+          RowBox[{"formTracerInstaller", "::", "installationfailed"}], "]"}], 
+         ";"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"installation", " ", "successful"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"RebuildPacletData", "[", "]"}], ";", "\[IndentingNewLine]", 
+         
          RowBox[{
-         "check", " ", "whether", " ", "FORM", " ", "was", " ", "found"}], 
-         "*)"}], "\[IndentingNewLine]", 
-        RowBox[{"If", "[", 
-         RowBox[{
-          RowBox[{"Not", "[", "FormTracer`Private`formChecked", "]"}], ",", 
-          "\[IndentingNewLine]", 
+         "Print", "[", 
+          "\"\<\nInstallation was successful. Happy tracing!\nSearch for \
+FormTracer in the documentation center to get started!\n\>\"", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"(*", 
           RowBox[{
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"ChoiceDialog", "[", 
-              RowBox[{
-              "\"\<FORM was not found on your computer. Do you want to \
+          "check", " ", "whether", " ", "FORM", " ", "was", " ", "found"}], 
+          "*)"}], "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"Not", "[", "FormTracer`Private`formChecked", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"ChoiceDialog", "[", 
+               RowBox[{
+               "\"\<FORM was not found on your computer. Do you want to \
 install it?\n\nIf you choose not do to so, you can either install FORM \
 manually or install it later with InstallFORM[].\>\"", ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"WindowTitle", "\[Rule]", "\"\<Install FORM\>\""}], 
-               ",", 
-               RowBox[{"WindowSize", "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{"Medium", ",", "All"}], "}"}]}]}], "]"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"formInstallationSuccessfull", "=", "True"}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"WindowTitle", "\[Rule]", "\"\<Install FORM\>\""}], 
+                ",", 
+                RowBox[{"WindowSize", "\[Rule]", 
+                 RowBox[{"{", 
+                  RowBox[{"Medium", ",", "All"}], "}"}]}]}], "]"}], ",", 
               "\[IndentingNewLine]", 
-              RowBox[{"Check", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"FormTracer`InstallFORM", "[", "]"}], ";"}], ",", 
-                RowBox[{
-                 RowBox[{"formInstallationSuccessfull", "=", "False"}], 
-                 ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
-              RowBox[{"If", "[", 
-               RowBox[{"formInstallationSuccessfull", ",", 
+              RowBox[{
+               RowBox[{"formInstallationSuccessfull", "=", "True"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"Check", "[", 
                 RowBox[{
                  RowBox[{
-                 "Print", "[", 
-                  "\"\<FORM was successfully installed, you can now start \
+                  RowBox[{"FormTracer`InstallFORM", "[", "]"}], ";"}], ",", 
+                 RowBox[{
+                  RowBox[{"formInstallationSuccessfull", "=", "False"}], 
+                  ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{"formInstallationSuccessfull", ",", 
+                 RowBox[{
+                  RowBox[{
+                  "Print", "[", 
+                   "\"\<FORM was successfully installed, you can now start \
 tracing.\>\"", "]"}], ";"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
-           ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+            ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+   ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Quiet", "[", 
+   RowBox[{"DeleteFile", "[", "formTracerArchive", "]"}], "]"}], 
   ";"}]}], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.678863202996467*^9, 3.678863211820141*^9}, {
@@ -391,14 +398,15 @@ tracing.\>\"", "]"}], ";"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}],
    3.683888721122006*^9, 3.683888735833242*^9}, 3.6838887721621532`*^9, {
    3.683889020401266*^9, 3.683889024602931*^9}, {3.686035472080258*^9, 
    3.686035532045334*^9}, {3.6919690330695047`*^9, 3.691969034694683*^9}, {
-   3.691969076402094*^9, 3.691969079029949*^9}}]
+   3.691969076402094*^9, 3.691969079029949*^9}, {3.701664853488426*^9, 
+   3.7016648664985123`*^9}}]
 }, Closed]]
 }, Open  ]]
 },
 AutoGeneratedPackage->Automatic,
-WindowSize->{1918, 2041},
-WindowMargins->{{2, Automatic}, {0, 67}},
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+WindowSize->{1680, 1000},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -413,26 +421,26 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 104, 1, 188, "Title"],
-Cell[687, 25, 322, 6, 66, "Text"],
+Cell[580, 22, 104, 1, 93, "Title"],
+Cell[687, 25, 322, 6, 31, "Text"],
 Cell[CellGroupData[{
-Cell[1034, 35, 26, 0, 132, "Section"],
-Cell[1063, 37, 829, 13, 341, "Input",
+Cell[1034, 35, 26, 0, 65, "Section"],
+Cell[1063, 37, 895, 14, 362, "Input",
  InitializationCell->True]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[1929, 55, 94, 1, 100, "Section"],
-Cell[2026, 58, 1017, 24, 390, "Input",
+Cell[1995, 56, 94, 1, 51, "Section"],
+Cell[2092, 59, 1017, 24, 164, "Input",
  InitializationCell->True],
-Cell[3046, 84, 546, 15, 146, "Input",
+Cell[3112, 85, 546, 15, 72, "Input",
  InitializationCell->True],
-Cell[3595, 101, 291, 8, 95, "Input",
+Cell[3661, 102, 291, 8, 50, "Input",
  InitializationCell->True],
-Cell[3889, 111, 1314, 28, 180, "Input",
+Cell[3955, 112, 1314, 28, 73, "Input",
  InitializationCell->True],
-Cell[5206, 141, 4545, 105, 936, "Input",
+Cell[5272, 142, 4708, 109, 392, "Input",
  InitializationCell->True],
-Cell[9754, 248, 6939, 145, 1995, "Input",
+Cell[9983, 253, 7025, 148, 954, "Input",
  InitializationCell->True]
 }, Closed]]
 }, Open  ]]

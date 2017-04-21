@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      9351,        273]
-NotebookOptionsPosition[      7140,        213]
-NotebookOutlinePosition[      9121,        264]
-CellTagsIndexPosition[      9078,        261]
+NotebookDataLength[     11129,        289]
+NotebookOptionsPosition[      8546,        223]
+NotebookOutlinePosition[     10527,        274]
+CellTagsIndexPosition[     10484,        271]
 WindowTitle->InstallFORM
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER SYMBOL", "PacletNameCell",ExpressionUUID->
+     "add8e82d-55fe-46df-be24-cffebaca0db3"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"a7c155a7-a84a-4d23-8790-9fd53bdd3e37"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -45,7 +46,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "d3a015f0-91bd-46a3-abb5-e7922f77ea0f"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -55,7 +57,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"c91e1b77-04f2-4564-961e-2d3f9f294b74"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -87,24 +89,26 @@ InstallFORM.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$31598], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$35990], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/InstallFORM", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7581227b-4aa0-4bf5-91d5-47585a5c10ed"]
+    }], "AnchorBar",ExpressionUUID->"e012d779-77f0-43b7-b09f-b86b477b6cf9"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"6d2898d2-7503-40ee-af6c-8a819bebf36c"],
 
 Cell[TextData[{
- Cell["InstallFORM", "ObjectName"],
+ Cell["InstallFORM", "ObjectName",ExpressionUUID->
+  "1d30db38-590a-4d09-83ee-3b61aee187eb"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -112,14 +116,18 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"aec04fb6-3833-4d27-b28a-fee1f774be76"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "1d7af104-c5ac-4f48-83fa-c4c9ec02654d"]
+}], "ObjectNameGrid",ExpressionUUID->"79fc8aeb-4aae-455d-b340-ef8ec3b6f948"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
      Cell[BoxData[
-      RowBox[{"InstallFORM", "[", "]"}]], "InlineFormula"],
+      RowBox[{"InstallFORM", "[", "]"}]], "InlineFormula",ExpressionUUID->
+      "b620367b-7562-4c16-a3ad-1c9529302d34"],
      " \[LineSeparator]InstallFORM downloads the FORM executable for your \
 operating system from ",
      Cell[BoxData[
@@ -128,16 +136,17 @@ operating system from ",
          "http://www.nikhef.nl/~form/maindir/binaries/binaries.html"]],
         "http://www.nikhef.nl/~form/maindir/binaries/binaries.html"},
        "WebLink",
-       BaseStyle->{"Usage"}]]],
+       BaseStyle->{"Usage"}]],ExpressionUUID->
+      "23d1ebca-0567-4b26-86ba-eeb6812c13bc"],
      " and copies it into the FormTracer directory in Mathematica's \
 application folder."
-    }]]}
+    }],ExpressionUUID->"18ab3b03-a0eb-4eb1-b8ed-ea5088074c35"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
    "RowsIndexed" -> {}}},
- CellID->982511436],
+ CellID->982511436,ExpressionUUID->"cabc31a9-9c1e-40fa-987c-2046db80d834"],
 
 Cell[CellGroupData[{
 
@@ -149,11 +158,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"ccbd819a-bd25-440f-a400-d9ec1e11e774"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"878b4fe6-6b42-44d3-bab9-05a788cd341d"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -162,7 +172,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/CheckForFormTracerUpdates"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"cfb0c5b8-3c06-4a8a-b6cc-072351710f6e"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -173,7 +183,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/ShowFormTracerChangeLog"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"33ce5ffc-deed-41b0-926d-fc4e9b95cc26"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -183,7 +193,7 @@ Cell[TextData[{
      TextData["UpdateFormTracer"]],"paclet:FormTracer/ref/UpdateFormTracer"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"997e4a85-521a-42d0-abaa-b2b4a11818f8"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -194,7 +204,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineFormExecutable"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"d5ad9a14-023c-439b-a86b-5d1d46487f8a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -204,12 +214,12 @@ Cell[TextData[{
      TextData["FormTrace"]],"paclet:FormTracer/ref/FormTrace"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"ff93c37e-ef19-48df-a267-4f0118463ffc"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"b62f367e-b3df-4cfc-b4dd-fc7aa4c75e0c"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"c047bab9-9b80-46e3-8eab-713bd6f7befc"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -226,7 +236,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 41.464198}", 
+   "built" -> "{2017, 3, 24, 16, 0, 52.380985}", 
     "history" -> {"1.8", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -240,7 +250,7 @@ the FormTracer directory in Mathematica's application folder.",
     "titlemodifier" -> "", "windowtitle" -> "InstallFORM", "type" -> "Symbol",
      "uri" -> "FormTracer/ref/InstallFORM"}},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -249,7 +259,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -263,18 +273,24 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[583, 21, 3498, 82, 70, "AnchorBarGrid",
+Cell[583, 21, 3903, 85, 70, "AnchorBarGrid", "ExpressionUUID" -> \
+"6d2898d2-7503-40ee-af6c-8a819bebf36c",
  CellID->1],
-Cell[4084, 105, 288, 11, 70, "ObjectNameGrid"],
-Cell[4375, 118, 754, 21, 70, "Usage",
+Cell[4489, 108, 538, 15, 70, "ObjectNameGrid", "ExpressionUUID" -> \
+"79fc8aeb-4aae-455d-b340-ef8ec3b6f948"],
+Cell[5030, 125, 988, 23, 70, "Usage", "ExpressionUUID" -> \
+"cabc31a9-9c1e-40fa-987c-2046db80d834",
  CellID->982511436],
 Cell[CellGroupData[{
-Cell[5154, 143, 270, 12, 70, "SeeAlsoSection",
+Cell[6043, 152, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"878b4fe6-6b42-44d3-bab9-05a788cd341d",
  CellID->1255426704],
-Cell[5427, 157, 1671, 51, 70, "SeeAlso",
+Cell[6448, 167, 2001, 51, 70, "SeeAlso", "ExpressionUUID" -> \
+"b62f367e-b3df-4cfc-b4dd-fc7aa4c75e0c",
  CellID->929782353]
 }, Open  ]],
-Cell[7113, 211, 23, 0, 70, "FooterCell"]
+Cell[8464, 221, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"c047bab9-9b80-46e3-8eab-713bd6f7befc"]
 }
 ]
 *)

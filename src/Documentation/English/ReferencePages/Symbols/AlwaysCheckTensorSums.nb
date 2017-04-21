@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     14715,        456]
-NotebookOptionsPosition[     11494,        360]
-NotebookOutlinePosition[     13594,        416]
-CellTagsIndexPosition[     13509,        411]
+NotebookDataLength[     18396,        494]
+NotebookOptionsPosition[     13950,        376]
+NotebookOutlinePosition[     16119,        434]
+CellTagsIndexPosition[     16034,        429]
 WindowTitle->AlwaysCheckTensorSums
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "8c46ddc3-1c7c-4ab8-8920-2a0311aa7437"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"842ba412-7c55-4ae9-9955-3b1d31a07556"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -53,7 +54,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "0b3a0dd2-00fd-4b54-b9ab-3136a3ce7c29"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -63,7 +65,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"56a0fbf6-d84a-427d-9570-6b5d99ee9981"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -96,24 +98,28 @@ AlwaysCheckTensorSums.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$5423], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$9977], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/AlwaysCheckTensorSums", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1ce9a8fe-3bf4-47dd-b952-2ca7a5ae6d61"]
+    }], "AnchorBar",ExpressionUUID->"a9880195-46ab-4a08-b658-b2880d3a0de2"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"9114344a-b4f4-484b-9388-67cb827f16c5"],
+
+Cell[CellGroupData[{
 
 Cell[TextData[{
- Cell["AlwaysCheckTensorSums", "ObjectName"],
+ Cell["AlwaysCheckTensorSums", "ObjectName",ExpressionUUID->
+  "a7bec6e9-ea1a-4978-8541-ac6339de42d5"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -121,9 +127,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"1986731d-ff4c-4ca6-b080-b4be61a16c07"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "8af6d392-3a63-4336-aefa-75371db6ae95"]
+}], "ObjectNameGrid",ExpressionUUID->"1afe924e-f69c-4902-b274-37cd3a7e7e88"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -137,14 +146,17 @@ Cell[BoxData[GridBox[{
         TemplateBox[{Cell[
            TextData["False"]],"paclet:ref/False"},
          "RefLink",
-         BaseStyle->{"InlineFormula", "CodeFont"}]}], "]"}]], "InlineFormula"],
+         BaseStyle->{"InlineFormula", "CodeFont"}]}], "]"}]], "InlineFormula",
+      ExpressionUUID->"896927c7-1fc6-45c7-a89f-274469e5e8bd"],
      "\[LineSeparator]enables/disables consistency checks."
-    }]]}
+    }],ExpressionUUID->"f45a5b54-4fa7-4109-b9c6-bbc1e6bcf370"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
-   "RowsIndexed" -> {}}}],
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"1dbbad73-ae3b-4f5f-8342-9711fecfa636"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -156,27 +168,30 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"b54504cf-a82a-40ce-85a7-ad53752a9082"],
  "Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(1)", "ExampleCount"]
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "3bc7b2f2-9969-4125-a5dd-ca5c128f8f84"]
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->569233702],
+ CellID->1918778940,ExpressionUUID->"97269892-e9e8-470d-b521-dcd6ebd55fcb"],
 
 Cell[CellGroupData[{
 
 Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(1)", "ExampleCount"]
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "412cfdc8-7e6d-492d-bcd3-bf6f5ed1cbbd"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->3043047],
+ CellID->438382809,ExpressionUUID->"95874350-ffd8-4f6d-a0a9-c4d8148081c3"],
 
 Cell["Load FormTracer and define the basic syntax:", "ExampleText",
- CellID->1222388521],
+ CellID->1222388521,ExpressionUUID->"40084396-5ec5-4ee3-bda9-7e2703c5fb2e"],
 
 Cell[BoxData[{
  RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
@@ -189,28 +204,28 @@ Cell[BoxData[{
    RowBox[{"sp", "[", 
     RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
  CellLabel->"In[1]:=",
- CellID->1742384902],
+ CellID->1742384902,ExpressionUUID->"a8dc2347-4e8d-4574-86c9-f149c88e6fe2"],
 
 Cell["Enable the tensor sum check:", "ExampleText",
- CellID->1746636942],
+ CellID->1746636942,ExpressionUUID->"c59bf1ba-46e4-4509-93dd-7fe48393ad8b"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"AlwaysCheckTensorSums", "[", "True", "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->645507991],
+ CellID->645507991,ExpressionUUID->"f5f167bf-db7c-4d9a-8fb1-e3f0ae633027"],
 
 Cell[BoxData["\<\"Tensors sums are checked for consistency.\\nKeep in mind \
 that this leads to performance losses.\"\>"], "Print",
  CellLabel->"During evaluation of In[40]:=",
- CellID->1435947899]
+ CellID->1435947899,ExpressionUUID->"3e353e65-dc21-498f-94fb-d26ccee5c74d"]
 }, Open  ]],
 
 Cell["\<\
 Now all expressions are checked for consistency with CheckTensorSums:\
 \>", "ExampleText",
- CellID->1212437806],
+ CellID->1212437806,ExpressionUUID->"9269431f-ad9a-4c01-9982-88268c4e8fa1"],
 
 Cell[CellGroupData[{
 
@@ -220,7 +235,7 @@ Cell[BoxData[
    RowBox[{"vec", "[", 
     RowBox[{"p", ",", "mu"}], "]"}], "+", "1"}], "]"}]], "Input",
  CellLabel->"In[3]:=",
- CellID->2142976665],
+ CellID->2142976665,ExpressionUUID->"241312ba-c49e-4675-b208-0cd119ca7eaf"],
 
 Cell[BoxData[
  TemplateBox[{
@@ -231,18 +246,18 @@ RowBox[{RowBox[{\\\"{\\\", \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
    "Local"},
   "MessageTemplate"]], "Message", "MSG",
  CellLabel->"During evaluation of In[3]:=",
- CellID->1029497541],
+ CellID->1029497541,ExpressionUUID->"b358c39a-53f0-4ea2-a36e-23316e008c54"],
 
 Cell[BoxData["$Aborted"], "Output",
- ImageSize->{68, 14},
+ ImageSize->{68, 16},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[3]=",
- CellID->289276600]
+ CellID->289276600,ExpressionUUID->"fa95b3a2-22a5-472a-8678-6f161ff9d18d"]
 }, Open  ]]
 }, Open  ]],
 
-Cell["", "SectionFooterSpacer"]
+Cell["", "SectionFooterSpacer",ExpressionUUID->"7442ba51-8e48-417a-9fba-e88e301a7fd9"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -255,11 +270,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"cd3093ea-a871-4332-ba79-16ea4c5e4553"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"7a71c963-b242-41ed-a1bb-b915d72fe893"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -267,7 +283,7 @@ Cell[TextData[{
      TextData["DebuggingMode"]],"paclet:FormTracer/ref/DebuggingMode"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"33450895-57a6-44c6-99b0-7bfb979a61e6"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -277,7 +293,7 @@ Cell[TextData[{
      TextData["CheckTensorSums"]],"paclet:FormTracer/ref/CheckTensorSums"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"f8158e32-c7d6-4488-b058-ca208c292a08"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -288,7 +304,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/CheckLorentzTensorSums"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"d785a85d-2b86-48ca-8f51-783dcb11814b"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -299,7 +315,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/CheckDiracTensorSums"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"0b904a5e-5ec5-4d0a-97d8-bf6b0390dcba"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -310,7 +326,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/CheckFundGroupTensorSums"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"9b363b51-68e7-40fd-974a-3e9e4adc5978"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -321,7 +337,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/CheckAdjGroupTensorSums"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"4303b7b0-9b62-4473-bbb2-0377a6156397"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -331,7 +347,7 @@ Cell[TextData[{
      TextData["GetIndices"]],"paclet:FormTracer/ref/GetIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"2548b4bc-f513-4f3a-a3fd-2a67fa341bf0"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -341,7 +357,7 @@ Cell[TextData[{
      TextData["GetOpenIndices"]],"paclet:FormTracer/ref/GetOpenIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"2bf1e9ce-5726-41b4-8693-cd97052a4598"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -351,12 +367,12 @@ Cell[TextData[{
      TextData["GetClosedIndices"]],"paclet:FormTracer/ref/GetClosedIndices"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"fda2799a-6411-44c5-96d7-4ab34ca9ca9d"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"08e43287-c9ae-4733-96b6-6aae5091148a"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"c7ce7dc1-8ad3-44fe-a32d-ee8bc69f81d0"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -373,7 +389,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 32, 34.184294}", 
+   "built" -> "{2017, 3, 24, 15, 59, 41.027983}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -385,7 +401,7 @@ TaggingRules->{
     "Symbol", "uri" -> "FormTracer/ref/AlwaysCheckTensorSums"}, 
   "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -394,7 +410,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -403,61 +419,83 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
+  Cell[6466, 162, 578, 17, 
+  36, "PrimaryExamplesSection", "ExpressionUUID" -> "97269892-e9e8-470d-b521-
+   dcd6ebd55fcb",
    CellTags->"PrimaryExamplesSection",
-   CellID->569233702]}
+   CellID->1918778940]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 13366, 404}
+ {"PrimaryExamplesSection", 15823, 420}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[593, 21, 4001, 91, 51, "AnchorBarGrid",
+Cell[593, 21, 4406, 94, 54, "AnchorBarGrid", "ExpressionUUID" -> \
+"9114344a-b4f4-484b-9388-67cb827f16c5",
  CellID->1],
-Cell[4597, 114, 298, 11, 43, "ObjectNameGrid"],
-Cell[4898, 127, 680, 19, 85, "Usage"],
 Cell[CellGroupData[{
-Cell[5603, 150, 387, 15, 30, "PrimaryExamplesSection",
+Cell[5024, 119, 548, 15, 56, "ObjectNameGrid", "ExpressionUUID" -> \
+"1afe924e-f69c-4902-b274-37cd3a7e7e88"],
+Cell[5575, 136, 854, 21, 110, "Usage", "ExpressionUUID" -> \
+"1dbbad73-ae3b-4f5f-8342-9711fecfa636"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6466, 162, 578, 17, 36, "PrimaryExamplesSection", "ExpressionUUID" -> \
+"97269892-e9e8-470d-b521-dcd6ebd55fcb",
  CellTags->"PrimaryExamplesSection",
- CellID->569233702],
+ CellID->1918778940],
 Cell[CellGroupData[{
-Cell[6015, 169, 193, 6, 25, "ExampleSection",
- CellID->3043047],
-Cell[6211, 177, 88, 1, 34, "ExampleText",
+Cell[7069, 183, 308, 7, 31, "ExampleSection", "ExpressionUUID" -> \
+"95874350-ffd8-4f6d-a0a9-c4d8148081c3",
+ CellID->438382809],
+Cell[7380, 192, 143, 1, 38, "ExampleText", "ExpressionUUID" -> \
+"40084396-5ec5-4ee3-bda9-7e2703c5fb2e",
  CellID->1222388521],
-Cell[6302, 180, 408, 11, 45, "Input",
+Cell[7526, 195, 463, 11, 47, "Input", "ExpressionUUID" -> \
+"a8dc2347-4e8d-4574-86c9-f149c88e6fe2",
  CellID->1742384902],
-Cell[6713, 193, 72, 1, 34, "ExampleText",
+Cell[7992, 208, 127, 1, 38, "ExampleText", "ExpressionUUID" -> \
+"c59bf1ba-46e4-4509-93dd-7fe48393ad8b",
  CellID->1746636942],
 Cell[CellGroupData[{
-Cell[6810, 198, 120, 3, 28, "Input",
+Cell[8144, 213, 175, 3, 28, "Input", "ExpressionUUID" -> \
+"f5f167bf-db7c-4d9a-8fb1-e3f0ae633027",
  CellID->645507991],
-Cell[6933, 203, 197, 3, 41, "Print",
+Cell[8322, 218, 252, 3, 43, "Print", "ExpressionUUID" -> \
+"3e353e65-dc21-498f-94fb-d26ccee5c74d",
  CellID->1435947899]
 }, Open  ]],
-Cell[7145, 209, 121, 3, 34, "ExampleText",
+Cell[8589, 224, 176, 3, 38, "ExampleText", "ExpressionUUID" -> \
+"9269431f-ad9a-4c01-9982-88268c4e8fa1",
  CellID->1212437806],
 Cell[CellGroupData[{
-Cell[7291, 216, 186, 6, 28, "Input",
+Cell[8790, 231, 241, 6, 28, "Input", "ExpressionUUID" -> \
+"241312ba-c49e-4675-b208-0cd119ca7eaf",
  CellID->2142976665],
-Cell[7480, 224, 400, 9, 26, "Message",
+Cell[9034, 239, 455, 9, 24, "Message", "ExpressionUUID" -> \
+"b358c39a-53f0-4ea2-a36e-23316e008c54",
  CellID->1029497541],
-Cell[7883, 235, 165, 5, 35, "Output",
+Cell[9492, 250, 220, 5, 37, "Output", "ExpressionUUID" -> \
+"fa95b3a2-22a5-472a-8678-6f161ff9d18d",
  CellID->289276600]
 }, Open  ]]
 }, Open  ]],
-Cell[8075, 244, 31, 0, 29, "SectionFooterSpacer"]
+Cell[9739, 259, 86, 0, 29, "SectionFooterSpacer", "ExpressionUUID" -> \
+"7442ba51-8e48-417a-9fba-e88e301a7fd9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8143, 249, 270, 12, 29, "SeeAlsoSection",
+Cell[9862, 264, 402, 13, 73, "SeeAlsoSection", "ExpressionUUID" -> \
+"7a71c963-b242-41ed-a1bb-b915d72fe893",
  CellID->1255426704],
-Cell[8416, 263, 3036, 92, 98, "SeeAlso",
+Cell[10267, 279, 3586, 92, 70, "SeeAlso", "ExpressionUUID" -> \
+"08e43287-c9ae-4733-96b6-6aae5091148a",
  CellID->929782353]
 }, Open  ]],
-Cell[11467, 358, 23, 0, 70, "FooterCell"]
+Cell[13868, 374, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"c7ce7dc1-8ad3-44fe-a32d-ee8bc69f81d0"]
 }
 ]
 *)

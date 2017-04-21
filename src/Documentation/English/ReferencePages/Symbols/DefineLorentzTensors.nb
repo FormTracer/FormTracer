@@ -3,24 +3,25 @@
 (*** Wolfram Notebook File ***)
 (* http://www.wolfram.com/nb *)
 
-(* CreatedBy='Mathematica 11.0' *)
+(* CreatedBy='Mathematica 11.1' *)
 
 (*CacheID: 234*)
 (* Internal cache information:
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29175,        936]
-NotebookOptionsPosition[     23085,        759]
-NotebookOutlinePosition[     26042,        826]
-CellTagsIndexPosition[     25957,        821]
+NotebookDataLength[     36907,       1015]
+NotebookOptionsPosition[     27851,        788]
+NotebookOutlinePosition[     30875,        857]
+CellTagsIndexPosition[     30790,        852]
 WindowTitle->DefineLorentzTensors
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[GridBox[{
-   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell"], Cell[TextData[{
+   {Cell["FORM TRACER PACKAGE SYMBOL", "PacletNameCell",ExpressionUUID->
+     "14649f54-d6e0-4dcb-8bf7-cfa168c331e5"], Cell[TextData[{
      Cell[BoxData[
       ActionMenuBox[
        FrameBox[
@@ -28,7 +29,7 @@ Cell[BoxData[GridBox[{
           "See Also",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"ee2eaf97-58c5-4432-82de-b12b96162b0a"],
          TextCell[
           Row[{"See Also", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -57,7 +58,8 @@ Cell[BoxData[GridBox[{
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"SeeAlso"]],
-      LineSpacing->{1.4, 0}],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "5de6f7aa-8261-4243-b5a6-e16c3a7350e3"],
      "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
 \[ThickSpace]",
      Cell[BoxData[
@@ -67,7 +69,7 @@ Cell[BoxData[GridBox[{
           "URL",
           StyleBox[" \[FilledDownTriangle]", "AnchorBarArrow",
            StripOnInput->False]
-         }]],
+         }],ExpressionUUID->"4a98a621-1929-42de-9bf5-bc01297ff99d"],
          TextCell[
           Row[{"URL", 
             Style[" \[FilledDownTriangle]", "AnchorBarArrow"]}]]],
@@ -99,24 +101,28 @@ DefineLorentzTensors.html"], StandardForm]], "Input", TextClipboardType ->
            URL[
             StringJoin[
              If[
-              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$16568], 
+              TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$21042], 
               "http://reference.wolfram.com/system-modeler/", 
               "http://reference.wolfram.com/language/"], 
              "FormTracer/ref/DefineLorentzTensors", ".html"]], None}]}]},
        Appearance->None,
        MenuAppearance->Automatic,
        MenuStyle->"URLMenu"]],
-      LineSpacing->{1.4, 0}]
-    }], "AnchorBar"]}
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "eefeae7b-9043-4962-8518-4422f049d2a3"]
+    }], "AnchorBar",ExpressionUUID->"a18d5361-0cce-4e43-a8db-bdc74dd5672e"]}
   }]], "AnchorBarGrid",
  GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
      Scaled[0.65], {
       Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
    "RowsIndexed" -> {}}},
- CellID->1],
+ CellID->1,ExpressionUUID->"a1cddff0-cb0b-45db-8bfc-8c60ceb65880"],
+
+Cell[CellGroupData[{
 
 Cell[TextData[{
- Cell["DefineLorentzTensors", "ObjectName"],
+ Cell["DefineLorentzTensors", "ObjectName",ExpressionUUID->
+  "c8563f58-8a39-46c1-8c84-a90541f7fe09"],
  Cell[BoxData[
   InterpretationBox[
    StyleBox[
@@ -124,9 +130,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{8, 0}],
     CacheGraphics->False],
-   Spacer[8]]]],
- Cell[BoxData[""], "ObjectNameTranslation"]
-}], "ObjectNameGrid"],
+   Spacer[8],
+   Selectable->False]],ExpressionUUID->"1be8470b-aafa-47a6-9644-b75220764204"],
+ Cell[BoxData[
+ ""], "ObjectNameTranslation",ExpressionUUID->
+  "e6128b85-f0fe-40ab-b7f5-c68523e21d9b"]
+}], "ObjectNameGrid",ExpressionUUID->"758ca50c-1a55-4bf7-85de-18b4d205cf27"],
 
 Cell[BoxData[GridBox[{
    {"", Cell[TextData[{
@@ -136,9 +145,10 @@ Cell[BoxData[GridBox[{
         StyleBox["lorentzDelta", "TI"], ",", 
         StyleBox["vector", "TI"], ",", 
         StyleBox["scalarProduct", "TI"], ",", 
-        StyleBox["epsilon", "TI"]}], "]"}]], "InlineFormula"],
+        StyleBox["epsilon", "TI"]}], "]"}]], "InlineFormula",ExpressionUUID->
+      "754d5bde-593f-4dd2-84c0-eded85878211"],
      "\[LineSeparator]defines Lorentz tensors.\n"
-    }]]},
+    }],ExpressionUUID->"c00a6dc4-3bbd-4f70-adf5-e68447e001c0"]},
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"DefineLorentzTensors", "[", 
@@ -151,9 +161,10 @@ Cell[BoxData[GridBox[{
         StyleBox["gamma", "TI"], ",", 
         SubscriptBox[
          StyleBox["gamma", "TI"], 
-         StyleBox["5", "TI"]]}], "]"}]], "InlineFormula"],
+         StyleBox["5", "TI"]]}], "]"}]], "InlineFormula",ExpressionUUID->
+      "4c5454f6-6ef6-4459-b486-f20e073c0f13"],
      "\[LineSeparator]defines Lorentz and Dirac tensors.\n"
-    }]]},
+    }],ExpressionUUID->"21ed42ea-9be1-4d5e-9e38-653f927ef7c4"]},
    {"", Cell[TextData[{
      Cell[BoxData[
       RowBox[{"DefineLorentzTensors", "[", 
@@ -168,7 +179,8 @@ Cell[BoxData[GridBox[{
          StyleBox["gamma", "TI"], 
          StyleBox["5", "TI"]], ",", 
         StyleBox["vectorspatial", "TI"], ",", 
-        StyleBox["scalarProductspatial", "TI"]}], "]"}]], "InlineFormula"],
+        StyleBox["scalarProductspatial", "TI"]}], "]"}]], "InlineFormula",
+      ExpressionUUID->"8d0ea41a-bda3-437f-85fe-d63ddf452561"],
      "\[LineSeparator]defines Lorentz, Dirac tensors and finite temperature \
 tensors.\n\n\t  For each of the entries one can either pass a symbol (e.g. \
 gamma[mu,i,j]) or a list with a symbol and the corresponding indices (e.g. \
@@ -182,21 +194,26 @@ after the syntax is specified.\n\t  \n\t  Information on how to handle the ",
         "http://www.nikhef.nl/~form/maindir/documentation/reference/online/\
 online.html#SECTION001600000000000000000"},
        "WebLink",
-       BaseStyle->{"Usage"}]]],
+       BaseStyle->{"Usage"}]],ExpressionUUID->
+      "8a55025b-cf95-4d64-abf7-4a9d8d686b97"],
      " in Minkowski spacetime can be obtained from the ",
      Cell[BoxData[
       TemplateBox[{Cell[
          TextData["FORM reference"]],
         "http://www.nikhef.nl/~form/maindir/documentation/reference/"},
        "WebLink",
-       BaseStyle->{"Usage"}]]],
+       BaseStyle->{"Usage"}]],ExpressionUUID->
+      "306ca85a-78ed-4eca-a79d-48ec8b4640dd"],
      ". "
-    }]]}
+    }],ExpressionUUID->"0735edc5-f889-4a94-b903-0fb0eeeb31da"]}
   }]], "Usage",
  GridBoxOptions->{
  GridBoxBackground->{
   "Columns" -> {{None}}, "ColumnsIndexed" -> {}, 
-   "Rows" -> {None, None, {None}}, "RowsIndexed" -> {}}}],
+   "Rows" -> {None, None, {None}}, 
+   "RowsIndexed" -> \
+{}}},ExpressionUUID->"4236c332-7ae9-4f93-bc4e-4093204c9e22"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -208,35 +225,38 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"04377c11-84f1-4407-84af-0d5380d39a93"],
  "Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(4)", "ExampleCount"]
+ Cell["(4)", "ExampleCount",ExpressionUUID->
+  "df76408c-dde4-400d-881c-b964a06dbfb3"]
 }], "PrimaryExamplesSection",
  WholeCellGroupOpener->True,
  CellTags->"PrimaryExamplesSection",
- CellID->2023370252],
+ CellID->312230821,ExpressionUUID->"7e44a95b-0e37-42fb-b321-10301206fcc6"],
 
 Cell[CellGroupData[{
 
 Cell[TextData[{
  "Basic Examples",
  "\[NonBreakingSpace]\[NonBreakingSpace]",
- Cell["(4)", "ExampleCount"]
+ Cell["(4)", "ExampleCount",ExpressionUUID->
+  "b5e57ae0-2fc3-4628-bc33-98eac43dbc9c"]
 }], "ExampleSection", "ExampleSection",
  WholeCellGroupOpener->True,
- CellID->259697921],
+ CellID->1030100078,ExpressionUUID->"fe8eb5c4-ba8f-41a3-8f49-c58cdfe59cc0"],
 
 Cell["Load the FormTracer:", "ExampleText",
- CellID->909170328],
+ CellID->909170328,ExpressionUUID->"8b151448-64f7-402a-8be9-2c195131eab0"],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}]], "Input",
  CellLabel->"In[1]:=",
- CellID->570847720],
+ CellID->570847720,ExpressionUUID->"148f6868-ac16-436d-9cef-b51cb053b13a"],
 
 Cell["Define your Lorentz tensor notation:", "ExampleText",
- CellID->2067899530],
+ CellID->2067899530,ExpressionUUID->"9bee2a1b-d11d-4066-be8d-a3278bffb35c"],
 
 Cell[BoxData[
  RowBox[{"DefineLorentzTensors", "[", 
@@ -248,10 +268,10 @@ Cell[BoxData[
    RowBox[{"sp", "[", 
     RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->679554793],
+ CellID->679554793,ExpressionUUID->"4ef22c4e-9c9c-4a1a-bbbd-c97f9f164af8"],
 
 Cell["This already suffices to take traces:", "ExampleText",
- CellID->1935512541],
+ CellID->1935512541,ExpressionUUID->"e74de767-b89f-47b8-8fa2-b6edacef1071"],
 
 Cell[CellGroupData[{
 
@@ -268,7 +288,7 @@ Cell[BoxData[
     RowBox[{"sp", "[", 
      RowBox[{"p", ",", "q"}], "]"}]}]}], "]"}]], "Input",
  CellLabel->"In[3]:=",
- CellID->1133918473],
+ CellID->1133918473,ExpressionUUID->"e67575fe-e1b6-4624-9aa5-845e67b1e207"],
 
 Cell[BoxData[
  FractionBox[
@@ -276,15 +296,15 @@ Cell[BoxData[
    RowBox[{"s", ",", "u"}], "]"}], 
   RowBox[{"sp", "[", 
    RowBox[{"p", ",", "q"}], "]"}]]], "Output",
- ImageSize->{70, 44},
+ ImageSize->{70, 36},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[3]=",
- CellID->938600031]
+ CellID->938600031,ExpressionUUID->"ff048e9a-93a5-4840-9722-afc904b67acd"]
 }, Open  ]],
 
 Cell["Sums of momenta are also supported:", "ExampleText",
- CellID->221724086],
+ CellID->221724086,ExpressionUUID->"5b0ccabd-c3ce-4b3e-9bd0-2caf2dc99422"],
 
 Cell[CellGroupData[{
 
@@ -298,29 +318,31 @@ Cell[BoxData[
    RowBox[{"vec", "[", 
     RowBox[{"q", ",", "mu"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[4]:=",
- CellID->1285863941],
+ CellID->1285863941,ExpressionUUID->"b4e9d4fa-287b-483d-8e61-6027fada1a90"],
 
 Cell[BoxData[
  RowBox[{"sp", "[", 
   RowBox[{"q", ",", 
    RowBox[{"p", "+", 
     RowBox[{"2", " ", "s"}]}]}], "]"}]], "Output",
- ImageSize->{100, 16},
+ ImageSize->{99, 16},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[4]=",
- CellID->2002716646]
+ CellID->2002716646,ExpressionUUID->"96646620-53bc-4f34-993f-093a7c756b82"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[Cell["\t", "ExampleDelimiter"],
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "557d00c0-3f54-4882-8864-944799f69c8f"],
   $Line = 0; Null]], "ExampleDelimiter",
- CellID->1644573715],
+ CellID->1644573715,ExpressionUUID->"d9fa2091-a3b5-4543-bab0-fa09937c39cf"],
 
 Cell["Note that you can use many different notations:", "ExampleText",
- CellID->445528067],
+ CellID->445528067,ExpressionUUID->"882fe535-952a-4b0f-9c20-de183a6de969"],
 
 Cell[BoxData[
  RowBox[{"DefineLorentzTensors", "[", 
@@ -335,7 +357,7 @@ Cell[BoxData[
    RowBox[{"scalarProduct", "[", 
     RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[1]:=",
- CellID->84640862],
+ CellID->84640862,ExpressionUUID->"c9e850fb-3cbb-4015-9667-bbb28f3887a0"],
 
 Cell[CellGroupData[{
 
@@ -352,7 +374,7 @@ Cell[BoxData[
     RowBox[{"scalarProduct", "[", 
      RowBox[{"p", ",", "q"}], "]"}]}]}], "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->2141320661],
+ CellID->2141320661,ExpressionUUID->"cdca7979-9087-49d6-9459-5de498f9e552"],
 
 Cell[BoxData[
  FractionBox[
@@ -360,11 +382,11 @@ Cell[BoxData[
    RowBox[{"s", ",", "u"}], "]"}], 
   RowBox[{"scalarProduct", "[", 
    RowBox[{"p", ",", "q"}], "]"}]]], "Output",
- ImageSize->{158, 46},
+ ImageSize->{158, 36},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->1553654381]
+ CellID->1553654381,ExpressionUUID->"17667ba4-267a-40c9-8d09-b17e7f89ca3c"]
 }, Open  ]],
 
 Cell["\<\
@@ -373,20 +395,22 @@ argument of myVector is the index and the second argument is the momentum. In \
 the first example, we could have written {vec[p,mu], p, mu} instead of \
 vec[p,mu] which is the short form. The analogues holds for all arguments. \
 \>", "ExampleText",
- CellID->1281382675]
+ CellID->1281382675,ExpressionUUID->"47780752-d169-46e3-bf90-ad3f928c5c46"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[Cell["\t", "ExampleDelimiter"],
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "ecf617af-6727-4277-b113-d2fcd3c9222d"],
   $Line = 0; Null]], "ExampleDelimiter",
- CellID->1548018133],
+ CellID->1548018133,ExpressionUUID->"78694f26-1e68-4f67-9a59-e773474619af"],
 
 Cell["\<\
 Dirac tensors can also be specified with DefineLorentzTensors\
 \>", "ExampleText",
- CellID->1453283609],
+ CellID->1453283609,ExpressionUUID->"e450b994-ab62-40ae-bc92-5792a6c69adc"],
 
 Cell[BoxData[
  RowBox[{"DefineLorentzTensors", "[", 
@@ -405,10 +429,10 @@ Cell[BoxData[
    RowBox[{"gamma5", "[", 
     RowBox[{"i", ",", "j"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[1]:=",
- CellID->631169828],
+ CellID->631169828,ExpressionUUID->"44791c64-077f-41e9-8155-db59632a4cd1"],
 
 Cell["and then be traced:", "ExampleText",
- CellID->1142338547],
+ CellID->1142338547,ExpressionUUID->"7d6cde8e-7cac-4228-bbe5-6afb54fd6a51"],
 
 Cell[CellGroupData[{
 
@@ -430,7 +454,7 @@ Cell[BoxData[
    RowBox[{"vec", "[", 
     RowBox[{"q", ",", "nu"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[2]:=",
- CellID->1793338229],
+ CellID->1793338229,ExpressionUUID->"46a7578c-1b43-4c43-9b8d-1a146dad9adb"],
 
 Cell[BoxData[
  RowBox[{"16", " ", 
@@ -440,13 +464,13 @@ Cell[BoxData[
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->1423359598]
+ CellID->1423359598,ExpressionUUID->"cb971c9c-8034-4e3c-a6a2-effa6b4c992a"]
 }, Open  ]],
 
 Cell["\<\
 The default dimension of the Lorentz and the Dirac space is 4:\
 \>", "ExampleText",
- CellID->1052149787],
+ CellID->1052149787,ExpressionUUID->"a0bf5814-8943-4be7-947a-97aad40d1749"],
 
 Cell[CellGroupData[{
 
@@ -458,21 +482,21 @@ Cell[BoxData[{
   RowBox[{"deltaDirac", "[", 
    RowBox[{"i", ",", "i"}], "]"}], "]"}]}], "Input",
  CellLabel->"In[3]:=",
- CellID->1682174120],
+ CellID->1682174120,ExpressionUUID->"c7dcb911-b39e-43f1-aa9d-0aa1358dfde4"],
 
 Cell[BoxData["4"], "Output",
- ImageSize->{12, 14},
+ ImageSize->{12, 16},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[3]=",
- CellID->1264998491],
+ CellID->1264998491,ExpressionUUID->"54b6250c-2001-422b-9f96-28ff57eed42f"],
 
 Cell[BoxData["4"], "Output",
- ImageSize->{12, 14},
+ ImageSize->{12, 16},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[3]=",
- CellID->1637162988]
+ CellID->1637162988,ExpressionUUID->"d36e3d34-aa50-4394-981f-3fb0de52360f"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -482,18 +506,21 @@ Cell[TextData[{
      TextData["DefineLorentzDimensions"]],
     "paclet:FormTracer/ref/DefineLorentzDimensions"},
    "RefLink",
-   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula",
+  ExpressionUUID->"8297ca71-89cc-4e9e-b014-49c2597dcdf4"],
  "."
 }], "ExampleText",
- CellID->107267210]
+ CellID->107267210,ExpressionUUID->"600dfbce-9d06-4e6d-b404-7c37e6ff2b0d"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- InterpretationBox[Cell["\t", "ExampleDelimiter"],
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "bd7376bd-80c7-48ff-971c-516f57382485"],
   $Line = 0; Null]], "ExampleDelimiter",
- CellID->186099452],
+ CellID->186099452,ExpressionUUID->"96a78ba9-defa-47d7-921c-0796c62274ed"],
 
 Cell["\<\
 If you want to compute finite temperature traces that break O(dimension) \
@@ -501,7 +528,7 @@ Lorentz symmetry, you can do so by defining spatial vectors and scalar \
 products. The zeroth component of the spatial vector is then always 0 by \
 definition. This works as follows:\
 \>", "ExampleText",
- CellID->545236213],
+ CellID->545236213,ExpressionUUID->"e8fb1f09-94fb-41df-816a-88213cf71445"],
 
 Cell[BoxData[
  RowBox[{"DefineLorentzTensors", "[", 
@@ -524,7 +551,7 @@ Cell[BoxData[
    RowBox[{"sps", "[", 
     RowBox[{"p", ",", "q"}], "]"}]}], "]"}]], "Input",
  CellLabel->"In[1]:=",
- CellID->1983830724],
+ CellID->1983830724,ExpressionUUID->"b4d76c7b-f0e7-4b7a-b9c9-ee6d85ecaa9e"],
 
 Cell[CellGroupData[{
 
@@ -560,7 +587,7 @@ Cell[BoxData[{
    RowBox[{"vecs", "[", 
     RowBox[{"p", ",", "mu"}], "]"}]}], "]"}]}], "Input",
  CellLabel->"In[2]:=",
- CellID->393841162],
+ CellID->393841162,ExpressionUUID->"ceca6417-7ca0-433a-8e63-703462b50bf4"],
 
 Cell[BoxData[
  RowBox[{"sp", "[", 
@@ -569,7 +596,7 @@ Cell[BoxData[
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->2040109977],
+ CellID->2040109977,ExpressionUUID->"cb26eb86-b4ed-4014-b7cc-50de00356500"],
 
 Cell[BoxData[
  RowBox[{"sps", "[", 
@@ -578,7 +605,7 @@ Cell[BoxData[
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->1952818319],
+ CellID->1952818319,ExpressionUUID->"d70d4bf8-c71e-491c-b3ac-df5434870e2a"],
 
 Cell[BoxData[
  RowBox[{"sps", "[", 
@@ -587,7 +614,7 @@ Cell[BoxData[
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->957399691],
+ CellID->957399691,ExpressionUUID->"c2b11e71-27f4-4787-b771-c04fcd5a2c70"],
 
 Cell[BoxData[
  RowBox[{"vec", "[", 
@@ -596,14 +623,14 @@ Cell[BoxData[
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->2070155327],
+ CellID->2070155327,ExpressionUUID->"c1376f1d-cb6c-46f2-a207-61261df49ad7"],
 
 Cell[BoxData["0"], "Output",
- ImageSize->{12, 14},
+ ImageSize->{12, 16},
  ImageMargins->{{0, 0}, {0, 0}},
  ImageRegion->{{0, 1}, {0, 1}},
  CellLabel->"Out[2]=",
- CellID->857484458]
+ CellID->857484458,ExpressionUUID->"7ecc8a51-f971-4650-8344-f4adc40f8ce4"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -613,14 +640,15 @@ Cell[TextData[{
      TextData["DefineCombinedLorentzTensors"]],
     "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
    "RefLink",
-   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula"],
+   BaseStyle->{"InlineFormula", "CodeFont"}]], "InlineFormula",
+  ExpressionUUID->"54aefe7c-84ed-4bd0-af92-c774c00e5882"],
  "."
 }], "ExampleText",
- CellID->1580765709]
+ CellID->1580765709,ExpressionUUID->"a1732ce4-ec0a-4120-8a7c-303d41ef44c8"]
 }, Open  ]]
 }, Open  ]],
 
-Cell["", "SectionFooterSpacer"]
+Cell["", "SectionFooterSpacer",ExpressionUUID->"d419853d-3d90-4109-a6cc-544215d59001"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -633,11 +661,12 @@ Cell[TextData[{
      BaselinePosition->Baseline,
      ImageSize->{6, 0}],
     CacheGraphics->False],
-   Spacer[6]]]],
+   Spacer[6],
+   Selectable->False]],ExpressionUUID->"0f47e773-8751-4507-be64-665051b581d0"],
  "See Also"
 }], "SeeAlsoSection",
  WholeCellGroupOpener->True,
- CellID->1255426704],
+ CellID->1255426704,ExpressionUUID->"6b865fbe-88ac-4675-947a-0111fe0effa6"],
 
 Cell[TextData[{
  Cell[BoxData[
@@ -646,7 +675,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineLorentzDimensions"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"f802c866-6deb-490a-b768-29f2008df857"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -656,7 +685,7 @@ Cell[TextData[{
      TextData["FastGamma5Trace"]],"paclet:FormTracer/ref/FastGamma5Trace"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"01b1a746-3414-4279-a201-40627bcf6976"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -667,7 +696,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineGroupTensors"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"ce14a7d3-757f-449c-891e-7c96fbc6575e"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -677,7 +706,7 @@ Cell[TextData[{
      TextData["FormTrace"]],"paclet:FormTracer/ref/FormTrace"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"28ab78b3-069e-4a48-84f1-8a975b623aa7"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -687,7 +716,7 @@ Cell[TextData[{
      TextData["AddExtraVars"]],"paclet:FormTracer/ref/AddExtraVars"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"af8ca4c4-3a3b-467b-b85a-aca1389da15d"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -698,7 +727,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineCombinedLorentzTensors"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"bb7fba43-e83f-445d-b21e-471b808e7e85"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -709,7 +738,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DefineLorentzTensorIdentities"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"aebf6abe-7a5c-4237-85c0-37be21897ee6"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -720,7 +749,7 @@ Cell[TextData[{
     "paclet:FormTracer/ref/DisentangleLorentzStructures"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"4a87e492-e3e5-40f9-86b1-17ebf76d510a"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -730,7 +759,7 @@ Cell[TextData[{
      TextData["PartialTrace"]],"paclet:FormTracer/ref/PartialTrace"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"fb98703e-8341-4747-ab1c-6c0b3a952e0b"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -740,7 +769,7 @@ Cell[TextData[{
      TextData["FiniteT"]],"paclet:FormTracer/ref/FiniteT"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"],
+  "InlineFormula",ExpressionUUID->"3413ea37-ff22-444b-8db7-87a4c07a3501"],
  "\[NonBreakingSpace]",
  StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
   "InlineSeparator"],
@@ -750,12 +779,12 @@ Cell[TextData[{
      TextData["LorentzFormRule"]],"paclet:FormTracer/ref/LorentzFormRule"},
    "RefLink",
    BaseStyle->{"InlineFormula", FontFamily -> "Verdana", "CodeFont"}]], 
-  "InlineFormula"]
+  "InlineFormula",ExpressionUUID->"6cc2126c-e449-4ceb-8d92-40699390ba05"]
 }], "SeeAlso",
- CellID->929782353]
+ CellID->929782353,ExpressionUUID->"534d65d1-44f5-4358-a362-6fd34de0724d"]
 }, Open  ]],
 
-Cell[" ", "FooterCell"]
+Cell[" ", "FooterCell",ExpressionUUID->"6046d86a-26fe-4cdd-9ef7-00d1ca194a52"]
 },
 Saveable->False,
 ScreenStyleEnvironment->"Working",
@@ -772,7 +801,7 @@ TaggingRules->{
     Left], "HasOptions" -> False, "ExampleCounter" -> 1, "NeedPlatMsgIn" -> 
   None, "RootCaptions" -> "", 
   "Metadata" -> {
-   "built" -> "{2016, 11, 22, 15, 33, 4.681952}", 
+   "built" -> "{2017, 3, 24, 16, 0, 13.382024}", 
     "history" -> {"XX", "", "", ""}, "context" -> "FormTracer`", 
     "keywords" -> {}, "specialkeywords" -> {}, 
     "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
@@ -795,7 +824,7 @@ obtained from the FORM reference. ", "synonyms" -> {}, "tabletags" -> {},
     "DefineLorentzTensors", "type" -> "Symbol", "uri" -> 
     "FormTracer/ref/DefineLorentzTensors"}, "SearchTextTranslated" -> ""},
 CellContext->"Global`",
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (March 13, 2017)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -804,7 +833,7 @@ StyleDefinitions->Notebook[{
     StyleData["Input"], CellContext -> "Global`"], 
    Cell[
     StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
-  FrontEndVersion -> "11.0 for Linux x86 (64-bit) (July 28, 2016)", 
+  FrontEndVersion -> "11.1 for Linux x86 (64-bit) (March 13, 2017)", 
   StyleDefinitions -> "Default.nb"]
 ]
 (* End of Notebook Content *)
@@ -813,131 +842,181 @@ StyleDefinitions->Notebook[{
 (*CellTagsOutline
 CellTagsIndex->{
  "PrimaryExamplesSection"->{
-  Cell[7930, 202, 388, 15, 30, "PrimaryExamplesSection",
+  Cell[9155, 219, 577, 17, 
+  70, "PrimaryExamplesSection", "ExpressionUUID" -> "7e44a95b-0e37-42fb-
+   b321-10301206fcc6",
    CellTags->"PrimaryExamplesSection",
-   CellID->2023370252]}
+   CellID->312230821]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"PrimaryExamplesSection", 25813, 814}
+ {"PrimaryExamplesSection", 30580, 843}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[592, 21, 4216, 94, 51, "AnchorBarGrid",
+Cell[592, 21, 4621, 97, 54, "AnchorBarGrid", "ExpressionUUID" -> \
+"a1cddff0-cb0b-45db-8bfc-8c60ceb65880",
  CellID->1],
-Cell[4811, 117, 297, 11, 43, "ObjectNameGrid"],
-Cell[5111, 130, 2794, 68, 500, "Usage"],
 Cell[CellGroupData[{
-Cell[7930, 202, 388, 15, 30, "PrimaryExamplesSection",
+Cell[5238, 122, 547, 15, 56, "ObjectNameGrid", "ExpressionUUID" -> \
+"758ca50c-1a55-4bf7-85de-18b4d205cf27"],
+Cell[5788, 139, 3330, 75, 615, "Usage", "ExpressionUUID" -> \
+"4236c332-7ae9-4f93-bc4e-4093204c9e22"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9155, 219, 577, 17, 70, "PrimaryExamplesSection", "ExpressionUUID" -> \
+"7e44a95b-0e37-42fb-b321-10301206fcc6",
  CellTags->"PrimaryExamplesSection",
- CellID->2023370252],
+ CellID->312230821],
 Cell[CellGroupData[{
-Cell[8343, 221, 195, 6, 25, "ExampleSection",
- CellID->259697921],
-Cell[8541, 229, 63, 1, 70, "ExampleText",
+Cell[9757, 240, 309, 7, 70, "ExampleSection", "ExpressionUUID" -> \
+"fe8eb5c4-ba8f-41a3-8f49-c58cdfe59cc0",
+ CellID->1030100078],
+Cell[10069, 249, 118, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"8b151448-64f7-402a-8be9-2c195131eab0",
  CellID->909170328],
-Cell[8607, 232, 119, 3, 70, "Input",
+Cell[10190, 252, 174, 3, 70, "Input", "ExpressionUUID" -> \
+"148f6868-ac16-436d-9cef-b51cb053b13a",
  CellID->570847720],
-Cell[8729, 237, 80, 1, 70, "ExampleText",
+Cell[10367, 257, 135, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"9bee2a1b-d11d-4066-be8d-a3278bffb35c",
  CellID->2067899530],
-Cell[8812, 240, 328, 10, 70, "Input",
+Cell[10505, 260, 383, 10, 70, "Input", "ExpressionUUID" -> \
+"4ef22c4e-9c9c-4a1a-bbbd-c97f9f164af8",
  CellID->679554793],
-Cell[9143, 252, 81, 1, 70, "ExampleText",
+Cell[10891, 272, 136, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"e74de767-b89f-47b8-8fa2-b6edacef1071",
  CellID->1935512541],
 Cell[CellGroupData[{
-Cell[9249, 257, 393, 13, 70, "Input",
+Cell[11052, 277, 448, 13, 70, "Input", "ExpressionUUID" -> \
+"e67575fe-e1b6-4624-9aa5-845e67b1e207",
  CellID->1133918473],
-Cell[9645, 272, 284, 10, 65, "Output",
+Cell[11503, 292, 339, 10, 57, "Output", "ExpressionUUID" -> \
+"ff048e9a-93a5-4840-9722-afc904b67acd",
  CellID->938600031]
 }, Open  ]],
-Cell[9944, 285, 78, 1, 70, "ExampleText",
+Cell[11857, 305, 133, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"5b0ccabd-c3ce-4b3e-9bd0-2caf2dc99422",
  CellID->221724086],
 Cell[CellGroupData[{
-Cell[10047, 290, 286, 10, 70, "Input",
+Cell[12015, 310, 341, 10, 70, "Input", "ExpressionUUID" -> \
+"b4e9d4fa-287b-483d-8e61-6027fada1a90",
  CellID->1285863941],
-Cell[10336, 302, 260, 9, 37, "Output",
+Cell[12359, 322, 314, 9, 37, "Output", "ExpressionUUID" -> \
+"96646620-53bc-4f34-993f-093a7c756b82",
  CellID->2002716646]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10633, 316, 126, 3, 70, "ExampleDelimiter",
+Cell[12710, 336, 243, 5, 70, "ExampleDelimiter", "ExpressionUUID" -> \
+"d9fa2091-a3b5-4543-bab0-fa09937c39cf",
  CellID->1644573715],
-Cell[10762, 321, 90, 1, 70, "ExampleText",
+Cell[12956, 343, 145, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"882fe535-952a-4b0f-9c20-de183a6de969",
  CellID->445528067],
-Cell[10855, 324, 414, 13, 70, "Input",
+Cell[13104, 346, 469, 13, 70, "Input", "ExpressionUUID" -> \
+"c9e850fb-3cbb-4015-9667-bbb28f3887a0",
  CellID->84640862],
 Cell[CellGroupData[{
-Cell[11294, 341, 429, 13, 70, "Input",
+Cell[13598, 363, 484, 13, 70, "Input", "ExpressionUUID" -> \
+"cdca7979-9087-49d6-9459-5de498f9e552",
  CellID->2141320661],
-Cell[11726, 356, 308, 10, 67, "Output",
+Cell[14085, 378, 363, 10, 57, "Output", "ExpressionUUID" -> \
+"17667ba4-267a-40c9-8d09-b17e7f89ca3c",
  CellID->1553654381]
 }, Open  ]],
-Cell[12049, 369, 355, 6, 70, "ExampleText",
+Cell[14463, 391, 410, 6, 70, "ExampleText", "ExpressionUUID" -> \
+"47780752-d169-46e3-bf90-ad3f928c5c46",
  CellID->1281382675]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[12441, 380, 126, 3, 70, "ExampleDelimiter",
+Cell[14910, 402, 243, 5, 70, "ExampleDelimiter", "ExpressionUUID" -> \
+"78694f26-1e68-4f67-9a59-e773474619af",
  CellID->1548018133],
-Cell[12570, 385, 113, 3, 70, "ExampleText",
+Cell[15156, 409, 168, 3, 70, "ExampleText", "ExpressionUUID" -> \
+"e450b994-ab62-40ae-bc92-5792a6c69adc",
  CellID->1453283609],
-Cell[12686, 390, 585, 17, 70, "Input",
+Cell[15327, 414, 640, 17, 70, "Input", "ExpressionUUID" -> \
+"44791c64-077f-41e9-8155-db59632a4cd1",
  CellID->631169828],
-Cell[13274, 409, 63, 1, 70, "ExampleText",
+Cell[15970, 433, 118, 1, 70, "ExampleText", "ExpressionUUID" -> \
+"7d6cde8e-7cac-4228-bbe5-6afb54fd6a51",
  CellID->1142338547],
 Cell[CellGroupData[{
-Cell[13362, 414, 614, 18, 70, "Input",
+Cell[16113, 438, 669, 18, 70, "Input", "ExpressionUUID" -> \
+"46a7578c-1b43-4c43-9b8d-1a146dad9adb",
  CellID->1793338229],
-Cell[13979, 434, 235, 8, 37, "Output",
+Cell[16785, 458, 290, 8, 37, "Output", "ExpressionUUID" -> \
+"cb971c9c-8034-4e3c-a6a2-effa6b4c992a",
  CellID->1423359598]
 }, Open  ]],
-Cell[14229, 445, 114, 3, 70, "ExampleText",
+Cell[17090, 469, 169, 3, 70, "ExampleText", "ExpressionUUID" -> \
+"a0bf5814-8943-4be7-947a-97aad40d1749",
  CellID->1052149787],
 Cell[CellGroupData[{
-Cell[14368, 452, 297, 8, 70, "Input",
+Cell[17284, 476, 352, 8, 70, "Input", "ExpressionUUID" -> \
+"c7dcb911-b39e-43f1-aa9d-0aa1358dfde4",
  CellID->1682174120],
-Cell[14668, 462, 159, 5, 35, "Output",
+Cell[17639, 486, 214, 5, 37, "Output", "ExpressionUUID" -> \
+"54b6250c-2001-422b-9f96-28ff57eed42f",
  CellID->1264998491],
-Cell[14830, 469, 159, 5, 35, "Output",
+Cell[17856, 493, 214, 5, 37, "Output", "ExpressionUUID" -> \
+"d36e3d34-aa50-4394-981f-3fb0de52360f",
  CellID->1637162988]
 }, Open  ]],
-Cell[15004, 477, 309, 10, 70, "ExampleText",
+Cell[18085, 501, 422, 11, 70, "ExampleText", "ExpressionUUID" -> \
+"600dfbce-9d06-4e6d-b404-7c37e6ff2b0d",
  CellID->107267210]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15350, 492, 125, 3, 70, "ExampleDelimiter",
+Cell[18544, 517, 242, 5, 70, "ExampleDelimiter", "ExpressionUUID" -> \
+"96a78ba9-defa-47d7-921c-0796c62274ed",
  CellID->186099452],
-Cell[15478, 497, 308, 6, 70, "ExampleText",
+Cell[18789, 524, 363, 6, 70, "ExampleText", "ExpressionUUID" -> \
+"e8fb1f09-94fb-41df-816a-88213cf71445",
  CellID->545236213],
-Cell[15789, 505, 720, 21, 70, "Input",
+Cell[19155, 532, 775, 21, 70, "Input", "ExpressionUUID" -> \
+"b4d76c7b-f0e7-4b7a-b9c9-ee6d85ecaa9e",
  CellID->1983830724],
 Cell[CellGroupData[{
-Cell[16534, 530, 1051, 32, 70, "Input",
+Cell[19955, 557, 1106, 32, 70, "Input", "ExpressionUUID" -> \
+"ceca6417-7ca0-433a-8e63-703462b50bf4",
  CellID->393841162],
-Cell[17588, 564, 210, 7, 37, "Output",
+Cell[21064, 591, 265, 7, 37, "Output", "ExpressionUUID" -> \
+"cb26eb86-b4ed-4014-b7cc-50de00356500",
  CellID->2040109977],
-Cell[17801, 573, 211, 7, 37, "Output",
+Cell[21332, 600, 266, 7, 37, "Output", "ExpressionUUID" -> \
+"d70d4bf8-c71e-491c-b3ac-df5434870e2a",
  CellID->1952818319],
-Cell[18015, 582, 210, 7, 37, "Output",
+Cell[21601, 609, 265, 7, 37, "Output", "ExpressionUUID" -> \
+"c2b11e71-27f4-4787-b771-c04fcd5a2c70",
  CellID->957399691],
-Cell[18228, 591, 211, 7, 37, "Output",
+Cell[21869, 618, 266, 7, 37, "Output", "ExpressionUUID" -> \
+"c1376f1d-cb6c-46f2-a207-61261df49ad7",
  CellID->2070155327],
-Cell[18442, 600, 158, 5, 35, "Output",
+Cell[22138, 627, 213, 5, 37, "Output", "ExpressionUUID" -> \
+"7ecc8a51-f971-4650-8344-f4adc40f8ce4",
  CellID->857484458]
 }, Open  ]],
-Cell[18615, 608, 325, 10, 70, "ExampleText",
+Cell[22366, 635, 438, 11, 70, "ExampleText", "ExpressionUUID" -> \
+"a1732ce4-ec0a-4120-8a7c-303d41ef44c8",
  CellID->1580765709]
 }, Open  ]]
 }, Open  ]],
-Cell[18967, 622, 31, 0, 70, "SectionFooterSpacer"]
+Cell[22831, 650, 86, 0, 70, "SectionFooterSpacer", "ExpressionUUID" -> \
+"d419853d-3d90-4109-a6cc-544215d59001"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19035, 627, 270, 12, 70, "SeeAlsoSection",
+Cell[22954, 655, 402, 13, 70, "SeeAlsoSection", "ExpressionUUID" -> \
+"6b865fbe-88ac-4675-947a-0111fe0effa6",
  CellID->1255426704],
-Cell[19308, 641, 3735, 113, 70, "SeeAlso",
+Cell[23359, 670, 4395, 113, 70, "SeeAlso", "ExpressionUUID" -> \
+"534d65d1-44f5-4358-a362-6fd34de0724d",
  CellID->929782353]
 }, Open  ]],
-Cell[23058, 757, 23, 0, 70, "FooterCell"]
+Cell[27769, 786, 78, 0, 70, "FooterCell", "ExpressionUUID" -> \
+"6046d86a-26fe-4cdd-9ef7-00d1ca194a52"]
 }
 ]
 *)
