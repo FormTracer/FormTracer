@@ -3,6 +3,17 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.0 (***********)
+- Fixed declaration issue in case of exporting: 
+  Extra variables are only declared if they are not already declared as e.g. vector.
+- Fixed import of sqrt[...].
+- Pi declared as symbol by default.
+- Raised default level in formBlockArgument from 3 to 5.
+- Updated InstallFORM[] function to install new FORM version 4.2.0
+  FORM 4.1 is still easily installable via InstallFORM41[].
+- Added journal reference: Comput. Phys. Commun. 219C (2017) 346-352
+
+
 (***********) FormTracer Version 2.2.0 (***********)
 - Minor update in FormTracerInstaller.
 - New example notebook with more demanding calculations.

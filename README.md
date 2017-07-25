@@ -8,7 +8,7 @@ the package and guide the user through performing standard traces in spacetime, 
 FormTracer has been developed by Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
 If used in scientific publications, please acknowledge our work by citing
 
-> **A. K. Cyrol, M. Mitter, and N. Strodthoff, [arXiv:1610.09331 [hep-ph]](https://arxiv.org/abs/1610.09331)**
+> **A. K. Cyrol, M. Mitter, and N. Strodthoff, [Comput. Phys. Commun. 219C (2017) 346-352](https://doi.org/10.1016/j.cpc.2017.05.024), [arXiv:1610.09331 [hep-ph]](https://arxiv.org/abs/1610.09331)**
 
 FormTracer is maintained by [selected members](https://github.com/orgs/FormTracer/people) of the fQCD collaboration.
 
@@ -27,8 +27,9 @@ FormTracer is maintained by [selected members](https://github.com/orgs/FormTrace
 FormTracer is equipped with a fully automated installation script in Mathematica, which can be downloaded and started by evaluating<br>
 `Import["https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/FormTracerInstaller.m"]`<br>
 in a Mathematica input cell. Example notebooks are available for download:<br>
-* [https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerShowcase.nb](https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerShowcase.nb)
-* [https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerMinimalExample.nb](https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerMinimalExample.nb)
+* [FormTracerShowcase](https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerShowcase.nb)
+* [FormTracerMinimalExample](https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FormTracerMinimalExample.nb)
+* [FourQuarkInteraction](https://raw.githubusercontent.com/FormTracer/FormTracer/master/src/Examples/FourQuarkInteraction.nb)
 
 Both can also be used to install FormTracer. For further information we refer to  [arXiv:1610.09331 [hep-ph]](https://arxiv.org/abs/1610.09331).
 
@@ -38,3 +39,5 @@ Please reports bugs via the [issue tracker](https://github.com/FormTracer/FormTr
 ## Links to related software
 * [FORM](http://www.nikhef.nl/~form/) - project for symbolic manipulation of very big expressions
 * [DoFun](http://physik.uni-graz.at/~mqh/DoFun/) - Derivation of Functional Equations
+* [FeynCalc](https://feyncalc.github.io/) - Tools and Tables for QFT Calculations 
+

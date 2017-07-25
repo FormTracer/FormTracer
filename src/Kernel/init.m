@@ -1,5 +1,3 @@
-(* ::Package:: *)
+(* Wolfram Language Init File *)
 
-(* Mathematica Init File *)
-
-Get["FormTracer`FormTracer`"]
+Get[ "FormTracer`FormTracer`"]

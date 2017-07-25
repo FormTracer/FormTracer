@@ -364,7 +364,13 @@ If an internet connection exists, it shows the latest changelog available. Other
 
 ShowFormTracerChangeLog::changelognotfound="Changelog could not be found (neither online nor local version).";
 
-InstallFORM::usage="InstallFORM[] downloads the FORM executable for your operating system from http://www.nikhef.nl/~form/maindir/binaries/binaries.html and copies it into the FormTracer directory in Mathematica's application folder."; 
+InstallFORM::usage="InstallFORM[] downloads the FORM executables for your operating system from http://www.github.com/vermaseren/form/releases and copies them into the FormTracer directory in Mathematica's application folder."; 
+
+InstallFORM41::usage="InstallFORM41[] downloads the old FORM executable for your operating system from http://www.nikhef.nl/~form/maindir/binaries/binaries.html and copies it into the FormTracer directory in Mathematica's application folder.
+
+This function is deprecated since a newer version of FORM is available via InstallFORM[].
+
+However, use it if you are having trouble with the newer version."; 
 
 InstallFORM::downloadfailed="The FormTracer failed to download the FORM executable from `1`. Ensure that you have a working network connection and writing permission to the FormTracer directory.";
 
@@ -410,7 +416,7 @@ Copyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nil
 FormTracer is released under the GNU General Public License version three or later.
 
 If used in scientific publications, please acknowledge our work by citing:
-A. K. Cyrol, M. Mitter, and N. Strodthoff, arXiv:1610.09331 [hep-ph]
+A. K. Cyrol, M. Mitter, and N. Strodthoff, Comput. Phys. Commun. 219C (2017) 346-352, arXiv:1610.09331 [hep-ph]
 "];
 
 If[$VersionNumber<10,
@@ -484,7 +490,51 @@ Return[StringTrim[StringJoin@Riffle[Take[changelogSplit,Min[Length[changelogSpli
 
 
 (* ::Input::Initialization:: *)
-InstallFORM[]:=Module[{exeLocation,cygwinDownloadSuccessfull,cygwinDLL="http://www.thphys.uni-heidelberg.de/~cyrol/downloads/cygwin1.dll"},
+InstallFORM[]:=Module[{archiveLocation,localArchiveLocation,extractedArchiveLocation,fullArchiveName,archiveName,exeLocation},
+If[$OperatingSystem==="Windows",
+Print["
+Installing FORM 4.1 since compiled executables of the 
+newer version FORM 4.2 are not available for Windows.
+"];
+InstallFORM41[];
+];
+If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[InstallFORM::allowinternetuse];Return[];];
+
+archiveLocation=Switch[$OperatingSystem,
+"Unix","https://github.com/vermaseren/form/releases/download/v4.2.0/form-4.2.0-x86_64-linux.tar.gz",
+"MacOSX","https://github.com/vermaseren/form/releases/download/v4.2.0/form-4.2.0-x86_64-osx.tar.gz",
+(*"Windows","http://www.nikhef.nl/~form/maindir/binaries/cygwin/form.exe",*)
+_,Message[InstallFORM::exenotknown];Abort[];];
+fullArchiveName=Last[FileNameSplit[archiveLocation]];
+archiveName=StringDrop[fullArchiveName,-7];(*without .tar.gz ending*)
+localArchiveLocation=FileNameJoin[{$TemporaryDirectory,fullArchiveName}];
+extractedArchiveLocation=FileNameJoin[{formTracerDirectory,archiveName}];
+exeLocation=First[defaultFormExecutables];
+
+(* download archiv *)
+Quiet[Check[URLDownload[archiveLocation,localArchiveLocation],Message[InstallFORM::downloadfailed,exeLocation]],URLFetch::offline];
+(* extract archiv *)
+If[DirectoryQ[extractedArchiveLocation],DeleteDirectory[extractedArchiveLocation,DeleteContents->True];];
+ExtractArchive[localArchiveLocation,formTracerDirectory];
+Quiet[DeleteFile[localArchiveLocation]];
+(* copy file to main FormTracer folder *)
+If[FileExistsQ[exeLocation],DeleteFile[exeLocation]];
+CopyFile[FileNameJoin[{extractedArchiveLocation,"form"}],exeLocation];
+(* mark as executable, just in case, should not be necessary *)
+Quiet[Run["chmod +x "<>exeLocation]];
+
+If[$OperatingSystem==="MacOSX",Print["
+Note that you may need to install the GNU Multiple 
+Precision Arithmetic Library (GMP), which you
+obtain from https://gmplib.org/"];
+];
+
+DefineFormExecutable[exeLocation];
+];
+
+
+(* ::Input::Initialization:: *)
+InstallFORM41[]:=Module[{exeLocation,cygwinDownloadSuccessfull,cygwinDLL="http://www.thphys.uni-heidelberg.de/~cyrol/downloads/cygwin1.dll"},
 If[Not["AllowInternetUse" /. SystemInformation["Network"]],Message[InstallFORM::allowinternetuse];Return[];];
 exeLocation="http://www.nikhef.nl/~form/maindir/binaries/"<>Switch[$OperatingSystem,
 "Unix",If[$ProcessorType==="x86","linux32/form","linux64/form"],
@@ -1711,7 +1761,7 @@ replacevec3inv[moms_List]:="Multiply replace_("~~stringList["vecsx"~~ToString[#]
 stringList[expr_List]:=StringJoin[Riffle[ToString/@expr,","]];
 stringLines[expr_List]:=StringJoin[Riffle[expr,"\n"]];
 
-formBlockArgument[block_String,level_Integer:3]:=block~~If[level===1,"","\n"~~stringLines@Table["argument;\n"~~block,{i,level-1}]~~"\n"~~stringLines@Table["endargument;",{i,level-1}]~~"\n"];
+formBlockArgument[block_String,level_Integer:5]:=block~~If[level===1,"","\n"~~stringLines@Table["argument;\n"~~block,{i,level-1}]~~"\n"~~stringLines@Table["endargument;",{i,level-1}]~~"\n"];
 
 numToString[x_]:=If[Head[x]===Rational,ToString[Numerator[x]]~~"/"~~ToString[Denominator[x]],ToString[x]];
 
@@ -2166,13 +2216,13 @@ allindicesrepl=getAllIndicesReplaced[allindices];(*format: {momX,lorX,spiX,adj1,
 indicesreplrule=generateReplList[Flatten[allindices[[2;;]]],Flatten[allindicesrepl[[2;;]]]];
 replacemomenta=If[Or@@Map[Not[StringFreeQ[ToString[#,InputForm,CharacterEncoding->"ASCII"],"\\"]]&,allindicesextracted[[1]]],True,False];
 momreplrule=If[replacemomenta,generateReplList[allindices[[1]],allindicesrepl[[1]]],{}];
-mathematicavariablelistsreturn=If[format==="mathematica",Join[If[replacemomenta==True,{{allindices[[1]],allindicesrepl[[1]]}},{{{},{}}}],If[partialtrace,Partition[Riffle[allindices[[2;;]],allindicesrepl[[2;;]]],2],{{{},{}}}]],{{{},{}},{{},{}}}];
+mathematicavariablelistsreturn=If[format==="mathematica",Join[If[replacemomenta,{{allindices[[1]],allindicesrepl[[1]]}},{{{},{}}}],If[partialtrace,Partition[Riffle[allindices[[2;;]],allindicesrepl[[2;;]]],2],{{{},{}}}]],{{{},{}},{{},{}}}];
 momenta=allindicesextracted[[1]];
 momentams=allindicesextracted[[2]];
 momentaall=allindices[[1]];
 exprlst=exprlst/.Dispatch[Join[momreplrule,indicesreplrule]];
 
-If[replacemomenta==False,
+If[Not[replacemomenta],
 (*no momentum replacement required*)
 idmomenta1=If[Length[momentams]>0,idinvmomentumsums[momentams],""];
 id3momenta1=If[finiteTenabled ,stringLines[replacevec3/@momenta],""];
@@ -2227,17 +2277,17 @@ formCode=stringLines[Map["#include- "<>FileNameJoin[{formTracerDirectory,"Header
 AutoDeclare Vector "~~prefixColorPackagegrpvecsym~~";
 AutoDeclare CFunction "~~stringList[Map[prefixColorPackageGenericD~~#&,Join[{postfixColorPackagesp~~"(symmetric)"},formColorPackageGenericD]]]~~";",""]~~"
 
-"~~If[replacemomenta==False&&Length[momentaall]>0,"
+"~~If[Not[replacemomenta]&&Length[momentaall]>0,"
 *** declare vectors explicitly ***
 Vector "~~ stringList[momentaall]~~";",""]~~"
-Set setvec:"~~stringList[If[replacemomenta==False,momenta,momenta/.momreplrule]]~~";
+Set setvec:"~~stringList[If[replacemomenta,momenta/.momreplrule,momenta]]~~";
 "~~If[finiteTenabled ,"
-Set setvecs:"~~stringList[StringJoin["vecsx",ToString[#]]&/@If[replacemomenta==False,momentaall,momentaall/.momreplrule]]~~";"
+Set setvecs:"~~stringList[StringJoin["vecsx",ToString[#]]&/@If[replacemomenta,momentaall/.momreplrule,momentaall]]~~";"
 ,""]~~"
 "~~If[combinedTensorNames==={},"","CFunction "<>stringList[combinedTensorNames]<>";"]~~"
 AutoDeclare CFunction "~~stringList[formCFunctionAutoDeclareList]~~";
-"~~If[format==="mathematica"||extraFormVarsListExportDeclare=={},"","CFunction "<>stringList[extraFormVarsListExportDeclare]<>";"]~~"
-CFunction pow,sqrt,gamma,FTxsp(symmetric),FTxvec"~~If[finiteTenabled,",FTxvecs,FTxsps(symmetric)",""]~~";
+"~~If[format==="mathematica"||extraFormVarsListExportDeclare=={},"","CFunction "<>stringList[Complement[extraFormVarsListExportDeclare,ToString/@momentaall]]<>";"]~~"
+CFunction pow,sqrt,Pi,gamma,FTxsp(symmetric),FTxvec"~~If[finiteTenabled,",FTxvecs,FTxsps(symmetric)",""]~~";
 "~~If[First[lorentzDimensions]=!=4,"CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;",""]~~"
 *** turn off runtime statistics ***
 Off statistics;
@@ -2389,7 +2439,7 @@ GenerateFormFile[expr_,formFileName_String,resFileName_String,optimization_Strin
 (* ::Input::Initialization:: *)
 importFormResult[filename_String,deleteImportedFile_]:=Module[{result},
 If[Not[FileExistsQ[filename]],Message[ImportFormResult::noformoutput];Abort[];];
-result=ToExpression[StringReplace[ReadString[filename],Join[{"\n"->" ","sqrt_"->"Sqrt","pi_"->"Pi","i_"-> "I","pow["->"Power["},If[partialtrace,{Shortest["N"~~x:DigitCharacter..~~"_?"]:>ToString[tempPartialTraceDummy]~~"["~~x~~"]"},{}]]]];
+result=ToExpression[StringReplace[ReadString[filename],Join[{"\n"->" ","sqrt"->"Sqrt","i_"-> "I","pow["->"Power["},If[partialtrace,{Shortest["N"~~x:DigitCharacter..~~"_?"]:>ToString[tempPartialTraceDummy]~~"["~~x~~"]"},{}]]]];
 If[deleteImportedFile,DeleteFile[filename]];
 If[result===Global`FTxsp[Global`mom1, Global`mom2],Message[FormTrace::formfailed];Abort[];];
 Return[result];

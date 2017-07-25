@@ -887,10 +887,20 @@ version).\>\""}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]",
   RowBox[{
    RowBox[{
     RowBox[{"InstallFORM", "::", "usage"}], "=", 
-    "\"\<InstallFORM[] downloads the FORM executable for your operating \
+    "\"\<InstallFORM[] downloads the FORM executables for your operating \
+system from http://www.github.com/vermaseren/form/releases and copies them \
+into the FormTracer directory in Mathematica's application folder.\>\""}], 
+   ";"}], " ", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"InstallFORM41", "::", "usage"}], "=", 
+    "\"\<InstallFORM41[] downloads the old FORM executable for your operating \
 system from http://www.nikhef.nl/~form/maindir/binaries/binaries.html and \
-copies it into the FormTracer directory in Mathematica's application \
-folder.\>\""}], ";"}], " ", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+copies it into the FormTracer directory in Mathematica's application folder.\n\
+\nThis function is deprecated since a newer version of FORM is available via \
+InstallFORM[].\n\nHowever, use it if you are having trouble with the newer \
+version.\>\""}], ";"}], " ", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{
@@ -911,8 +921,7 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -927,7 +936,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -1033,8 +1042,9 @@ Cell[BoxData[
 Jan M. Pawlowski, and Nils Strodthoff.\nFormTracer is released under the GNU \
 General Public License version three or later.\n\nIf used in scientific \
 publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
-and N. Strodthoff, arXiv:1610.09331 [hep-ph]\n\>\""}], "]"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+and N. Strodthoff, Comput. Phys. Commun. 219C (2017) 346-352, \
+arXiv:1610.09331 [hep-ph]\n\>\""}], "]"}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"If", "[", 
      RowBox[{
@@ -1357,11 +1367,161 @@ Cell[BoxData[
   ";"}]], "Input",
  InitializationCell->True],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"InstallFORM", "[", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "archiveLocation", ",", "localArchiveLocation", ",", 
+       "extractedArchiveLocation", ",", "fullArchiveName", ",", "archiveName",
+        ",", "exeLocation"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"$OperatingSystem", "===", "\"\<Windows\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+         "Print", "[", 
+          "\"\<\nInstalling FORM 4.1 since compiled executables of the \n\
+newer version FORM 4.2 are not available for Windows.\n\>\"", "]"}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"InstallFORM41", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"Not", "[", 
+         RowBox[{"\"\<AllowInternetUse\>\"", " ", "/.", " ", 
+          RowBox[{"SystemInformation", "[", "\"\<Network\>\"", "]"}]}], "]"}],
+         ",", 
+        RowBox[{
+         RowBox[{"Message", "[", 
+          RowBox[{"InstallFORM", "::", "allowinternetuse"}], "]"}], ";", 
+         RowBox[{"Return", "[", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"archiveLocation", "=", 
+       RowBox[{"Switch", "[", 
+        RowBox[{
+        "$OperatingSystem", ",", "\[IndentingNewLine]", "\"\<Unix\>\"", ",", 
+         "\"\<https://github.com/vermaseren/form/releases/download/v4.2.0/\
+form-4.2.0-x86_64-linux.tar.gz\>\"", ",", "\[IndentingNewLine]", 
+         "\"\<MacOSX\>\"", ",", 
+         "\"\<https://github.com/vermaseren/form/releases/download/v4.2.0/\
+form-4.2.0-x86_64-osx.tar.gz\>\"", ",", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "\"\<Windows\>\"", ",", 
+           "\"\<http://www.nikhef.nl/~form/maindir/binaries/cygwin/form.exe\>\
+\"", ","}], "*)"}], "\[IndentingNewLine]", "_", ",", 
+         RowBox[{
+          RowBox[{"Message", "[", 
+           RowBox[{"InstallFORM", "::", "exenotknown"}], "]"}], ";", 
+          RowBox[{"Abort", "[", "]"}], ";"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"fullArchiveName", "=", 
+       RowBox[{"Last", "[", 
+        RowBox[{"FileNameSplit", "[", "archiveLocation", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"archiveName", "=", 
+       RowBox[{"StringDrop", "[", 
+        RowBox[{"fullArchiveName", ",", 
+         RowBox[{"-", "7"}]}], "]"}]}], ";", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"without", " ", ".", "tar", ".", "gz"}], " ", "ending"}], 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"localArchiveLocation", "=", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"$TemporaryDirectory", ",", "fullArchiveName"}], "}"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"extractedArchiveLocation", "=", 
+       RowBox[{"FileNameJoin", "[", 
+        RowBox[{"{", 
+         RowBox[{"formTracerDirectory", ",", "archiveName"}], "}"}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"exeLocation", "=", 
+       RowBox[{"First", "[", "defaultFormExecutables", "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"download", " ", "archiv"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{"URLDownload", "[", 
+           RowBox[{"archiveLocation", ",", "localArchiveLocation"}], "]"}], 
+          ",", 
+          RowBox[{"Message", "[", 
+           RowBox[{
+            RowBox[{"InstallFORM", "::", "downloadfailed"}], ",", 
+            "exeLocation"}], "]"}]}], "]"}], ",", 
+        RowBox[{"URLFetch", "::", "offline"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"extract", " ", "archiv"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"DirectoryQ", "[", "extractedArchiveLocation", "]"}], ",", 
+        RowBox[{
+         RowBox[{"DeleteDirectory", "[", 
+          RowBox[{"extractedArchiveLocation", ",", 
+           RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";"}]}], 
+       "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"ExtractArchive", "[", 
+       RowBox[{"localArchiveLocation", ",", "formTracerDirectory"}], "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{"DeleteFile", "[", "localArchiveLocation", "]"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "copy", " ", "file", " ", "to", " ", "main", " ", "FormTracer", " ", 
+        "folder"}], " ", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"FileExistsQ", "[", "exeLocation", "]"}], ",", 
+        RowBox[{"DeleteFile", "[", "exeLocation", "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"CopyFile", "[", 
+       RowBox[{
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{"extractedArchiveLocation", ",", "\"\<form\>\""}], "}"}], 
+         "]"}], ",", "exeLocation"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{"mark", " ", "as", " ", "executable"}], ",", " ", 
+        RowBox[{"just", " ", "in", " ", "case"}], ",", " ", 
+        RowBox[{"should", " ", "not", " ", "be", " ", "necessary"}]}], " ", 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Quiet", "[", 
+       RowBox[{"Run", "[", 
+        RowBox[{"\"\<chmod +x \>\"", "<>", "exeLocation"}], "]"}], "]"}], ";",
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"$OperatingSystem", "===", "\"\<MacOSX\>\""}], ",", 
+        RowBox[{
+         RowBox[{
+         "Print", "[", 
+          "\"\<\nNote that you may need to install the GNU Multiple \n\
+Precision Arithmetic Library (GMP), which you\nobtain from \
+https://gmplib.org/\>\"", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"DefineFormExecutable", "[", "exeLocation", "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ InitializationCell->True],
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{
-    RowBox[{"InstallFORM", "[", "]"}], ":=", 
+    RowBox[{"InstallFORM41", "[", "]"}], ":=", 
     RowBox[{"Module", "[", 
      RowBox[{
       RowBox[{"{", 
@@ -1708,6 +1868,8 @@ Cell[CellGroupData[{
 
 Cell["Getter and Setter Functions", "Subsubsection"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{
   RowBox[{
@@ -1867,6 +2029,7 @@ https://github.com/vermaseren/form.\>\"", "]"}], ";"}]}],
           RowBox[{"If", "[", 
            RowBox[{
            "disentangleLorentzStructuresSwitch", ",", 
+            
             "\"\<Lorentz structures are disentangled once you have \
 deactivated partial traces.\>\"", ",", 
             "\"\<Lorentz structures are not disentangled.\>\""}], "]"}], 
@@ -2108,7 +2271,10 @@ debugging mode is activated.\>\"", ",", "\[IndentingNewLine]",
       "DefineCombinedLorentzTensors", "[", 
        "tmpCombinedLorentzTensorInputCache", "]"}], ";"}]}], 
     "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
- InitializationCell->True]
+ InitializationCell->True],
+
+Cell[BoxData["\<\"Using FORM 4.1 (Jul 23 2017) 64-bits.\"\>"], "Print"]
+}, Open  ]]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -2277,6 +2443,8 @@ Cell[BoxData[{
   "formCFunctionAutoDeclareList", "=", "formCFunctionAutoDeclareListBasic"}], 
   ";"}]}], "Input",
  InitializationCell->True],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -2815,7 +2983,106 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"combinedMomentumRepl", "=", "basicCombinedMomentumRepl"}], 
   ";"}]}], "Input",
- InitializationCell->True]
+ InitializationCell->True],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"FTxvec", "[", 
+     RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxvec", "[", 
+     RowBox[{
+      RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxvec", "[", 
+     RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxvec", "[", 
+      RowBox[{
+       RowBox[{"p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+       ",", "mu"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsp", "[", 
+     RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxsp", "[", 
+     RowBox[{
+      RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsp", "[", 
+     RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxsp", "[", 
+     RowBox[{"p", ",", 
+      RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsp", "[", 
+     RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxsp", "[", 
+      RowBox[{
+       RowBox[{"p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+       ",", "q"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsp", "[", 
+     RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"q", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxsp", "[", 
+      RowBox[{"p", ",", 
+       RowBox[{"q", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+      "]"}]}]}]}], "}"}]], "Output"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"FTxvecs", "[", 
+     RowBox[{"p_Plus", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxvecs", "[", 
+     RowBox[{
+      RowBox[{"momentumSum", "[", "p", "]"}], ",", "mu"}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxvecs", "[", 
+     RowBox[{"p_Times", ",", "mu_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxvecs", "[", 
+      RowBox[{
+       RowBox[{"p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+       ",", "mu"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsps", "[", 
+     RowBox[{"p_Plus", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxsps", "[", 
+     RowBox[{
+      RowBox[{"momentumSum", "[", "p", "]"}], ",", "q"}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsps", "[", 
+     RowBox[{"p_", ",", "q_Plus"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{"FTxsps", "[", 
+     RowBox[{"p", ",", 
+      RowBox[{"momentumSum", "[", "q", "]"}]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsps", "[", 
+     RowBox[{"p_Times", ",", "q_"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"p", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxsps", "[", 
+      RowBox[{
+       RowBox[{"p", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+       ",", "q"}], "]"}]}]}], ",", 
+   RowBox[{
+    RowBox[{"FTxsps", "[", 
+     RowBox[{"p_", ",", "q_Times"}], "]"}], "\[RuleDelayed]", 
+    RowBox[{
+     RowBox[{"q", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], " ", 
+     RowBox[{"FTxsps", "[", 
+      RowBox[{"p", ",", 
+       RowBox[{"q", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}]}], 
+      "]"}]}]}]}], "}"}]], "Output"]
+}, Open  ]]
 }, Closed]]
 }, Closed]]
 }, Closed]],
@@ -8147,7 +8414,7 @@ Cell[BoxData[{
    RowBox[{
     RowBox[{"formBlockArgument", "[", 
      RowBox[{"block_String", ",", 
-      RowBox[{"level_Integer:", "3"}]}], "]"}], ":=", 
+      RowBox[{"level_Integer:", "5"}]}], "]"}], ":=", 
     RowBox[{"block", "~~", 
      RowBox[{"If", "[", 
       RowBox[{
@@ -9977,8 +10244,7 @@ indices: \>\"", ",", "\[IndentingNewLine]",
              RowBox[{"Join", "[", 
               RowBox[{
                RowBox[{"If", "[", 
-                RowBox[{
-                 RowBox[{"replacemomenta", "\[Equal]", "True"}], ",", 
+                RowBox[{"replacemomenta", ",", 
                  RowBox[{"{", 
                   RowBox[{"{", 
                    RowBox[{
@@ -10037,7 +10303,7 @@ indices: \>\"", ",", "\[IndentingNewLine]",
              "]"}]}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
           RowBox[{"If", "[", 
            RowBox[{
-            RowBox[{"replacemomenta", "\[Equal]", "False"}], ",", 
+            RowBox[{"Not", "[", "replacemomenta", "]"}], ",", 
             "\[IndentingNewLine]", 
             RowBox[{"(*", 
              RowBox[{
@@ -10327,7 +10593,7 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
             RowBox[{"If", "[", 
              RowBox[{
               RowBox[{
-               RowBox[{"replacemomenta", "\[Equal]", "False"}], "&&", 
+               RowBox[{"Not", "[", "replacemomenta", "]"}], "&&", 
                RowBox[{
                 RowBox[{"Length", "[", "momentaall", "]"}], ">", "0"}]}], ",", 
               RowBox[{
@@ -10338,11 +10604,9 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
             "\"\<\nSet setvec:\>\"", "~~", 
             RowBox[{"stringList", "[", 
              RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"replacemomenta", "\[Equal]", "False"}], ",", 
-               "momenta", ",", 
-               RowBox[{"momenta", "/.", "momreplrule"}]}], "]"}], "]"}], 
-            "~~", "\"\<;\n\>\"", "~~", 
+              RowBox[{"replacemomenta", ",", 
+               RowBox[{"momenta", "/.", "momreplrule"}], ",", "momenta"}], 
+              "]"}], "]"}], "~~", "\"\<;\n\>\"", "~~", 
             RowBox[{"If", "[", 
              RowBox[{"finiteTenabled", " ", ",", 
               RowBox[{"\"\<\nSet setvecs:\>\"", "~~", 
@@ -10353,12 +10617,11 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
                    RowBox[{"\"\<vecsx\>\"", ",", 
                     RowBox[{"ToString", "[", "#", "]"}]}], "]"}], "&"}], "/@", 
                  RowBox[{"If", "[", 
-                  RowBox[{
-                   RowBox[{"replacemomenta", "\[Equal]", "False"}], ",", 
-                   "momentaall", ",", 
-                   RowBox[{"momentaall", "/.", "momreplrule"}]}], "]"}]}], 
-                "]"}], "~~", "\"\<;\>\""}], "\[IndentingNewLine]", ",", 
-              "\"\<\>\""}], "]"}], "~~", "\"\<\n\>\"", "~~", 
+                  RowBox[{"replacemomenta", ",", 
+                   RowBox[{"momentaall", "/.", "momreplrule"}], ",", 
+                   "momentaall"}], "]"}]}], "]"}], "~~", "\"\<;\>\""}], 
+              "\[IndentingNewLine]", ",", "\"\<\>\""}], "]"}], "~~", 
+            "\"\<\n\>\"", "~~", 
             RowBox[{"If", "[", 
              RowBox[{
               RowBox[{"combinedTensorNames", "===", 
@@ -10376,10 +10639,12 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
                RowBox[{"extraFormVarsListExportDeclare", "\[Equal]", 
                 RowBox[{"{", "}"}]}]}], ",", "\"\<\>\"", ",", 
               RowBox[{"\"\<CFunction \>\"", "<>", 
-               RowBox[{
-               "stringList", "[", "extraFormVarsListExportDeclare", "]"}], 
+               RowBox[{"stringList", "[", 
+                RowBox[{"Complement", "[", 
+                 RowBox[{"extraFormVarsListExportDeclare", ",", 
+                  RowBox[{"ToString", "/@", "momentaall"}]}], "]"}], "]"}], 
                "<>", "\"\<;\>\""}]}], "]"}], "~~", 
-            "\"\<\nCFunction pow,sqrt,gamma,FTxsp(symmetric),FTxvec\>\"", "~~", 
+            "\"\<\nCFunction pow,sqrt,Pi,gamma,FTxsp(symmetric),FTxvec\>\"", "~~", 
             RowBox[{"If", "[", 
              RowBox[{
              "finiteTenabled", ",", "\"\<,FTxvecs,FTxsps(symmetric)\>\"", 
@@ -10388,8 +10653,9 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
              RowBox[{
               RowBox[{
                RowBox[{"First", "[", "lorentzDimensions", "]"}], "=!=", "4"}],
-               ",", "\"\<CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;\>\
-\"", ",", "\"\<\>\""}], "]"}], "~~", 
+               ",", 
+              "\"\<CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;\>\"", 
+              ",", "\"\<\>\""}], "]"}], "~~", 
             "\"\<\n*** turn off runtime statistics ***\nOff statistics;\n\
 .sort\n\n*********************************************************************\
 ***********\n* Decomposed input\n\
@@ -10469,8 +10735,8 @@ tensors ***\n\>\"", "~~",
 ******************************************************************************\
 **\n*** set dimension to Lorenz dim for epsilons ***\nDimension \>\"", "~~", 
                RowBox[{"ToString", "[", 
-                RowBox[{"First", "[", "lorentzDimensions", "]"}], "]"}], 
-               "~~", "\"\<;\n.sort\n\n\>\"", "~~", 
+                RowBox[{"First", "[", "lorentzDimensions", "]"}], "]"}], "~~",
+                "\"\<;\n.sort\n\n\>\"", "~~", 
                RowBox[{"formexpr", "[", 
                 RowBox[{"[", "3", "]"}], "]"}], "~~", "\"\<\n\>\"", "~~", 
                RowBox[{"If", "[", 
@@ -10673,7 +10939,7 @@ replace_(\>\"", "<>",
      ",", "exportTmpVar", ",", "exportVarType"}], "]"}]}], ";"}]}], "Input",
  InitializationCell->True]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -10707,8 +10973,7 @@ Cell[BoxData[{
             RowBox[{"{", 
              RowBox[{
               RowBox[{"\"\<\\n\>\"", "\[Rule]", "\"\< \>\""}], ",", 
-              RowBox[{"\"\<sqrt_\>\"", "\[Rule]", "\"\<Sqrt\>\""}], ",", 
-              RowBox[{"\"\<pi_\>\"", "\[Rule]", "\"\<Pi\>\""}], ",", 
+              RowBox[{"\"\<sqrt\>\"", "\[Rule]", "\"\<Sqrt\>\""}], ",", 
               RowBox[{"\"\<i_\>\"", "\[Rule]", " ", "\"\<I\>\""}], ",", 
               RowBox[{"\"\<pow[\>\"", "\[Rule]", "\"\<Power[\>\""}]}], "}"}], 
             ",", 
@@ -10722,9 +10987,8 @@ Cell[BoxData[{
                    RowBox[{"DigitCharacter", ".."}]}], "~~", "\"\<_?\>\""}], 
                  "]"}], "\[RuleDelayed]", 
                 RowBox[{
-                 RowBox[{"ToString", "[", "tempPartialTraceDummy", "]"}], 
-                 "~~", "\"\<[\>\"", "~~", "x", "~~", "\"\<]\>\""}]}], "}"}], 
-              ",", 
+                 RowBox[{"ToString", "[", "tempPartialTraceDummy", "]"}], "~~",
+                  "\"\<[\>\"", "~~", "x", "~~", "\"\<]\>\""}]}], "}"}], ",", 
               RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], "]"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
@@ -11164,8 +11428,8 @@ CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{3840, 2041},
-WindowMargins->{{2044, -2044}, {-1036, Automatic}},
+WindowSize->{1680, 1000},
+WindowMargins->{{0, Automatic}, {0, 20}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,
@@ -11256,7 +11520,7 @@ ShowSpecialCharacters->True,
 AllowInlineCells->True,
 PasteBoxFormInlineCells->Automatic,
 Background->None,
-FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb",
 GhostCellInEmptyNotebook -> False
 ]

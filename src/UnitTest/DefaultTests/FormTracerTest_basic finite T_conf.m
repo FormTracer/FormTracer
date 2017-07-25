@@ -1,0 +1,13 @@
+Hold[If[versionStringToNumber[$FormTracerVersionNumber] > 1.7, 
+  {DefineLorentzTensors[deltaLorentz[a, b], vec[p, mu], sp[p, q], eps[], 
+    deltaSpinor[i, j], gamma[mu, i, j], gamma5[i, j], vec3d[p, mu], 
+    sp3d[p, q]]}, If[versionStringToNumber[$FormTracerVersionNumber] > 1.56, 
+   {DefineLorentzTensors[deltaLorentz[a, b], vec[p, mu], sp[p, q], 
+     deltaSpinor[i, j], gamma[mu, i, j], gamma5[i, j], eps[], vec3d[p, mu], 
+     sp3d[p, q]]}, If[versionStringToNumber[$FormTracerVersionNumber] > 1.5, 
+    {DefineLorentzTensors[deltaLorentz[a, b], vec[p, mu], sp[p, q], 
+      deltaSpinor[i, j], gamma[mu, i, j], gamma5[i, j], eps[], vec3d[p, mu], 
+      sp3d[p, q], vec0[p, mu], sp0[p, q]]}, 
+    {DefineLorentzTensors[deltaLorentz[a, b], vec[p, mu], sp[p, q], 
+      deltaSpinor[i, j], gamma[mu, i, j], gamma5[i, j], eps[], vec3d[p, mu], 
+      sp3d[p, q], vec0[p, mu], sp0[p, q]], FiniteT[True]}]]]]
