@@ -3,6 +3,10 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.1 (***********)
+- Improved FormTracer directory search for system-wide installations.
+
+
 (***********) FormTracer Version 2.3.0 (***********)
 - Fixed declaration issue in case of exporting: 
   Extra variables are only declared if they are not already declared as e.g. vector.

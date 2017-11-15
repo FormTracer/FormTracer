@@ -395,15 +395,17 @@ Begin["`Private`"];
 
 (* ::Input::Initialization:: *)
 (*determine the FormTracer directory*)
-formTracerDirectory= If[DirectoryQ[FileNameJoin[{$UserBaseDirectory,"Applications","FormTracer"}]],
-(*installed in the user directory*)
+formTracerDirectory=SelectFirst[{
 FileNameJoin[{$UserBaseDirectory,"Applications","FormTracer"}],
-If[DirectoryQ[FileNameJoin[{$BaseDirectory,"Applications","FormTracer"}]],
-(*installed systemwide*)
 FileNameJoin[{$BaseDirectory,"Applications","FormTracer"}],
+FileNameJoin[{$InstallationDirectory,"AddOns","Applications","FormTracer"}],
+FileNameJoin[{$InstallationDirectory,"AddOns","Packages","FormTracer"}],
+FileNameJoin[{$InstallationDirectory,"AddOns","ExtraPackages","FormTracer"}]
+},DirectoryQ[#]&];
+
+If[formTracerDirectory===Missing["NotFound"],
 Message[FormTracer::formtracerdirectorynotfound];
-FileNameJoin[{$UserBaseDirectory,"Applications","FormTracer"}]
-]
+formTracerDirectory=FileNameJoin[{$UserBaseDirectory,"Applications","FormTracer"}]
 ];
 
 $FormTracerVersionNumber=Quiet[Check[Version/.List@@Import[FileNameJoin[{formTracerDirectory,"PacletInfo.m"}]],"0.0.0"]];

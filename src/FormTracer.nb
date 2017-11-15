@@ -921,7 +921,7 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", "\n", 
+requires internet access.\>\""}], ";"}], "\n", "\[IndentingNewLine]", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -956,54 +956,61 @@ Cell[BoxData[
    "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"formTracerDirectory", "=", " ", 
-     RowBox[{"If", "[", 
+    RowBox[{"formTracerDirectory", "=", 
+     RowBox[{"SelectFirst", "[", 
       RowBox[{
-       RowBox[{"DirectoryQ", "[", 
-        RowBox[{"FileNameJoin", "[", 
-         RowBox[{"{", 
-          RowBox[{
-          "$UserBaseDirectory", ",", "\"\<Applications\>\"", ",", 
-           "\"\<FormTracer\>\""}], "}"}], "]"}], "]"}], ",", 
-       "\[IndentingNewLine]", 
-       RowBox[{"(*", 
+       RowBox[{"{", "\[IndentingNewLine]", 
         RowBox[{
-        "installed", " ", "in", " ", "the", " ", "user", " ", "directory"}], 
-        "*)"}], "\[IndentingNewLine]", 
-       RowBox[{"FileNameJoin", "[", 
-        RowBox[{"{", 
-         RowBox[{
-         "$UserBaseDirectory", ",", "\"\<Applications\>\"", ",", 
-          "\"\<FormTracer\>\""}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"DirectoryQ", "[", 
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{
-            "$BaseDirectory", ",", "\"\<Applications\>\"", ",", 
-             "\"\<FormTracer\>\""}], "}"}], "]"}], "]"}], ",", 
-         "\[IndentingNewLine]", 
-         RowBox[{"(*", 
-          RowBox[{"installed", " ", "systemwide"}], "*)"}], 
-         "\[IndentingNewLine]", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "$UserBaseDirectory", ",", "\"\<Applications\>\"", ",", 
+            "\"\<FormTracer\>\""}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
+         
          RowBox[{"FileNameJoin", "[", 
           RowBox[{"{", 
            RowBox[{
            "$BaseDirectory", ",", "\"\<Applications\>\"", ",", 
             "\"\<FormTracer\>\""}], "}"}], "]"}], ",", "\[IndentingNewLine]", 
          
-         RowBox[{
-          RowBox[{"Message", "[", 
-           RowBox[{"FormTracer", "::", "formtracerdirectorynotfound"}], "]"}],
-           ";", "\[IndentingNewLine]", 
-          RowBox[{"FileNameJoin", "[", 
-           RowBox[{"{", 
-            RowBox[{
-            "$UserBaseDirectory", ",", "\"\<Applications\>\"", ",", 
-             "\"\<FormTracer\>\""}], "}"}], "]"}]}]}], "\[IndentingNewLine]", 
-        "]"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]",
-    "\[IndentingNewLine]", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "$InstallationDirectory", ",", "\"\<AddOns\>\"", ",", 
+            "\"\<Applications\>\"", ",", "\"\<FormTracer\>\""}], "}"}], "]"}],
+          ",", "\[IndentingNewLine]", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "$InstallationDirectory", ",", "\"\<AddOns\>\"", ",", 
+            "\"\<Packages\>\"", ",", "\"\<FormTracer\>\""}], "}"}], "]"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"FileNameJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+           "$InstallationDirectory", ",", "\"\<AddOns\>\"", ",", 
+            "\"\<ExtraPackages\>\"", ",", "\"\<FormTracer\>\""}], "}"}], 
+          "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{
+        RowBox[{"DirectoryQ", "[", "#", "]"}], "&"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"formTracerDirectory", "===", 
+       RowBox[{"Missing", "[", "\"\<NotFound\>\"", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Message", "[", 
+        RowBox[{"FormTracer", "::", "formtracerdirectorynotfound"}], "]"}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{"formTracerDirectory", "=", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "$UserBaseDirectory", ",", "\"\<Applications\>\"", ",", 
+           "\"\<FormTracer\>\""}], "}"}], "]"}]}]}]}], "\[IndentingNewLine]", 
+     "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"$FormTracerVersionNumber", "=", 
      RowBox[{"Quiet", "[", 
@@ -1234,6 +1241,7 @@ ShowFormTracerChangeLog[].\n\>\""}], "]"}], ";"}], ",", "\[IndentingNewLine]",
                  RowBox[{
                   RowBox[{"Print", "[", 
                    RowBox[{
+                   
                    "\"\<You are already using the latest version of the \
 FormTracer, version \>\"", "<>", " ", "$FormTracerVersionNumber", "<>", 
                     "\"\<.\>\""}], "]"}], ";"}]}], "\[IndentingNewLine]", 
@@ -2029,7 +2037,6 @@ https://github.com/vermaseren/form.\>\"", "]"}], ";"}]}],
           RowBox[{"If", "[", 
            RowBox[{
            "disentangleLorentzStructuresSwitch", ",", 
-            
             "\"\<Lorentz structures are disentangled once you have \
 deactivated partial traces.\>\"", ",", 
             "\"\<Lorentz structures are not disentangled.\>\""}], "]"}], 
@@ -10653,9 +10660,8 @@ AutoDeclare Vector \>\"", "~~", "prefixColorPackagegrpvecsym", "~~",
              RowBox[{
               RowBox[{
                RowBox[{"First", "[", "lorentzDimensions", "]"}], "=!=", "4"}],
-               ",", 
-              "\"\<CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;\>\"", 
-              ",", "\"\<\>\""}], "]"}], "~~", 
+               ",", "\"\<CFunction FTxTr, FTxTr2, FTxTr3, FTxeInt, FTxeExt;\>\
+\"", ",", "\"\<\>\""}], "]"}], "~~", 
             "\"\<\n*** turn off runtime statistics ***\nOff statistics;\n\
 .sort\n\n*********************************************************************\
 ***********\n* Decomposed input\n\
@@ -10735,8 +10741,8 @@ tensors ***\n\>\"", "~~",
 ******************************************************************************\
 **\n*** set dimension to Lorenz dim for epsilons ***\nDimension \>\"", "~~", 
                RowBox[{"ToString", "[", 
-                RowBox[{"First", "[", "lorentzDimensions", "]"}], "]"}], "~~",
-                "\"\<;\n.sort\n\n\>\"", "~~", 
+                RowBox[{"First", "[", "lorentzDimensions", "]"}], "]"}], 
+               "~~", "\"\<;\n.sort\n\n\>\"", "~~", 
                RowBox[{"formexpr", "[", 
                 RowBox[{"[", "3", "]"}], "]"}], "~~", "\"\<\n\>\"", "~~", 
                RowBox[{"If", "[", 
@@ -10889,6 +10895,7 @@ replace_(\>\"", "<>",
 **\n\>\"", "~~", 
                RowBox[{"generateBracketingString", "[", "bracket", "]"}], 
                "~~", "\"\<\n\>\""}], ",", "\"\<\>\""}], "]"}], "~~", 
+            
             "\"\<\n***********************************************************\
 *********************\n* Output/export\n\
 ******************************************************************************\
@@ -10987,8 +10994,9 @@ Cell[BoxData[{
                    RowBox[{"DigitCharacter", ".."}]}], "~~", "\"\<_?\>\""}], 
                  "]"}], "\[RuleDelayed]", 
                 RowBox[{
-                 RowBox[{"ToString", "[", "tempPartialTraceDummy", "]"}], "~~",
-                  "\"\<[\>\"", "~~", "x", "~~", "\"\<]\>\""}]}], "}"}], ",", 
+                 RowBox[{"ToString", "[", "tempPartialTraceDummy", "]"}], 
+                 "~~", "\"\<[\>\"", "~~", "x", "~~", "\"\<]\>\""}]}], "}"}], 
+              ",", 
               RowBox[{"{", "}"}]}], "]"}]}], "]"}]}], "]"}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"If", "[", 
@@ -11385,8 +11393,7 @@ Cell[BoxData[{
 
 Cell[CellGroupData[{
 
-Cell["End", "Section",
- CellChangeTimes->{{3.6446558796527853`*^9, 3.644655880037665*^9}}],
+Cell["End", "Section"],
 
 Cell[BoxData[{
  RowBox[{
