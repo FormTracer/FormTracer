@@ -1,0 +1,573 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14863,        565]
+NotebookOptionsPosition[     10106,        396]
+NotebookOutlinePosition[     10717,        420]
+CellTagsIndexPosition[     10638,        415]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["FormTracer Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->624992534],
+
+Cell["FormTracer`", "Categorization",
+ CellLabel->"Context",
+ CellID->1187179685],
+
+Cell["FormTracer/ref/DefineLorentzDimensions", "Categorization",
+ CellLabel->"URI",
+ CellID->81623104]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["DefineLorentzDimensions", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"DefineLorentzDimensions", "[", 
+   StyleBox["dim", "TI"], "]"}]], "InlineFormula"],
+ "\[LineSeparator]sets the space dimension to dim. \n",
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"DefineLorentzDimensions", "[", 
+   RowBox[{
+    StyleBox["dim", "TI"], ",", " ", 
+    StyleBox["dimDirac", "TI"]}], "]"}]], "InlineFormula"],
+ "\[LineSeparator]: sets the space and Dirac dimensions to dim and dimDirac, \
+respectively. The default dimensions are 4 for both dimensions."
+}], "Usage",
+ CellChangeTimes->{{3.682681968267701*^9, 3.682681968571878*^9}}],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["DefineLorentzTensors",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/DefineLorentzTensors"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["FastGamma5Trace",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/FastGamma5Trace"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["FormTrace",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/FormTrace"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.688813641792485*^9, 3.688813727099909*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellChangeTimes->{{3.6828447672716017`*^9, 3.682844781367282*^9}},
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}], ",", 
+   RowBox[{"eps", "[", "]"}], ",", 
+   RowBox[{"deltaDirac", "[", 
+    RowBox[{"i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma", "[", 
+    RowBox[{"mu", ",", "i", ",", "j"}], "]"}], ",", 
+   RowBox[{"gamma5", "[", 
+    RowBox[{"i", ",", "j"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682925726398831*^9, 3.6829257268744287`*^9}},
+ CellLabel->"In[4]:=",
+ CellID->1560085712],
+
+Cell["\<\
+The default values for the Lorentz and Dirac dimensions are 4,\
+\>", "ExampleText",
+ CellChangeTimes->{{3.6828449453762913`*^9, 3.682844955524279*^9}, {
+  3.68292574788518*^9, 3.6829257836721687`*^9}, {3.682925839196628*^9, 
+  3.68292583957375*^9}},
+ CellID->1746636942],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaLorentz", "[", 
+   RowBox[{"mu", ",", "mu"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaDirac", "[", 
+   RowBox[{"i", ",", "i"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682844888662896*^9, 3.68284492486664*^9}, {
+  3.682925787688414*^9, 3.6829258324620733`*^9}, {3.682925911829857*^9, 
+  3.68292591218493*^9}},
+ CellLabel->"In[2]:=",
+ CellID->645507991],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{{3.6829258051012506`*^9, 3.682925819091385*^9}, {
+   3.682925909216552*^9, 3.682925912846466*^9}, 3.6829259548718767`*^9},
+ CellLabel->"Out[2]=",
+ CellID->1251666577],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{{3.6829258051012506`*^9, 3.682925819091385*^9}, {
+   3.682925909216552*^9, 3.682925912846466*^9}, 3.682925954912652*^9},
+ CellLabel->"Out[3]=",
+ CellID->1481820572]
+}, Open  ]],
+
+Cell["but you may set them to any value:", "ExampleText",
+ CellChangeTimes->{{3.68284496217028*^9, 3.6828449690970287`*^9}, {
+  3.682925841973995*^9, 3.68292585153909*^9}},
+ CellID->1212437806],
+
+Cell[BoxData[
+ RowBox[{"DefineLorentzDimensions", "[", 
+  RowBox[{"dim", ",", "dimDirac"}], "]"}]], "Input",
+ CellChangeTimes->{{3.68284497067789*^9, 3.6828450094637127`*^9}, {
+  3.682925859392908*^9, 3.682925900956397*^9}},
+ CellLabel->"In[6]:=",
+ CellID->2142976665],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaLorentz", "[", 
+   RowBox[{"mu", ",", "mu"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"FormTrace", "[", 
+  RowBox[{"deltaDirac", "[", 
+   RowBox[{"i", ",", "i"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682925914984023*^9, 3.682925920740283*^9}, {
+  3.682925962377893*^9, 3.6829259625978327`*^9}},
+ CellLabel->"In[9]:=",
+ CellID->240101693],
+
+Cell[BoxData["dim"], "Output",
+ CellChangeTimes->{{3.682925887494035*^9, 3.682925902706374*^9}, {
+  3.682925959500021*^9, 3.682925963498451*^9}},
+ CellLabel->"Out[9]=",
+ CellID->138326749],
+
+Cell[BoxData["dimDirac"], "Output",
+ CellChangeTimes->{{3.682925887494035*^9, 3.682925902706374*^9}, {
+  3.682925959500021*^9, 3.682925963501565*^9}},
+ CellLabel->"Out[10]=",
+ CellID->1151461013]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{110, Automatic}, {116, Automatic}},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[8586, 338, 100, 2, 54, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 10500, 408}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 324, 14, 23, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[907, 38, 68, 1, 28, "CategorizationSection",
+ CellID->1122911449],
+Cell[978, 41, 79, 2, 34, "Categorization",
+ CellID->686433507],
+Cell[1060, 45, 91, 2, 34, "Categorization",
+ CellID->624992534],
+Cell[1154, 49, 81, 2, 34, "Categorization",
+ CellID->1187179685],
+Cell[1238, 53, 102, 2, 34, "Categorization",
+ CellID->81623104]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1377, 60, 55, 1, 18, "KeywordsSection",
+ CellID->477174294],
+Cell[1435, 63, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1517, 69, 65, 1, 18, "TemplatesSection",
+ CellID->1872225408],
+Cell[1585, 72, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1682, 76, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1767, 80, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1851, 84, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1970, 91, 53, 1, 18, "DetailsSection",
+ CellID->307771771],
+Cell[2026, 94, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2092, 98, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2164, 102, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2231, 106, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2303, 110, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2367, 114, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2431, 118, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2497, 122, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2578, 126, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2682, 133, 66, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[2751, 136, 622, 15, 125, "Usage"],
+Cell[3376, 153, 42, 1, 24, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3455, 159, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3515, 162, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3597, 168, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[3683, 171, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3778, 177, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[3846, 180, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3932, 186, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[3990, 189, 610, 18, 20, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4637, 212, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[4697, 215, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4780, 221, 356, 11, 68, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[5139, 234, 156, 2, 21, "ExampleText",
+ CellID->1222388521],
+Cell[5298, 238, 733, 19, 65, "Input",
+ CellID->1560085712],
+Cell[6034, 259, 280, 6, 21, "ExampleText",
+ CellID->1746636942],
+Cell[CellGroupData[{
+Cell[6339, 269, 460, 11, 46, "Input",
+ CellID->645507991],
+Cell[6802, 282, 214, 4, 24, "Output",
+ CellID->1251666577],
+Cell[7019, 288, 212, 4, 24, "Output",
+ CellID->1481820572]
+}, Open  ]],
+Cell[7246, 295, 193, 3, 21, "ExampleText",
+ CellID->1212437806],
+Cell[7442, 300, 268, 6, 27, "Input",
+ CellID->2142976665],
+Cell[CellGroupData[{
+Cell[7735, 310, 413, 10, 46, "Input",
+ CellID->240101693],
+Cell[8151, 322, 188, 4, 24, "Output",
+ CellID->138326749],
+Cell[8342, 328, 195, 4, 24, "Output",
+ CellID->1151461013]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8586, 338, 100, 2, 54, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[8689, 342, 125, 3, 31, "ExampleSection",
+ CellID->1293636265],
+Cell[8817, 347, 148, 3, 19, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[8990, 354, 127, 3, 19, "ExampleSection",
+ CellID->2061341341],
+Cell[9120, 359, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[9253, 364, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[9398, 370, 131, 3, 19, "ExampleSection",
+ CellID->258228157],
+Cell[9532, 375, 142, 3, 19, "ExampleSection",
+ CellID->2123667759],
+Cell[9677, 380, 135, 3, 19, "ExampleSection",
+ CellID->1305812373],
+Cell[9815, 385, 140, 3, 19, "ExampleSection",
+ CellID->1653164318],
+Cell[9958, 390, 132, 3, 19, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+

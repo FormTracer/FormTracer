@@ -1,0 +1,468 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11737,        460]
+NotebookOptionsPosition[      7752,        319]
+NotebookOutlinePosition[      8361,        343]
+CellTagsIndexPosition[      8283,        338]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["1.8", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["FormTracer", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["FormTracer`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["FormTracer/ref/GenericGroup", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["GenericGroup", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData["GenericGroup"], "InlineFormula"],
+ " represents a generic simple compact Lie group which is traced with the \
+generic color trace (to supplied as group template argument in \
+DefineGroupTensors). Traces of this group must always be taken over the full \
+group space, i.e., no explicit numeric indices are allowed. If explicit \
+numeric indices are inserted for the generic group, the results will be wrong \
+without any warning as the FORM color package treats explicit numeric indices \
+as symbolic indices."
+}], "Usage",
+ CellChangeTimes->{{3.68268216243869*^9, 3.682682175209836*^9}, {
+   3.682682213448197*^9, 3.6826822246045017`*^9}, {3.682926416205059*^9, 
+   3.682926442363134*^9}, {3.682926473560018*^9, 3.682926507550951*^9}, 
+   3.6829266006959352`*^9, {3.682926651188574*^9, 3.682926765153604*^9}},
+ CellID->982511436],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["ShowGroupTemplates",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/ShowGroupTemplates"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["DefineGroupTensors",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/DefineGroupTensors"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["ShowGroupConstants",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/ShowGroupConstants"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["SUNfund",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/SUNfund"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["SONfund",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/SONfund"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["SPNfund",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/SPNfund"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["SU2fundexplicit",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/SU2fundexplicit"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["SU3fundexplicit",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/SU3fundexplicit"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{
+  3.682749701245462*^9, {3.68274973185679*^9, 3.6827497678891087`*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{495, Automatic}, {23, Automatic}},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[6232, 261, 100, 2, 54, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 8145, 331}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 23, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 28, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 83, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1147, 49, 80, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1230, 53, 72, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1339, 59, 55, 1, 18, "KeywordsSection",
+ CellID->477174294],
+Cell[1397, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1479, 68, 65, 1, 18, "TemplatesSection",
+ CellID->1872225408],
+Cell[1547, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1644, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1729, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1813, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1932, 90, 53, 1, 18, "DetailsSection",
+ CellID->307771771],
+Cell[1988, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2054, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2126, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2193, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2265, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2329, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2393, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2459, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2540, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2644, 132, 55, 1, 63, "ObjectName",
+ CellID->1224892054],
+Cell[2702, 135, 885, 15, 133, "Usage",
+ CellID->982511436],
+Cell[3590, 152, 42, 1, 24, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3669, 158, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3729, 161, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3811, 167, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[3897, 170, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3992, 176, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[4060, 179, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4146, 185, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4204, 188, 1489, 46, 37, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5730, 239, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[5790, 242, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[5851, 246, 356, 11, 68, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[CellGroupData[{
+Cell[6232, 261, 100, 2, 54, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[6335, 265, 125, 3, 31, "ExampleSection",
+ CellID->1293636265],
+Cell[6463, 270, 148, 3, 19, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[6636, 277, 127, 3, 19, "ExampleSection",
+ CellID->2061341341],
+Cell[6766, 282, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[6899, 287, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[7044, 293, 131, 3, 19, "ExampleSection",
+ CellID->258228157],
+Cell[7178, 298, 142, 3, 19, "ExampleSection",
+ CellID->2123667759],
+Cell[7323, 303, 135, 3, 19, "ExampleSection",
+ CellID->1305812373],
+Cell[7461, 308, 140, 3, 19, "ExampleSection",
+ CellID->1653164318],
+Cell[7604, 313, 132, 3, 19, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+

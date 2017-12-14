@@ -1,0 +1,578 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15069,        570]
+NotebookOptionsPosition[     10640,        413]
+NotebookOutlinePosition[     11251,        437]
+CellTagsIndexPosition[     11172,        432]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["1.8", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["FormTracer", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["FormTracer`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["FormTracer/ref/CheckTensorSums", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["CheckTensorSums", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"CheckTensorSums", "[", 
+   StyleBox["expr", "TI"], "]"}]], "InlineFormula"],
+ " \[LineSeparator]checks all tensor sums in expr for consistency. Check \
+tensor sum is always applied if ",
+ Cell[BoxData[
+  ButtonBox["AlwaysCheckTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/AlwaysCheckTensorSums"]], 
+  "InlineFormula"],
+ " is set to true. Internally, it calls ",
+ Cell[BoxData[
+  ButtonBox["CheckLorentzTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckLorentzTensorSums"]], 
+  "InlineFormula"],
+ ", ",
+ Cell[BoxData[
+  ButtonBox["CheckDiracTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckDiracTensorSums"]], 
+  "InlineFormula"],
+ " as well as ",
+ Cell[BoxData[
+  ButtonBox["CheckFundGroupTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckFundGroupTensorSums"]], 
+  "InlineFormula"],
+ " and ",
+ Cell[BoxData[
+  ButtonBox["CheckAdjGroupTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckAdjGroupTensorSums"]], 
+  "InlineFormula"],
+ " for all groups. It returns True if all checks were successful, otherwise \
+false."
+}], "Usage",
+ CellChangeTimes->{{3.68268317211049*^9, 3.6826831783113737`*^9}, {
+  3.682921372186391*^9, 3.682921420270792*^9}, {3.682921486039138*^9, 
+  3.682921635139296*^9}},
+ CellID->982511436],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["DebuggingMode",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/DebuggingMode"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["AlwaysCheckTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/AlwaysCheckTensorSums"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["CheckLorentzTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckLorentzTensorSums"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["CheckDiracTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckDiracTensorSums"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["CheckFundGroupTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckFundGroupTensorSums"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["CheckAdjGroupTensorSums",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/CheckAdjGroupTensorSums"]], 
+  "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["GetIndices",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/GetIndices"]], "InlineFormula"],
+ " \[FilledVerySmallSquare]  ",
+ Cell[BoxData[
+  ButtonBox["GetOpenIndices",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/GetOpenIndices"]], "InlineFormula"],
+ " \[FilledVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["GetClosedIndices",
+   BaseStyle->"Link",
+   ButtonData->"paclet:FormTracer/ref/GetClosedIndices"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.682748292588429*^9, 3.6827484401628647`*^9}, 
+   3.6827484980608673`*^9},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["Load FormTracer and define the basic syntax:", "ExampleText",
+ CellChangeTimes->{{3.6828447672716017`*^9, 3.682844781367282*^9}},
+ CellID->1222388521],
+
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<FormTracer`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"DefineLorentzTensors", "[", 
+  RowBox[{
+   RowBox[{"deltaLorentz", "[", 
+    RowBox[{"mu", ",", "nu"}], "]"}], ",", 
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], ",", 
+   RowBox[{"sp", "[", 
+    RowBox[{"p", ",", "q"}], "]"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.682844815712121*^9, 3.682844839206703*^9}, {
+   3.68292083025004*^9, 3.682920839275277*^9}, 3.682921239198195*^9},
+ CellLabel->"In[45]:=",
+ CellID->1742384902],
+
+Cell["Check tensor sums:", "ExampleText",
+ CellChangeTimes->{{3.6828449453762913`*^9, 3.682844955524279*^9}, {
+  3.682921242899332*^9, 3.68292125020054*^9}, {3.682921445706105*^9, 
+  3.682921449483707*^9}},
+ CellID->1746636942],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CheckTensorSums", "[", 
+  RowBox[{
+   RowBox[{"vec", "[", 
+    RowBox[{"p", ",", "mu"}], "]"}], "+", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.682844888662896*^9, 3.68284492486664*^9}, {
+  3.682920763346635*^9, 3.6829207887416553`*^9}, {3.68292089126591*^9, 
+  3.682920898962562*^9}, {3.682921253066063*^9, 3.682921257554344*^9}, {
+  3.682921452490292*^9, 3.682921459034952*^9}},
+ CellLabel->"In[47]:=",
+ CellID->645507991],
+
+Cell[BoxData[
+ TemplateBox[{
+  "CheckTensorSums","invalidsum",
+   "\"Invalid sum of tensors encountered: \\!\\(\\*RowBox[{\\\"{\\\", \
+RowBox[{RowBox[{\\\"{\\\", \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", \
+\\\"mu\\\", \\\"}\\\"}]}], \\\"}\\\"}]\\).\"",2,47,3,26081820717965860371,
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.6829214600738*^9, 3.6829214679687843`*^9}},
+ CellLabel->"During evaluation of In[47]:=",
+ CellID->1921382497],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{{3.682921460076674*^9, 3.682921467985874*^9}},
+ CellLabel->"Out[47]=",
+ CellID->2098417496]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{720, Automatic}, {108, Automatic}},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[9120, 355, 100, 2, 54, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 11034, 425}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 23, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 28, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 83, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1147, 49, 80, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1230, 53, 75, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1342, 59, 55, 1, 18, "KeywordsSection",
+ CellID->477174294],
+Cell[1400, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1482, 68, 65, 1, 18, "TemplatesSection",
+ CellID->1872225408],
+Cell[1550, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1647, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1732, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1816, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1935, 90, 53, 1, 18, "DetailsSection",
+ CellID->307771771],
+Cell[1991, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2057, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2129, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2196, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2268, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2332, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2396, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2462, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2543, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2647, 132, 58, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[2708, 135, 1419, 42, 139, "Usage",
+ CellID->982511436],
+Cell[4130, 179, 42, 1, 24, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4209, 185, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[4269, 188, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4351, 194, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[4437, 197, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4532, 203, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[4600, 206, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4686, 212, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4744, 215, 1761, 53, 54, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6542, 273, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[6602, 276, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6685, 282, 356, 11, 68, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[7044, 295, 156, 2, 21, "ExampleText",
+ CellID->1222388521],
+Cell[7203, 299, 546, 13, 65, "Input",
+ CellID->1742384902],
+Cell[7752, 314, 227, 4, 20, "ExampleText",
+ CellID->1746636942],
+Cell[CellGroupData[{
+Cell[8004, 322, 451, 10, 27, "Input",
+ CellID->645507991],
+Cell[8458, 334, 467, 10, 21, "Message",
+ CellID->1921382497],
+Cell[8928, 346, 143, 3, 24, "Output",
+ CellID->2098417496]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9120, 355, 100, 2, 54, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[9223, 359, 125, 3, 31, "ExampleSection",
+ CellID->1293636265],
+Cell[9351, 364, 148, 3, 19, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[9524, 371, 127, 3, 19, "ExampleSection",
+ CellID->2061341341],
+Cell[9654, 376, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[9787, 381, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[9932, 387, 131, 3, 19, "ExampleSection",
+ CellID->258228157],
+Cell[10066, 392, 142, 3, 19, "ExampleSection",
+ CellID->2123667759],
+Cell[10211, 397, 135, 3, 19, "ExampleSection",
+ CellID->1305812373],
+Cell[10349, 402, 140, 3, 19, "ExampleSection",
+ CellID->1653164318],
+Cell[10492, 407, 132, 3, 19, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
