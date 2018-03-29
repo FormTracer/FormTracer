@@ -3,6 +3,10 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.2 (***********)
+- Bugfix: FormTracer now calls the reduction identities routines of the color package for generic groups.
+
+
 (***********) FormTracer Version 2.3.1 (***********)
 - Improved FormTracer directory search for system-wide installations.
 

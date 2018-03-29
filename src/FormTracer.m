@@ -803,7 +803,14 @@ formColorPackageGroupTemplates={
 {FormTracer`SU3fundexplicit, {3,4/3,8,3,1/2},6}
 };
 (* first argument: algorithm; second: header; third: 1 requires dimension NA, 2 requires dimension NR, 0 nothing*)
-formColorPackageTracingAlgorithms={{"color","color.h",1},{"SUNfund","special_color.h",2},{"SONfund","special_color.h",2},{"SPNfund","special_color.h",2},{"SU2fundexplicit","special_color.h",1},{"SU3fundexplicit","special_color.h",2}};
+formColorPackageTracingAlgorithms={
+{"#call color\n#call adjoint\n#call simpli","color.h",1},
+{"#call SUNfund","special_color.h",2},
+{"#call SONfund","special_color.h",2},
+{"#call SPNfund","special_color.h",2},
+{"#call SU2fundexplicit","special_color.h",1},
+{"#call SU3fundexplicit","special_color.h",2}
+};
 
 formColorPackageGenericD=ToString/@{d33,d44,d55,d433,d66,d633,d543,d444,d3333,d77,d743,d653,d644,d554,d5333,d4433a,d4433b,d4433c,d88,d853,d844,d763,d754,d7333,d664,d655,d6433a,d6433b,d6433c,d5533a,d5533b,d5533c,d5533d,d5443a,d5443b,d5443c,d5443d,d4444a,d4444b,d43333a,d43333b};
 
@@ -2109,7 +2116,7 @@ Dimension NA;","
 *** set the dimension to NR for sums ***
 Dimension NR;"],""]~~"
 contract 0;
-#call "~~groupTracingAlgorithms[[id,1]]~~"
+"~~groupTracingAlgorithms[[id,1]]~~"
 .sort"~~If[grouppostrepl[[id]]=!="","
 *** user-defined postrepl ***
 "~~grouppostrepl[[id]],""]~~"
