@@ -944,7 +944,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -3021,9 +3021,9 @@ Cell[BoxData[{
   ";"}]}], "Input",
  InitializationCell->
   True,ExpressionUUID->"07c11e0a-114d-4bc4-a333-939858ab9c70"]
-}, Closed]]
-}, Closed]]
-}, Closed]],
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -4450,8 +4450,8 @@ Cell[BoxData[{
            RowBox[{
            "\"\<id \>\"", "~~", "#", "~~", "\"\<(?\>\"", "~~", 
             "prefixColorPackagegrpvecsym", "~~", "\"\<)=\>\"", "~~", 
-            "prefixColorPackageGenericD", "~~", "#", "~~", "\"\<(\>\"", "~~", 
-            "prefixColorPackagegrpvecsym", "~~", "\"\<);\>\""}], "&"}], ",", 
+            "prefixColorPackageGenericD", "~~", "#", "~~", "\"\<(?\>\"", "~~",
+             "prefixColorPackagegrpvecsym", "~~", "\"\<);\>\""}], "&"}], ",", 
           "formColorPackageGenericD"}], "]"}], "]"}]}], ",", "\"\<\>\""}], 
      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -4848,7 +4848,7 @@ Cell[BoxData[{
     "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
  InitializationCell->
   True,ExpressionUUID->"5ee3a93a-1616-4dd9-91f4-8b8a849b311b"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -5048,7 +5048,7 @@ Cell[BoxData[{
  InitializationCell->
   True,ExpressionUUID->"33ba1467-2aa3-4cb3-af27-386c3bf1c2e9"]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -5791,7 +5791,7 @@ Cell[BoxData[{
   True,ExpressionUUID->"428a74d8-5cf8-449f-b0ec-cc1bd065a355"]
 }, Closed]]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -9837,7 +9837,7 @@ NR;\>\""}], "]"}]}], ",", "\"\<\>\""}], "]"}], "~~",
       "]"}]}], "]"}]}], ";"}]}], "Input",
  InitializationCell->
   True,ExpressionUUID->"a8b15605-5233-43ef-99dc-f7033b253f9b"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -10967,8 +10967,8 @@ replace_(\>\"", "<>",
      ",", "exportTmpVar", ",", "exportVarType"}], "]"}]}], ";"}]}], "Input",
  InitializationCell->
   True,ExpressionUUID->"ed4393f0-7280-4b83-829a-ef10b730bc08"]
-}, Closed]]
-}, Closed]],
+}, Open  ]]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -11337,7 +11337,7 @@ Cell[BoxData[{
  InitializationCell->
   True,ExpressionUUID->"46dd946a-259b-4af5-90f5-22fcf77213d3"]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -11464,8 +11464,8 @@ CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{3840, 2040},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{3836, 2037},
+WindowMargins->{{2, Automatic}, {3, Automatic}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,

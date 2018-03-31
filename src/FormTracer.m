@@ -1077,7 +1077,7 @@ getFormPostGroupRenamingRules[groupConstants_List,shortGroupName_String,groupTyp
 #enddo",""];
 
 getFormGenericDReplacementRules[groupType_]:=If[FirstCase[formColorPackageGroupTemplates,{groupType,defValues_,algorithm_}:>algorithm]==1,"id "~~prefixColorPackagegrpvecsym~~"1?."~~prefixColorPackagegrpvecsym~~"2?="~~prefixColorPackageGenericD~~postfixColorPackagesp~~"("~~prefixColorPackagegrpvecsym~~"1,"~~prefixColorPackagegrpvecsym~~"2);
-"~~stringLines[Map["id "~~#~~"(?"~~prefixColorPackagegrpvecsym~~")="~~prefixColorPackageGenericD~~#~~"("~~prefixColorPackagegrpvecsym~~");"&,formColorPackageGenericD]],""];
+"~~stringLines[Map["id "~~#~~"(?"~~prefixColorPackagegrpvecsym~~")="~~prefixColorPackageGenericD~~#~~"(?"~~prefixColorPackagegrpvecsym~~");"&,formColorPackageGenericD]],""];
 
 getFormPreGroupTraceIdentities[shortGroupName_String,groupType_]:="";
 

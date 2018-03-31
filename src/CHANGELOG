@@ -3,6 +3,10 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.3 (***********)
+- Bugfix: Correct renaming of general group invariants.
+
+
 (***********) FormTracer Version 2.3.2 (***********)
 - Bugfix: FormTracer now calls the reduction identities routines of the color package for generic groups.
 
