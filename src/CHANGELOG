@@ -3,6 +3,10 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.4 (***********)
+- Bugfix: There was a FORM syntax error when using both the partial traces and finite temperature feature.
+
+
 (***********) FormTracer Version 2.3.3 (***********)
 - Bugfix: Correct renaming of general group invariants.
 

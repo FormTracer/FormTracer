@@ -2345,7 +2345,7 @@ Dimension "~~ToString[First[lorentzDimensions]]~~";
 *replace vectors 
 repeat id gamma(?lor1,momx1?setvec,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvec(momx1),?lor2,spix1,spix2);
 repeat id gamma(?lor1,g5,?lor2,spix1?,spix2?)=gamma(?lor1,5,?lor2,spix1,spix2);"~~If[finiteTenabled && Length[momenta]>0,"
-repeat gamma(?lor1,momx1?setvecs,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvecs(momx1),?lor2,spix1,spix2);
+repeat id gamma(?lor1,momx1?setvecs,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvecs(momx1),?lor2,spix1,spix2);
 ",""]~~"
 
 *replace epsilon and pull out vectors 
