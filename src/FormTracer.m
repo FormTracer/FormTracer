@@ -21,7 +21,7 @@
 
 (* ::Input::Initialization:: *)
 (*"
-Copyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
+Copyright (C) 2013-2018, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski and Nils Strodthoff.
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -414,7 +414,7 @@ $FormTracerVersionNumber=Quiet[Check[Version/.List@@Import[FileNameJoin[{formTra
 Print["
 FormTracer "<>$FormTracerVersionNumber<>" loaded.
 
-Copyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
+Copyright (C) 2013-2018, Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
 FormTracer is released under the GNU General Public License version three or later.
 
 If used in scientific publications, please acknowledge our work by citing:
@@ -1374,7 +1374,7 @@ If[lorentzTensorReplacementRulesInput==={}&&groupTensorReplacementRulesInput==={
 res=removeSquaredTensors[input//.lorentzTensorReplacementRulesInput/.groupTensorReplacementRulesInput/.If[replaceExtraAllVars,extraFormVarsListInputConversion,extraFormVarsListInputConversionExport]];
 res=(res/.{FTxgamma[FTxvec[p_],spi___]:>FTxgamma[{FTxvec[p]},spi],FTxgamma[FTxvecs[p_],spi___]:>FTxgamma[{FTxvecs[p]},spi]})/.FTxgamma[lor_List,spi___]:>expandGammaMatrices[lor,spi];
 If[checkTensorSums||debuggingMode,check=checkAllTensorSums[res];];
-Return[If[check,res,Null]];
+Return[If[check,res/.Complex[re_,im_]:>re+FTxI im,Null]];
 ]
 
 
@@ -1469,7 +1469,7 @@ Global`FTxepsLorentz[mu___,tempPartialTraceDummy[nu_],rho___]:>Global`FTxepsLore
 (* ::Input::Initialization:: *)
 createOutputReplacementList[repl_List]:=Flatten[Join[Map[If[Length[#[[1]]]>0,generateReplList[#[[2]],#[[1]]],{}]&,repl]]];
 
-convertOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[repl]/.lorentzTensorReplacementRulesOutput/.groupTensorReplacementRulesOutput/.extraFormVarsListOutputConversion/.pow[x_,y_]:>x^y;
+convertOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[repl]/.lorentzTensorReplacementRulesOutput/.groupTensorReplacementRulesOutput/.extraFormVarsListOutputConversion/.pow[x_,y_]:>x^y/.FTxI->I;
 convertTracedOutput[output_,repl_List:{}]:=output/.createOutputReplacementList[repl]/.lorentzTensorReplacementRulesOutputTraced/.groupTensorReplacementRulesOutputTraced/.extraFormVarsListOutputConversion/.Global`pow[x_,y_]:>x^y;
 convertPartiallyTracedOutput[output_,repl_List:{}]:=output//.groupDummyReplacementFORM//.lorentzDummyReplacementFORM/.createOutputReplacementList[repl]//.lorentzTensorReplacementRulesOutputPartiallyTraced/.groupTensorReplacementRulesOutputPartiallyTraced/.extraFormVarsListOutputConversion/.Global`pow[x_,y_]:>x^y;
 
@@ -1795,7 +1795,7 @@ Shortest["FTxvec[0, "~~y__~~"]"]:>"0",
 Shortest["FTxvec["~~x__~~", "~~y__~~"]"]:>""~~x~~"("~~y~~")",
 Shortest["FTxsp["~~x__~~", "~~y__~~"]"]:>x~~"."~~y
 }];
-finalizeFormString[expr_]:=StringReplace[expr,{"["->"(","]"->")",", "->",","I"->"i_","Sqrt"->"sqrt"}];
+finalizeFormString[expr_]:=StringReplace[expr,{"["->"(","]"->")",", "->",","FTxI"->"i_","Sqrt"->"sqrt"}];
 
 toFormStringScalar[expr_]:=finalizeFormString[toGenericFormString[expr]];
 toFormStringGroup[expr_]:=finalizeFormString[replaceGroupTensors[toGenericFormString[expr]]];
@@ -2193,7 +2193,7 @@ AppendTo[exportString,"
 #write<"~~absResFileName~~">\""~~exportVarType~~" "~~exportTmpVar~~"[{`optimmaxvar_'+1}];\"",""]<>If[format==="fortran90","
 #write<"~~absResFileName~~">\""~~exportVarType~~" :: "~~exportTmpVar~~"({`optimmaxvar_'+1})\"",""]<>"
 #write<"~~absResFileName~~">\"%O\"
-#write<"~~absResFileName~~">\""~~exportResVar~~"= %e;\",FTxD
+#write<"~~absResFileName~~">\""~~exportResVar~~"= %e\",FTxD
 #clearoptimize
 #endif
 "];

@@ -3,6 +3,11 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.5 (***********)
+- Removed duplicate trailing semicolon in optimized output.
+- Bugfix: better/safer handling of the imaginary unit I.
+
+
 (***********) FormTracer Version 2.3.4 (***********)
 - Bugfix: There was a FORM syntax error when using both the partial traces and finite temperature feature.
 

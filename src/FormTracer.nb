@@ -11,7 +11,7 @@ Cell["License", "Section",
 
 Cell[BoxData[
  RowBox[{"(*", 
-  "\"\<\nCopyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, Jan M. \
+  "\"\<\nCopyright (C) 2013-2018, Anton K. Cyrol, Mario Mitter, Jan M. \
 Pawlowski and Nils Strodthoff.\nThis program is free software: you can \
 redistribute it and/or modify\nit under the terms of the GNU General Public \
 License as published by\nthe Free Software Foundation, either version 3 of \
@@ -928,7 +928,8 @@ your system architecture.\>\""}], ";"}],
    RowBox[{
     RowBox[{"General", "::", "allowinternetuse"}], "=", 
     "\"\<You have forbidden Mathematica to access the internet. This function \
-requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", "\n", 
+requires internet access.\>\""}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
   RowBox[{"(*", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
@@ -943,7 +944,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -1054,7 +1055,7 @@ Cell[BoxData[
     RowBox[{"Print", "[", 
      RowBox[{
      "\"\<\nFormTracer \>\"", "<>", "$FormTracerVersionNumber", "<>", 
-      "\"\< loaded.\n\nCopyright (C) 2013-2017, Anton K. Cyrol, Mario Mitter, \
+      "\"\< loaded.\n\nCopyright (C) 2013-2018, Anton K. Cyrol, Mario Mitter, \
 Jan M. Pawlowski, and Nils Strodthoff.\nFormTracer is released under the GNU \
 General Public License version three or later.\n\nIf used in scientific \
 publications, please acknowledge our work by citing:\nA. K. Cyrol, M. Mitter, \
@@ -6266,8 +6267,14 @@ Cell[BoxData[
      ";", "\[IndentingNewLine]", 
      RowBox[{"Return", "[", 
       RowBox[{"If", "[", 
-       RowBox[{"check", ",", "res", ",", "Null"}], "]"}], "]"}], ";"}]}], 
-   "\[IndentingNewLine]", "]"}]}]], "Input",
+       RowBox[{"check", ",", 
+        RowBox[{"res", "/.", 
+         RowBox[{
+          RowBox[{"Complex", "[", 
+           RowBox[{"re_", ",", "im_"}], "]"}], "\[RuleDelayed]", 
+          RowBox[{"re", "+", 
+           RowBox[{"FTxI", " ", "im"}]}]}]}], ",", "Null"}], "]"}], "]"}], 
+     ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
  InitializationCell->True,
  ExpressionUUID -> "cbae806d-9b29-4646-8b35-92ad9279e235"],
 
@@ -6719,15 +6726,17 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{"output", "/.", 
-        RowBox[{"createOutputReplacementList", "[", "repl", "]"}]}], "/.", 
-       "lorentzTensorReplacementRulesOutput"}], "/.", 
-      "groupTensorReplacementRulesOutput"}], "/.", 
-     "extraFormVarsListOutputConversion"}], "/.", 
-    RowBox[{
-     RowBox[{"pow", "[", 
-      RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
-     RowBox[{"x", "^", "y"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"output", "/.", 
+         RowBox[{"createOutputReplacementList", "[", "repl", "]"}]}], "/.", 
+        "lorentzTensorReplacementRulesOutput"}], "/.", 
+       "groupTensorReplacementRulesOutput"}], "/.", 
+      "extraFormVarsListOutputConversion"}], "/.", 
+     RowBox[{
+      RowBox[{"pow", "[", 
+       RowBox[{"x_", ",", "y_"}], "]"}], "\[RuleDelayed]", 
+      RowBox[{"x", "^", "y"}]}]}], "/.", 
+    RowBox[{"FTxI", "\[Rule]", "I"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"convertTracedOutput", "[", 
@@ -8601,7 +8610,7 @@ Cell[BoxData[{
         RowBox[{"\"\<[\>\"", "->", "\"\<(\>\""}], ",", 
         RowBox[{"\"\<]\>\"", "\[Rule]", "\"\<)\>\""}], ",", 
         RowBox[{"\"\<, \>\"", "\[Rule]", "\"\<,\>\""}], ",", 
-        RowBox[{"\"\<I\>\"", "\[Rule]", "\"\<i_\>\""}], ",", 
+        RowBox[{"\"\<FTxI\>\"", "\[Rule]", "\"\<i_\>\""}], ",", 
         RowBox[{"\"\<Sqrt\>\"", "\[Rule]", "\"\<sqrt\>\""}]}], "}"}]}], 
      "]"}]}], ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -10066,7 +10075,7 @@ Cell[BoxData[{
               "]"}], "<>", "\"\<\n#write<\>\""}], "~~", "absResFileName", 
             "~~", "\"\<>\\\"%O\\\"\n#write<\>\"", "~~", "absResFileName", 
             "~~", "\"\<>\\\"\>\"", "~~", "exportResVar", "~~", 
-            "\"\<= %e;\\\",FTxD\n#clearoptimize\n#endif\n\>\""}]}], "]"}], 
+            "\"\<= %e\\\",FTxD\n#clearoptimize\n#endif\n\>\""}]}], "]"}], 
          ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
       RowBox[{"Return", "[", 
        RowBox[{"StringJoin", "[", "exportString", "]"}], "]"}], ";"}]}], 
@@ -11460,8 +11469,8 @@ CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{1920, 1150},
-WindowMargins->{{0, Automatic}, {0, 20}},
+WindowSize->{1920, 1141},
+WindowMargins->{{Automatic, 0}, {0, 29}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,

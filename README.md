@@ -5,11 +5,14 @@ relies on the efficiency of FORM. An additional performance gain is achieved by 
 tensors spaces. FormTracer supports a wide range of syntaxes which endows it with a high flexibility. Mathematica notebooks that automatically install
 the package and guide the user through performing standard traces in spacetime, spinor and gauge-group spaces are provided.
 
-FormTracer has been developed by Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.
-If used in scientific publications, please acknowledge our work by citing
+FormTracer has been developed by 
 
-> **A. K. Cyrol, M. Mitter, and N. Strodthoff** <br>
-> **[Comput. Phys. Commun. 219C (2017) 346-352](https://doi.org/10.1016/j.cpc.2017.05.024), [arXiv:1610.09331 [hep-ph]](https://arxiv.org/abs/1610.09331)**
+> **Anton K. Cyrol, Mario Mitter, Jan M. Pawlowski, and Nils Strodthoff.**
+
+If used in scientific publications, please cite the corresponding paper,
+
+> **Anton K. Cyrol, Mario Mitter, and Nils Strodthoff**<br>
+> **[Comput. Phys. Commun. 219C (2017) 346-352](https://doi.org/10.1016/j.cpc.2017.05.024), [arXiv:1610.09331 [hep-ph]](https://arxiv.org/abs/1610.09331).**
 
 FormTracer is maintained by [selected members](https://github.com/orgs/FormTracer/people) of the fQCD collaboration.
 
