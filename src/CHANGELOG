@@ -3,6 +3,12 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.6 (***********)
+- Bugfix: fixes #2, call of the color package procedure #simpli caused 
+  wrong simplification when PartialTrace[True] was activated since it 
+  assumes that all indices are closed.
+
+
 (***********) FormTracer Version 2.3.5 (***********)
 - Removed duplicate trailing semicolon in optimized output.
 - Bugfix: better/safer handling of the imaginary unit I.

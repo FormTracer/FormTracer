@@ -944,7 +944,7 @@ from https://www.cygwin.com/.\>\""}], ";", "\n", "\[IndentingNewLine]",
      RowBox[{"InstallCygwin", "::", "downloadfailed"}], "=", 
      "\"\<The FormTracer failed to Cygwin from `1`. Ensure that you have a \
 working network connection.\>\""}], ";"}], "\[IndentingNewLine]", "*)"}], 
-  "\[IndentingNewLine]"}], "\n", 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
    RowBox[{"UpdateFormTracer", "::", "usage"}], "=", 
@@ -2651,8 +2651,8 @@ Cell[BoxData[{
      RowBox[{
       RowBox[{"{", 
        RowBox[{
-       "\"\<#call color\\n#call adjoint\\n#call simpli\>\"", ",", 
-        "\"\<color.h\>\"", ",", "1"}], "}"}], ",", "\[IndentingNewLine]", 
+       "\"\<#call color\\n#call adjoint\>\"", ",", "\"\<color.h\>\"", ",", 
+        "1"}], "}"}], ",", "\[IndentingNewLine]", 
       RowBox[{"{", 
        RowBox[{
        "\"\<#call SUNfund\>\"", ",", "\"\<special_color.h\>\"", ",", "2"}], 
@@ -9768,8 +9768,16 @@ NR;\>\""}], "]"}]}], ",", "\"\<\>\""}], "]"}], "~~",
      "\"\<\ncontract 0;\n\>\"", "~~", 
      RowBox[{"groupTracingAlgorithms", "[", 
       RowBox[{"[", 
-       RowBox[{"id", ",", "1"}], "]"}], "]"}], "~~", "\"\<\n.sort\>\"", "~~", 
-     
+       RowBox[{"id", ",", "1"}], "]"}], "]"}], "~~", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"groupTypes", "[", 
+          RowBox[{"[", "id", "]"}], "]"}], "===", "GenericGroup"}], "&&", 
+        RowBox[{"Not", "[", "partialtrace", "]"}]}], ",", 
+       "\"\<\n#call simpli\>\"", ",", "\"\<\>\""}], "]"}], "~~", 
+     "\"\<\n.sort\>\"", "~~", 
      RowBox[{"If", "[", 
       RowBox[{
        RowBox[{
@@ -10920,7 +10928,6 @@ replace_(\>\"", "<>",
 **\n\>\"", "~~", 
                RowBox[{"generateBracketingString", "[", "bracket", "]"}], 
                "~~", "\"\<\n\>\""}], ",", "\"\<\>\""}], "]"}], "~~", 
-            
             "\"\<\n***********************************************************\
 *********************\n* Output/export\n\
 ******************************************************************************\
@@ -11469,8 +11476,8 @@ CellInsertionPointCell->FEPrivate`FrontEndResource[
  "FEExpressions", "CellInsertionMenu"],
 Selectable->True,
 Deletable->True,
-WindowSize->{1920, 1141},
-WindowMargins->{{Automatic, 0}, {0, 29}},
+WindowSize->{1272, 767},
+WindowMargins->{{Automatic, 4}, {404, 29}},
 BackgroundAppearance->None,
 BackgroundAppearanceOptions->"Fill",
 PrivateNotebookOptions->{"DockedCellAnimation"->False,

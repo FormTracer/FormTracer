@@ -804,7 +804,7 @@ formColorPackageGroupTemplates={
 };
 (* first argument: algorithm; second: header; third: 1 requires dimension NA, 2 requires dimension NR, 0 nothing*)
 formColorPackageTracingAlgorithms={
-{"#call color\n#call adjoint\n#call simpli","color.h",1},
+{"#call color\n#call adjoint","color.h",1},
 {"#call SUNfund","special_color.h",2},
 {"#call SONfund","special_color.h",2},
 {"#call SPNfund","special_color.h",2},
@@ -2116,7 +2116,8 @@ Dimension NA;","
 *** set the dimension to NR for sums ***
 Dimension NR;"],""]~~"
 contract 0;
-"~~groupTracingAlgorithms[[id,1]]~~"
+"~~groupTracingAlgorithms[[id,1]]~~If[groupTypes[[id]]===GenericGroup&&Not[partialtrace],"
+#call simpli",""]~~"
 .sort"~~If[grouppostrepl[[id]]=!="","
 *** user-defined postrepl ***
 "~~grouppostrepl[[id]],""]~~"
