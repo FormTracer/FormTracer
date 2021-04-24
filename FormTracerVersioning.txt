@@ -1,0 +1,27 @@
+========================================
+IMPORTENT: This is a FormTracer developer note.
+Do not follow the instructions if you're a normal user.
+In this case use the public version and simply use UpdateFormTracer[]
+========================================
+
+
+Steps to update to a new version (number): a.b.c
+    Constraints: 0 <= b,c <= 9, increase the a (b) if b (c) becomes larger than 9.
+    An increase in c should correspond to minor changes that won't be noticed by most users.
+    An increase in b can be a (serious) bugfix, a notation change or introduce new functionality.
+    This matters since the message the users are shown depends on whether a/b or c has changed.
+    Individual steps:
+    1.: Change the version number in PacletInfo.m in this folder and in ../Documentation/FormTracer/PacletInfo.m
+    2.: Write the changelog, keep the structure for new changes (the entry with X.Y.Z).
+
+
+Steps to update the public repository.
+    A public update must precede a new version number, see above.
+    Individual steps:
+    1.: Rename FormTracer.zip in the public repository into FormTracer_X.Y.Z.zip and move it into the subfolder archive.
+    2.: Copy/update all files and folders from fTools/FormTracer/* into the src folder in the (public) FormTracer repository. Skip this file.
+    3.: Remove the (hopefully) empty entry "FormTracer Version X.Y.Z" in the CHANGELOG file in the src folder.
+    4.: Make a copy/duplicate of the src folder, delete the unit test folder in it (it's to big), and name it FormTracer.
+    5.: Compress the FormTracer folder as FormTracer.zip (ensure the zip file has a folder FormTracer at the top level which contains the individual files).
+    6.: Delete the FormTracer folder.
+    7.: Check everything again and commit.
