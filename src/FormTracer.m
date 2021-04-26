@@ -1988,7 +1988,7 @@ AutoDeclare Index "~~stringList@Take[prefixListIndices,-Length[groupNames](*all 
 CFunction FTxdeltaLorentz,FTxdeltaDirac,FTxgamma,FTxgamma5,FTxepsLorentz;
 
 *** declare index sets to distinguish deltas
-Set lorIndices: "~~stringList[allindicesrepl[[2]]]~~";
+Set lorIndices: "~~If[Length[allindicesrepl[[2]]]>=2,stringList[allindicesrepl[[2]]],"lor1,lor2"]~~";
 Set spiIndices: "~~stringList[allindicesrepl[[3]]]~~";
 
 "~~If[Length[groupNames]==0,"","
@@ -1997,7 +1997,7 @@ Symbol "~~stringList[groupNames]~~";
 CFunction FTxT,FTxF,FTxdeltaFund,FTxdeltaAdj"~~If[partialtrace,",FTxepsFund,FTxepsAdj",""]~~";
 
 "~~stringLines[Table["*** "~~ToString@groupNames[[i]]~~" index sets
-Set a"~~ToString@shortGroupNames[[i]]~~"Indices: "~~stringList[allindicesrepl[[i+3]]]~~";
+Set a"~~ToString@shortGroupNames[[i]]~~"Indices: "~~If[Length[allindicesrepl[[i+3]]]>=2,stringList[allindicesrepl[[i+3]]],"a"~~ToString@shortGroupNames[[i]]~~"1,a"~~ToString@shortGroupNames[[i]]~~"2"]~~";
 Set f"~~ToString@shortGroupNames[[i]]~~"Indices: "~~stringList[allindicesrepl[[i+3+Length[groupNames]]]]~~";"
 ,{i,Length[shortGroupNames]}]]
 ]];
