@@ -3,6 +3,12 @@
 (**************************************************)
 
 
+(***********) FormTracer Version 2.3.7 (***********)
+- Bugfix: fixes #5, when PartialTrace operated on an expression with only fundamental and no
+  adjoint color indices, Kronecker deltas of fundamental color were converted to adjoint ones.
+  Same with Dirac and Lorentz indices.
+
+
 (***********) FormTracer Version 2.3.6 (***********)
 - Bugfix: fixes #2, call of the color package procedure #simpli caused 
   wrong simplification when PartialTrace[True] was activated since it 
