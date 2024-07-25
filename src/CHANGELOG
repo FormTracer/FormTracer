@@ -2,6 +2,12 @@
 (************* FormTracer Changelog ***************)
 (**************************************************)
 
+(***********) FormTracer Version 2.3.8 (***********)
+- Bugfix: fixes #11, when FormTrace tries to replace a tensor
+  function FTxeps by a cfunction FTxepsLorentz using replace_
+  which is not allowed anymore in FORM. This is why all chiral
+  trace calculations fail.
+
 
 (***********) FormTracer Version 2.3.7 (***********)
 - Bugfix: fixes #5, when PartialTrace operated on an expression with only fundamental and no

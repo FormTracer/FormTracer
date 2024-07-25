@@ -10824,7 +10824,7 @@ gamma(?lor1,g5,?lor2,spix1?,spix2?)=gamma(?lor1,5,?lor2,spix1,spix2);\>\"", "~~"
 gamma(?lor1,momx1?setvecs,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvecs(momx1),?\
 lor2,spix1,spix2);\n\>\"", ",", "\"\<\>\""}], "]"}], "~~", 
                   "\"\<\n\n*replace epsilon and pull out vectors \n#call \
-replaceepsilon\nmultiply replace_(FTxeps,FTxepsLorentz);\n\nRepeat;\n\t\
+replaceepsilon\nrepeat id FTxeps(?a) = FTxepsLorentz(?a);\n\nRepeat;\n\t\
 id,once FTxepsLorentz(?lorx1,momx1?setvec,?lorx2)=FTxvec(momx1,lorx3)*\
 FTxepsLorentz(?lorx1,lorx3,?lorx2);\>\"", "~~", 
                   RowBox[{"If", "[", 

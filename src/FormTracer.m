@@ -2351,7 +2351,7 @@ repeat id gamma(?lor1,momx1?setvecs,?lor2,spix1?,spix2?)=gamma(?lor1,FTxvecs(mom
 
 *replace epsilon and pull out vectors 
 #call replaceepsilon
-multiply replace_(FTxeps,FTxepsLorentz);
+repeat id FTxeps(?a) = FTxepsLorentz(?a);
 
 Repeat;
 	id,once FTxepsLorentz(?lorx1,momx1?setvec,?lorx2)=FTxvec(momx1,lorx3)*FTxepsLorentz(?lorx1,lorx3,?lorx2);"~~If[finiteTenabled&&Length[momenta]>0,"
