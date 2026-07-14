@@ -1494,7 +1494,16 @@ Do[If[Count[indexList,index]!=2&&Not[IntegerQ[index]],AppendTo[openIndexList,ind
 Return[openIndexList];
 ];
 (* assuming that expr is well-defined we exploit that terms of sums must have the same indices; this is crucial for the performance in the case of large expressions *)
-getOpenIndices[expr_Times,indicesFromExprRules_List]:=getOpenIndices[List@@(expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors),indicesFromExprRules];
+(* NOTE: List@@ must be applied BEFORE the Plus->firstTerm reduction. Reducing the Times first lets two
+   DISTINCT factors collapse onto the same expression, whereupon Times fuses them into a Power -- and
+   getOpenIndices[expr_List,...] above discards Power factors (Select[expr,Head[#]=!=Power&]), so every
+   index inside them silently vanishes from the census and the contraction bookkeeping in
+   lorentzTensorProductToSortedLists then aborts on a perfectly well-formed expression. A List cannot fuse
+   its elements, so reducing after the List@@ keeps the factors distinct. Minimal reproducer:
+     DefineLorentzTensors[deltaLorentz[mu,nu],vec[p,mu],sp[p,q]]; DisentangleLorentzStructures[True];
+     ExpandLorentzStructures[ vec[l,l5](vec[l,l2]-vec[p1,l2])(deltaLorentz[l1,l2]-vec[p1,l1] vec[p1,l2]/sp[p1,p1]) ... ]
+   where the vertex (l-p1)[l2] and the projector's p1[l1]p1[l2] both reduce to vec[p1,l2]. *)
+getOpenIndices[expr_Times,indicesFromExprRules_List]:=getOpenIndices[(List@@expr)//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_Plus,indicesFromExprRules_List]:=getOpenIndices[expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_,indicesFromExprRules_List]:=getOpenIndices[{expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors},indicesFromExprRules];
 getOpenIndices[expr_Power,indicesFromExprRules_List]:={};
@@ -2360,6 +2369,9 @@ Repeat;
 	sum lorx3;
 EndRepeat;",""]~~"
 ********************************************************************************
+* Contract leftover Levi-Civita products (e.g. from separate Dirac traces)
+contract 0;
+.sort
 * Rewriting scalar products and momentum labels
 ********************************************************************************
 *** rewrite scalar products and vectors with numeric indices ***
