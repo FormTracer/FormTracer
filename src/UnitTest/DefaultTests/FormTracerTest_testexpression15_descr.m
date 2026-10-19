@@ -1,1 +1,1 @@
-"Check result was rendered with version 2.2.0 in 0.676256s.\n"
+"Check result was rendered with version 2.3.7 in 0.292208s.\n"

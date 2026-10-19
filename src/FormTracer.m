@@ -280,7 +280,9 @@ General::missingnotation="You must specify your notation.\nType ?DefineLorentzTe
 
 DefineFormExecutable::usage="DefineFormExecutable[path] sets the path the FormTracer looks for the FORM executable.
 
-You can also use tform (a parallel version of FORM) by evaluating \"DefineFormExecutable[tform -wN]\", where you have to replace N with the number of worker threads you want to use. Note that the tracing part cannot be efficiently handled by tform and thus tform is usually slower than form. However, if you make heavy use of the FORM optimization routines (meaning, e.g., optimization with O3), tform can be much faster since the optimization is well parallelizable.";
+You can also use tform (a parallel version of FORM) by evaluating \"DefineFormExecutable[tform -wN]\", where you have to replace N with the number of worker threads you want to use. Note that the tracing part cannot be efficiently handled by tform and thus tform is usually slower than form. However, if you make heavy use of the FORM optimization routines (meaning, e.g., optimization with O3), tform can be much faster since the optimization is well parallelizable.
+
+Everything from the first \" -\" on is passed to FORM as command-line arguments, so the path itself may contain spaces.";
 
 DefineFormExecutable::badarg="DefineFormExecutable was called with an invalid argument. Argument must be a string.";
 
@@ -608,6 +610,9 @@ FileNameJoin[{$PathnameSeparator,"opt","bin","form"}],
 FileNameJoin[Flatten@{$UserBaseDirectory,"Applications","FormLink","bin",Switch[$OperatingSystem,"Unix",{"linux64","form"},"MacOSX",{"macosx64","form"},"Windows",{"windows","form.exe"}]}]
 };
 formExecutable="";(* is set automatically below, can be changed by DefineFormExecutable[path]*) 
+(* Splits a FORM command into executable and arguments. Arguments start at the first " -", so the path may contain spaces. *)
+formCommandLine[command_String]:=Module[{argsStart=StringPosition[command," -",1]},
+If[argsStart==={},{command},Prepend[StringSplit[StringDrop[command,argsStart[[1,1]]-1]],StringTake[command,argsStart[[1,1]]-1]]]];
 formChecked=False;
 formInfo="";
 debuggingMode=False;
@@ -627,7 +632,7 @@ checkFormExecutable[quietMode_:False]:=Module[{formProcessResult,formResponse,fo
 (*Don't check whether FORM works if it was already checked.*)
 If[formChecked,Return[True(*=formChecked*)]];
 (*Check if FORM works*)
-formProcessResult=Quiet[RunProcess[{formExecutable,"-v"}]];
+formProcessResult=Quiet[RunProcess[{Sequence@@formCommandLine[formExecutable],"-v"}]];
 formResponse=formProcessResult["StandardOutput"];
 formExitCode=formProcessResult["ExitCode"];
 formChecked=formExitCode===0;
@@ -1494,7 +1499,8 @@ Do[If[Count[indexList,index]!=2&&Not[IntegerQ[index]],AppendTo[openIndexList,ind
 Return[openIndexList];
 ];
 (* assuming that expr is well-defined we exploit that terms of sums must have the same indices; this is crucial for the performance in the case of large expressions *)
-getOpenIndices[expr_Times,indicesFromExprRules_List]:=getOpenIndices[List@@(expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors),indicesFromExprRules];
+(* Apply List@@ before the Plus->firstTerm reduction: inside Times, two distinct factors can reduce to the same tensor and merge into a Power, whose indices getOpenIndices[expr_List,...] then drops. *)
+getOpenIndices[expr_Times,indicesFromExprRules_List]:=getOpenIndices[(List@@expr)//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_Plus,indicesFromExprRules_List]:=getOpenIndices[expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_,indicesFromExprRules_List]:=getOpenIndices[{expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors},indicesFromExprRules];
 getOpenIndices[expr_Power,indicesFromExprRules_List]:={};
@@ -2360,6 +2366,9 @@ Repeat;
 	sum lorx3;
 EndRepeat;",""]~~"
 ********************************************************************************
+* Contract leftover Levi-Civita products (e.g. from separate Dirac traces)
+contract 0;
+.sort
 * Rewriting scalar products and momentum labels
 ********************************************************************************
 *** rewrite scalar products and vectors with numeric indices ***
@@ -2488,7 +2497,7 @@ format=If[Length[filename]>2,filename[[3]],"C"];
 retValVariableLists=generateFormFile[convertInput[expr,format==="mathematica"],formFile,resFile,optimization,format,prerepl,postrepl,bracket,exportResVar,exportTmpVar,exportVarType];
 
 measureEvaluationTime[debuggingMode,"Time needed by Form: ",
-formProcessResult=RunProcess[{formExecutable,"-q",formFile}];
+formProcessResult=RunProcess[{Sequence@@formCommandLine[formExecutable],"-q",formFile}];
 (* check exit code *)
 If[formProcessResult["ExitCode"]=!=0,Message[FormTrace::formeexitcode,formProcessResult["ExitCode"]]];
 (* check output string for error messages *)
