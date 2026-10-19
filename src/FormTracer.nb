@@ -621,7 +621,8 @@ to replace N with the number of worker threads you want to use. Note that the \
 tracing part cannot be efficiently handled by tform and thus tform is usually \
 slower than form. However, if you make heavy use of the FORM optimization \
 routines (meaning, e.g., optimization with O3), tform can be much faster \
-since the optimization is well parallelizable.\>\""}], ";"}], 
+since the optimization is well parallelizable.\n\nEverything from the first \\\" -\\\" on is passed to FORM as \
+command-line arguments, so the path itself may contain spaces.\>\""}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -1823,6 +1824,8 @@ Cell[BoxData[{
     
     RowBox[{"can", " ", "be", " ", "changed", " ", "by", " ", 
      RowBox[{"DefineFormExecutable", "[", "path", "]"}]}]}], "*)"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{"(*", " ", "Splits a FORM command into executable and arguments. Arguments start at the first \"\< -\>\", so the path may contain spaces.", " ", "*)"}], "\[IndentingNewLine]", 
+ RowBox[{RowBox[{RowBox[{"formCommandLine", "[", "command_String", "]"}], ":=", RowBox[{"Module", "[", RowBox[{RowBox[{"{", RowBox[{"argsStart", "=", RowBox[{"StringPosition", "[", RowBox[{"command", ",", "\"\< -\>\"", ",", "1"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", RowBox[{"If", "[", RowBox[{RowBox[{"argsStart", "===", RowBox[{"{", "}"}]}], ",", RowBox[{"{", "command", "}"}], ",", RowBox[{"Prepend", "[", RowBox[{RowBox[{"StringSplit", "[", RowBox[{"StringDrop", "[", RowBox[{"command", ",", RowBox[{RowBox[{"argsStart", "[", RowBox[{"[", RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", "1"}]}], "]"}], "]"}], ",", RowBox[{"StringTake", "[", RowBox[{"command", ",", RowBox[{RowBox[{"argsStart", "[", RowBox[{"[", RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", "1"}]}], "]"}]}], "]"}]}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"formChecked", "=", "False"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -1903,8 +1906,7 @@ Cell[BoxData[{
           RowBox[{"{", 
            RowBox[{
             RowBox[{"Sequence", "@@", 
-             RowBox[{"StringSplit", "[", 
-              RowBox[{"formExecutable", ",", "\"\< \>\""}], "]"}]}], 
+             RowBox[{"formCommandLine", "[", "formExecutable", "]"}]}], 
             ",", "\"\<-v\>\""}], "}"}], "]"}], "]"}]}], ";", 
        "\[IndentingNewLine]", 
        RowBox[{"formResponse", "=", 
@@ -6815,6 +6817,7 @@ Cell[BoxData[
      "this", " ", "is", " ", "crucial", " ", "for", " ", "the", " ", 
       "performance", " ", "in", " ", "the", " ", "case", " ", "of", " ", 
       "large", " ", "expressions"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", "Apply List@@ before the Plus->firstTerm reduction: inside Times, two distinct factors can reduce to the same tensor and merge into a Power, whose indices getOpenIndices[expr_List,...] then drops.", " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"getOpenIndices", "[", 
@@ -11121,8 +11124,7 @@ Cell[BoxData[{
            RowBox[{"{", 
             RowBox[{
              RowBox[{"Sequence", "@@", 
-              RowBox[{"StringSplit", "[", 
-               RowBox[{"formExecutable", ",", "\"\< \>\""}], "]"}]}], 
+              RowBox[{"formCommandLine", "[", "formExecutable", "]"}]}], 
              ",", "\"\<-q\>\"", ",", "formFile"}], "}"}], "]"}]}], ";", 
          "\[IndentingNewLine]", 
          RowBox[{"(*", " ", 

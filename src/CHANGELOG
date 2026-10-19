@@ -4,8 +4,13 @@
 
 
 (***********) FormTracer Version 2.3.8 (***********)
-- Bugfix: Allows again for inserting arguments to be passed to the form executable via DefineFormExecutable[].
-  RunProcess requires to put arguments into separate List elements, which has been fixed by splicing a given expression.
+- Bugfix: Allows again for inserting arguments to be passed to the form executable via DefineFormExecutable[],
+  e.g. DefineFormExecutable["tform -w4"]. Everything from the first " -" on is passed as arguments,
+  so the path of the executable may contain spaces.
+- Bugfix: With DisentangleLorentzStructures[True], the open-index detection could lose indices when two distinct
+  factors of a product reduce to the same tensor, which aborted the evaluation of well-defined expressions.
+- Bugfix: Levi-Civita tensors originating from separate Dirac traces (e.g. two traces with gamma5 sharing indices)
+  were not contracted with DisentangleLorentzStructures[True] and remained as e_ in the result.
 
 
 (***********) FormTracer Version 2.3.7 (***********)

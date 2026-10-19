@@ -280,7 +280,9 @@ General::missingnotation="You must specify your notation.\nType ?DefineLorentzTe
 
 DefineFormExecutable::usage="DefineFormExecutable[path] sets the path the FormTracer looks for the FORM executable.
 
-You can also use tform (a parallel version of FORM) by evaluating \"DefineFormExecutable[tform -wN]\", where you have to replace N with the number of worker threads you want to use. Note that the tracing part cannot be efficiently handled by tform and thus tform is usually slower than form. However, if you make heavy use of the FORM optimization routines (meaning, e.g., optimization with O3), tform can be much faster since the optimization is well parallelizable.";
+You can also use tform (a parallel version of FORM) by evaluating \"DefineFormExecutable[tform -wN]\", where you have to replace N with the number of worker threads you want to use. Note that the tracing part cannot be efficiently handled by tform and thus tform is usually slower than form. However, if you make heavy use of the FORM optimization routines (meaning, e.g., optimization with O3), tform can be much faster since the optimization is well parallelizable.
+
+Everything from the first \" -\" on is passed to FORM as command-line arguments, so the path itself may contain spaces.";
 
 DefineFormExecutable::badarg="DefineFormExecutable was called with an invalid argument. Argument must be a string.";
 
@@ -608,6 +610,9 @@ FileNameJoin[{$PathnameSeparator,"opt","bin","form"}],
 FileNameJoin[Flatten@{$UserBaseDirectory,"Applications","FormLink","bin",Switch[$OperatingSystem,"Unix",{"linux64","form"},"MacOSX",{"macosx64","form"},"Windows",{"windows","form.exe"}]}]
 };
 formExecutable="";(* is set automatically below, can be changed by DefineFormExecutable[path]*) 
+(* Splits a FORM command into executable and arguments. Arguments start at the first " -", so the path may contain spaces. *)
+formCommandLine[command_String]:=Module[{argsStart=StringPosition[command," -",1]},
+If[argsStart==={},{command},Prepend[StringSplit[StringDrop[command,argsStart[[1,1]]-1]],StringTake[command,argsStart[[1,1]]-1]]]];
 formChecked=False;
 formInfo="";
 debuggingMode=False;
@@ -627,7 +632,7 @@ checkFormExecutable[quietMode_:False]:=Module[{formProcessResult,formResponse,fo
 (*Don't check whether FORM works if it was already checked.*)
 If[formChecked,Return[True(*=formChecked*)]];
 (*Check if FORM works*)
-formProcessResult=Quiet[RunProcess[{Sequence@@StringSplit[formExecutable," "],"-v"}]];
+formProcessResult=Quiet[RunProcess[{Sequence@@formCommandLine[formExecutable],"-v"}]];
 formResponse=formProcessResult["StandardOutput"];
 formExitCode=formProcessResult["ExitCode"];
 formChecked=formExitCode===0;
@@ -1494,15 +1499,7 @@ Do[If[Count[indexList,index]!=2&&Not[IntegerQ[index]],AppendTo[openIndexList,ind
 Return[openIndexList];
 ];
 (* assuming that expr is well-defined we exploit that terms of sums must have the same indices; this is crucial for the performance in the case of large expressions *)
-(* NOTE: List@@ must be applied BEFORE the Plus->firstTerm reduction. Reducing the Times first lets two
-   DISTINCT factors collapse onto the same expression, whereupon Times fuses them into a Power -- and
-   getOpenIndices[expr_List,...] above discards Power factors (Select[expr,Head[#]=!=Power&]), so every
-   index inside them silently vanishes from the census and the contraction bookkeeping in
-   lorentzTensorProductToSortedLists then aborts on a perfectly well-formed expression. A List cannot fuse
-   its elements, so reducing after the List@@ keeps the factors distinct. Minimal reproducer:
-     DefineLorentzTensors[deltaLorentz[mu,nu],vec[p,mu],sp[p,q]]; DisentangleLorentzStructures[True];
-     ExpandLorentzStructures[ vec[l,l5](vec[l,l2]-vec[p1,l2])(deltaLorentz[l1,l2]-vec[p1,l1] vec[p1,l2]/sp[p1,p1]) ... ]
-   where the vertex (l-p1)[l2] and the projector's p1[l1]p1[l2] both reduce to vec[p1,l2]. *)
+(* Apply List@@ before the Plus->firstTerm reduction: inside Times, two distinct factors can reduce to the same tensor and merge into a Power, whose indices getOpenIndices[expr_List,...] then drops. *)
 getOpenIndices[expr_Times,indicesFromExprRules_List]:=getOpenIndices[(List@@expr)//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_Plus,indicesFromExprRules_List]:=getOpenIndices[expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors,indicesFromExprRules];
 getOpenIndices[expr_,indicesFromExprRules_List]:=getOpenIndices[{expr//.Plus[firstTerm_,__]:>firstTerm//removeSquaredTensors},indicesFromExprRules];
@@ -2500,7 +2497,7 @@ format=If[Length[filename]>2,filename[[3]],"C"];
 retValVariableLists=generateFormFile[convertInput[expr,format==="mathematica"],formFile,resFile,optimization,format,prerepl,postrepl,bracket,exportResVar,exportTmpVar,exportVarType];
 
 measureEvaluationTime[debuggingMode,"Time needed by Form: ",
-formProcessResult=RunProcess[{Sequence@@StringSplit[formExecutable," "],"-q",formFile}];
+formProcessResult=RunProcess[{Sequence@@formCommandLine[formExecutable],"-q",formFile}];
 (* check exit code *)
 If[formProcessResult["ExitCode"]=!=0,Message[FormTrace::formeexitcode,formProcessResult["ExitCode"]]];
 (* check output string for error messages *)
